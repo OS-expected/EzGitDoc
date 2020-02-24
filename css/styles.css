@@ -1,0 +1,11 @@
+.middle-aligned-image {
+    vertical-align: middle;
+}
+
+.left-aligned-image {
+    float: left;
+}
+
+.right-aligned-image {
+    float: right;
+}

@@ -1,4 +1,15 @@
-// Here scripts responsile for creating each element are stored
+// ********************************************
+// Toast CREATE messages
+// ********************************************
+
+var missingHeaderWarning = 'It looks like you did not feed header title text.';
+var noProportion = 'As you did not pass even one axis, image will have its original size.';
+var wrongImageExtension_part1 = 'Woops! Seems like you tried to reference to image with wrong extension';
+var wrongImageExtension_part2 = '.Supported extensions for now are: jpg, jpeg, bmp, gif, png';
+
+// ********************************************
+// EzGitDoc CREATE Logic
+// ********************************************
 
 function createHeader() {
 
@@ -7,42 +18,130 @@ function createHeader() {
     switch(style.value) {
         case '1':
             var h = document.createElement('h1');           
-          break;
+            break;
         case '2':
             var h = document.createElement('h2');
-          break;
+            break;
         case '3':
             var h = document.createElement('h3');
-        break;
+            break;
         case '4':
             var h = document.createElement('h4');
-        break;
+            break;
         case '5':
             var h = document.createElement('h5');
-        break;
+            break;
         case '6':
             var h = document.createElement('h6');
-        break;
+            break;
         default:
             var h = document.createElement('h6');
       } 
 
-    h.setAttribute('id', Math.random().toString(36).substr(2, 9));
+    h.setAttribute('id', GenerateUniqueId());
 
     var title = document.getElementById('headerName').value;
 
     if (title == false)
     {
+        var toastBody = document.getElementById("toastBody");
+        toastBody.innerHTML = missingHeaderWarning;
+
         beginToastCounter();
         $("#myToast").toast('show');
     }
     else
     {
-        h.innerHTML = title + '<i onclick=removeHeaderByParentId(this) class="far fa-times-circle fa-lg"></i>'
+        h.innerHTML = title + '<i onclick=removeHeaderByParentId(this) class="far fa-times-circle fa-lg" style="color: red;"></i>'
 
-        document.body.appendChild(h);
+        var workingSpace = document.getElementById('workingSpace');
+
+        workingSpace.appendChild(h);
     }
   }
+
+function createImage()
+{
+    var paragraph = document.createElement('p');
+
+    paragraph.setAttribute('id', GenerateUniqueId());
+
+    var imagePosition = document.getElementById('positionImageList');
+
+    switch (imagePosition.value) {
+        case '1':
+            paragraph.setAttribute('style', 'text-align: left;');
+        break;
+        case '2':
+            paragraph.setAttribute('style', 'text-align: center;');
+        break;
+        case '3':
+            paragraph.setAttribute('style', 'text-align: right;');
+        break;
+        default:
+            paragraph.setAttribute('style', 'text-align: center;');
+        break;
+    }
+
+    var imageURL = document.getElementById('imageURL').value;
+
+    var image = document.createElement('img');
+
+    if (imageURL == 'blank')
+    {
+        image.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png';
+    }
+    else if (validateURL(imageURL) == true)
+    {
+        image.src = imageURL;
+    }
+    else if (!imageURL)
+    {
+        console.log('kaaaaapaa');
+    }
+    else
+    {
+        var toastBody = document.getElementById("toastBody");
+        toastBody.innerHTML = wrongImageExtension_part1 + '(' + imageURL.slice(-4) + ')' + wrongImageExtension_part2;
+
+        beginToastCounter();
+        $("#myToast").toast('show');
+    }
+
+
+    var xAxisVal = document.getElementById('xAxisProperty').value;
+    var yAxisVal = document.getElementById('yAxisProperty').value;
+
+
+
+    if (xAxisVal != 0 && yAxisVal != 0)
+    {
+        image.setAttribute('width', xAxisVal);
+        image.setAttribute('height', yAxisVal);
+    }
+    else if (xAxisVal != 0 && yAxisVal == 0)
+    {
+        image.setAttribute('width', xAxisVal);
+    }
+    else if (xAxisVal == 0 && yAxisVal != 0)
+    {
+        image.setAttribute('height', yAxisVal);
+    }
+    else
+    {
+        var toastBody = document.getElementById("toastBody");
+        toastBody.innerHTML = noProportion;
+
+        beginToastCounter();
+        $("#myToast").toast('show');
+    }
+
+    paragraph.appendChild(image); 
+
+    var workingSpace = document.getElementById('workingSpace');
+
+    workingSpace.appendChild(paragraph);
+}
 
 function addElement(parentId, elementTag, elementId, html) {
     // Adds an element to the document
@@ -108,4 +207,29 @@ function increaseCounter() {
 
 function resetLastInterval() {
     clearInterval(myInterval);
+}
+
+function GenerateUniqueId()
+{
+    return Math.random().toString(36).substr(2, 9);
+}
+
+function validateURL(url)
+{
+    var result = false;
+
+    var popularExtensions = ['bmp', 'png', 'jpeg', 'jpg', 'gif'];
+
+    url = url.slice(-4);
+    
+    for(let element of popularExtensions)
+    {
+        if (url.includes(element))
+        {
+            result = true;
+            break;
+        }
+    }
+
+    return result;
 }
