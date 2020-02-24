@@ -8,6 +8,8 @@ var noURLorBlank = 'If you want to add image, make sure that you specify URL. If
 var noAltForImageSpecified = 'It looks like you did not add alternative text for image. Please, add it!';
 var wrongImageExtension_part1 = 'Woops! Seems like you tried to reference to image with wrong extension';
 var wrongImageExtension_part2 = '.Supported extensions for now are: jpg, jpeg, bmp, gif, png';
+var notAnumber = 'Err: Input field contained nondigit value or 0.';
+var arrayColSizeExceeded = 'Err: Max column number exceeded (27).';
 
 // ********************************************
 // EzGitDoc Creating Elements Logic
@@ -60,7 +62,7 @@ function createHeader() {
     var headerDiv = document.createElement('div');
     headerDiv.setAttribute('id', GenerateUniqueId());
     headerDiv.setAttribute('style', 'position: relative');
-    headerDiv.setAttribute('class', 'row block-stylizer');
+    headerDiv.setAttribute('class', 'block-stylizer');
 
     var icon = document.createElement('i');
     icon.setAttribute('onclick', 'removeElementByParentId(this)');
@@ -198,15 +200,40 @@ function createImage()
 
 function createTable() {
 
+    var tableDiv = document.createElement('div');
+
     var rows = document.getElementById('arrRowsAmount').value;
     var cols = document.getElementById('arrColsAmount').value;
 
+    if (checkIfNumber(rows) == false || checkIfNumber(cols) == false)
+    {
+        var toastBody = document.getElementById("toastBody");
+        toastBody.innerHTML = notAnumber;
+
+        beginToastCounter();
+        $("#myToast").toast('show');
+
+        return false;
+    }
+    else if(cols >= 27)
+    {
+        var toastBody = document.getElementById("toastBody");
+        toastBody.innerHTML = arrayColSizeExceeded;
+
+        beginToastCounter();
+        $("#myToast").toast('show');
+
+        return false;
+    }
+
     var tbl = document.createElement('table');
 
+    tableDiv.setAttribute('id', GenerateUniqueId());
+    tableDiv.setAttribute('style', 'position: relative;');
+    tableDiv.setAttribute('class', 'block-stylizer');
+
     tbl.style.width = '100%';
-
-    tbl.setAttribute('border', '1');
-
+    
     var tbdy = document.createElement('tbody');
     tbdy.setAttribute('style','text-align: center;');
 
@@ -220,16 +247,21 @@ function createTable() {
       }
       tbdy.appendChild(tr);
     }
+
     tbl.appendChild(tbdy);
 
+    // Add icon
+    var icon = document.createElement('i');
+    icon.setAttribute('onclick', 'removeElementByParentId(this)');
+    icon.setAttribute('class', 'far fa-times-circle fa-lg delete-icon-stylizer');
+
+    tableDiv.appendChild(tbl);
+    tableDiv.appendChild(icon);
+    
     var workingSpace = document.getElementById('workingSpace');
 
-    workingSpace.appendChild(tbl);
+    workingSpace.appendChild(tableDiv);
 }
-
-// ********************************************
-// EzGitDoc Other
-// ********************************************
 
 function removeElementByParentId(elementId) {
     var element = document.getElementById(elementId.parentNode.id);
@@ -239,74 +271,3 @@ function removeElementByParentId(elementId) {
     }
 }
 
-var seconds = 0;
-var minutes = 0;
-
-var myInterval;
-var el = document.getElementById('toastTime');
-
-function beginToastCounter()
-{
-    resetLastInterval(myInterval);
-
-    seconds = 1; 
-
-    el.innerText = "" + seconds + " second ago.";  
-
-    myInterval = setInterval(increaseCounter, 1000);
-}
-
-function increaseCounter() {
-    if (seconds >= 1 && seconds < 60)
-    {
-        seconds += 1;
-    
-        el.innerText = "" + seconds + " seconds ago."; 
-
-        if (seconds == 60)
-        {
-            resetLastInterval();
-
-            el.innerText = "1 minute ago."; 
-
-            minutes = 1;
-
-            myInterval = setInterval(increaseCounter, 60000);
-        }
-    }
-    else if(seconds >= 60)
-    {
-        minutes += 1;
-
-        el.innerText = minutes + " minutes ago.";  
-    }
-}
-
-function resetLastInterval() {
-    clearInterval(myInterval);
-}
-
-function GenerateUniqueId()
-{
-    return Math.random().toString(36).substr(2, 9);
-}
-
-function validateURL(url)
-{
-    var result = false;
-
-    var popularExtensions = ['bmp', 'png', 'jpeg', 'jpg', 'gif'];
-
-    url = url.slice(-4);
-    
-    for(let element of popularExtensions)
-    {
-        if (url.includes(element))
-        {
-            result = true;
-            break;
-        }
-    }
-
-    return result;
-}

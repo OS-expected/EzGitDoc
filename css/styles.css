@@ -18,9 +18,8 @@ body {
 .delete-icon-stylizer {
     color: red;
     position: absolute;
-    padding-left: 17%;
-    /* right: -20px;
-    top: -10px; */
+    right: -20px;
+    top: -10px; 
     cursor: pointer;
 }
 
@@ -49,4 +48,8 @@ body {
     border-radius: 70px;
     text-align: center;
     border: 7px inset #92A8D1;
+}
+
+table, th, td {
+    border: 1px solid black;
 }

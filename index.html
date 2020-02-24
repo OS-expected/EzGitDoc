@@ -27,7 +27,7 @@
     
   </head>
 
-<body>
+<body style="position: relative;">
 
 <!-- Start -->
 <div class="row" onselectstart="return false" ondragstart="return false">
@@ -41,7 +41,7 @@
 </div>
 
 <!-- BS Toast -->
-<div aria-live="polite" aria-atomic="true" style="position: relative;">
+<div aria-live="polite" aria-atomic="true">
     <div id="myToast" data-autohide="false" class="toast" style="position: absolute; top: 0; right: 0;">
         <div class="toast-header">
         <i class="fab fa-earlybirds fa-2x"></i>
@@ -60,20 +60,22 @@
 <!-- Tools -->
 <div style="margin-bottom: 2%;">
 
-    <!-- Header modal trigger -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Header
-    </button>
-
-    <!-- Image modal trigger -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#imageModal">
-        Image
-    </button>
-
-    <!-- Array modal trigger -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#arrayModal">
-        Array
-    </button>
+  <div class="row">
+    <div class="btn-group btn-group-toggle" style="margin: 1% auto 0 auto;">
+      <label class="btn btn-secondary">
+        <input type="radio" data-toggle="modal" data-target="#exampleModal"> Header
+      </label>
+      <label class="btn btn-secondary">
+        <input type="radio" data-toggle="modal" data-target="#imageModal"> Image
+      </label>
+      <label class="btn btn-secondary">
+        <input type="radio" data-toggle="modal" data-target="#arrayModal"> Array
+      </label>
+      <label class="btn btn-secondary">
+        <input type="radio" data-toggle="modal" data-target="#textModal"> Text
+      </label>
+    </div>
+  </div>
 
 </div>
 
@@ -220,8 +222,8 @@
                               <input class="form-control col-md-auto text-center" id="arrColsAmount" placeholder="0">
                           </div>
                       </div>
-                      <small class="form-text text-muted text-center">Data can be filled just after generating github README code.</small>
-                      <small class="form-text text-muted text-center">Only positive integer values are accepted different than 0.</small>          
+                      <small class="form-text text-muted text-center">Data can be filled in just after generating github README code.</small>
+                      <small class="form-text text-muted text-center">Only positive integer values are accepted (different than 0).</small>          
                       <small class="form-text text-muted text-center">In EzGitDoc v1 all cells are centered.</small>
                   </div>
               </div>
@@ -236,7 +238,36 @@
   </div>
 </div>
 
-    <script src="js/ezOther.js"></script>
+<!-- Text Modal -->
+<div class="modal fade" id="textModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Text Settings</h5>
+        <button type="button" class="close" data-dismiss="modal" onclick="resetLastInterval()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <form>
+              <div class="container">
+                <div class="form-group">
+                  <label for="commentArea">Text:</label>
+                  <textarea class="form-control" rows="5" id="commentArea"></textarea>
+                      <small class="form-text text-muted text-center">Note: To create text box, at least one character must be placed.</small>
+                  </div>
+              </div>
+            </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button onclick="createTable()" type="button" class="btn btn-primary">Create</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <script src="js/ezMisc.js"></script>
     <script src="js/ezWebLogic.js"></script>
     <script src="https://kit.fontawesome.com/37c75e360e.js" crossorigin="anonymous"></script>
 
