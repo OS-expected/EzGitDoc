@@ -9,3 +9,11 @@
 .right-aligned-image {
     float: right;
 }
+
+.delete-icon-stylizer {
+    color: red;
+    position: absolute;
+    margin-left: 5px;
+    top: -10px;
+    cursor: pointer;
+}
