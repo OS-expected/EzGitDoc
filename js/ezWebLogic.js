@@ -80,7 +80,7 @@ function createImage()
     var paragraph = document.createElement('p');
 
     paragraph.setAttribute('id', GenerateUniqueId());
-    paragraph.setAttribute('class', 'block-stylizer row');
+    paragraph.setAttribute('class', 'block-stylizer');
 
     // alt text validation
 
@@ -95,25 +95,6 @@ function createImage()
         $("#myToast").toast('show');
 
         return false;
-    }
-
-    // image position setup
-
-    var imagePosition = document.getElementById('imagePositionList');
-
-    switch (imagePosition.value) {
-        case '1':
-            paragraph.setAttribute('style', 'text-align: left;');
-        break;
-        case '2':
-            paragraph.setAttribute('style', 'text-align: center;');
-        break;
-        case '3':
-            paragraph.setAttribute('style', 'text-align: right;');
-        break;
-        default:
-            paragraph.setAttribute('style', 'text-align: center;');
-        break;
     }
 
     // image url validation
@@ -151,6 +132,25 @@ function createImage()
         return false;
     }
 
+    // image position setup
+
+    var imagePosition = document.getElementById('imagePositionList');
+
+    switch (imagePosition.value) {
+        case '1':
+            paragraph.setAttribute('style', 'text-align: left; position: relative;');
+        break;
+        case '2':
+            paragraph.setAttribute('style', 'text-align: center; position: relative;');
+        break;
+        case '3':
+            paragraph.setAttribute('style', 'text-align: right; position: relative;');
+        break;
+        default:
+            paragraph.setAttribute('style', 'text-align: center; position: relative;');
+        break;
+    }
+
     // size validation
 
     var xAxisVal = document.getElementById('xAxisProperty').value;
@@ -185,8 +185,6 @@ function createImage()
     icon.setAttribute('onclick', 'removeElementByParentId(this)');
     icon.setAttribute('class', 'far fa-times-circle fa-lg delete-icon-stylizer');
 
-    paragraph.setAttribute('style', 'position: relative;');
-
     paragraph.appendChild(image); 
 
     paragraph.appendChild(icon);
@@ -199,26 +197,34 @@ function createImage()
 }
 
 function createTable() {
+
+    var rows = document.getElementById('arrRowsAmount').value;
+    var cols = document.getElementById('arrColsAmount').value;
+
     var tbl = document.createElement('table');
+
     tbl.style.width = '100%';
+
     tbl.setAttribute('border', '1');
+
     var tbdy = document.createElement('tbody');
-    for (var i = 0; i < 3; i++) {
+    tbdy.setAttribute('style','text-align: center;');
+
+    for (var i = 0; i < rows; i++) {
       var tr = document.createElement('tr');
-      for (var j = 0; j < 2; j++) {
-        if (i == 2 && j == 1) {
-          break
-        } else {
-          var td = document.createElement('td');
-          td.appendChild(document.createTextNode('\u0020'))
-          i == 1 && j == 1 ? td.setAttribute('rowSpan', '2') : null;
-          tr.appendChild(td)
-        }
+
+      for (var j = 0; j < cols; j++) {
+        var td = document.createElement('td');
+        td.appendChild(document.createTextNode('test'))
+        tr.appendChild(td)
       }
       tbdy.appendChild(tr);
     }
     tbl.appendChild(tbdy);
-    body.appendChild(tbl)
+
+    var workingSpace = document.getElementById('workingSpace');
+
+    workingSpace.appendChild(tbl);
 }
 
 // ********************************************

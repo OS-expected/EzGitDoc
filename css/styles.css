@@ -18,13 +18,15 @@ body {
 .delete-icon-stylizer {
     color: red;
     position: absolute;
-    right: -20px;
-    top: -10px;
+    padding-left: 17%;
+    /* right: -20px;
+    top: -10px; */
     cursor: pointer;
 }
 
 .block-stylizer {
     background-color: #FAFAFA;
+    width: 100%;
 }
 
 .block-stylizer:hover {
@@ -37,8 +39,8 @@ body {
     margin: 0 auto 0 auto;
 }
 
-.circle
-  {
+.logo-body
+{
     width: 245px;
     height: 245px;
     background: #AAC1DC; 
@@ -47,4 +49,4 @@ body {
     border-radius: 70px;
     text-align: center;
     border: 7px inset #92A8D1;
-  }
+}
