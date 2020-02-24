@@ -1,3 +1,8 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
 .middle-aligned-image {
     vertical-align: middle;
 }
@@ -26,3 +31,20 @@
     background-color: #E1E1E1;
     transition: 0.4s;
 }
+
+.center-element {
+    display: block; 
+    margin: 0 auto 0 auto;
+}
+
+.circle
+  {
+    width: 245px;
+    height: 245px;
+    background: #AAC1DC; 
+    -moz-border-radius: 70px; 
+    -webkit-border-radius: 70px; 
+    border-radius: 70px;
+    text-align: center;
+    border: 7px inset #92A8D1;
+  }

@@ -19,6 +19,10 @@
 
     <link rel="stylesheet" href="css/styles.css">
 
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet"> 
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.2.1/font-awesome-animation.min.css">
+
     <title>Hello, world!</title>
     
   </head>
@@ -26,8 +30,14 @@
 <body>
 
 <!-- Start -->
-<div class="">
-
+<div class="row">
+  <div class="col-md-12">
+    <div class="circle" style="margin: 0 auto 0 auto; font-family: 'Josefin Sans'; ">
+      <i id="ezLogo" class="fab fa-earlybirds fa-10x" style="color: #55606E;"></i>
+      <p style="font-size: 40px; color: #55606E; margin: 0; padding: 30px 0 10px 0; line-height: 0;">EzGitDoc</p>
+      <small style="font-size: 10px;">Improve your documentation easily</small>
+    </div>
+  </div>
 </div>
 
 <!-- BS Toast -->
@@ -61,7 +71,7 @@
     </button>
 
     <!-- Array modal trigger -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#imageModal">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#arrayModal">
         Array
     </button>
 
@@ -178,6 +188,73 @@
         </div>
       </div>
     </div>
+</div>
+
+<!-- Image Modal -->
+<div class="modal fade" id="arrayModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Array Settings</h5>
+        <button type="button" class="close" data-dismiss="modal" onclick="resetLastInterval()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <form>
+              <div class="form-group">
+                <label for="altImageText">Alternative text</label>
+                <input class="form-control" id="altImageText" placeholder="Image shows..">
+              </div>
+              
+              <div class="form-group">
+                  <label for="imageURL">URL</label>
+                  <input class="form-control" id="imageURL" placeholder="e.g. https://www.mypage.com/myimage.png">
+                  <small class="form-text text-muted">If you don't have image in repository or URL to anything yet, type blank.</small>
+                </div>
+
+              <div class="form-group">
+                  <label class="my-1 mr-2" for="imagePositionList">Position</label>
+                  <select class="custom-select my-1 mr-sm-2" id="imagePositionList">
+                  <option value="0" selected>Choose...</option>
+                  <option value="1">Left aligned</option>
+                  <option value="2">Center aligned</option>
+                  <option value="3">Right aligned</option>
+                  </select>
+                  <small class="form-text text-muted">In case nothing is picked, default is center aligned.</small>
+              </div>
+
+              <div class="container">
+                  <div class="form-group" id="scalingOptions">
+                      <div class="row justify-content-md-center">
+
+                          <div class="col-md-12 text-center">
+                              <label class="my-1 mr-2">Size</label>
+                          </div>
+
+                          <div class="col-md-6">
+                              <label class="text-center col-md-12" for="xAxisProperty">X axis (width)</label>
+                              <input class="form-control col-md-auto text-center" id="xAxisProperty" placeholder="0">
+                          </div>
+                          
+                          <div class="col-md-6">
+                              <label class="text-center col-md-12" for="yAxisProperty">Y axis (height)</label>
+                              <input class="form-control col-md-auto text-center" id="yAxisProperty" placeholder="0">
+                          </div>
+                      </div>
+                      <small class="form-text text-muted text-center">Set only one of the axis if you want proportion to be condensed.</small>
+                      <small class="form-text text-muted text-center">Therefore, the other axis should be left with value: 0.</small>
+                  </div>
+              </div>
+
+            </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button onclick="createImage()" type="button" class="btn btn-primary">Create</button>
+      </div>
+    </div>
+  </div>
 </div>
 
     <script src="js/ezOther.js"></script>
