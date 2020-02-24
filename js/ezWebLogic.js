@@ -15,6 +15,21 @@ var wrongImageExtension_part2 = '.Supported extensions for now are: jpg, jpeg, b
 
 function createHeader() {
 
+    // title validation
+    var title = document.getElementById('headerName').value;
+
+    if (title == false)
+    {
+        var toastBody = document.getElementById("toastBody");
+        toastBody.innerHTML = missingHeaderWarning;
+
+        beginToastCounter();
+        $("#myToast").toast('show');
+
+        return false;
+    }
+
+    // style setup
     var style = document.getElementById('headerStyleList');
 
     switch(style.value) {
@@ -40,32 +55,24 @@ function createHeader() {
             var h = document.createElement('h6');
       } 
 
-    h.setAttribute('id', GenerateUniqueId());
-    h.setAttribute('style', 'position: relative;');
+    h.innerHTML = title;
 
-    var title = document.getElementById('headerName').value;
+    var headerDiv = document.createElement('div');
+    headerDiv.setAttribute('id', GenerateUniqueId());
+    headerDiv.setAttribute('style', 'position: relative');
+    headerDiv.setAttribute('class', 'row block-stylizer');
 
-    if (title == false)
-    {
-        var toastBody = document.getElementById("toastBody");
-        toastBody.innerHTML = missingHeaderWarning;
+    var icon = document.createElement('i');
+    icon.setAttribute('onclick', 'removeElementByParentId(this)');
+    icon.setAttribute('class', 'far fa-times-circle fa-lg delete-icon-stylizer');
 
-        beginToastCounter();
-        $("#myToast").toast('show');
-    }
-    else
-    {
-        var icon = document.createElement('i');
-        icon.setAttribute('onclick', 'removeElementByParentId(this)');
-        icon.setAttribute('class', 'far fa-times-circle fa-lg delete-icon-stylizer');
+    headerDiv.appendChild(h);
 
-        h.innerHTML = title;
-        h.appendChild(icon);
-        
-        var workingSpace = document.getElementById('workingSpace');
+    headerDiv.appendChild(icon);
 
-        workingSpace.appendChild(h);
-    }
+    var workingSpace = document.getElementById('workingSpace');
+
+    workingSpace.appendChild(headerDiv);
   }
 
 function createImage()
@@ -73,8 +80,9 @@ function createImage()
     var paragraph = document.createElement('p');
 
     paragraph.setAttribute('id', GenerateUniqueId());
+    paragraph.setAttribute('class', 'block-stylizer row');
 
-    // alternative text validation
+    // alt text validation
 
     var imageAlt = document.getElementById('altImageText');
 

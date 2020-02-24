@@ -13,7 +13,16 @@
 .delete-icon-stylizer {
     color: red;
     position: absolute;
-    margin-left: 5px;
+    right: -20px;
     top: -10px;
     cursor: pointer;
+}
+
+.block-stylizer {
+    background-color: #FAFAFA;
+}
+
+.block-stylizer:hover {
+    background-color: #E1E1E1;
+    transition: 0.4s;
 }
