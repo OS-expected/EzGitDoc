@@ -38,8 +38,8 @@
 
 <body style="position: relative; background-color: #55606E;">
 
-<!-- Toolbar -->
-<nav class="navbar navbar-expand-lg navbar-dark stylish-color-dark">
+<!-- Toolbar (fullnavbar - set width to 100%) -->
+<nav class="navbar navbar-expand-lg navbar-dark stylish-color-dark" style="position: fixed; z-index: 10; width: 100%;">
   <a class="navbar-brand" style="font-size: 14px; color: white;">EzGitDoc<p class="text-center" style="margin: 0; font-size: 10px;font-family: 'Josefin Sans';">Toolbar <i class="fas fa-tools"></i></p></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -79,7 +79,7 @@
 
 <!-- BS Toast -->
 <div aria-live="polite" aria-atomic="true">
-    <div id="myToast" data-autohide="false" class="toast" style="display: none; position: fixed; top: 0; right: 0;">
+    <div id="myToast" data-autohide="false" class="toast" style="display: none; z-index: 12; position: fixed; top: 0; right: 0;">
         <div class="toast-header">
         <i class="fab fa-earlybirds fa-2x"></i>
         <strong class="mr-auto"> &nbsp; EzGitDoc </strong>
@@ -115,7 +115,12 @@
   </div>
 </div>
 
-<!-- Header modal -->
+<div id="workingSpace" style="margin: 5% 25% 0 25%;">
+
+  
+</div>
+
+<!-- Header Modal -->
 <div class="modal fade left" id="headerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-full-height modal-left" role="document">
     <div class="modal-content">
@@ -150,128 +155,123 @@
       </div>
       <div class="modal-footer justify-content-center">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button onclick="createHeader()" type="button" class="btn btn-primary">Stwórz</button>
+        <button onclick="createHeader()" type="button" class="btn btn-primary">Create</button>
       </div>
     </div>
   </div>
-</div>
-
-<div id="workingSpace" style="margin: 5% 25% 0 25%;">
-
-  
 </div>
 
 <!-- Image Modal -->
-<div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Image Settings</h5>
-          <button type="button" class="close" data-dismiss="modal" onclick="resetLastInterval()" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-            <form>
-                <div class="form-group">
-                  <label for="altImageText">Alternative text</label>
-                  <input class="form-control" id="altImageText" placeholder="Image shows..">
-                </div>
-                
-                <div class="form-group">
-                    <label for="imageURL">URL</label>
-                    <input class="form-control" id="imageURL" placeholder="e.g. https://www.mypage.com/myimage.png">
-                    <small class="form-text text-muted">If you don't have image in repository or URL to anything yet, type blank.</small>
-                  </div>
-
-                <div class="form-group">
-                    <label class="my-1 mr-2" for="imagePositionList">Position</label>
-                    <select class="custom-select my-1 mr-sm-2" id="imagePositionList">
-                    <option value="0" selected>Choose...</option>
-                    <option value="1">Left aligned</option>
-                    <option value="2">Center aligned</option>
-                    <option value="3">Right aligned</option>
-                    </select>
-                    <small class="form-text text-muted">In case nothing is picked, default is center aligned.</small>
-                </div>
-
-                <div class="container">
-                    <div class="form-group" id="scalingOptions">
-                        <div class="row justify-content-md-center">
-
-                            <div class="col-md-12 text-center">
-                                <label class="my-1 mr-2">Size</label>
-                            </div>
-
-                            <div class="col-md-6">
-                                <label class="text-center col-md-12" for="xAxisProperty">X axis (width)</label>
-                                <input class="form-control col-md-auto text-center" id="xAxisProperty" placeholder="0">
-                            </div>
-                            
-                            <div class="col-md-6">
-                                <label class="text-center col-md-12" for="yAxisProperty">Y axis (height)</label>
-                                <input class="form-control col-md-auto text-center" id="yAxisProperty" placeholder="0">
-                            </div>
-                        </div>
-                        <small class="form-text text-muted text-center">Set only one of the axis if you want proportion to be condensed.</small>
-                        <small class="form-text text-muted text-center">Therefore, the other axis should be left with value: 0.</small>
-                    </div>
-                </div>
-
-              </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button onclick="createImage()" type="button" class="btn btn-primary">Create</button>
-        </div>
-      </div>
+<div class="modal fade left" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-full-height modal-left" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title w-100" id="myModalLabel">Header Settings</h4>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
     </div>
+    <div class="modal-body">
+      <form>
+          <div class="form-group">
+            <label for="altImageText">Alternative text</label>
+            <input class="form-control" id="altImageText" placeholder="Image shows..">
+          </div>
+          
+          <div class="form-group">
+              <label for="imageURL">URL</label>
+              <input class="form-control" id="imageURL" placeholder="e.g. https://www.mypage.com/myimage.png">
+              <small class="form-text text-muted">If you don't have image in repository or URL to anything yet, type blank.</small>
+            </div>
+
+          <div class="form-group">
+              <label class="my-1 mr-2" for="imagePositionList">Position</label>
+              <select class="custom-select my-1 mr-sm-2" id="imagePositionList">
+              <option value="0" selected>Choose...</option>
+              <option value="1">Left aligned</option>
+              <option value="2">Center aligned</option>
+              <option value="3">Right aligned</option>
+              </select>
+              <small class="form-text text-muted">In case nothing is picked, default is center aligned.</small>
+          </div>
+
+          <div class="container">
+              <div class="form-group" id="scalingOptions">
+                  <div class="row justify-content-md-center">
+
+                      <div class="col-md-12 text-center">
+                          <label class="my-1 mr-2">Size</label>
+                      </div>
+
+                      <div class="col-md-6">
+                          <label class="text-center col-md-12" for="xAxisProperty">X axis (width)</label>
+                          <input class="form-control col-md-auto text-center" id="xAxisProperty" placeholder="0">
+                      </div>
+                      
+                      <div class="col-md-6">
+                          <label class="text-center col-md-12" for="yAxisProperty">Y axis (height)</label>
+                          <input class="form-control col-md-auto text-center" id="yAxisProperty" placeholder="0">
+                      </div>
+                  </div>
+                  <small class="form-text text-muted text-center">Set only one of the axis if you want proportion to be preserved.</small>
+                  <small class="form-text text-muted text-center">Therefore, the other axis should be left with value: 0.</small>
+              </div>
+          </div>
+
+        </form>
+  </div>
+  <div class="modal-footer justify-content-center"">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    <button onclick="createImage()" type="button" class="btn btn-primary">Create</button>
+  </div>
+  </div>
+</div>
 </div>
 
 <!-- Table Modal -->
-<div class="modal fade" id="arrayModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Table Settings</h5>
-        <button type="button" class="close" data-dismiss="modal" onclick="resetLastInterval()" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-          <form>
-              <div class="container">
-                  <div class="form-group" id="scalingOptions">
-                      <div class="row justify-content-md-center">
+<div class="modal fade left" id="arrayModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-full-height modal-left" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title w-100" id="myModalLabel">Table Settings</h4>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
 
-                          <div class="col-md-12 text-center">
-                              <label class="my-1 mr-2">Size</label>
-                          </div>
+    <div class="modal-body">
+      <form>
+        <div class="container">
+            <div class="form-group" id="scalingOptions">
+                <div class="row justify-content-md-center">
 
-                          <div class="col-md-6">
-                              <label class="text-center col-md-12" for="arrRowsAmount">Rows</label>
-                              <input class="form-control col-md-auto text-center" id="arrRowsAmount" placeholder="0">
-                          </div>
-                          
-                          <div class="col-md-6">
-                              <label class="text-center col-md-12" for="arrColsAmount">Columns</label>
-                              <input class="form-control col-md-auto text-center" id="arrColsAmount" placeholder="0">
-                          </div>
-                      </div>
-                      <small class="form-text text-muted text-center">Data can be filled in just after generating github README code.</small>
-                      <small class="form-text text-muted text-center">Only positive integer values are accepted (different than 0).</small>          
-                      <small class="form-text text-muted text-center">In EzGitDoc v1 all cells are centered.</small>
-                  </div>
-              </div>
+                    <div class="col-md-12 text-center">
+                        <label class="my-1 mr-2">Size</label>
+                    </div>
 
-            </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button onclick="createTable()" type="button" class="btn btn-primary">Create</button>
-      </div>
+                    <div class="col-md-6">
+                        <label class="text-center col-md-12" for="arrRowsAmount">Rows</label>
+                        <input class="form-control col-md-auto text-center" id="arrRowsAmount" placeholder="0">
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <label class="text-center col-md-12" for="arrColsAmount">Columns</label>
+                        <input class="form-control col-md-auto text-center" id="arrColsAmount" placeholder="0">
+                    </div>
+                </div>
+                <small class="form-text text-muted text-center">Data can be filled in just after generating github README code.</small>
+                <small class="form-text text-muted text-center">Only positive integer values are accepted (different than 0).</small>          
+                <small class="form-text text-muted text-center">In EzGitDoc v1 all cells are centered.</small>
+            </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer justify-content-center">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <button onclick="createTable()" type="button" class="btn btn-primary">Create</button>
     </div>
   </div>
+</div>
 </div>
 
 <!-- Text Modal -->
@@ -349,9 +349,6 @@
     </div>
   </div>
 </div>
-
-    <script src="js/ezMisc.js"></script>
-    <script src="js/ezWebLogic.js"></script>
     <script src="https://kit.fontawesome.com/37c75e360e.js" crossorigin="anonymous"></script>
 
     <!-- JQuery -->
@@ -362,6 +359,9 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.13.0/js/mdb.min.js"></script>
+
+    <script src="js/ezMisc.js"></script>
+    <script src="js/ezWebLogic.js"></script>
 </body>
 
 
@@ -372,5 +372,5 @@
     Credits 
     ID generator: https://gist.github.com/gordonbrander/2230317
 
-    Ribbon: https://github.com/simonwhitaker/github-fork-ribbon-css
+    navbar showing on scroll: David Taiaroa
 -->
