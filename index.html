@@ -2,7 +2,7 @@
 
 <html lang="en">
 
-<head>                              <!-- Replace this -->
+<head>
     <link rel="shortcut icon" href="favicon.png" />
 
     <!-- Required meta tags -->
@@ -38,6 +38,34 @@
 
 <body style="position: relative; background-color: #55606E;">
 
+<!-- Toolbar -->
+<nav class="navbar navbar-expand-lg navbar-dark stylish-color-dark">
+  <a class="navbar-brand" style="font-size: 14px; color: white;">EzGitDoc<p class="text-center" style="margin: 0; font-size: 10px;font-family: 'Josefin Sans';">Toolbar <i class="fas fa-tools"></i></p></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="modal" data-target="#headerModal">Header</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="modal" data-target="#imageModal">Image</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="modal" data-target="#arrayModal">Table</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="modal" data-target="#textModal">Text</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="modal" data-target="#listModal">List</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
 <!-- Start -->
 <div class="row" onselectstart="return false" ondragstart="return false" style="width: 100%; background-color: #55606E; padding: 10px 0 12px 0;">
   <div class="col-md-12">
@@ -51,12 +79,12 @@
 
 <!-- BS Toast -->
 <div aria-live="polite" aria-atomic="true">
-    <div id="myToast" data-autohide="false" class="toast" style="position: absolute; top: 0; right: 0;">
+    <div id="myToast" data-autohide="false" class="toast" style="display: none; position: fixed; top: 0; right: 0;">
         <div class="toast-header">
         <i class="fab fa-earlybirds fa-2x"></i>
         <strong class="mr-auto"> &nbsp; EzGitDoc </strong>
         <small id="toastTime"></small>
-        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" onclick="disassembleToast()" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
         </div>
@@ -130,6 +158,7 @@
 
 <div id="workingSpace" style="margin: 5% 25% 0 25%;">
 
+  
 </div>
 
 <!-- Image Modal -->

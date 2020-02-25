@@ -1,5 +1,5 @@
 // ********************************************
-// Toast CREATE messages
+// Toast Messages
 // ********************************************
 
 var missingHeaderWarning = 'It looks like you did not feed header title text.';
@@ -12,6 +12,7 @@ var notAnumber = 'Err: Input field contained nondigit value or 0.';
 var arrayColSizeExceeded = 'Err: Max column number exceeded (27).';
 var textEmpty = 'Err: Text input must have at least one character.';
 var listTypeNotSpecified = 'Err: List type was not specified.';
+
 // ********************************************
 // EzGitDoc Creating Elements Logic
 // ********************************************
@@ -23,12 +24,7 @@ function createHeader() {
 
     if (title == false)
     {
-        var toastBody = document.getElementById("toastBody");
-        toastBody.innerHTML = missingHeaderWarning;
-
-        beginToastCounter();
-        $("#myToast").toast('show');
-
+        triggerToast(missingHeaderWarning);
         return false;
     }
 
@@ -87,12 +83,7 @@ function createImage()
 
     if (!imageAlt.value)
     {  
-        var toastBody = document.getElementById("toastBody");
-        toastBody.innerHTML = noAltForImageSpecified;
-
-        beginToastCounter();
-        $("#myToast").toast('show');
-
+        triggerToast(noAltForImageSpecified);
         return false;
     }
 
@@ -112,22 +103,12 @@ function createImage()
     }
     else if (!imageURL)
     {
-        var toastBody = document.getElementById("toastBody");
-        toastBody.innerHTML = noURLorBlank;
-
-        beginToastCounter();
-        $("#myToast").toast('show');
-
+        triggerToast(noURLorBlank);
         return false;
     }
     else
     {
-        var toastBody = document.getElementById("toastBody");
-        toastBody.innerHTML = wrongImageExtension_part1 + '(' + imageURL.slice(-4) + ')' + wrongImageExtension_part2;
-
-        beginToastCounter();
-        $("#myToast").toast('show');
-
+        triggerToast(wrongImageExtension_part1 + '(' + imageURL.slice(-4) + ')' + wrongImageExtension_part2);
         return false;
     }
 
@@ -170,12 +151,7 @@ function createImage()
     }
     else
     {
-        var toastBody = document.getElementById("toastBody");
-        toastBody.innerHTML = noProportion;
-
-        beginToastCounter();
-        $("#myToast").toast('show');
-
+        triggerToast(noProportion);
         return false;
     }
 
@@ -200,22 +176,12 @@ function createTable()
 
     if (checkIfNumber(rows) == false || checkIfNumber(cols) == false)
     {
-        var toastBody = document.getElementById("toastBody");
-        toastBody.innerHTML = notAnumber;
-
-        beginToastCounter();
-        $("#myToast").toast('show');
-
+        triggerToast(notAnumber);
         return false;
     }
     else if(cols >= 27)
     {
-        var toastBody = document.getElementById("toastBody");
-        toastBody.innerHTML = arrayColSizeExceeded;
-
-        beginToastCounter();
-        $("#myToast").toast('show');
-
+        triggerToast(arrayColSizeExceeded);
         return false;
     }
 
@@ -261,12 +227,7 @@ function createText()
     // validate
     if (!text)
     {
-        var toastBody = document.getElementById("toastBody");
-        toastBody.innerHTML = textEmpty;
-
-        beginToastCounter();
-        $("#myToast").toast('show');
-
+        triggerToast(textEmpty);
         return false;
     }
 
@@ -301,22 +262,12 @@ function createList()
     // validate
     if (checkIfNumber(listSize) == false || listSize == 0)
     {
-        var toastBody = document.getElementById("toastBody");
-        toastBody.innerHTML = notAnumber;
-
-        beginToastCounter();
-        $("#myToast").toast('show');
-
+        triggerToast(notAnumber);
         return false;
     }
     else if (listOption == null)
     {
-        var toastBody = document.getElementById("toastBody");
-        toastBody.innerHTML = listTypeNotSpecified;
-
-        beginToastCounter();
-        $("#myToast").toast('show');
-
+        triggerToast(listTypeNotSpecified);
         return false;
     }
 

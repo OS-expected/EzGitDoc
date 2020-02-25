@@ -1,4 +1,5 @@
 window.addEventListener('load', function () {
+
     var style = document.getElementById('headerStyleList');
     style.value = 0;
 
@@ -91,6 +92,26 @@ function validateURL(url)
 function checkIfNumber(value)
 {
     return /^\d+$/.test(value);
+}
+
+var toast = document.getElementById('myToast');
+
+function triggerToast(message)
+{
+    toast.style.display = "block";
+
+    var toastBody = document.getElementById('toastBody');
+    toastBody.innerHTML = message;
+
+    beginToastCounter();
+    $("#myToast").toast('show');
+}
+
+function disassembleToast()
+{
+    toast.style.display = "none";
+    
+    resetLastInterval();
 }
 
 // ***************************************
