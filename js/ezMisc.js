@@ -135,6 +135,15 @@ function setElementAsActive(element)
 }
 
 $(document).ready(function () {
+
+    // power up SortableJS
+    var el = document.getElementById('workingSpace');
+
+    Sortable.create(el, {
+        group: 'shared',
+        animation: 150
+    });
+
     // hide .navbar first
     $(".navbar").hide();
       
@@ -150,3 +159,4 @@ $(document).ready(function () {
         }); 
     });
 });
+
