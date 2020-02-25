@@ -8,7 +8,8 @@ var noURLorBlank = 'If you want to add image, make sure that you specify URL. If
 var noAltForImageSpecified = 'It looks like you did not add alternative text for image. Please, add it before you create image!';
 var wrongImageExtension_part1 = 'Woops! Seems like you tried to reference to image with wrong extension';
 var wrongImageExtension_part2 = '.Supported extensions for now are: jpg, jpeg, bmp, gif, png';
-var notAnumber = 'Input field contained noninteger value or 0.';
+var notAnumber = 'Input field contained noninteger value.';
+var restrictedValue = 'Input field contained illegal value (0).';
 var arrayColSizeExceeded = 'Max column number exceeded (27).';
 var listTypeNotSpecified = 'Type of the list was not specified.';
 
@@ -192,7 +193,7 @@ function createTable()
     var tbl = document.createElement('table');
 
     tableDiv.setAttribute('id', GenerateUniqueId());
-    tableDiv.setAttribute('style', 'position: relative;');
+    tableDiv.setAttribute('style', 'position: relative; margin: 5px 0 5px 0');
     tableDiv.setAttribute('class', 'block-stylizer');
 
     tbl.style.width = '100%';
@@ -263,9 +264,14 @@ function createList()
     var listSize = document.getElementById('listSize').value;
     
     // validate
-    if (checkIfNumber(listSize) == false || listSize == 0)
+    if (checkIfNumber(listSize) == false)
     {
         triggerToast(notAnumber);
+        return false;
+    }
+    else if(listSize == 0)
+    {
+        triggerToast(restrictedValue);
         return false;
     }
     else if (listOption == null)

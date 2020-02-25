@@ -14,6 +14,7 @@ window.addEventListener('load', function () {
     function removeLogoAnimation()
     {
         logo.classList.remove('faa-bounce', 'animated');
+        logo.classList.add('faa-shake', 'animated-hover');
     }
 })
 
@@ -91,6 +92,11 @@ function validateURL(url)
 
 function checkIfNumber(value)
 {
+    if (value == 0)
+    {
+        return true;
+    }
+        
     return /^\d+$/.test(value);
 }
 
