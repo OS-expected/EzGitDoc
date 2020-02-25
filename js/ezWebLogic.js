@@ -11,7 +11,7 @@ var wrongImageExtension_part2 = '.Supported extensions for now are: jpg, jpeg, b
 var notAnumber = 'Err: Input field contained nondigit value or 0.';
 var arrayColSizeExceeded = 'Err: Max column number exceeded (27).';
 var textEmpty = 'Err: Text input must have at least one character.';
-
+var listTypeNotSpecified = 'Err: List type was not specified.';
 // ********************************************
 // EzGitDoc Creating Elements Logic
 // ********************************************
@@ -291,6 +291,74 @@ function createText()
     var workingSpace = document.getElementById('workingSpace');
 
     workingSpace.appendChild(textDiv);
+}
+
+function createList()
+{
+    // get
+    var listSize = document.getElementById('listSize').value;
+    
+    // validate
+    if (checkIfNumber(listSize) == false || listSize == 0)
+    {
+        var toastBody = document.getElementById("toastBody");
+        toastBody.innerHTML = notAnumber;
+
+        beginToastCounter();
+        $("#myToast").toast('show');
+
+        return false;
+    }
+    else if (listOption == null)
+    {
+        var toastBody = document.getElementById("toastBody");
+        toastBody.innerHTML = listTypeNotSpecified;
+
+        beginToastCounter();
+        $("#myToast").toast('show');
+
+        return false;
+    }
+
+    // create
+
+    var listDiv = document.createElement('div');
+
+    listDiv.setAttribute('id', GenerateUniqueId());
+    listDiv.setAttribute('style', 'position: relative;');
+    listDiv.setAttribute('class', 'block-stylizer');
+
+    if (listOption == 0)
+    {
+        var iconPlace = GenerateUniqueId();
+
+        for (var i = 0; i < listSize; i++)
+        {
+            var paragraph = document.createElement('p'); 
+            paragraph.innerHTML = ':' + iconPlace + ':' + ' <strong>bold text:</strong> ' + 'description';
+            var br = document.createElement("br"); 
+            paragraph.appendChild(br);  
+            listDiv.appendChild(paragraph);    
+        }
+    }
+    else if (listOption == 1)
+    {
+        var list = document.createElement('ul');
+
+        for (var i = 0; i < listSize; i++) {
+            var point = document.createElement('li');
+            point.innerHTML = 'text';
+            list.appendChild(point);
+        }
+
+        listDiv.appendChild(list);
+    }
+
+    listDiv.appendChild(createDeleteTool());
+
+    var workingSpace = document.getElementById('workingSpace');
+
+    workingSpace.appendChild(listDiv);
 }
 
 function removeElementByParentId(elementId) {

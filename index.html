@@ -14,23 +14,32 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
     <link rel="stylesheet" href="css/styles.css">
 
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet"> 
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.2.1/font-awesome-animation.min.css">
 
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.13.0/css/mdb.min.css" rel="stylesheet">
+
     <title>Hello, world!</title>
     
   </head>
 
-<body style="position: relative;">
+<body style="position: relative; background-color: #55606E;">
 
 <!-- Start -->
-<div class="row" onselectstart="return false" ondragstart="return false">
+<div class="row" onselectstart="return false" ondragstart="return false" style="width: 100%; background-color: #55606E; padding: 10px 0 12px 0;">
   <div class="col-md-12">
     <div class="logo-body" style="margin: 0 auto 0 auto; font-family: 'Josefin Sans'; ">
       <i id="ezLogo" class="fab fa-earlybirds fa-10x" style="color: #55606E;"></i>
@@ -58,79 +67,69 @@
 </div>
 
 <!-- Tools -->
-<div style="margin-bottom: 2%;">
-
+<div class="container-fluid" style="margin-bottom: 2%;">
   <div class="row">
-    <div class="btn-group btn-group-toggle" style="margin: 1% auto 0 auto;">
-
-      <label class="btn btn-secondary">
-        <input type="radio" data-toggle="modal" data-target="#exampleModal"> Header
-      </label>
-
-      <label class="btn btn-secondary">
-        <input type="radio" data-toggle="modal" data-target="#imageModal"> Image
-      </label>
-
-      <label class="btn btn-secondary">
-        <input type="radio" data-toggle="modal" data-target="#arrayModal"> Array
-      </label>
-
-      <label class="btn btn-secondary">
-        <input type="radio" data-toggle="modal" data-target="#textModal"> Text
-      </label>
-
-      <label class="btn btn-secondary">
-        <input type="radio" data-toggle="modal" data-target="#listModal"> List
-      </label>
-    </div>
-  </div>
-
-</div>
-
-
-<div id="workingSpace" style="margin: 0 25% 0 25%;">
-
-</div>
-
-<!-- Header Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Header Settings</h5>
-          <button type="button" class="close" data-dismiss="modal" onclick="resetLastInterval()" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+    <div class="col">
+      <!-- centering problem -->
+      <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+        <div class="btn-group mr-2" role="group" aria-label="First group">
+          <button type="button" class="btn btn-blue-grey" data-toggle="modal" data-target="#headerModal">Header</button>
+          <button type="button" class="btn btn-blue-grey" data-toggle="modal" data-target="#imageModal">Image</button>
+          <button type="button" class="btn btn-blue-grey" data-toggle="modal" data-target="#arrayModal">Table</button>
+          <button type="button" class="btn btn-blue-grey" data-toggle="modal" data-target="#textModal">Text</button>
+          <button type="button" class="btn btn-blue-grey" data-toggle="modal" data-target="#listModal">List</button>
         </div>
-        <div class="modal-body">
-            <form>
-                <div class="form-group">
-                  <label for="headerName">Text</label>
-                  <input class="form-control" id="headerName" placeholder="Header">
-                </div>
-                
-                <div class="form-group">
-                    <label class="my-1 mr-2" for="headerStyleList">Style</label>
-                    <select class="custom-select my-1 mr-sm-2" id="headerStyleList">
-                    <option value="0" selected>Choose...</option>
-                    <option value="1">h1</option>
-                    <option value="2">h2</option>
-                    <option value="3">h3</option>
-                    <option value="4">h4</option>
-                    <option value="5">h5</option>
-                    <option value="6">h6</option>
-                    </select>
-                    <small class="form-text text-muted">In case nothing is picked, default is h6.</small>
-                </div>
-
-              </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button onclick="createHeader()" type="button" class="btn btn-primary">Stwórz</button>
+        <div class="btn-group mr-2" role="group" aria-label="Second group">
+          <button type="button" class="btn btn-warning">Help</button>
         </div>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- Header modal -->
+<div class="modal fade left" id="headerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-full-height modal-left" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title w-100" id="myModalLabel">Header Settings</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <form>
+          <div class="md-form">
+            <input type="text" id="headerName" class="form-control">
+            <label for="headerName">Text</label>
+          </div>
+          
+          <div class="form-group">
+              <label class="my-1 mr-2" for="headerStyleList">Style</label>
+              <select class="custom-select my-1 mr-sm-2" id="headerStyleList">
+              <option value="0" selected>Choose...</option>
+              <option value="1">h1</option>
+              <option value="2">h2</option>
+              <option value="3">h3</option>
+              <option value="4">h4</option>
+              <option value="5">h5</option>
+              <option value="6">h6</option>
+              </select>
+              <small class="form-text text-muted">In case nothing is picked, default is h6.</small>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button onclick="createHeader()" type="button" class="btn btn-primary">Stwórz</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="workingSpace" style="margin: 5% 25% 0 25%;">
+
 </div>
 
 <!-- Image Modal -->
@@ -200,12 +199,12 @@
     </div>
 </div>
 
-<!-- Array Modal -->
+<!-- Table Modal -->
 <div class="modal fade" id="arrayModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Array Settings</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Table Settings</h5>
         <button type="button" class="close" data-dismiss="modal" onclick="resetLastInterval()" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -301,18 +300,22 @@
                 </div>
 
                 <ul class="list-group" style="cursor: pointer;" onselectstart="return false" ondragstart="return false">
-                  <label>Beginning character</label>
-                  <li class="list-group-item" value="0" onclick="setElementAsActive(this)">GitHub Icon</li>
+                  <label>Separator</label>
+                  <li class="list-group-item" value="0" onclick="setElementAsActive(this)">GitHub Icon and bold text</li>
                   <li class="list-group-item" value="1" onclick="setElementAsActive(this)">Point</li>
                   <small class="form-text text-muted text-center">Choose how each element of list should be introduced.</small>
-                  <small class="form-text text-muted text-center">Point: Jagged elements of the list must be added manually.</small>
                 </ul> 
+
+                <br/>
+
+                <small class="form-text text-muted">Point: Jagged elements of the list must be added manually later.</small>
+                <small class="form-text text-muted">GitHub Icon: Icon can be added within generated code by replacing ID(value between : chars) using Ctrl+F.</small>
               </div>
             </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button onclick="createText()" type="button" class="btn btn-primary">Create</button>
+        <button onclick="createList()" type="button" class="btn btn-primary">Create</button>
       </div>
     </div>
   </div>
@@ -322,12 +325,15 @@
     <script src="js/ezWebLogic.js"></script>
     <script src="https://kit.fontawesome.com/37c75e360e.js" crossorigin="anonymous"></script>
 
-    <!-- Required libs by BS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Popper -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.13.0/js/mdb.min.js"></script>
 </body>
-
 
 
 
@@ -337,4 +343,5 @@
     Credits 
     ID generator: https://gist.github.com/gordonbrander/2230317
 
+    Ribbon: https://github.com/simonwhitaker/github-fork-ribbon-css
 -->
