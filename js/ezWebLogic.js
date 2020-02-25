@@ -10,6 +10,7 @@ var wrongImageExtension_part1 = 'Woops! Seems like you tried to reference to ima
 var wrongImageExtension_part2 = '.Supported extensions for now are: jpg, jpeg, bmp, gif, png';
 var notAnumber = 'Err: Input field contained nondigit value or 0.';
 var arrayColSizeExceeded = 'Err: Max column number exceeded (27).';
+var textEmpty = 'Err: Text input must have at least one character.';
 
 // ********************************************
 // EzGitDoc Creating Elements Logic
@@ -64,13 +65,9 @@ function createHeader() {
     headerDiv.setAttribute('style', 'position: relative');
     headerDiv.setAttribute('class', 'block-stylizer');
 
-    var icon = document.createElement('i');
-    icon.setAttribute('onclick', 'removeElementByParentId(this)');
-    icon.setAttribute('class', 'far fa-times-circle fa-lg delete-icon-stylizer');
-
     headerDiv.appendChild(h);
 
-    headerDiv.appendChild(icon);
+    headerDiv.appendChild(createDeleteTool());
 
     var workingSpace = document.getElementById('workingSpace');
 
@@ -182,14 +179,9 @@ function createImage()
         return false;
     }
 
-    // Add icon
-    var icon = document.createElement('i');
-    icon.setAttribute('onclick', 'removeElementByParentId(this)');
-    icon.setAttribute('class', 'far fa-times-circle fa-lg delete-icon-stylizer');
-
     paragraph.appendChild(image); 
 
-    paragraph.appendChild(icon);
+    paragraph.appendChild(createDeleteTool());
 
     // adding process 
 
@@ -198,7 +190,8 @@ function createImage()
     workingSpace.appendChild(paragraph);
 }
 
-function createTable() {
+function createTable() 
+{
 
     var tableDiv = document.createElement('div');
 
@@ -250,17 +243,54 @@ function createTable() {
 
     tbl.appendChild(tbdy);
 
-    // Add icon
-    var icon = document.createElement('i');
-    icon.setAttribute('onclick', 'removeElementByParentId(this)');
-    icon.setAttribute('class', 'far fa-times-circle fa-lg delete-icon-stylizer');
-
     tableDiv.appendChild(tbl);
-    tableDiv.appendChild(icon);
+    tableDiv.appendChild(createDeleteTool());
     
     var workingSpace = document.getElementById('workingSpace');
 
     workingSpace.appendChild(tableDiv);
+}
+
+function createText()
+{
+    // get
+    var text = document.getElementById('commentArea').value;
+
+    var checkboxStatus = document.getElementById('commentJustify').checked;
+
+    // validate
+    if (!text)
+    {
+        var toastBody = document.getElementById("toastBody");
+        toastBody.innerHTML = textEmpty;
+
+        beginToastCounter();
+        $("#myToast").toast('show');
+
+        return false;
+    }
+
+    // create
+    var textDiv = document.createElement('div');
+
+    textDiv.setAttribute('id', GenerateUniqueId());
+    textDiv.setAttribute('style', 'position: relative;');
+    textDiv.setAttribute('class', 'block-stylizer');
+
+    var paragraph = document.createElement('p');
+    paragraph.innerHTML = text;
+
+    if(checkboxStatus == 1)
+    {
+        paragraph.setAttribute('style', 'text-align: justify');
+    }
+
+    textDiv.appendChild(paragraph);
+    textDiv.appendChild(createDeleteTool());
+
+    var workingSpace = document.getElementById('workingSpace');
+
+    workingSpace.appendChild(textDiv);
 }
 
 function removeElementByParentId(elementId) {
@@ -271,3 +301,11 @@ function removeElementByParentId(elementId) {
     }
 }
 
+function createDeleteTool()
+{
+    var icon = document.createElement('i');
+    icon.setAttribute('onclick', 'removeElementByParentId(this)');
+    icon.setAttribute('class', 'far fa-times-circle fa-lg delete-icon-stylizer');
+
+    return icon;
+}

@@ -92,3 +92,23 @@ function checkIfNumber(value)
 {
     return /^\d+$/.test(value);
 }
+
+// ***************************************
+// List modal
+// ***************************************
+var currentlyActive;
+var listOption;
+
+function setElementAsActive(element)
+{
+    if (currentlyActive)
+    {
+        currentlyActive.classList.remove('active');
+    }
+
+    listOption = element.value;
+
+    element.classList.add('active');
+
+    currentlyActive = element;
+}
