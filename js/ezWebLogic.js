@@ -3,15 +3,14 @@
 // ********************************************
 
 var missingHeaderWarning = 'It looks like you did not feed header title text.';
-var noProportion = 'As you did not pass even one axis, image will have its original size.';
+var minimumOneAxis = 'At least one axis needs to contain value different than 0.'; 
 var noURLorBlank = 'If you want to add image, make sure that you specify URL. If you have no image URL at the moment, write blank.';
-var noAltForImageSpecified = 'It looks like you did not add alternative text for image. Please, add it!';
+var noAltForImageSpecified = 'It looks like you did not add alternative text for image. Please, add it before you create image!';
 var wrongImageExtension_part1 = 'Woops! Seems like you tried to reference to image with wrong extension';
 var wrongImageExtension_part2 = '.Supported extensions for now are: jpg, jpeg, bmp, gif, png';
-var notAnumber = 'Err: Input field contained nondigit value or 0.';
-var arrayColSizeExceeded = 'Err: Max column number exceeded (27).';
-var textEmpty = 'Err: Text input must have at least one character.';
-var listTypeNotSpecified = 'Err: List type was not specified.';
+var notAnumber = 'Input field contained noninteger value or 0.';
+var arrayColSizeExceeded = 'Max column number exceeded (27).';
+var listTypeNotSpecified = 'Type of the list was not specified.';
 
 // ********************************************
 // EzGitDoc Creating Elements Logic
@@ -51,7 +50,7 @@ function createHeader() {
             var h = document.createElement('h6');
             break;
         default:
-            var h = document.createElement('h6');
+            var h = document.createElement('h2');
       } 
 
     h.innerHTML = title;
@@ -136,7 +135,12 @@ function createImage()
     var xAxisVal = document.getElementById('xAxisProperty').value;
     var yAxisVal = document.getElementById('yAxisProperty').value;
 
-    if (xAxisVal != 0 && yAxisVal != 0)
+    if (checkIfNumber(xAxisVal) == false || checkIfNumber(yAxisVal) == false)
+    {
+        triggerToast(notAnumber);
+        return false;
+    }
+    else if (xAxisVal != 0 && yAxisVal != 0)
     {
         image.setAttribute('width', xAxisVal);
         image.setAttribute('height', yAxisVal);
@@ -149,9 +153,9 @@ function createImage()
     {
         image.setAttribute('height', yAxisVal);
     }
-    else
+    else if(xAxisVal == 0 && yAxisVal == 0)
     {
-        triggerToast(noProportion);
+        triggerToast(minimumOneAxis);
         return false;
     }
 
@@ -227,8 +231,7 @@ function createText()
     // validate
     if (!text)
     {
-        triggerToast(textEmpty);
-        return false;
+        text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
     }
 
     // create
@@ -324,7 +327,8 @@ function createDeleteTool()
 {
     var icon = document.createElement('i');
     icon.setAttribute('onclick', 'removeElementByParentId(this)');
-    icon.setAttribute('class', 'far fa-times-circle fa-lg delete-icon-stylizer');
+    icon.setAttribute('class', 'fas fa-times fa-lg delete-icon-stylizer');
 
     return icon;
 }
+

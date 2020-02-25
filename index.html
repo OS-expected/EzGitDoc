@@ -125,7 +125,7 @@
     <div class="modal-dialog modal-full-height modal-left" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title w-100" id="myModalLabel">Header Settings</h4>
+        <h4 class="modal-title w-100" id="myModalLabel"><i class="fas fa-heading"></i> Header Settings</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -133,9 +133,9 @@
 
       <div class="modal-body">
         <form>
-          <div class="md-form">
-            <input type="text" id="headerName" class="form-control">
+          <div class="form-group">
             <label for="headerName">Text</label>
+            <input class="form-control" id="headerName" placeholder="Text">
           </div>
           
           <div class="form-group">
@@ -149,10 +149,24 @@
               <option value="5">h5</option>
               <option value="6">h6</option>
               </select>
-              <small class="form-text text-muted">In case nothing is picked, default is h6.</small>
           </div>
         </form>
+
+        <div class="row" style="margin-top: 25px;">
+          <div class="col text-center mdb-color lighten-1" style="color: white;">
+            <i class="fab fa-laravel fa-sm"></i> Notes
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col text-left">
+            <ul class="list-unstyled">
+                <li><small class="form-text text-muted"><i class="fas fa-times"></i> If style is not picked, header will be built using h2 tag.</small></li>
+            </ul>
+          </div>
+        </div>
       </div>
+
       <div class="modal-footer justify-content-center">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button onclick="createHeader()" type="button" class="btn btn-primary">Create</button>
@@ -166,11 +180,12 @@
   <div class="modal-dialog modal-full-height modal-left" role="document">
   <div class="modal-content">
     <div class="modal-header">
-      <h4 class="modal-title w-100" id="myModalLabel">Header Settings</h4>
+      <h4 class="modal-title w-100" id="myModalLabel"><i class="far fa-image"></i> Image Settings</h4>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
+
     <div class="modal-body">
       <form>
           <div class="form-group">
@@ -181,7 +196,6 @@
           <div class="form-group">
               <label for="imageURL">URL</label>
               <input class="form-control" id="imageURL" placeholder="e.g. https://www.mypage.com/myimage.png">
-              <small class="form-text text-muted">If you don't have image in repository or URL to anything yet, type blank.</small>
             </div>
 
           <div class="form-group">
@@ -192,7 +206,6 @@
               <option value="2">Center aligned</option>
               <option value="3">Right aligned</option>
               </select>
-              <small class="form-text text-muted">In case nothing is picked, default is center aligned.</small>
           </div>
 
           <div class="container">
@@ -213,19 +226,34 @@
                           <input class="form-control col-md-auto text-center" id="yAxisProperty" placeholder="0">
                       </div>
                   </div>
-                  <small class="form-text text-muted text-center">Set only one of the axis if you want proportion to be preserved.</small>
-                  <small class="form-text text-muted text-center">Therefore, the other axis should be left with value: 0.</small>
               </div>
           </div>
+        </form>     
 
-        </form>
+        <div class="row" style="margin-top: 25px;">
+          <div class="col text-center mdb-color lighten-1" style="color: white;">
+            <i class="fab fa-laravel fa-sm"></i> Notes
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col text-left">
+            <ul class="list-unstyled">
+                <li><small class="form-text text-muted"><i class="fas fa-times"></i> If you don't have URL yet, type blank.</small> </li>
+                <li><small class="form-text text-muted"><i class="fas fa-times"></i> If position is not picked image will be center aligned.</small></li>
+                <li><small class="form-text text-muted"><i class="fas fa-times"></i> Set only one of the axis if you want proportion to be preserved.</small></li>
+                <li><small class="form-text text-muted"><i class="fas fa-times"></i> At least one axis needs to be set (it's value must be different than 0).</small></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer justify-content-center"">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button onclick="createImage()" type="button" class="btn btn-primary">Create</button>
+      </div>
+    </div>
   </div>
-  <div class="modal-footer justify-content-center"">
-    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-    <button onclick="createImage()" type="button" class="btn btn-primary">Create</button>
-  </div>
-  </div>
-</div>
 </div>
 
 <!-- Table Modal -->
@@ -233,7 +261,7 @@
   <div class="modal-dialog modal-full-height modal-left" role="document">
   <div class="modal-content">
     <div class="modal-header">
-      <h4 class="modal-title w-100" id="myModalLabel">Table Settings</h4>
+      <h4 class="modal-title w-100" id="myModalLabel"><i class="fas fa-table"></i> Table Settings</h4>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
@@ -259,12 +287,26 @@
                         <input class="form-control col-md-auto text-center" id="arrColsAmount" placeholder="0">
                     </div>
                 </div>
-                <small class="form-text text-muted text-center">Data can be filled in just after generating github README code.</small>
-                <small class="form-text text-muted text-center">Only positive integer values are accepted (different than 0).</small>          
-                <small class="form-text text-muted text-center">In EzGitDoc v1 all cells are centered.</small>
             </div>
         </div>
       </form>
+
+      <div class="row" style="margin-top: 25px;">
+        <div class="col text-center mdb-color lighten-1" style="color: white;">
+          <i class="fab fa-laravel fa-sm"></i> Notes
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col text-left">
+          <ul class="list-unstyled">
+              <li><small class="form-text text-muted"><i class="fas fa-times"></i> Table data can be filled in manually just after generating github README code.</small> </li>
+              <li><small class="form-text text-muted"><i class="fas fa-times"></i> Only positive integer values are accepted (different than 0).</small></li>
+              <li><small class="form-text text-muted"><i class="fas fa-times"></i> In EzGitDoc v1 all cells are centered.</small></li>
+          </ul>
+        </div>
+      </div>
+      
     </div>
     <div class="modal-footer justify-content-center">
       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -275,80 +317,109 @@
 </div>
 
 <!-- Text Modal -->
-<div class="modal fade" id="textModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Text Settings</h5>
-        <button type="button" class="close" data-dismiss="modal" onclick="resetLastInterval()" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-          <form>
-              <div class="container">
-                <div class="form-group">
-                  <label for="commentArea">Text:</label>
-                  <textarea class="form-control" rows="5" id="commentArea"></textarea>
-                  <small class="form-text text-muted text-center">Note: To create text box, at least one character must be placed.</small>
-                </div>
+<div class="modal fade left" id="textModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-full-height modal-left" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title w-100" id="myModalLabel"><i class="fas fa-align-justify"></i> Text Settings</h4>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
 
-                <div class="form-check">
-                  <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input" value="" id="commentJustify">text justification
-                  </label>
-                </div>
-                
-              </div>
-            </form>
+    <div class="modal-body">
+      <form>
+        <div class="container">
+          <div class="form-group">
+            <label for="commentArea">Text:</label>
+            <textarea class="form-control" rows="5" id="commentArea"></textarea>
+          </div>
+
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="checkbox" class="form-check-input" value="" id="commentJustify">text justification
+            </label>
+          </div>
+          
+        </div>
+      </form>
+
+      <div class="row" style="margin-top: 25px;">
+        <div class="col text-center mdb-color lighten-1" style="color: white;">
+          <i class="fab fa-laravel fa-sm"></i> Notes
+        </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button onclick="createText()" type="button" class="btn btn-primary">Create</button>
+
+      <div class="row">
+        <div class="col text-left">
+          <ul class="list-unstyled">
+              <li><small class="form-text text-muted"><i class="fas fa-times"></i> Leave text field empty if you want to use lorem ipsum template.</small> </li>
+          </ul>
+        </div>
       </div>
+
+    </div>
+    <div class="modal-footer justify-content-center">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <button onclick="createText()" type="button" class="btn btn-primary">Create</button>
     </div>
   </div>
+</div>
 </div>
 
 <!-- List Modal -->
-<div class="modal fade" id="listModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">List Settings</h5>
-        <button type="button" class="close" data-dismiss="modal" onclick="resetLastInterval()" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-          <form>
-              <div class="container">
-                <div class="form-group">
-                  <label for="listSize">Size of list</label>
-                  <input class="form-control" id="listSize" placeholder="0">
-                </div>
+<div class="modal fade left" id="listModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-full-height modal-left" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title w-100" id="myModalLabel"><i class="fas fa-list"></i> List Settings</h4>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
 
-                <ul class="list-group" style="cursor: pointer;" onselectstart="return false" ondragstart="return false">
-                  <label>Separator</label>
-                  <li class="list-group-item" value="0" onclick="setElementAsActive(this)">GitHub Icon and bold text</li>
-                  <li class="list-group-item" value="1" onclick="setElementAsActive(this)">Point</li>
-                  <small class="form-text text-muted text-center">Choose how each element of list should be introduced.</small>
-                </ul> 
+    <div class="modal-body">
+      <form>
+        <div class="container">
+          <div class="form-group">
+            <label for="listSize">Size of list</label>
+            <input class="form-control" id="listSize" placeholder="0">
+          </div>
 
-                <br/>
+          <ul class="list-group" style="cursor: pointer;" onselectstart="return false" ondragstart="return false">
+            <label>Separator</label>
+            <li class="list-group-item" value="0" onclick="setElementAsActive(this)">GitHub Icon and bold text</li>
+            <li class="list-group-item" value="1" onclick="setElementAsActive(this)">Point</li>
+            <small class="form-text text-muted text-center">Choose how each element of list should be introduced.</small>
+          </ul> 
+        </div>
+      </form>
 
-                <small class="form-text text-muted">Point: Jagged elements of the list must be added manually later.</small>
-                <small class="form-text text-muted">GitHub Icon: Icon can be added within generated code by replacing ID(value between : chars) using Ctrl+F.</small>
-              </div>
-            </form>
+      <div class="row" style="margin-top: 25px;">
+        <div class="col text-center mdb-color lighten-1" style="color: white;">
+          <i class="fab fa-laravel fa-sm"></i> Notes
+        </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button onclick="createList()" type="button" class="btn btn-primary">Create</button>
+
+      <div class="row">
+        <div class="col text-left">
+          <ul class="list-unstyled">
+              <li><small class="form-text text-muted"><i class="fas fa-times"></i> Point separator <br/> Jagged elements of the list must be added manually later.</small> </li>
+              <li><small class="form-text text-muted"><i class="fas fa-times"></i> GitHub Icon separator <br/> Icon can be added within generated template later by replacing Id(value put between : chars) using Ctrl+F.</small> </li>
+              <li><small class="form-text text-muted"><i class="fas fa-times"></i> Size of list must be integer value different than 0.</small> </li>
+          </ul>
+        </div>
       </div>
+
+    </div>
+    <div class="modal-footer justify-content-center">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <button onclick="createList()" type="button" class="btn btn-primary">Create</button>
     </div>
   </div>
 </div>
+</div>
+
     <script src="https://kit.fontawesome.com/37c75e360e.js" crossorigin="anonymous"></script>
 
     <!-- JQuery -->

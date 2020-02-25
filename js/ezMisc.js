@@ -101,7 +101,7 @@ function triggerToast(message)
     toast.style.display = "block";
 
     var toastBody = document.getElementById('toastBody');
-    toastBody.innerHTML = message;
+    toastBody.innerHTML = '<i class="fas fa-exclamation-circle"></i> ' + message;
 
     beginToastCounter();
     $("#myToast").toast('show');
