@@ -19,16 +19,17 @@ var listTypeNotSpecified = 'Type of the list was not specified.';
 
 function createHeader() {
 
-    // title validation
+    // get
     var title = document.getElementById('headerName').value;
 
+    // validate
     if (title == false)
     {
         triggerToast(missingHeaderWarning);
         return false;
     }
 
-    // style setup
+    // create
     var style = document.getElementById('headerStyleList');
 
     switch(style.value) {
@@ -65,24 +66,19 @@ function createHeader() {
 
 function createImage()
 {
-    var paragraph = document.createElement('p');
-    paragraph = setElement(paragraph);
-    
-    // alt text validation
+    // get & validate
 
-    var imageAlt = document.getElementById('altImageText');
-
-    if (!imageAlt.value)
+    // Step1: Alternative Text
+    var imageAlt = document.getElementById('altImageText').value;
+    if (!imageAlt)
     {  
         triggerToast(noAltForImageSpecified);
         return false;
     }
-
-    // image url validation
-
+    // Step2: Image Source
     var imageURL = document.getElementById('imageURL').value;
-
     var image = document.createElement('img');
+    image.alt = imageAlt;
 
     if (imageURL == 'blank')
     {
@@ -103,27 +99,7 @@ function createImage()
         return false;
     }
 
-    // image position setup
-
-    var imagePosition = document.getElementById('imagePositionList');
-
-    switch (imagePosition.value) {
-        case '1':
-            paragraph.setAttribute('style', 'text-align: left; position: relative;');
-        break;
-        case '2':
-            paragraph.setAttribute('style', 'text-align: center; position: relative;');
-        break;
-        case '3':
-            paragraph.setAttribute('style', 'text-align: right; position: relative;');
-        break;
-        default:
-            paragraph.setAttribute('style', 'text-align: center; position: relative;');
-        break;
-    }
-
-    // size validation
-
+    // Step3: Axis Values
     var xAxisVal = document.getElementById('xAxisProperty').value;
     var yAxisVal = document.getElementById('yAxisProperty').value;
 
@@ -140,10 +116,12 @@ function createImage()
     else if (xAxisVal != 0 && yAxisVal == 0)
     {
         image.setAttribute('width', xAxisVal);
+        image.classList.add('wide');
     }
     else if (xAxisVal == 0 && yAxisVal != 0)
     {
         image.setAttribute('height', yAxisVal);
+        image.classList.add('high');
     }
     else if(xAxisVal == 0 && yAxisVal == 0)
     {
@@ -151,6 +129,28 @@ function createImage()
         return false;
     }
 
+    // create
+    var paragraph = document.createElement('p');
+    paragraph = setElement(paragraph);
+
+    var imagePosition = document.getElementById('imagePositionList');
+
+    switch (imagePosition.value) {
+        case '1':
+            paragraph.style.textAlign = 'left';
+        break;
+        case '2':
+            paragraph.style.textAlign = 'center';
+        break;
+        case '3':
+            paragraph.style.textAlign = 'right';
+        break;
+        default:
+            paragraph.style.textAlign = 'center';
+        break;
+    }
+
+    paragraph.style.position = 'relative';
     paragraph.appendChild(image); 
     paragraph.appendChild(createDeleteTool());
     renderElementOnPage(paragraph);
@@ -312,8 +312,8 @@ function createDeleteTool()
 function setElement(element)
 {
     element.setAttribute('id', GenerateUniqueId());
-    element.setAttribute('style', 'position: relative; margin: 5px 0 5px 0;');
-    element.setAttribute('class', 'block-stylizer');
+    element.setAttribute('style', 'position: relative; margin: 5px 0 5px 0; border: 1px solid red;');
+    element.setAttribute('class', 'block-stylizer ezGitPart');
 
     return element;
 }
