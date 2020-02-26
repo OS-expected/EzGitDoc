@@ -1,4 +1,6 @@
+// *********************************************************
 // HERE MAGIC HAPPENS :) 
+// *********************************************************
 
 function GenerateGitHubREADMECode()
 {
@@ -8,9 +10,11 @@ function GenerateGitHubREADMECode()
     var datas = document.getElementsByClassName('ezGitPart');
 
     for (var i = 0; i < datas.length; i++) {
+        var tmp = '';
 
         var elementTag = datas.item(i).children.item(0).tagName;
         var elementValue =  datas.item(i).children.item(0).innerHTML;
+        // console.log(i + ' ' + elementTag);
 
         // Header translation
         if(elementTag.startsWith('H'))
@@ -40,10 +44,10 @@ function GenerateGitHubREADMECode()
         // Image translation
         else if (elementTag.startsWith('IMG'))
         {
-            var element = datas.item(0); // to check image positioning
-            var image = element.children[0];
+            var paragraph = datas.item(i); 
+            var image = paragraph.children[0];
 
-            var tmp = '\r\n \r\n' + '<p align="' + element.style.textAlign + '"><img src="' + image.src + '"';
+            tmp = '\r\n' + '<p align="' + paragraph.style.textAlign + '"><img src="' + image.src + '"';
             
             if (image.classList.contains('wide') == true)
             {
@@ -59,23 +63,62 @@ function GenerateGitHubREADMECode()
             }
 
             tmp = tmp + ' alt="' + image.alt + '"></p>';
-
-            code = code + tmp;
-
-            console.log(code);
         }
+        // Table translation
+        else if (elementTag.startsWith('TABLE'))
+        {
+            var table = datas.item(i).children[0];
+            var columnAmount = table.rows[0].cells.length;
+            var rowAmount = table.rows.length;
+
+            tmp = tmp + '\r\n \r\n';
+
+            for (var x = 0; x < rowAmount; x++) {
+
+                tmp = tmp +'|';
+
+                for (var y = 0; y < columnAmount; y++) {
+                    if (x == 0) {
+                        tmp = tmp + ' header |';
+                    }
+                    if (x == 1) {
+                        tmp = tmp + ' :---: |';
+                    }
+                    else if (x >= 1) {
+                        tmp = tmp + ' text |';
+                    }
+                }
+
+                if (i != rowAmount) {
+                    tmp = tmp + '\r\n';
+                }
+            }
+        }
+        // Text translation
+        else if (elementTag.startsWith(''))
+        {
+            
+        }
+
+        code = code + tmp;
     }
 
-
-    // create
-    
+    console.log(code);
 }
 
 
 /*
-ezLogicTranslator output:
+ezLogicTranslator output cheatsheet
 
-HEADER => <hN>text</hN>
+HEADER
+<h{value}>text</h{value}>
 
-IMAGE => <p align="center"><img src="adress" height="" width=""></p>
+IMAGE 
+<p align="{value}"><img src="{value}" height="{value}" width="{value}"></p>
+
+TABLE (of type text)
+| header | header | header |
+| :---:  | :---:  | :---:  |
+| text | text | text | 
+
 */

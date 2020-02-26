@@ -190,7 +190,17 @@ function createTable()
 
       for (var j = 0; j < cols; j++) {
         var td = document.createElement('td');
-        td.appendChild(document.createTextNode('test'))
+        if (i == 0)
+        {
+            var bold = document.createElement('strong');
+            var text = document.createTextNode('header');
+            bold.appendChild(text);
+            td.appendChild(bold);
+        }
+        else
+        {
+            td.appendChild(document.createTextNode('test'))
+        }
         tr.appendChild(td)
       }
       tbdy.appendChild(tr);
@@ -312,7 +322,7 @@ function createDeleteTool()
 function setElement(element)
 {
     element.setAttribute('id', GenerateUniqueId());
-    element.setAttribute('style', 'position: relative; margin: 5px 0 5px 0; border: 1px solid red;');
+    element.setAttribute('style', 'position: relative; margin: 5px 0 5px 0;');
     element.setAttribute('class', 'block-stylizer ezGitPart');
 
     return element;
