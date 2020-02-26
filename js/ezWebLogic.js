@@ -338,3 +338,16 @@ function createDeleteTool()
     return icon;
 }
 
+
+// HELP
+
+function insertHelpData(partId)
+{
+    var datas = document.getElementsByClassName('helpDataPart');
+
+    for (var i = 0; i < datas.length; i++) {
+        datas.item(i).style.display = 'none';
+    }
+
+    datas.item(partId).style.display = 'block';
+}

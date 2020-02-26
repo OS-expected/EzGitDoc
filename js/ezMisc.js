@@ -142,6 +142,8 @@ function setElementAsActive(element)
 
 $(document).ready(function () {
 
+    $('.treeview-animated').mdbTreeview();
+    
     // power up SortableJS
     var el = document.getElementById('workingSpace');
 
