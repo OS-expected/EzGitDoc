@@ -14,7 +14,7 @@ var arrayColSizeExceeded = 'Max column number exceeded (27).';
 var listTypeNotSpecified = 'Type of the list was not specified.';
 
 // ********************************************
-// EzGitDoc Creating Elements Logic
+// Generator logic
 // ********************************************
 
 function createHeader() {
@@ -57,26 +57,17 @@ function createHeader() {
     h.innerHTML = title;
 
     var headerDiv = document.createElement('div');
-    headerDiv.setAttribute('id', GenerateUniqueId());
-    headerDiv.setAttribute('style', 'position: relative');
-    headerDiv.setAttribute('class', 'block-stylizer');
-
+    headerDiv = setElement(headerDiv);
     headerDiv.appendChild(h);
-
     headerDiv.appendChild(createDeleteTool());
-
-    var workingSpace = document.getElementById('workingSpace');
-
-    workingSpace.appendChild(headerDiv);
+    renderElementOnPage(headerDiv);
   }
 
 function createImage()
 {
     var paragraph = document.createElement('p');
-
-    paragraph.setAttribute('id', GenerateUniqueId());
-    paragraph.setAttribute('class', 'block-stylizer');
-
+    paragraph = setElement(paragraph);
+    
     // alt text validation
 
     var imageAlt = document.getElementById('altImageText');
@@ -161,24 +152,17 @@ function createImage()
     }
 
     paragraph.appendChild(image); 
-
     paragraph.appendChild(createDeleteTool());
-
-    // adding process 
-
-    var workingSpace = document.getElementById('workingSpace');
-
-    workingSpace.appendChild(paragraph);
+    renderElementOnPage(paragraph);
 }
 
 function createTable() 
 {
-
-    var tableDiv = document.createElement('div');
-
+    // get
     var rows = document.getElementById('arrRowsAmount').value;
     var cols = document.getElementById('arrColsAmount').value;
 
+    // validate
     if (checkIfNumber(rows) == false || checkIfNumber(cols) == false)
     {
         triggerToast(notAnumber);
@@ -190,13 +174,13 @@ function createTable()
         return false;
     }
 
+    // create
+    var tableDiv = document.createElement('div');
+
     var tbl = document.createElement('table');
-
-    tableDiv.setAttribute('id', GenerateUniqueId());
-    tableDiv.setAttribute('style', 'position: relative; margin: 5px 0 5px 0');
-    tableDiv.setAttribute('class', 'block-stylizer');
-
     tbl.style.width = '100%';
+
+    tableDiv = setElement(tableDiv);
     
     var tbdy = document.createElement('tbody');
     tbdy.setAttribute('style','text-align: center;');
@@ -216,10 +200,7 @@ function createTable()
 
     tableDiv.appendChild(tbl);
     tableDiv.appendChild(createDeleteTool());
-    
-    var workingSpace = document.getElementById('workingSpace');
-
-    workingSpace.appendChild(tableDiv);
+    renderElementOnPage(tableDiv);
 }
 
 function createText()
@@ -238,9 +219,7 @@ function createText()
     // create
     var textDiv = document.createElement('div');
 
-    textDiv.setAttribute('id', GenerateUniqueId());
-    textDiv.setAttribute('style', 'position: relative;');
-    textDiv.setAttribute('class', 'block-stylizer');
+    textDiv = setElement(textDiv);
 
     var paragraph = document.createElement('p');
     paragraph.innerHTML = text;
@@ -252,10 +231,7 @@ function createText()
 
     textDiv.appendChild(paragraph);
     textDiv.appendChild(createDeleteTool());
-
-    var workingSpace = document.getElementById('workingSpace');
-
-    workingSpace.appendChild(textDiv);
+    renderElementOnPage(textDiv);
 }
 
 function createList()
@@ -284,9 +260,7 @@ function createList()
 
     var listDiv = document.createElement('div');
 
-    listDiv.setAttribute('id', GenerateUniqueId());
-    listDiv.setAttribute('style', 'position: relative;');
-    listDiv.setAttribute('class', 'block-stylizer');
+    listDiv = setElement(listDiv);
 
     if (listOption == 0)
     {
@@ -315,10 +289,7 @@ function createList()
     }
 
     listDiv.appendChild(createDeleteTool());
-
-    var workingSpace = document.getElementById('workingSpace');
-
-    workingSpace.appendChild(listDiv);
+    renderElementOnPage(listDiv);
 }
 
 function removeElementByParentId(elementId) {
@@ -338,16 +309,18 @@ function createDeleteTool()
     return icon;
 }
 
-
-// HELP
-
-function insertHelpData(partId)
+function setElement(element)
 {
-    var datas = document.getElementsByClassName('helpDataPart');
+    element.setAttribute('id', GenerateUniqueId());
+    element.setAttribute('style', 'position: relative; margin: 5px 0 5px 0;');
+    element.setAttribute('class', 'block-stylizer');
 
-    for (var i = 0; i < datas.length; i++) {
-        datas.item(i).style.display = 'none';
-    }
-
-    datas.item(partId).style.display = 'block';
+    return element;
 }
+
+function renderElementOnPage(element)
+{
+    var workingSpace = document.getElementById('workingSpace');
+
+    workingSpace.appendChild(element);
+};

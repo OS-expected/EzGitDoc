@@ -18,6 +18,7 @@ window.addEventListener('load', function () {
     }
 })
 
+// Toast time management
 var seconds = 0;
 var minutes = 0;
 
@@ -100,6 +101,7 @@ function checkIfNumber(value)
     return /^\d+$/.test(value);
 }
 
+// Toast funcs
 var toast = document.getElementById('myToast');
 
 function triggerToast(message)
@@ -120,9 +122,7 @@ function disassembleToast()
     resetLastInterval();
 }
 
-// ***************************************
 // List modal
-// ***************************************
 var currentlyActive;
 var listOption;
 
@@ -142,23 +142,19 @@ function setElementAsActive(element)
 
 $(document).ready(function () {
 
+    // power up MDB Tree (help)
     $('.treeview-animated').mdbTreeview();
-    
     // power up SortableJS
     var el = document.getElementById('workingSpace');
-
     Sortable.create(el, {
         group: 'shared',
         animation: 150
     });
-
     // hide .navbar first
-    $(".navbar").hide();
-      
+    $(".navbar").hide();  
     // fade in .navbar
     $(function () {
         $(window).scroll(function () {
-            // set distance user needs to scroll before we fadeIn navbar
             if ($(this).scrollTop() > 700) {
                 $('.navbar').fadeIn();
             } else {
@@ -168,3 +164,14 @@ $(document).ready(function () {
     });
 });
 
+// Help modal content renderer
+function insertHelpData(partId)
+{
+    var datas = document.getElementsByClassName('helpDataPart');
+
+    for (var i = 0; i < datas.length; i++) {
+        datas.item(i).style.display = 'none';
+    }
+
+    datas.item(partId).style.display = 'block';
+}
