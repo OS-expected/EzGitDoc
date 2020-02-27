@@ -52,3 +52,10 @@ body {
 table, th, td {
     border: 1px solid black;
 }
+
+.helpImage {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+}

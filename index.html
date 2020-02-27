@@ -577,16 +577,19 @@ MODALS
                     <div class="treeview-animated-element" onclick="insertHelpData(0)"><i class="far fa-comment ic-w mr-1"></i>What is EzGitDoc</div>
                   </li>
                   <li>
-                    <div class="treeview-animated-element" onclick="insertHelpData(1)"><i class="fas fa-cogs ic-w mr-1"></i>EzGitDoc manual</div>
+                    <div class="treeview-animated-element" onclick="insertHelpData(1)"><i class="fas fa-running mr-1"></i>Quick start</div>
                   </li>
                   <li>
-                    <div class="treeview-animated-element" onclick="insertHelpData(2)"><i class="fas fa-desktop ic-w mr-1"></i>Support</div>
+                    <div class="treeview-animated-element" onclick="insertHelpData(2)"><i class="fas fa-cogs ic-w mr-1"></i>EzGitDoc manual</div>
                   </li>
                   <li>
-                    <div class="treeview-animated-element" onclick="insertHelpData(3)"><i class="fas fa-question mr-1"></i>Possible questions</div>
+                    <div class="treeview-animated-element" onclick="insertHelpData(3)"><i class="fas fa-desktop ic-w mr-1"></i>Support</div>
                   </li>
                   <li>
-                    <div class="treeview-animated-element" onclick="insertHelpData(4)"><i class="far fa-copyright mr-1"></i>License</div>
+                    <div class="treeview-animated-element" onclick="insertHelpData(4)"><i class="fas fa-question mr-1"></i>Possible questions</div>
+                  </li>
+                  <li>
+                    <div class="treeview-animated-element" onclick="insertHelpData(5)"><i class="far fa-copyright mr-1"></i>License</div>
                   </li>
                 </ul>
               </div>
@@ -614,6 +617,79 @@ MODALS
                   </p>
                   <!-- Button -->
                   <a href="https://github.com/trolit/EzGitDoc" target="_blank" class="btn btn-elegant btn-sm">Repository (GitHub)</a>         
+                </div>
+              
+              </div>
+            </div>
+
+            <!-- How to start -->
+            <div class="col-md-8 helpDataPart" style="display: none;">
+              <div class="card">
+                <!-- Card content -->
+                <div class="card-body">
+              
+                  <!-- Title -->
+                  <h4 class="card-title">Quick start</h4>
+                  <!-- Text -->
+                  <div class="card-text" style="margin: 0 10% 0 10%;">
+                    <div class="row">
+                      <img class="helpImage" src="images/quick_start_1.PNG" alt="EzGitDoc UI"/>
+                    </div>
+                    <br/>
+                    <div class="row">
+                      <p class="text-justify">
+                      In the above example buttons placed between red and yellow one are the one responsible for creating desired 
+                      elements of template. If you make at least one element, in the right bottom corner you will see button that on
+                      click will generate the scheme output. Example:
+                      </p>
+                    </div>
+                    <div class="row">
+                      <img class="helpImage" src="images/quick_start_2.PNG" alt="EzGitDoc generated code result"/>
+                    </div>
+                    <br/>
+                    <div class="row">
+                      <p class="text-justify">
+                      Then you only need to click button 'Copy to clipboard', put the output into *.md file and put your own data(if
+                      you for e.g. used table block). And.. that's it! But you probably would also like to know that the red button
+                      allows you to clear your currently made scheme and start from the beginning(use it with caution!). You might 
+                      want to think: what when I will do my scheme very long? I don't want to get back to top to click on button! 
+                      Well after scrolling certain amount the "toolbar" will popup to your aid as below:
+                      </p>
+                    </div>
+                    <br/>
+                    <div class="row">
+                      <img class="helpImage" src="images/quick_start_3.PNG" alt="EzGitDoc toolbar view"/>
+                    </div>
+                    <br/>
+                    <div class="row">
+                      <p class="text-justify">
+                      If you want to create something, take a look at note section in modal. There might be some crucial information.
+                      If you don't fullfil certain element pre-conditions (e.g. header text) you will see data why element wasn't 
+                      created in top right corner. Below is example:
+                      </p>
+                    </div>
+                    <br/>
+                    <div class="row">
+                      <img class="helpImage" src="images/quick_start_4.PNG" alt="EzGitDoc toast notification"/>
+                    </div>
+                    <br/>
+                    <div class="row">
+                      <p class="text-justify">
+                      Don't forget that you can switch created elements thanks to SortableJS library! If you don't like element you
+                      made, you can delete it by using red cross placed on the right side of element. 
+                      </p>
+                    </div>
+                    <br/>
+                    <div class="row">
+                      <img class="helpImage" src="images/quick_start_5.PNG" alt="EzGitDoc moving elements"/>
+                    </div>
+                    <br/>
+                    <br/>
+                    <p class="text-center">
+                    <i class="fas fa-thumbs-up fa-flip fa-4x"></i><br/><br/>
+                    You are ready now to use EzGitDoc!
+                    </p>
+                  </div>         
                 </div>
               
               </div>
@@ -670,22 +746,27 @@ MODALS
                     <div class="list-group">
                       <a class="list-group-item flex-column align-items-start" readonly>
                         <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-2 h5">Why creating something like this?</h5>
+                          <h5 class="mb-2 h5">Reason to create EzGitDoc</h5>
                         </div>
-                        <p class="mb-2"> 
+                        <p class="mb-2 text-justify"> 
                           The main idea behind EzGitDoc was to create something that will improve documentation experience. 
-                          In current times people are sharing each other their portfolios and seek opinion what to improve. Many times
-                          I see comments like 'You referenced repository to github but when someone goes there there is only file
-                          hierarchy'. Some of users don't use the possibility to make docs because they would have to search markdown.
-                          Sometimes when you make more complicated tables in *.md file something isn't generated properly and you have to
-                          seek what(especially if you make table that holds images).   
+                          Nowadays people are sharing each other their portfolios and get comments on what to improve. Many
+                          times I see comments like 'You referenced repository to github but when someone goes there, there
+                          is only file hierarchy'. Some forget about making nice README.md doc file. It shows that author is
+                          scrupulous. If you make tool then it's far more required. Sometimes when you make for example more 
+                          complicated tables in *.md file, something isn't generated properly and you have to seek what. It
+                          can be annoying. Its like looking for a needle in a haystack. I wanted to make a page in which user
+                          can create predefined elements 'live' and then generate code ready to use in *.md file. Current version
+                          doesn't allow to edit for e.g. inside table data but I think it's good start. It really makes doc 
+                          creation process easier. You can make elements, switch their positions. Check EzGitDoc manual to 
+                          see what it can do in its current state. Thanks for visit!
                         </p>
                       </a>
                       <a class="list-group-item flex-column align-items-start" readonly>
                         <div class="d-flex w-100 justify-content-between">
                           <h5 class="mb-2 h5">Will EzGitDoc be maintained?</h5>
                         </div>
-                        <p class="mb-2"> I hope so. Even if it won't be known. Updates won't be regular for sure but I have few more 
+                        <p class="mb-2 text-justify"> I hope so. Even if it won't be known. Updates won't be regular for sure but I have few more 
                           ideas I would like to see here. On the other hand I have other project thoughts I would like to create. I 
                           guess, we will see :)
                         </p>
@@ -694,15 +775,18 @@ MODALS
                         <div class="d-flex w-100 justify-content-between">
                           <h5 class="mb-2 h5">Can I contribute?</h5>
                         </div>
-                        <p class="mb-2"> If you would like to take part in making EzGitDoc better, feel free to email me what would you
+                        <p class="mb-2 text-justify"> If you would like to take part in making EzGitDoc better, feel free to email me what would you
                           like to change/add (in short) and we will see what we can do. I am looking forward to collaboration! 
                         </p>
                       </a>
                       <a class="list-group-item flex-column align-items-start" readonly>
                         <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-2 h5">How can I use EzGitDoc</h5>
+                          <h5 class="mb-2 h5">Can I share my template?</h5>
                         </div>
-                        <p class="mb-2"> See s 
+                        <p class="mb-2 text-justify"> Yes! It's part of contribution. Email me if you have made template that you think fits best
+                          for e.g. typical open source library or web api project. People can later see the suggestions and decide whether
+                          they want predefined template or custom one. In later version I hope that one of the features will be ability to 
+                          load picked template (keep fingers crossed) :] 
                         </p>
                       </a>
                     </div>    
@@ -797,13 +881,3 @@ Script references
     <script src="js/ezLogicTranslator.js"></script>
 </body>
 </html>
-
-<!-- 
-    Credits 
-    ID generator: https://gist.github.com/gordonbrander/2230317
-
-    navbar showing on scroll: David Taiaroa
-
-    SortableJS
-    https://sortablejs.github.io/Sortable/
--->

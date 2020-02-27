@@ -2,6 +2,8 @@ var codeGenButton = document.getElementById('codeGenButton');
 
 window.addEventListener('load', function () {
 
+    document.getElementById('resetButton').disabled = true;
+
     document.getElementById('iconDiv').hidden = true;
     clearPickedData();
 
