@@ -4,7 +4,7 @@ window.addEventListener('load', function () {
 
     document.getElementById('iconDiv').hidden = true;
     clearPickedData();
-    
+
     // Start bounce animation on logo
     var logo = document.getElementById('ezLogo');
     logo.classList.add('faa-bounce', 'animated');
@@ -216,4 +216,12 @@ function changeElementsVisiblity(element)
     else {
         element.style.visibility = 'hidden';
     }
+}
+
+function removeAllElements()
+{
+    const myNode = document.getElementById("workingSpace");
+    myNode.textContent = '';
+    
+    changeElementsVisiblity(codeGenButton);
 }
