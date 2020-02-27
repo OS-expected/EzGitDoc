@@ -38,7 +38,7 @@
 
 <body style="position: relative; background-color: #55606E;">
 
-<nav class="navbar navbar-expand-lg navbar-dark stylish-color-dark" style="position: fixed; z-index: 10; width: 100%;">
+<nav id="toolbar" class="navbar navbar-expand-lg navbar-dark stylish-color-dark" style="visibility: hidden; position: fixed; z-index: 10; width: 100%;">
   <a class="navbar-brand" style="font-size: 14px; color: white;">EzGitDoc<p class="text-center" style="margin: 0; font-size: 10px;font-family: 'Josefin Sans';">Toolbar <i class="fas fa-tools"></i></p></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -77,16 +77,25 @@
 </div>
 
 <div class="row" style="width: 100%;">
+  
   <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups"  style="margin: 0 auto 0 auto;">
     <div class="btn-group mr-2" role="group" aria-label="First group">
-      <button type="button" class="btn btn-blue-grey" data-toggle="modal" data-target="#headerModal">Header</button>
-      <button type="button" class="btn btn-blue-grey" data-toggle="modal" data-target="#imageModal">Image</button>
-      <button type="button" class="btn btn-blue-grey" data-toggle="modal" data-target="#arrayModal">Table</button>
-      <button type="button" class="btn btn-blue-grey" data-toggle="modal" data-target="#textModal">Text</button>
-      <button type="button" class="btn btn-blue-grey" data-toggle="modal" data-target="#listModal">List</button>
+      <button type="button" class="btn btn-mdb-color">Blockquote</button>
+      <button type="button" class="btn btn-mdb-color">Code</button>
+      <button type="button" class="btn btn-mdb-color" data-toggle="modal" data-target="#headerModal">Header</button>
     </div>
     <div class="btn-group mr-2" role="group" aria-label="Second group">
-      <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#helpModal">Help</button>
+      <button type="button" class="btn btn-mdb-color">Horizontal rule</button>
+      <button type="button" class="btn btn-mdb-color"  data-toggle="modal" data-target="#imageModal">Image</button>
+      <button type="button" class="btn btn-mdb-color">Link</button>
+    </div>
+    <div class="btn-group" role="group" aria-label="Third group">
+      <button type="button" class="btn btn-mdb-color"  data-toggle="modal" data-target="#listModal">List</button>
+      <button type="button" class="btn btn-mdb-color"  data-toggle="modal" data-target="#arrayModal">Table</button>
+      <button type="button" class="btn btn-mdb-color"  data-toggle="modal" data-target="#textModal">Text</button>
+    </div>
+    <div class="btn-group" role="group" aria-label="Fourth group">
+      <button type="button" class="btn btn-warning"  data-toggle="modal" data-target="#helpModal">Help</button>
     </div>
   </div>
 </div>
@@ -112,7 +121,7 @@
 
 </div>
 
-<button type="button" id="codeGenButton" class="btn btn-elegant btn-lg" style="float: right;" onclick="GenerateMDCode()">Generate Code</button>
+<button type="button" id="codeGenButton" class="btn btn-elegant btn-lg" style="float: right; visibility: hidden;" onclick="GenerateMDCode()">Generate Code</button>
 
 <!-- Help modal -->
 <div class="modal fade top" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -143,7 +152,7 @@
                     <div class="treeview-animated-element"><i class="fas fa-desktop ic-w mr-1"></i>Support (devices, browsers)
                   </li>
                   <li>
-                    <div class="treeview-animated-element"><i class="fas fa-trash-alt ic-w mr-1"></i>Thanks
+                    <div class="treeview-animated-element"><i class="fas fa-trash-alt ic-w mr-1"></i>License
                   </li>
                 </ul>
               </div>
@@ -151,13 +160,29 @@
 
             <!-- What is EzGitDoc -->
             <div class="col-md-8 helpDataPart" style="display: none;">
-              <ul class="list-group">
-                <li class="list-group-item">Cras justo odio</li>
-                <li class="list-group-item">Dapibus ac facilisis in</li>
-                <li class="list-group-item">Morbi leo risus</li>
-                <li class="list-group-item">Porta ac consectetur ac</li>
-                <li class="list-group-item">Vestibulum at eros</li>
-              </ul>
+              <div class="card">
+                <!-- Card content -->
+                <div class="card-body">
+              
+                  <!-- Title -->
+                  <h4 class="card-title">What is EzGitDoc?</h4>
+                  <!-- Text -->
+                  <p class="card-text text-justify">EzGitDoc is a project made with JavaScript and HTML to improve Git documentation experience. 
+                    Project's target was to create page where user can prepare doc template that later can be generated and pasted into *.md file. This
+                    gives ability to prepare nice, thought schemes that will increase quality of repository for newcomers and employers checking portfolios.
+                    You don't need to install anything as the project is setup and ready to use on github-pages. It's worth mentioning that some of the output
+                    elements are using HTML tags and some not (e.g. unordered list) but that is totally fine. By making linebreak these two ways of designing
+                    document are not causing conflicts between themselves. This gives ability of mixing both approaches which sometimes I find useful. EzGitDoc
+                    in its current stage allows you to create every desired element but some of them e.g. table can't be edited inside. But still.. This leaves
+                    you opportunity to make prototype of your document which later only needs to be edited with data reducing the risk of problems. EzGitDoc code
+                    translation outputs markdown *.md files accept. EzGitDoc is using SortableJS to let you switch elements positions. For more details
+                    please see repository page.
+                  </p>
+                  <!-- Button -->
+                  <a href="https://github.com/trolit/EzGitDoc" target="_blank" class="btn btn-elegant btn-sm">Repository (GitHub)</a>         
+                </div>
+              
+              </div>
             </div>
 
             <!-- Using EzGitDoc -->

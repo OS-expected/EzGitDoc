@@ -315,7 +315,7 @@ function removeElementByParentId(elementId) {
         element.parentNode.removeChild(element);
     }
     if(document.getElementsByClassName('ezGitPart').length <= 0) {
-        codeGenButton.hidden = true;
+        changeElementsVisiblity(codeGenButton);
     }
 }
 
@@ -329,7 +329,7 @@ function createDeleteTool()
 
 function setElement(element)
 {
-    codeGenButton.hidden = false; // show code generation button
+    changeElementsVisiblity(codeGenButton);
     element.setAttribute('id', GenerateUniqueId());
     element.setAttribute('style', 'position: relative; margin: 5px 0 5px 0;');
     element.setAttribute('class', 'block-stylizer ezGitPart');

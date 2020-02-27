@@ -3,19 +3,18 @@ var codeGenButton = document.getElementById('codeGenButton');
 window.addEventListener('load', function () {
 
     document.getElementById('iconDiv').hidden = true;
-    codeGenButton.hidden = true;
-    
     clearPickedData();
-
+    
+    // Start bounce animation on logo
     var logo = document.getElementById('ezLogo');
     logo.classList.add('faa-bounce', 'animated');
+    setTimeout(removeLogoAnimationAndManageToolbar, 2000);
 
-    setTimeout(removeLogoAnimation, 2000);
-
-    function removeLogoAnimation()
+    function removeLogoAnimationAndManageToolbar()
     {
         logo.classList.remove('faa-bounce', 'animated');
         logo.classList.add('faa-shake', 'animated-hover');
+        changeElementsVisiblity(document.getElementById('toolbar'));
     }
 })
 
@@ -206,5 +205,15 @@ function copyToClipboard()
     
     function hide() {
         $('[data-toggle="tooltip"]').tooltip("hide");
+    }
+}
+
+function changeElementsVisiblity(element)
+{
+    if (element.style.visibility == 'hidden') {
+        element.style.visibility = 'visible';
+    }
+    else {
+        element.style.visibility = 'hidden';
     }
 }
