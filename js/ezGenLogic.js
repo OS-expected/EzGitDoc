@@ -357,7 +357,10 @@ function createDeleteTool()
 
 function setElement(element)
 {
-    changeElementsVisiblity(codeGenButton);
+    if(codeGenButton.style.visibility == 'hidden')
+    {
+        changeElementsVisiblity(codeGenButton);
+    }
     element.setAttribute('id', GenerateUniqueId());
     element.setAttribute('style', 'position: relative; margin: 5px 0 5px 0;');
     element.setAttribute('class', 'block-stylizer ezGitPart');

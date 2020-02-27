@@ -135,6 +135,13 @@ function GenerateMDCode()
                 }
             }
         }
+        else if (elementTag.startsWith('A'))
+        {
+            var element =  datas.item(i).children[i];
+
+            tmp = tmp + '<a href="' + element.getAttribute('href') + '">' + element.innerHTML + '</a>'
+        }
+
         code = code + tmp;
         if(i == 0) {
             code = code.replace(/^\s*[\r\n]/gm, '');
@@ -173,4 +180,7 @@ Text
 - text
 - text
 - text
+
+---------LINK------------------------
+<a href="{value}">{value}</a>
 */
