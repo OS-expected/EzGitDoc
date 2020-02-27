@@ -9,8 +9,8 @@
     <meta charset="utf-8">
 
     <title>EzGitDoc</title>
-    <meta name="description" content="The HTML5 Herald">
-    <meta name="author" content="SitePoint">
+    <meta name="description" content="Easy Repository Documentation Maker">
+    <meta name="author" content="Pawel Idzikowski, trolit">
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -76,9 +76,8 @@
   </div>
 </div>
 
-<div class="row" style="width: 100%;">
-  
-  <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups"  style="margin: 0 auto 0 auto;">
+<div class="row">
+  <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups" style="margin: 0 auto 0 auto;">
     <div class="btn-group mr-2" role="group" aria-label="First group">
       <button type="button" class="btn btn-mdb-color">Blockquote</button>
       <button type="button" class="btn btn-mdb-color">Code</button>
@@ -86,8 +85,8 @@
     </div>
     <div class="btn-group mr-2" role="group" aria-label="Second group">
       <button type="button" class="btn btn-mdb-color">Horizontal rule</button>
-      <button type="button" class="btn btn-mdb-color"  data-toggle="modal" data-target="#imageModal">Image</button>
-      <button type="button" class="btn btn-mdb-color">Link</button>
+      <button type="button" class="btn btn-mdb-color" data-toggle="modal" data-target="#imageModal">Image</button>
+      <button type="button" class="btn btn-mdb-color" data-toggle="modal" data-target="#linkModal">Link</button>
     </div>
     <div class="btn-group" role="group" aria-label="Third group">
       <button type="button" class="btn btn-mdb-color"  data-toggle="modal" data-target="#listModal">List</button>
@@ -105,7 +104,7 @@
     <div id="myToast" data-autohide="false" class="toast" style="display: none; z-index: 12; position: fixed; top: 0; right: 0;">
         <div class="toast-header">
         <i class="fab fa-earlybirds fa-2x"></i>
-        <strong class="mr-auto"> &nbsp; EzGitDoc </strong>
+        <strong class="mr-auto"> &nbsp; EzGitDoc &nbsp; &nbsp; &nbsp;</strong>
         <small id="toastTime"></small>
         <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" onclick="disassembleToast()" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -255,6 +254,53 @@
       </div>
     </div>
   </div>
+</div>
+
+<!-- Link Modal -->
+<div class="modal fade left" id="linkModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-full-height modal-left" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title w-100"><i class="fas fa-unlink"></i> Link Settings</h4>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div class="modal-body">
+      <form>
+        <div class="form-group">
+          <label for="hrefName">Text</label>
+          <input class="form-control" id="hrefName" placeholder="Text" autocomplete="off">
+        </div>
+
+        <div class="form-group">
+          <label for="hrefAddress">Href</label>
+          <input class="form-control" id="hrefAddress" placeholder="e.g. https://mylink.com" autocomplete="off">
+        </div>
+
+      <div class="row" style="margin-top: 25px;">
+        <div class="col text-center mdb-color lighten-1" style="color: white;">
+          <i class="fab fa-laravel fa-sm"></i> Notes
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col text-left">
+          <ul class="list-unstyled">
+              <li><small class="form-text text-muted"><i class="fas fa-times"></i> Specify the name of the link by text input.</small></li>
+              <li><small class="form-text text-muted"><i class="fas fa-times"></i> Both fields are required.</small></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer justify-content-center">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <button onclick="createLink()" type="button" class="btn btn-primary">Create</button>
+    </div>
+  </div>
+</div>
 </div>
 
 <!-- Image Modal -->

@@ -12,6 +12,8 @@ var notAnumber = 'Input field contained noninteger value.';
 var restrictedValue = 'Input field contained illegal value (0).';
 var arrayColSizeExceeded = 'Max column number exceeded (27).';
 var listTypeNotSpecified = 'Type of the list was not specified.';
+var noLinkName = 'Link name was not specified.';
+var noLinkHref = 'Link adress is missing.'
 
 // ********************************************
 // Onpage Generator Logic
@@ -267,9 +269,7 @@ function createList()
     }
 
     // create
-
     var listDiv = document.createElement('div');
-
     listDiv = setElement(listDiv);
 
     if (listOption == 0)
@@ -307,6 +307,34 @@ function createList()
 
     listDiv.appendChild(createDeleteTool());
     renderElementOnPage(listDiv);
+}
+
+function createLink()
+{
+    // get
+    var linkName = document.getElementById('hrefName').value;
+    var linkHref = document.getElementById('hrefAddress').value;
+
+    // validate
+    if (!linkName) {
+        triggerToast(noLinkName);
+        return false;
+    }
+    else if (!linkHref) {
+        triggerToast(noLinkHref);
+        return false;
+    }
+
+    // create
+    var div = document.createElement('div');
+    div = setElement(div);
+    var link = document.createElement('a');
+    link.href = linkHref;
+    link.innerHTML = linkName;
+
+    div.appendChild(link);
+    div.appendChild(createDeleteTool());
+    renderElementOnPage(div);
 }
 
 function removeElementByParentId(elementId) {
