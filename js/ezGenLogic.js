@@ -14,7 +14,7 @@ var arrayColSizeExceeded = 'Max column number exceeded (27).';
 var listTypeNotSpecified = 'Type of the list was not specified.';
 
 // ********************************************
-// Generator logic
+// Onpage Generator Logic
 // ********************************************
 
 function createHeader() {
@@ -274,7 +274,13 @@ function createList()
 
     if (listOption == 0)
     {
-        var iconPlace = GenerateUniqueId();
+        var iconName = document.getElementById('iconName').value;
+        var iconPlace;
+        if (!iconName) {
+            iconPlace = GenerateUniqueId();
+        } else {
+            iconPlace = iconName;
+        }
         for (var i = 0; i < listSize; i++)
         {
             var paragraph = document.createElement('p'); 

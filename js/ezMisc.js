@@ -2,6 +2,7 @@ var codeGenButton = document.getElementById('codeGenButton');
 
 window.addEventListener('load', function () {
 
+    document.getElementById('iconDiv').hidden = true;
     codeGenButton.hidden = true;
     
     clearPickedData();
@@ -146,6 +147,13 @@ function setElementAsActive(element)
     element.classList.add('active');
 
     currentlyActive = element;
+
+    if (element.value == 0) {
+        document.getElementById('iconDiv').hidden = false;
+    }
+    else {
+        document.getElementById('iconDiv').hidden = true;
+    }
 }
 
 $(document).ready(function () {

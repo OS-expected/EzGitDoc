@@ -24,19 +24,19 @@ function GenerateMDCode()
                     code = code + '<h1>' + elementValue + '</h1>';
                 break;
                 case '2':
-                    code = code + '\r\n \r\n' + '<h2>' + elementValue + '</h2>';
+                    code = code + '<h2>' + elementValue + '</h2>';
                 break;
                 case '3':
-                    code = code + '\r\n \r\n' + '<h3>' + elementValue + '</h3>';
+                    code = code + '<h3>' + elementValue + '</h3>';
                 break;
                 case '4':
-                    code = code + '\r\n \r\n' + '<h4>' + elementValue + '</h4>';
+                    code = code + '<h4>' + elementValue + '</h4>';
                 break;
                 case '5':
-                    code = code + '\r\n \r\n' + '<h5>' + elementValue + '</h5>';
+                    code = code + '<h5>' + elementValue + '</h5>';
                 break;
                 case '6':
-                    code = code + '\r\n \r\n' + '<h6>' + elementValue + '</h6>';
+                    code = code + '<h6>' + elementValue + '</h6>';
                 break;
             }
         }
@@ -70,7 +70,7 @@ function GenerateMDCode()
             var columnAmount = table.rows[0].cells.length;
             var rowAmount = table.rows.length;
 
-            for (var x = 0; x < rowAmount; x++) {
+            for (var x = 0; x <= rowAmount; x++) {
 
                 tmp = tmp +'|';
 
@@ -86,7 +86,8 @@ function GenerateMDCode()
                     }
                 }
 
-                if (i != rowAmount) {
+                if (x != rowAmount)
+                {
                     tmp = tmp + '\r\n';
                 }
             }
@@ -104,7 +105,9 @@ function GenerateMDCode()
                 for (var x = 0; x < listLength - 1; x++) {
                     //:icon: **header:** text <br/> <br/>
                     tmp = tmp + datas.item(i).children[x].innerHTML + '<br>';
-                    tmp = tmp + '\r\n';
+                    if (x < listLength - 2) {
+                        tmp = tmp + '\r\n';
+                    }
                 }
             }
             // else it's raw text
@@ -125,7 +128,11 @@ function GenerateMDCode()
         {
             var listLength = datas.item(i).getElementsByTagName("LI").length;
             for (var x = 0; x < listLength; x++) {
-                tmp = tmp + '- text' + '\r\n';
+                tmp = tmp + '- text';
+
+                if (x < listLength - 1) {
+                    tmp = tmp + '\r\n';
+                }
             }
         }
         code = code + tmp;
