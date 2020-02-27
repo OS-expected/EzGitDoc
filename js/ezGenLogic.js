@@ -13,7 +13,8 @@ var restrictedValue = 'Input field contained illegal value (0).';
 var arrayColSizeExceeded = 'Max column number exceeded (27).';
 var listTypeNotSpecified = 'Type of the list was not specified.';
 var noLinkName = 'Link name was not specified.';
-var noLinkHref = 'Link adress is missing.'
+var noLinkHref = 'Link adress is missing.';
+var atLeastOneCharacter = 'Code textarea requires at least one character.';
 
 // ********************************************
 // Onpage Generator Logic
@@ -333,6 +334,35 @@ function createLink()
     link.innerHTML = linkName;
 
     div.appendChild(link);
+    div.appendChild(createDeleteTool());
+    renderElementOnPage(div);
+}
+
+function createCode() 
+{
+    // get
+    var codeText = document.getElementById('codeArea').value;
+    var codeLanguage = document.getElementById('codeLanguage').value;
+
+    // validate
+    if(!codeText) {
+        triggerToast(atLeastOneCharacter);
+        return false;
+    }
+
+    // create
+    var div = document.createElement('div');
+    div = setElement(div);
+    var code = document.createElement('code');
+
+    if(!codeLanguage) {
+        code.innerHTML = '```<br/>' + codeText + '<br/>```';
+    }
+    else {
+        code.innerHTML = '```' + codeLanguage + '<br/>' + codeText + '<br/>```';
+    }
+
+    div.appendChild(code);
     div.appendChild(createDeleteTool());
     renderElementOnPage(div);
 }

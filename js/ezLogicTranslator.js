@@ -12,7 +12,7 @@ function GenerateMDCode()
         code += '\r\n\r\n';
         var tmp = '';
         var elementTag = datas.item(i).children.item(0).tagName;
-
+        // console.log(elementTag);
         // Header translation
         if(elementTag.startsWith('H'))
         {
@@ -135,11 +135,18 @@ function GenerateMDCode()
                 }
             }
         }
+        // Link translation
         else if (elementTag.startsWith('A'))
         {
-            var element =  datas.item(i).children[i];
-
-            tmp = tmp + '<a href="' + element.getAttribute('href') + '">' + element.innerHTML + '</a>'
+            var element =  datas.item(i).children[0];
+            var href = element.getAttribute('href');
+            tmp = tmp + '<a href="' + href + '">' + element.innerHTML + '</a>'
+        }
+        // Code translation
+        else if (elementTag.startsWith('CODE'))
+        {
+            var element =  datas.item(i).children[0];
+            tmp = tmp + element.innerHTML.replace(/<br\s*[\/]?>/gi, "\r\n");
         }
 
         code = code + tmp;
@@ -149,7 +156,7 @@ function GenerateMDCode()
     }
 
     document.getElementById('codeTextBox').value = code;
-    $('#codeModal').modal('show');
+    $('#generatedCodeModal').modal('show');
 }
 
 
