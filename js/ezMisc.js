@@ -142,6 +142,8 @@ function setElementAsActive(element)
 
 $(document).ready(function () {
 
+    $('[data-toggle="tooltip"]').tooltip();
+
     // power up MDB Tree (help)
     $('.treeview-animated').mdbTreeview();
     // power up SortableJS
@@ -174,4 +176,22 @@ function insertHelpData(partId)
     }
 
     datas.item(partId).style.display = 'block';
+}
+
+function copyToClipboard()
+{
+    var copyText = document.getElementById("codeTextBox");
+    copyText.select();
+    copyText.setSelectionRange(0, 99999)
+    document.execCommand("copy");
+    document.getSelection().removeAllRanges();  
+}
+
+function hideTooltip()
+{
+    setTimeout(hide, 400);
+
+    function hide() {
+        $('[data-toggle="tooltip"]').tooltip("hide");
+    }
 }

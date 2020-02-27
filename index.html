@@ -477,6 +477,32 @@
 </div>
 </div>
 
+<!-- Generated Code Modal -->
+<div class="modal fade" id="codeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">EzGitDoc</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group shadow-textarea">
+          <label for="codeTextBox">Generated Code</label>
+          <button type="button" data-toggle="tooltip" data-placement="top" data-trigger="click" title="Output copied!" 
+          class="btn btn-info" style="float: right; margin: 0;" onclick="hideTooltip()">Copy to clipboard</button>
+          <textarea class="form-control z-depth-1" id="codeTextBox" rows="3" placeholder="Write something here..." readonly></textarea>
+        </div>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
     <script src="https://kit.fontawesome.com/37c75e360e.js" crossorigin="anonymous"></script>
 
     <!-- JQuery -->

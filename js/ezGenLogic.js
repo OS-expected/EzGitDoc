@@ -279,6 +279,10 @@ function createList()
         for (var i = 0; i < listSize; i++)
         {
             var paragraph = document.createElement('p'); 
+            if (i == 0)
+            {
+                paragraph.classList.add('customList'); // this is what makes difference to the TEXT option also stored in paragraph
+            }
             paragraph.innerHTML = ':' + iconPlace + ':' + ' <strong>bold text:</strong> ' + 'description';
             var br = document.createElement("br"); 
             paragraph.appendChild(br);  

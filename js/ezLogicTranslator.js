@@ -14,7 +14,7 @@ function GenerateGitHubREADMECode()
 
         var elementTag = datas.item(i).children.item(0).tagName;
         var elementValue =  datas.item(i).children.item(0).innerHTML;
-        // console.log(i + ' ' + elementTag);
+        console.log(i + ' ' + elementTag);
 
         // Header translation
         if(elementTag.startsWith('H'))
@@ -95,30 +95,79 @@ function GenerateGitHubREADMECode()
             }
         }
         // Text translation
-        else if (elementTag.startsWith(''))
+        else if (elementTag.startsWith('P'))
         {
-            
+            var paragraph = datas.item(i).children[0];
+
+            // if paragraph contains customList then its custom list
+            if (paragraph.classList.contains('customList'))
+            {
+                var listLength =  datas.item(i).children.length;
+                
+                tmp = tmp + '\r\n';
+
+                for (var x = 0; x < listLength - 1; x++) {
+                    //:icon: **header:** text <br/> <br/>
+                    tmp = tmp + datas.item(i).children[x].innerHTML + '<br>';
+                    tmp = tmp + '\r\n';
+                }
+            }
+            else
+            {
+                if (paragraph.style.textAlign == 'justify')
+                {
+                    tmp = tmp + '\r\n' + '<p align="justify">' + paragraph.innerHTML + '</p>'; 
+                }
+                else
+                {
+                    tmp = tmp + '\r\n' + paragraph.innerHTML; 
+                }
+            }
+        }
+        else if (elementTag.startsWith('UL'))
+        {
+            var listLength = datas.item(i).getElementsByTagName("LI").length;
+
+            tmp = tmp + '\r\n';
+
+            for (var x = 0; x < listLength; x++) {
+                tmp = tmp + '- text' + '\r\n';
+            }
         }
 
         code = code + tmp;
     }
 
-    console.log(code);
+    document.getElementById('codeTextBox').value = code;
+    $('#codeModal').modal('show');
 }
 
 
 /*
 ezLogicTranslator output cheatsheet
 
-HEADER
+---------HEADER------------------------
 <h{value}>text</h{value}>
 
-IMAGE 
+---------IMAGE-------------------------
 <p align="{value}"><img src="{value}" height="{value}" width="{value}"></p>
 
-TABLE (of type text)
+---------TABLE (of type text)----------
 | header | header | header |
 | :---:  | :---:  | :---:  |
 | text | text | text | 
 
+---------TEXT--------------------------
+<p align="justify">
+Text
+</p>
+
+---------LIST WITH GITHUB ICON---------
+:icon: **header:** text <br/> <br/>
+:icon: **header:** text <br/> <br/>
+
+---------STANDARD POINT LIST---------
+- text
+- text
+- text
 */
