@@ -1,10 +1,10 @@
+var codeGenButton = document.getElementById('codeGenButton');
+
 window.addEventListener('load', function () {
 
-    var style = document.getElementById('headerStyleList');
-    style.value = 0;
-
-    var imageAlign = document.getElementById('imagePositionList');
-    imageAlign.value = 0;
+    codeGenButton.hidden = true;
+    
+    clearPickedData();
 
     var logo = document.getElementById('ezLogo');
     logo.classList.add('faa-bounce', 'animated');
@@ -18,7 +18,15 @@ window.addEventListener('load', function () {
     }
 })
 
-// Toast time management
+function clearPickedData() {
+    var style = document.getElementById('headerStyleList');
+    style.value = 0;
+
+    var imageAlign = document.getElementById('imagePositionList');
+    imageAlign.value = 0;
+}
+
+// Toast Time Handler
 var seconds = 0;
 var minutes = 0;
 
@@ -180,17 +188,14 @@ function insertHelpData(partId)
 
 function copyToClipboard()
 {
+    setTimeout(hide, 400);
+
     var copyText = document.getElementById("codeTextBox");
     copyText.select();
     copyText.setSelectionRange(0, 99999)
     document.execCommand("copy");
-    document.getSelection().removeAllRanges();  
-}
-
-function hideTooltip()
-{
-    setTimeout(hide, 400);
-
+    document.getSelection().removeAllRanges(); 
+    
     function hide() {
         $('[data-toggle="tooltip"]').tooltip("hide");
     }

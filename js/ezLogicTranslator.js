@@ -2,27 +2,26 @@
 // HERE MAGIC HAPPENS :) 
 // *********************************************************
 
-function GenerateGitHubREADMECode()
+function GenerateMDCode()
 {
     var code = '';
 
-    // get
     var datas = document.getElementsByClassName('ezGitPart');
 
     for (var i = 0; i < datas.length; i++) {
+        code += '\r\n\r\n';
         var tmp = '';
-
         var elementTag = datas.item(i).children.item(0).tagName;
-        var elementValue =  datas.item(i).children.item(0).innerHTML;
-        console.log(i + ' ' + elementTag);
 
         // Header translation
         if(elementTag.startsWith('H'))
         {
+            var elementValue =  datas.item(i).children.item(0).innerHTML;
+
             switch(elementTag[1])
             {
                 case '1':
-                    code = code + '\r\n \r\n' + '<h1>' + elementValue + '</h1>';
+                    code = code + '<h1>' + elementValue + '</h1>';
                 break;
                 case '2':
                     code = code + '\r\n \r\n' + '<h2>' + elementValue + '</h2>';
@@ -47,7 +46,7 @@ function GenerateGitHubREADMECode()
             var paragraph = datas.item(i); 
             var image = paragraph.children[0];
 
-            tmp = '\r\n' + '<p align="' + paragraph.style.textAlign + '"><img src="' + image.src + '"';
+            tmp = '<p align="' + paragraph.style.textAlign + '"><img src="' + image.src + '"';
             
             if (image.classList.contains('wide') == true)
             {
@@ -70,8 +69,6 @@ function GenerateGitHubREADMECode()
             var table = datas.item(i).children[0];
             var columnAmount = table.rows[0].cells.length;
             var rowAmount = table.rows.length;
-
-            tmp = tmp + '\r\n \r\n';
 
             for (var x = 0; x < rowAmount; x++) {
 
@@ -99,43 +96,42 @@ function GenerateGitHubREADMECode()
         {
             var paragraph = datas.item(i).children[0];
 
-            // if paragraph contains customList then its custom list
+            // if contains .customList - its list with icons
             if (paragraph.classList.contains('customList'))
             {
                 var listLength =  datas.item(i).children.length;
                 
-                tmp = tmp + '\r\n';
-
                 for (var x = 0; x < listLength - 1; x++) {
                     //:icon: **header:** text <br/> <br/>
                     tmp = tmp + datas.item(i).children[x].innerHTML + '<br>';
                     tmp = tmp + '\r\n';
                 }
             }
+            // else it's raw text
             else
             {
                 if (paragraph.style.textAlign == 'justify')
                 {
-                    tmp = tmp + '\r\n' + '<p align="justify">' + paragraph.innerHTML + '</p>'; 
+                    tmp = tmp + '<p align="justify">' + paragraph.innerHTML + '</p>'; 
                 }
                 else
                 {
-                    tmp = tmp + '\r\n' + paragraph.innerHTML; 
+                    tmp = tmp + ' ' + paragraph.innerHTML; 
                 }
             }
         }
+        // Unordered list translation
         else if (elementTag.startsWith('UL'))
         {
             var listLength = datas.item(i).getElementsByTagName("LI").length;
-
-            tmp = tmp + '\r\n';
-
             for (var x = 0; x < listLength; x++) {
                 tmp = tmp + '- text' + '\r\n';
             }
         }
-
         code = code + tmp;
+        if(i == 0) {
+            code = code.replace(/^\s*[\r\n]/gm, '');
+        }
     }
 
     document.getElementById('codeTextBox').value = code;

@@ -275,7 +275,6 @@ function createList()
     if (listOption == 0)
     {
         var iconPlace = GenerateUniqueId();
-
         for (var i = 0; i < listSize; i++)
         {
             var paragraph = document.createElement('p'); 
@@ -292,13 +291,11 @@ function createList()
     else if (listOption == 1)
     {
         var list = document.createElement('ul');
-
         for (var i = 0; i < listSize; i++) {
             var point = document.createElement('li');
             point.innerHTML = 'text';
             list.appendChild(point);
         }
-
         listDiv.appendChild(list);
     }
 
@@ -308,9 +305,11 @@ function createList()
 
 function removeElementByParentId(elementId) {
     var element = document.getElementById(elementId.parentNode.id);
-    if(element != null)
-    {
+    if(element != null) {
         element.parentNode.removeChild(element);
+    }
+    if(document.getElementsByClassName('ezGitPart').length <= 0) {
+        codeGenButton.hidden = true;
     }
 }
 
@@ -319,12 +318,12 @@ function createDeleteTool()
     var icon = document.createElement('i');
     icon.setAttribute('onclick', 'removeElementByParentId(this)');
     icon.setAttribute('class', 'fas fa-times fa-lg delete-icon-stylizer');
-
     return icon;
 }
 
 function setElement(element)
 {
+    codeGenButton.hidden = false; // show code generation button
     element.setAttribute('id', GenerateUniqueId());
     element.setAttribute('style', 'position: relative; margin: 5px 0 5px 0;');
     element.setAttribute('class', 'block-stylizer ezGitPart');
@@ -335,6 +334,5 @@ function setElement(element)
 function renderElementOnPage(element)
 {
     var workingSpace = document.getElementById('workingSpace');
-
     workingSpace.appendChild(element);
 };

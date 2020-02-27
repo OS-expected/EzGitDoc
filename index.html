@@ -112,7 +112,7 @@
 
 </div>
 
-<button type="button" class="btn btn-elegant btn-lg" style="float: right;" onclick="GenerateGitHubREADMECode()">Generate Code</button>
+<button type="button" id="codeGenButton" class="btn btn-elegant btn-lg" style="float: right;" onclick="GenerateMDCode()">Generate Code</button>
 
 <!-- Help modal -->
 <div class="modal fade top" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -192,7 +192,7 @@
         <form>
           <div class="form-group">
             <label for="headerName">Text</label>
-            <input class="form-control" id="headerName" placeholder="Text">
+            <input class="form-control" id="headerName" placeholder="Text" autocomplete="off">
           </div>
           
           <div class="form-group">
@@ -247,12 +247,12 @@
       <form>
           <div class="form-group">
             <label for="altImageText">Alternative text</label>
-            <input class="form-control" id="altImageText" placeholder="Image shows..">
+            <input class="form-control" id="altImageText" placeholder="Image shows.." autocomplete="off">
           </div>
           
           <div class="form-group">
               <label for="imageURL">URL</label>
-              <input class="form-control" id="imageURL" placeholder="e.g. https://www.mypage.com/myimage.png">
+              <input class="form-control" id="imageURL" placeholder="e.g. https://www.mypage.com/myimage.png" autocomplete="off">
             </div>
 
           <div class="form-group">
@@ -275,12 +275,12 @@
 
                       <div class="col-md-6">
                           <label class="text-center col-md-12" for="xAxisProperty">X axis (width)</label>
-                          <input class="form-control col-md-auto text-center" id="xAxisProperty" placeholder="0">
+                          <input class="form-control col-md-auto text-center" id="xAxisProperty" placeholder="0" autocomplete="off">
                       </div>
                       
                       <div class="col-md-6">
                           <label class="text-center col-md-12" for="yAxisProperty">Y axis (height)</label>
-                          <input class="form-control col-md-auto text-center" id="yAxisProperty" placeholder="0">
+                          <input class="form-control col-md-auto text-center" id="yAxisProperty" placeholder="0" autocomplete="off">
                       </div>
                   </div>
               </div>
@@ -336,12 +336,12 @@
 
                     <div class="col-md-6">
                         <label class="text-center col-md-12" for="arrRowsAmount">Rows</label>
-                        <input class="form-control col-md-auto text-center" id="arrRowsAmount" placeholder="0">
+                        <input class="form-control col-md-auto text-center" id="arrRowsAmount" placeholder="0" autocomplete="off">
                     </div>
                     
                     <div class="col-md-6">
                         <label class="text-center col-md-12" for="arrColsAmount">Columns</label>
-                        <input class="form-control col-md-auto text-center" id="arrColsAmount" placeholder="0">
+                        <input class="form-control col-md-auto text-center" id="arrColsAmount" placeholder="0" autocomplete="off">
                     </div>
                 </div>
             </div>
@@ -389,7 +389,7 @@
         <div class="container">
           <div class="form-group">
             <label for="commentArea">Text:</label>
-            <textarea class="form-control" rows="5" id="commentArea"></textarea>
+            <textarea class="form-control" rows="5" id="commentArea" autocomplete="off"></textarea>
           </div>
 
           <div class="form-check">
@@ -440,7 +440,7 @@
         <div class="container">
           <div class="form-group">
             <label for="listSize">Size of list</label>
-            <input class="form-control" id="listSize" placeholder="0">
+            <input class="form-control" id="listSize" placeholder="0" autocomplete="off">
           </div>
 
           <ul class="list-group" style="cursor: pointer;" onselectstart="return false" ondragstart="return false">
@@ -492,7 +492,7 @@
         <div class="form-group shadow-textarea">
           <label for="codeTextBox">Generated Code</label>
           <button type="button" data-toggle="tooltip" data-placement="top" data-trigger="click" title="Output copied!" 
-          class="btn btn-info" style="float: right; margin: 0;" onclick="hideTooltip()">Copy to clipboard</button>
+          class="btn btn-info" style="float: right; margin: 0;" onclick="copyToClipboard()">Copy to clipboard</button>
           <textarea class="form-control z-depth-1" id="codeTextBox" rows="3" placeholder="Write something here..." readonly></textarea>
         </div>
       </div>
