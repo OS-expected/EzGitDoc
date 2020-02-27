@@ -95,7 +95,7 @@ Logo & buttons
 <div class="row" style="width: 100%;"> <!-- w100 prevents horizontal scroll to appear -->
   <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups" style="margin: 0 auto 0 auto;">
     <div class="btn-group" role="group" aria-label="Fourth group">
-      <button type="button" class="btn btn-danger" onclick="removeAllElements()">Reset</button>
+      <button id="resetButton" type="button" class="btn btn-danger" onclick="removeAllElements()" disabled>Reset</button>
     </div>
     <div class="btn-group mr-2" role="group" aria-label="First group">
       <button type="button" class="btn btn-mdb-color" data-toggle="modal" data-target="#codeModal">Code</button>
@@ -574,16 +574,19 @@ MODALS
                 <hr>
                 <ul class="treeview-animated-list mb-3">
                   <li>
-                    <div class="treeview-animated-element" onclick="insertHelpData(0)"><i class="far fa-comment ic-w mr-1"></i>What is EzGitDoc
+                    <div class="treeview-animated-element" onclick="insertHelpData(0)"><i class="far fa-comment ic-w mr-1"></i>What is EzGitDoc</div>
                   </li>
                   <li>
-                    <div class="treeview-animated-element" onclick="insertHelpData(1)"><i class="fas fa-cogs ic-w mr-1"></i>Using EzGitDoc
+                    <div class="treeview-animated-element" onclick="insertHelpData(1)"><i class="fas fa-cogs ic-w mr-1"></i>EzGitDoc manual</div>
                   </li>
                   <li>
-                    <div class="treeview-animated-element"><i class="fas fa-desktop ic-w mr-1"></i>Support (devices, browsers)
+                    <div class="treeview-animated-element" onclick="insertHelpData(2)"><i class="fas fa-desktop ic-w mr-1"></i>Support</div>
                   </li>
                   <li>
-                    <div class="treeview-animated-element"><i class="fas fa-trash-alt ic-w mr-1"></i>License
+                    <div class="treeview-animated-element" onclick="insertHelpData(3)"><i class="fas fa-question mr-1"></i>Possible questions</div>
+                  </li>
+                  <li>
+                    <div class="treeview-animated-element" onclick="insertHelpData(4)"><i class="far fa-copyright mr-1"></i>License</div>
                   </li>
                 </ul>
               </div>
@@ -623,6 +626,117 @@ MODALS
                 <li class="list-group-item">Dapibus ac facilisis in</li>
               </ul>
             </div>
+
+            <!-- Support -->
+            <div class="col-md-8 helpDataPart" style="display: none;">
+              <div class="card">
+                <!-- Card content -->
+                <div class="card-body">
+              
+                  <!-- Title -->
+                  <h4 class="card-title">Support</h4>
+                  <!-- Text -->
+                  <p class="card-text">
+                    <h6>Browser</h6><hr/>
+                    <p class="text-justify">
+                    It is recommended to use modern browser in order to get maximum functionality out of the
+                    project. EzGitDoc uses for example classList (HTML DOM property) which is not working on every browser version. 
+                    According to w3schools <a href="https://www.w3schools.com/jsref/prop_element_classlist.asp" target="_blank">documentation</a>
+                    you must have at least Chrome 8, IE10, Firefox 3.6, Safari 5.1 or Opera 11.5 in order to properly use all implemented EzGitDoc 
+                    functions.</p>
+                    <h6>Device</h6><hr/>
+                    <p class="text-justify">
+                    EzGitDoc user interface(UI) is built using Bootstrap and MDBootstrap frameworks that allow to make the page react very nice
+                    on different screens (act responsively). If you would use operate EzGitDoc on smartphone it would be probably harder to work
+                    with than on typical device with keyboard and mouse but not impossible (maybe switching element's position would be hard). 
+                    The project was created with purpose to be used on for e.g. PC, notebook but the way its UI is built, allows user to use it
+                    on more portable devices.</p> 
+                  </p>        
+                </div>
+              
+              </div>
+            </div>
+            
+            <!-- Possible questions -->
+            <div class="col-md-8 helpDataPart" style="display: none;">
+              <div class="card">
+                <!-- Card content -->
+                <div class="card-body">
+              
+                  <!-- Title -->
+                  <h4 class="card-title">Possible questions</h4>
+                  <!-- Text -->
+                  <p class="card-text">
+                    <div class="list-group">
+                      <a class="list-group-item flex-column align-items-start" readonly>
+                        <div class="d-flex w-100 justify-content-between">
+                          <h5 class="mb-2 h5">Why creating something like this?</h5>
+                        </div>
+                        <p class="mb-2"> 
+                          The main idea behind EzGitDoc was to create something that will improve documentation experience. 
+                          In current times people are sharing each other their portfolios and seek opinion what to improve. Many times
+                          I see comments like 'You referenced repository to github but when someone goes there there is only file
+                          hierarchy'. Some of users don't use the possibility to make docs because they would have to search markdown.
+                          Sometimes when you make more complicated tables in *.md file something isn't generated properly and you have to
+                          seek what(especially if you make table that holds images).   
+                        </p>
+                      </a>
+                      <a class="list-group-item flex-column align-items-start" readonly>
+                        <div class="d-flex w-100 justify-content-between">
+                          <h5 class="mb-2 h5">Will EzGitDoc be maintained?</h5>
+                        </div>
+                        <p class="mb-2"> I hope so. Even if it won't be known. Updates won't be regular for sure but I have few more 
+                          ideas I would like to see here. On the other hand I have other project thoughts I would like to create. I 
+                          guess, we will see :)
+                        </p>
+                      </a>
+                      <a class="list-group-item flex-column align-items-start" readonly>
+                        <div class="d-flex w-100 justify-content-between">
+                          <h5 class="mb-2 h5">Can I contribute?</h5>
+                        </div>
+                        <p class="mb-2"> If you would like to take part in making EzGitDoc better, feel free to email me what would you
+                          like to change/add (in short) and we will see what we can do. I am looking forward to collaboration! 
+                        </p>
+                      </a>
+                      <a class="list-group-item flex-column align-items-start" readonly>
+                        <div class="d-flex w-100 justify-content-between">
+                          <h5 class="mb-2 h5">How can I use EzGitDoc</h5>
+                        </div>
+                        <p class="mb-2"> See s 
+                        </p>
+                      </a>
+                    </div>    
+                </div>
+              
+              </div>
+            </div>
+
+            <!-- License -->
+            <div class="col-md-8 helpDataPart" style="display: none;">
+              <div class="card">
+                <!-- Card content -->
+                <div class="card-body">
+              
+                  <!-- Title -->
+                  <h4 class="card-title">MIT License</h4>
+                  <!-- Text -->
+                  <p class="card-text text-justify">
+                    Copyright (c) 2020 Paweł Idzikowski
+                    <br/><br/>
+                    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+                    <br/><br/>
+                    The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+                    <br/><br/>
+                    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+                  </p>
+                  <!-- Button -->
+                  <a href="https://github.com/trolit/EzGitDoc/blob/master/LICENSE" target="_blank" class="btn btn-elegant btn-sm">Check via GitHub</a>         
+                </div>
+              
+              </div>
+            </div>
+            
+            
         </div>
         
       </div>

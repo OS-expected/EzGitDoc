@@ -220,8 +220,12 @@ function changeElementsVisiblity(element)
 
 function removeAllElements()
 {
+    document.getElementById('resetButton').disabled = true;
     const myNode = document.getElementById("workingSpace");
     myNode.textContent = '';
     
-    changeElementsVisiblity(codeGenButton);
+    if (codeGenButton.style.visibility = 'visible')
+    {
+        changeElementsVisiblity(codeGenButton);
+    }
 }

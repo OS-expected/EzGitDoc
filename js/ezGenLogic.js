@@ -58,7 +58,7 @@ function createHeader() {
             var h = document.createElement('h2');
       } 
 
-    h.innerHTML = title;
+    h.textContent = title;
 
     var headerDiv = document.createElement('div');
     headerDiv = setElement(headerDiv);
@@ -374,11 +374,13 @@ function removeElementByParentId(elementId) {
     }
     if(document.getElementsByClassName('ezGitPart').length <= 0) {
         changeElementsVisiblity(codeGenButton);
+        document.getElementById('resetButton').disabled = true;
     }
 }
 
 function createDeleteTool()
 {
+    document.getElementById('resetButton').disabled = false;
     var icon = document.createElement('i');
     icon.setAttribute('onclick', 'removeElementByParentId(this)');
     icon.setAttribute('class', 'fas fa-times fa-lg delete-icon-stylizer');

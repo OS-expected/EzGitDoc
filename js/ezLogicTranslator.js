@@ -16,7 +16,7 @@ function GenerateMDCode()
         // Header translation
         if(elementTag.startsWith('H'))
         {
-            var elementValue =  datas.item(i).children.item(0).innerHTML;
+            var elementValue =  datas.item(i).children.item(0).textContent;
 
             switch(elementTag[1])
             {
@@ -115,11 +115,11 @@ function GenerateMDCode()
             {
                 if (paragraph.style.textAlign == 'justify')
                 {
-                    tmp = tmp + '<p align="justify">' + paragraph.innerHTML + '</p>'; 
+                    tmp = tmp + '<p align="justify">' + paragraph.textContent + '</p>'; 
                 }
                 else
                 {
-                    tmp = tmp + ' ' + paragraph.innerHTML; 
+                    tmp = tmp + ' ' + paragraph.textContent; 
                 }
             }
         }
@@ -140,7 +140,7 @@ function GenerateMDCode()
         {
             var element =  datas.item(i).children[0];
             var href = element.getAttribute('href');
-            tmp = tmp + '<a href="' + href + '">' + element.innerHTML + '</a>'
+            tmp = tmp + '<a href="' + href + '">' + element.textContent + '</a>'
         }
         // Code translation
         else if (elementTag.startsWith('CODE'))
@@ -155,10 +155,12 @@ function GenerateMDCode()
         }
     }
 
+    code += credits;
     document.getElementById('codeTextBox').value = code;
     $('#generatedCodeModal').modal('show');
 }
 
+var credits = '\r\n\r\nTemplate generated using <a href="https://github.com/trolit/EzGitDoc">EzGitDoc</a>';
 
 /*
 ezLogicTranslator output cheatsheet
@@ -190,4 +192,9 @@ Text
 
 ---------LINK------------------------
 <a href="{value}">{value}</a>
+
+---------CODE------------------------
+```{value}
+{value}
+```
 */
