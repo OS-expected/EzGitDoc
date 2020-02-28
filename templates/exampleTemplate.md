@@ -11,8 +11,8 @@ Template scheme on how to prepare predefined document for others
 </p>
 <br/><br/>
 <p align="left">
-Short Description <br/> 
-<!-- Put under this comment short description of the template, pros, experience with that way of showing data etc. -->
+Description <br/> 
+<!-- Put under this comment description of the template, pros, experience with that way of showing repository etc. -->
 My template targets repositories that concern example. Here you will find banner image to attract reader, listed pros of using Project Example and some reviews from customers in tabular form. I recommend setting up document that way if you need to advert your product. There must be some images too! 
 </p>
 
