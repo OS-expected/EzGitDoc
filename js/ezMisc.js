@@ -1,12 +1,10 @@
 var codeGenButton = document.getElementById('codeGenButton');
 
 window.addEventListener('load', function () {
-
+    // Disable RESET button
     document.getElementById('resetButton').disabled = true;
-
+    // Hide GitHub List element
     document.getElementById('iconDiv').hidden = true;
-    clearPickedData();
-
     // Start bounce animation on logo
     var logo = document.getElementById('ezLogo');
     logo.classList.add('faa-bounce', 'animated');
@@ -19,14 +17,6 @@ window.addEventListener('load', function () {
         changeElementsVisiblity(document.getElementById('toolbar'));
     }
 })
-
-function clearPickedData() {
-    var style = document.getElementById('headerStyleList');
-    style.value = 0;
-
-    var imageAlign = document.getElementById('imagePositionList');
-    imageAlign.value = 0;
-}
 
 // Toast Time Handler
 var seconds = 0;
@@ -157,10 +147,10 @@ function setElementAsActive(element)
     }
 }
 
+// on page startup with JQuery
 $(document).ready(function () {
-
+    // power up Tooltip
     $('[data-toggle="tooltip"]').tooltip();
-
     // power up MDB Tree (help)
     $('.treeview-animated').mdbTreeview();
     // power up SortableJS
@@ -210,6 +200,7 @@ function copyToClipboard()
     }
 }
 
+// For Code generator button
 function changeElementsVisiblity(element)
 {
     if (element.style.visibility == 'hidden') {
@@ -220,6 +211,7 @@ function changeElementsVisiblity(element)
     }
 }
 
+// Reset button functionality
 function removeAllElements()
 {
     document.getElementById('resetButton').disabled = true;
