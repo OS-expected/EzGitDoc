@@ -24,8 +24,8 @@ My template targets repositories that concern example. Here you will find banner
 <br/>
 <br/>
 
-<!-- Below Examples empty line put generated code -->
-# Example
+<!-- Below Demonstration empty line put generated code -->
+# Demonstration
 
 <h2>Project: Example</h2>
 
@@ -76,7 +76,7 @@ Template generated using <a href="https://github.com/trolit/EzGitDoc">EzGitDoc</
 Template generated using <a href="https://github.com/trolit/EzGitDoc">EzGitDoc</a>
 ```
 
-<!-- In that code block, you put code that we see as demonstration (code below #Example empty line) -->
+<!-- In that code block, you put code that we see as demonstration (code below #Demonstration empty line) -->
 ##### Raw code (without filled data)
 ```html
 <h2>Project: Example</h2>
