@@ -41,3 +41,12 @@ EzGitDoc uses:
 
 ## License
 <a href="https://github.com/trolit/EzGitDoc/blob/master/LICENSE">MIT License</a>, Paweł Idzikowski
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+---
+Icon responding for EzGitDoc logo belongs to Font Awesome and is available <a href="https://fontawesome.com/icons/earlybirds">over here</a>.
