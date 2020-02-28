@@ -223,3 +223,14 @@ function removeAllElements()
         changeElementsVisiblity(codeGenButton);
     }
 }
+
+// Save to file
+function saveStaticDataToFile() {
+    var date = new Date;
+    var hour = date.getHours();
+    var minutes = String(date.getMinutes()).padStart(2, "0");
+    
+    var blob = new Blob([lastGeneratedCode],
+        { type: "text/plain;charset=utf-8" });
+    saveAs(blob, "ezGitDoc_" + hour + '-' + minutes + '.txt');
+}

@@ -2,6 +2,8 @@
 // HERE MAGIC HAPPENS :) 
 // *********************************************************
 
+var lastGeneratedCode = '';
+
 function GenerateMDCode()
 {
     var code = '';
@@ -179,6 +181,7 @@ function GenerateMDCode()
     }
 
     code += credits;
+    lastGeneratedCode = code;
     document.getElementById('codeTextBox').value = code;
     $('#generatedCodeModal').modal('show');
 }

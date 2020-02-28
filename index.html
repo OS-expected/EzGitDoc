@@ -963,6 +963,7 @@ MODALS
       <div class="modal-body">
         <div class="form-group shadow-textarea">
           <label for="codeTextBox">Generated Code</label>
+          <button type="button" class="btn btn-unique" onclick="saveStaticDataToFile()" style="float: right; margin: 0;">Save to file</button>
           <button type="button" data-toggle="tooltip" data-placement="top" data-trigger="click" title="Output copied!" 
           class="btn btn-info" style="float: right; margin: 0;" onclick="copyToClipboard()">Copy to clipboard</button>
           <textarea class="form-control z-depth-1" id="codeTextBox" rows="3" placeholder="Write something here..." readonly></textarea>
@@ -993,6 +994,9 @@ Script references
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.13.0/js/mdb.min.js"></script>
     <!-- SortableJS -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.10.1/Sortable.min.js"></script>
+    <!-- FileSaverJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
+
     <!-- ezGitDoc references -->
     <script src="js/ezMisc.js"></script>
     <script src="js/ezGenLogic.js"></script>
