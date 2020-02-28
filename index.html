@@ -593,7 +593,7 @@ MODALS
                     <div class="treeview-animated-element" onclick="insertHelpData(1)"><i class="fas fa-running mr-1"></i>Quick start</div>
                   </li>
                   <li>
-                    <div class="treeview-animated-element" onclick="insertHelpData(2)"><i class="fas fa-cogs ic-w mr-1"></i>EzGitDoc manual</div>
+                    <div class="treeview-animated-element" onclick="insertHelpData(2)"><i class="fas fa-cogs ic-w mr-1"></i>EzGitDoc examples</div>
                   </li>
                   <li>
                     <div class="treeview-animated-element" onclick="insertHelpData(3)"><i class="fas fa-desktop ic-w mr-1"></i>Support</div>
@@ -704,16 +704,123 @@ MODALS
                     </p>
                   </div>         
                 </div>
-              
               </div>
             </div>
 
-            <!-- Using EzGitDoc -->
+            <!-- EzGitDoc Manual -->
             <div class="col-md-8 helpDataPart" style="display: none;">
-              <ul class="list-group">
-                <li class="list-group-item">Cras justo odio</li>
-                <li class="list-group-item">Dapibus ac facilisis in</li>
-              </ul>
+              <div class="card">
+                <!-- Card content -->
+                <div class="card-body">
+              
+                  <!-- Title -->
+                  <h4 class="card-title">EzGitDoc examples</h4>
+                  <!-- Text -->
+                  <div class="card-text">
+                    <p class="text-justify">
+                        Here you will find some examples how each element is being displayed on EzGitDoc page and how generated code
+                        looks in *.md file. Most of them are generated in HTML tags but not all. Keep in mind the rule about mixing
+                        markdown to make empty line between them(by dividing elements with empty line document scheme is also more
+                        readable).
+                    </p>
+                    <blockquote class="blockquote bq-warning">
+                      <p class="bq-title">Code</p>
+                      <p>EzGitDoc:</p>
+                      <div class="row">
+                        <img src="images/examples_1.1.PNG" style="width: 70%; margin-left: 5%;"/>
+                      </div>
+                      <p>*.md file:</p>
+                      <div class="row">
+                        <img src="images/examples_1.2.PNG" style="width: 70%; margin-left: 5%;"/>
+                      </div>
+                      <p class="text-justify">If you plan to use code area, keep in mind that in EzGitDoc
+                        breaklines won't be visible(like in the example above).
+                      </p>
+
+                      <p class="bq-title">Header</p>
+                      <p>EzGitDoc:</p>
+                      <div class="row">
+                        <img src="images/examples_2.1.PNG" style="width: 70%; margin-left: 5%;"/>
+                      </div>
+                      <p>*.md file:</p>
+                      <div class="row">
+                        <img src="images/examples_2.2.PNG" style="width: 70%; margin-left: 5%;"/>
+                      </div>
+                      <p class="text-justify">EzGitDoc is using HTML &LeftAngleBracket; h &RightAngleBracket; tags to create 
+                        headers in *.md file but it's also possible to use hashtags. 
+                      </p>
+
+                      <p class="bq-title">Image</p>
+                      <p>EzGitDoc:</p>
+                      <div class="row">
+                        <img src="images/examples_3.1.PNG" style="width: 70%; margin-left: 5%;"/>
+                      </div>
+                      <p>*.md file:</p>
+                      <div class="row">
+                        <img src="images/examples_3.2.PNG" style="width: 70%; margin-left: 5%;"/>
+                      </div>
+
+                      <p class="bq-title">Link</p>
+                      <p>EzGitDoc:</p>
+                      <div class="row">
+                        <img src="images/examples_4.1.PNG" style="width: 70%; margin-left: 5%;"/>
+                      </div>
+                      <p>*.md file:</p>
+                      <div class="row">
+                        <img src="images/examples_4.2.PNG" style="width: 70%; margin-left: 5%;"/>
+                      </div>
+
+                      <p class="bq-title">Image</p>
+                      <p>EzGitDoc:</p>
+                      <div class="row">
+                        <img src="images/examples_5.1.PNG" style="width: 70%; margin-left: 5%;"/>
+                      </div>
+                      <p>*.md file:</p>
+                      <div class="row">
+                        <img src="images/examples_5.2.PNG" style="width: 70%; margin-left: 5%;"/>
+                      </div>
+                      <p class="text-justify">Example shows two types of list that you can create. Typical one with point or 
+                        custom one(with icon). If you checked games on e.g. steam it's popular to describe the game pros in 
+                        short with icons but it can be used to describe pros of your library too! Below is my example from
+                        one of the repositories: 
+                      </p>
+                      <div class="row">
+                        <img src="images/examples_extra1.PNG" style="width: 70%; margin-left: 5%;"/>
+                      </div>
+
+                      <p class="bq-title">Table</p>
+                      <p>EzGitDoc:</p>
+                      <div class="row">
+                        <img src="images/examples_6.1.PNG" style="width: 70%; margin-left: 5%;"/>
+                      </div>
+                      <p>*.md file:</p>
+                      <div class="row">
+                        <img src="images/examples_6.2.PNG" style="width: 70%; margin-left: 5%;"/>
+                      </div>
+                      <p class="text-justify">Typical table we use in GitHub I guess is the text one. EzGitDoc currently does
+                        not allow to edit table data but it's easy to do after making template right? Sometimes we want to
+                        share some screenshots if it's game repository or front-end part example etc. I suggest using table to make
+                        fancy gallery. If you plan to make one, remember that you need to have same resolution images and then
+                        find best width x height composition(or accept unequal rows/image stretches). It costs some time but 
+                        the effect is satisfying! My example below: 
+                      </p>
+                      <div class="row">
+                        <img src="images/examples_extra2.PNG" style="width: 70%; margin-left: 5%;"/>
+                      </div>
+
+                      <p class="bq-title">Text</p>
+                      <p>EzGitDoc:</p>
+                      <div class="row">
+                        <img src="images/examples_7.1.PNG" style="width: 70%; margin-left: 5%;"/>
+                      </div>
+                      <p>*.md file:</p>
+                      <div class="row">
+                        <img src="images/examples_7.2.PNG" style="width: 70%; margin-left: 5%;"/>
+                      </div>
+                    </blockquote>
+                    </div>        
+                </div> 
+              </div>
             </div>
 
             <!-- Support -->
@@ -741,8 +848,7 @@ MODALS
                     The project was created with purpose to be used on for e.g. PC, notebook but the way its UI is built, allows user to use it
                     on more portable devices.</p> 
                   </p>        
-                </div>
-              
+                </div> 
               </div>
             </div>
             
@@ -796,10 +902,9 @@ MODALS
                         <div class="d-flex w-100 justify-content-between">
                           <h5 class="mb-2 h5">Can I share my template?</h5>
                         </div>
-                        <p class="mb-2 text-justify"> Yes! It's part of contribution. Email me if you have made template that you think fits best
-                          for e.g. typical open source library or web api project. People can later see the suggestions and decide whether
-                          they want predefined template or custom one. In later version I hope that one of the features will be ability to 
-                          load picked template (keep fingers crossed) :] 
+                        <p class="mb-2 text-justify"> Yes! It's part of contribution. Email me if you have made template(or create PR but please, check
+                          first exampleTemplate files to see how to prepare file) that you think fits best for e.g. typical open source library or web
+                          api project. People can later see the suggestions and decide whether they want predefined, verified template or custom one. 
                         </p>
                       </a>
                     </div>    
