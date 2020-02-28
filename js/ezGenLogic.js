@@ -266,7 +266,7 @@ function createText()
     textDiv = setElement(textDiv);
 
     var paragraph = document.createElement('p');
-    paragraph.innerHTML = text;
+    paragraph.textContent = text;
 
     if(checkboxStatus == 1)
     {
@@ -331,7 +331,7 @@ function createList()
         var list = document.createElement('ul');
         for (var i = 0; i < listSize; i++) {
             var point = document.createElement('li');
-            point.innerHTML = 'text';
+            point.textContent = 'text';
             list.appendChild(point);
         }
         listDiv.appendChild(list);
@@ -362,7 +362,7 @@ function createLink()
     div = setElement(div);
     var link = document.createElement('a');
     link.href = linkHref;
-    link.innerHTML = linkName;
+    link.textContent = linkName;
 
     div.appendChild(link);
     div.appendChild(createDeleteTool());
