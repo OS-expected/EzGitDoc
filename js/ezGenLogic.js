@@ -266,7 +266,7 @@ function createText()
     textDiv = setElement(textDiv);
 
     var paragraph = document.createElement('p');
-    paragraph.textContent = text;
+    paragraph.innerHTML = text;
 
     if(checkboxStatus == 1)
     {

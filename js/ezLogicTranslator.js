@@ -140,11 +140,11 @@ function GenerateMDCode()
             {
                 if (paragraph.style.textAlign == 'justify')
                 {
-                    tmp = tmp + '<p align="justify">' + paragraph.textContent + '</p>'; 
+                    tmp = tmp + '<p align="justify">' + paragraph.innerHTML + '</p>'; 
                 }
                 else
                 {
-                    tmp = tmp + ' ' + paragraph.textContent; 
+                    tmp = tmp + ' ' + paragraph.innerHTML; 
                 }
             }
         }
