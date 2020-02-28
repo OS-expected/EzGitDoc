@@ -23,30 +23,21 @@ EzGitDoc uses:
 
 ### Example 1
 
-#### Generated scheme
-<img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/ex1_a.PNG" alt="" width="60%">
-
-#### Result
----
-<img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/ex1_b.PNG" alt="" width="60%">
+| Scheme | Result |
+| :--: | :--: | 
+| <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/ex1_a.PNG" alt="" width="100%"> | <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/ex1_b.PNG" alt="" width="100%"> | 
 
 ### Example 2
 
-#### Generated scheme
-<img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/ex2_a.PNG" alt="" width="60%">
-
-#### Result
----
-<img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/ex2_b.PNG" alt="" width="60%">
+| Scheme | Result |
+| :--: | :--: | 
+| <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/ex2_a.PNG" alt="" width="100%"> | <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/ex2_b.PNG" alt="" width="100%"> | 
 
 ### Example 3
 
-#### Modal 
-<img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/ex3_a.PNG" alt="" height="30%">
+| Modal | Scheme | Result |
+| :--: | :--: | :--: |
+| <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/ex3_a.PNG" alt="" height="70%"> | <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/ex3_b.PNG" alt="" height="100%"> | <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/ex3_c.PNG" alt="" height="100%"> | 
 
-#### Generated scheme
-<img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/ex3_b.PNG" alt="" width="70%">
+ 
 
-#### Result
----
-<img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/ex3_c.PNG" alt="" width="70%">
