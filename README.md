@@ -39,5 +39,5 @@ EzGitDoc uses:
 | :--: | :--: | :--: |
 | <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/ex3_a.PNG" alt="" height="70%"> | <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/ex3_b.PNG" alt="" height="100%"> | <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/ex3_c.PNG" alt="" height="100%"> | 
 
- 
-
+## License
+<a href="https://github.com/trolit/EzGitDoc/blob/master/LICENSE">MIT License</a>, Paweł Idzikowski
