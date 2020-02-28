@@ -15,6 +15,8 @@ var listTypeNotSpecified = 'Type of the list was not specified.';
 var noLinkName = 'Link name was not specified.';
 var noLinkHref = 'Link adress is missing.';
 var atLeastOneCharacter = 'Code textarea requires at least one character.';
+var emptyTableInput = 'One or more input fields responsible for creating table were empty!';
+var tableTypeNotSpecified = 'Table type was not specified.';
 
 // ********************************************
 // Onpage Generator Logic
@@ -164,6 +166,7 @@ function createTable()
     // get
     var rows = document.getElementById('arrRowsAmount').value;
     var cols = document.getElementById('arrColsAmount').value;
+    var tableType = document.getElementById('tableType').value;
 
     // validate
     if (checkIfNumber(rows) == false || checkIfNumber(cols) == false)
@@ -171,9 +174,19 @@ function createTable()
         triggerToast(notAnumber);
         return false;
     }
+    else if(!rows || !cols)
+    {
+        triggerToast(emptyTableInput);
+        return false;
+    }
     else if(cols >= 27)
     {
         triggerToast(arrayColSizeExceeded);
+        return false;
+    }
+    else if (tableType != 1 && tableType != 2)
+    {
+        triggerToast(tableTypeNotSpecified);
         return false;
     }
 
@@ -183,6 +196,12 @@ function createTable()
     var tbl = document.createElement('table');
     tbl.style.width = '100%';
 
+    if (tableType == 1) {
+        tbl.classList.add('textTable');
+    } else {
+        tbl.classList.add('imageTable');
+    }
+    
     tableDiv = setElement(tableDiv);
     
     var tbdy = document.createElement('tbody');
@@ -193,7 +212,7 @@ function createTable()
 
       for (var j = 0; j < cols; j++) {
         var td = document.createElement('td');
-        if (i == 0)
+        if (i == 0 && tableType == 1)
         {
             var bold = document.createElement('strong');
             var text = document.createTextNode('header');
@@ -202,7 +221,19 @@ function createTable()
         }
         else
         {
-            td.appendChild(document.createTextNode('test'))
+            if (tableType == 1)
+            {
+                td.appendChild(document.createTextNode('test'))
+            }
+            else if (tableType == 2)
+            {
+                var image = document.createElement('img');
+                image.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png';
+                image.alt = '#toadd';
+                image.width = '250';
+                image.height = '140';
+                td.appendChild(image);
+            }
         }
         tr.appendChild(td)
       }

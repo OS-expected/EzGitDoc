@@ -69,27 +69,50 @@ function GenerateMDCode()
             var table = datas.item(i).children[0];
             var columnAmount = table.rows[0].cells.length;
             var rowAmount = table.rows.length;
+            if(table.classList.contains('textTable')) {
+                for (var x = 0; x <= rowAmount; x++) {
 
-            for (var x = 0; x <= rowAmount; x++) {
-
-                tmp = tmp +'|';
-
-                for (var y = 0; y < columnAmount; y++) {
-                    if (x == 0) {
-                        tmp = tmp + ' header |';
+                    tmp = tmp +'|';
+    
+                    for (var y = 0; y < columnAmount; y++) {
+                        if (x == 0) {
+                            tmp = tmp + ' header |';
+                        }
+                        if (x == 1) {
+                            tmp = tmp + ' :---: |';
+                        }
+                        else if (x >= 1) {
+                            tmp = tmp + ' text |';
+                        }
                     }
-                    if (x == 1) {
-                        tmp = tmp + ' :---: |';
-                    }
-                    else if (x >= 1) {
-                        tmp = tmp + ' text |';
+                    if (x != rowAmount) {
+                        tmp = tmp + '\r\n';
                     }
                 }
+            } else if (table.classList.contains('imageTable')) {
+                for (var x = 0; x <= rowAmount + 1; x++) {
 
-                if (x != rowAmount)
-                {
-                    tmp = tmp + '\r\n';
+                    tmp = tmp +'|';
+
+                    for (var y = 0; y < columnAmount; y++) {
+                        if (x == 0) {
+                            tmp = tmp + ' |';
+                        }
+                        if (x == 1) {
+                            tmp = tmp + ' :---: |';
+                        }
+                        else if (x >= 1) {
+                            tmp = tmp + ' <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png" alt="#toadd" width="250" height="140"/> |';
+                        }
+                    }
+                    if (x != rowAmount + 1) {
+                        tmp = tmp + '\r\n';
+                    }
                 }
+            }
+            else {
+                triggerToast('Code generation failed (table type problem).');
+                return false;
             }
         }
         // Text translation
@@ -175,6 +198,11 @@ ezLogicTranslator output cheatsheet
 | header | header | header |
 | :---:  | :---:  | :---:  |
 | text | text | text | 
+
+---------TABLE (of type image)----------
+|  |  |  |
+| :---:  | :---:  | :---:  |
+| <img src="{value}" alt="{value}" width="350px" height="140px"></img> | <img src="{value}" alt="{value}" width="350px" height="140px"></img> | <img src="{value}" alt="{value}" width="350px" height="140px"></img> | 
 
 ---------TEXT--------------------------
 <p align="justify">
