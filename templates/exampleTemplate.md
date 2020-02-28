@@ -1,3 +1,32 @@
+<!--
+Template scheme on how to prepare predefined document for others
+-->
+
+<img align="right" height="150" src="https://github.com/trolit/EzGitDoc/blob/master/favicon.png"/>
+<br/>
+<br/>
+<p align="left">
+  <strong>Predefined EzGitDoc Template</strong></br>
+  by @authorName, <a href="url to github profile">github profile</a> <br/><br/> <!-- place your name and url to GitHub profile -->
+</p>
+<br/><br/>
+<p align="left">
+Short Description <br/> 
+<!-- Put under this comment short description of the template, pros, experience with that way of showing data etc. -->
+My template targets repositories that concern example. Here you will find banner image to attract reader, listed pros of using Project Example and some reviews from customers in tabular form. I recommend setting up document that way if you need to advert your product. There must be some images too! 
+</p>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<!-- Below Examples empty line put generated code -->
+# Example
+
 <h2>Project: Example</h2>
 
 <p align="center"><img src="https://cdn.pixabay.com/photo/2015/08/29/13/14/leadership-913043_1280.jpg" width="500" alt="Project image showing man in the suit from pixabay."></p>
@@ -22,6 +51,7 @@ Template generated using <a href="https://github.com/trolit/EzGitDoc">EzGitDoc</
 <br/>
 <br/>
 
+<!-- In that code block, you share code of document in which there were no further modifications after generating it -->
 ##### Raw code (with filled data in e.g. table)
 ```html
 <h2>Project: Example</h2>
@@ -46,9 +76,7 @@ Template generated using <a href="https://github.com/trolit/EzGitDoc">EzGitDoc</
 Template generated using <a href="https://github.com/trolit/EzGitDoc">EzGitDoc</a>
 ```
 
-<br/>
-<br/>
-
+<!-- In that code block, you put code that we see as demonstration (code below #Example empty line) -->
 ##### Raw code (without filled data)
 ```html
 <h2>Project: Example</h2>
