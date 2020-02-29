@@ -7,7 +7,7 @@
 </p>
 
 <p align="justify">
-    :file_folder: If you have experience on creating docs for special purpose(e.g. open software, game, library) or you want to share one then it's possible! <a href="https://github.com/trolit/EzGitDoc/tree/master/templates">Here</a> are stored predefined templates. Before you mention your template make sure to check exampleTemplate and use emptyTemplate. 
+    :file_folder: Whether you have experience on creating docs for special purpose(e.g. open software, game, library, solution) or not and want to share pattern then it's possible! <a href="https://github.com/trolit/EzGitDoc/tree/master/templates">Here</a> are stored predefined templates. Before you mention your template make sure to check <code>exampleTemplate</code> and use <code>emptyTemplate</code>. 
 </p>
 
 ## Libraries
