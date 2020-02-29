@@ -69,25 +69,26 @@ function createHeader() {
     renderElementOnPage(headerDiv);
   }
 
+var basicImage = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png';
+
 function createImage()
 {
     // get & validate
 
-    // Step1: Alternative Text
     var imageAlt = document.getElementById('altImageText').value;
-    if (!imageAlt)
+    if (!imageAlt) 
     {  
         triggerToast(noAltForImageSpecified);
         return false;
     }
-    // Step2: Image Source
+
     var imageURL = document.getElementById('imageURL').value;
     var image = document.createElement('img');
     image.alt = imageAlt;
 
     if (imageURL == 'blank')
     {
-        image.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png';
+        image.src = basicImage;
     }
     else if (validateURL(imageURL) == true)
     {
@@ -104,7 +105,6 @@ function createImage()
         return false;
     }
 
-    // Step3: Axis Values
     var xAxisVal = document.getElementById('xAxisProperty').value;
     var yAxisVal = document.getElementById('yAxisProperty').value;
 
@@ -228,9 +228,9 @@ function createTable()
             else if (tableType == 2)
             {
                 var image = document.createElement('img');
-                image.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png';
+                image.src = basicImage;
                 image.alt = '#toadd';
-                image.width = '250';
+                image.width = '180';
                 image.height = '140';
                 td.appendChild(image);
             }
@@ -251,7 +251,6 @@ function createText()
 {
     // get
     var text = document.getElementById('commentArea').value;
-
     var checkboxStatus = document.getElementById('commentJustify').checked;
 
     // validate
@@ -424,6 +423,7 @@ function setElement(element)
     {
         changeElementsVisiblity(codeGenButton);
     }
+    
     element.setAttribute('id', GenerateUniqueId());
     element.setAttribute('style', 'position: relative; margin: 5px 0 5px 0;');
     element.setAttribute('class', 'block-stylizer ezGitPart');

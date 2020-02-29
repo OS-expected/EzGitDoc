@@ -7,7 +7,6 @@ var lastGeneratedCode = '';
 function GenerateMDCode()
 {
     var code = '';
-
     var datas = document.getElementsByClassName('ezGitPart');
 
     for (var i = 0; i < datas.length; i++) {
@@ -173,7 +172,6 @@ function GenerateMDCode()
             var element =  datas.item(i).children[0];
             tmp = tmp + element.innerHTML.replace(/<br\s*[\/]?>/gi, "\r\n");
         }
-
         code = code + tmp;
         if(i == 0) {
             code = code.replace(/^\s*[\r\n]/gm, '');

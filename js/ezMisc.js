@@ -9,7 +9,6 @@ window.addEventListener('load', function () {
     var logo = document.getElementById('ezLogo');
     logo.classList.add('faa-bounce', 'animated');
     setTimeout(removeLogoAnimationAndManageToolbar, 2000);
-
     function removeLogoAnimationAndManageToolbar()
     {
         logo.classList.remove('faa-bounce', 'animated');
@@ -28,11 +27,8 @@ var el = document.getElementById('toastTime');
 function beginToastCounter()
 {
     resetLastInterval(myInterval);
-
     seconds = 1; 
-
     el.innerText = "" + seconds + " second ago.";  
-
     myInterval = setInterval(increaseCounter, 1000);
 }
 
@@ -40,24 +36,19 @@ function increaseCounter() {
     if (seconds >= 1 && seconds < 60)
     {
         seconds += 1;
-    
         el.innerText = "" + seconds + " seconds ago."; 
 
         if (seconds == 60)
         {
             resetLastInterval();
-
             el.innerText = "1 minute ago."; 
-
             minutes = 1;
-
             myInterval = setInterval(increaseCounter, 60000);
         }
     }
     else if(seconds >= 60)
     {
         minutes += 1;
-
         el.innerText = minutes + " minutes ago.";  
     }
 }
@@ -74,9 +65,7 @@ function GenerateUniqueId()
 function validateURL(url)
 {
     var result = false;
-
     var popularExtensions = ['bmp', 'png', 'jpeg', 'jpg', 'gif'];
-
     url = url.slice(-4);
     
     for(let element of popularExtensions)
@@ -101,7 +90,7 @@ function checkIfNumber(value)
     return /^\d+$/.test(value);
 }
 
-// Toast funcs
+// Toast trigger & disassemble functions
 var toast = document.getElementById('myToast');
 
 function triggerToast(message)
@@ -118,11 +107,10 @@ function triggerToast(message)
 function disassembleToast()
 {
     toast.style.display = "none";
-
     resetLastInterval();
 }
 
-// List modal
+// List modal picker
 var currentlyActive;
 var listOption;
 
@@ -134,9 +122,7 @@ function setElementAsActive(element)
     }
 
     listOption = element.value;
-
     element.classList.add('active');
-
     currentlyActive = element;
 
     if (element.value == 0) {
@@ -151,7 +137,7 @@ function setElementAsActive(element)
 $(document).ready(function () {
     // power up Tooltip
     $('[data-toggle="tooltip"]').tooltip();
-    // power up MDB Tree (help)
+    // power up MDB Tree (help modal)
     $('.treeview-animated').mdbTreeview();
     // power up SortableJS
     var el = document.getElementById('workingSpace');
@@ -164,9 +150,11 @@ $(document).ready(function () {
     // fade in .navbar
     $(function () {
         $(window).scroll(function () {
-            if ($(this).scrollTop() > 700) {
+            if ($(this).scrollTop() > 700) 
+            {
                 $('.navbar').fadeIn();
-            } else {
+            } else 
+            {
                 $('.navbar').fadeOut();
             }
         }); 
@@ -185,6 +173,7 @@ function insertHelpData(partId)
     datas.item(partId).style.display = 'block';
 }
 
+// Generated code copy function
 function copyToClipboard()
 {
     setTimeout(hide, 400);
@@ -200,7 +189,7 @@ function copyToClipboard()
     }
 }
 
-// For Code generator button
+// Show/hide code generator button
 function changeElementsVisiblity(element)
 {
     if (element.style.visibility == 'hidden') {
