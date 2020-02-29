@@ -52,7 +52,7 @@ Template generated using <a href="https://github.com/trolit/EzGitDoc">EzGitDoc</
 <br/>
 
 <!-- In that code block, you share code of document in which there were no further modifications after generating it -->
-##### Raw code (with filled data in e.g. table)
+##### Raw code (with modified data in e.g. table etc.)
 ```html
 <h2>Project: Example</h2>
 
