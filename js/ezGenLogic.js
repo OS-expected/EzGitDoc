@@ -23,7 +23,6 @@ var tableTypeNotSpecified = 'Table type was not specified.';
 // ********************************************
 
 function createHeader() {
-
     // get
     var title = document.getElementById('headerName').value;
 
