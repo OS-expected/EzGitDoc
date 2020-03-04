@@ -96,17 +96,17 @@ Logo & buttons
       <button id="resetButton" type="button" class="btn btn-danger" onclick="removeAllElements()" disabled>Reset</button>
     </div>
     <div class="btn-group mr-2" role="group" aria-label="Third group">
-      <button type="button" class="btn btn-mdb-color" data-toggle="modal" data-target="#codeModal">Code</button>
-      <button type="button" class="btn btn-mdb-color" data-toggle="modal" data-target="#headerModal">Header</button>
+      <button type="button" class="btn btn-mdb-color" data-toggle="modal" data-target="#codeModal">Code<br/><small>Alt+Q</small></button>
+      <button type="button" class="btn btn-mdb-color" data-toggle="modal" data-target="#headerModal">Header<br/><small>Alt+W</small></button>
     </div>
     <div class="btn-group mr-2" role="group" aria-label="Fourth group">
-      <button type="button" class="btn btn-mdb-color" data-toggle="modal" data-target="#imageModal">Image</button>
-      <button type="button" class="btn btn-mdb-color" data-toggle="modal" data-target="#linkModal">Link</button>
+      <button type="button" class="btn btn-mdb-color" data-toggle="modal" data-target="#imageModal">Image<br/><small>Alt+E</small></button>
+      <button type="button" class="btn btn-mdb-color" data-toggle="modal" data-target="#linkModal">Link<br/><small>Alt+A</small></button>
     </div>
     <div class="btn-group" role="group" aria-label="Fifth group">
-      <button type="button" class="btn btn-mdb-color"  data-toggle="modal" data-target="#listModal">List</button>
-      <button type="button" class="btn btn-mdb-color"  data-toggle="modal" data-target="#arrayModal">Table</button>
-      <button type="button" class="btn btn-mdb-color"  data-toggle="modal" data-target="#textModal">Text</button>
+      <button type="button" class="btn btn-mdb-color"  data-toggle="modal" data-target="#listModal">List<br/><small>Alt+S</small></button>
+      <button type="button" class="btn btn-mdb-color"  data-toggle="modal" data-target="#arrayModal">Table<br/><small>Alt+D</small></button>
+      <button type="button" class="btn btn-mdb-color"  data-toggle="modal" data-target="#textModal">Text<br/><small>Alt+R</small></button>
     </div>
     <div class="btn-group" role="group" aria-label="Sixth group">
       <button type="button" class="btn btn-warning"  data-toggle="modal" data-target="#helpModal">Help</button>
@@ -603,7 +603,10 @@ MODALS
                     <div class="treeview-animated-element" onclick="insertHelpData(4)"><i class="fas fa-question mr-1"></i>Possible questions</div>
                   </li>
                   <li>
-                    <div class="treeview-animated-element" onclick="insertHelpData(5)"><i class="far fa-copyright mr-1"></i>License</div>
+                    <div class="treeview-animated-element" onclick="insertHelpData(5)"><i class="fas fa-code-branch mr-1"></i>Updates</div>
+                  </li>
+                  <li>
+                    <div class="treeview-animated-element" onclick="insertHelpData(6)"><i class="far fa-copyright mr-1"></i>License</div>
                   </li>
                 </ul>
               </div>
@@ -923,6 +926,31 @@ MODALS
               </div>
             </div>
 
+            <!-- Updates -->
+            <div class="col-md-8 helpDataPart" style="display: none;">
+              <div class="card">
+                <!-- Card content -->
+                <div class="card-body">
+              
+                  <!-- Title -->
+                  <h4 class="card-title">Updates</h4>
+                  <!-- Text -->
+                  <div class="card-text text-justify">
+                    <h5>v1.1 (04.03.2020)</h5>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">Added Updates section</li>
+                    </ul>
+                    <br/><br/>
+                    <h5>v1.0 (29.02.2020)</h5>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">EzGitDoc release</li>
+                    </ul>
+                  </div>        
+                </div>
+              
+              </div>
+            </div>
+
             <!-- License -->
             <div class="col-md-8 helpDataPart" style="display: none;">
               <div class="card">
@@ -1011,5 +1039,6 @@ Script references
     <script src="js/ezMisc.js"></script>
     <script src="js/ezGenLogic.js"></script>
     <script src="js/ezLogicTranslator.js"></script>
+    <script src="js/ezBtnController.js"></script>
 </body>
 </html>
