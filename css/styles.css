@@ -59,3 +59,8 @@ table, th, td {
     margin-right: auto;
     width: 75%;
 }
+
+.badge-custom-style {
+    padding: 9px;
+    margin-top: 10px;
+}
