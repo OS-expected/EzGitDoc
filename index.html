@@ -49,7 +49,7 @@ Navbar (toolbar)
   </button>
   <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
     <ul class="navbar-nav">
-      <li class="nav-item">
+      <li class="nav-item navbar-btn">
         <a class="nav-link" data-toggle="modal" data-target="#codeModal">Code</a>
       </li>
       <li class="nav-item">
@@ -629,7 +629,7 @@ MODALS
   <div class="modal-dialog modal-notify modal-info modal-full-height modal-top" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title w-100" id="myModalLabel">Help</h4>
+        <h4 class="modal-title w-100" id="myModalLabel">EzGitDoc Manual</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -667,95 +667,99 @@ MODALS
             </div>
 
             <!-- What is EzGitDoc -->
-            <div class="col-md-8 helpDataPart" style="display: none;">
+            <div class="col-md-8 helpDataPart" style="display: none; line-height: 2.2em;">
               <div class="card">
                 <!-- Card content -->
                 <div class="card-body">
               
                   <!-- Title -->
-                  <h4 class="card-title">What is EzGitDoc?</h4>
+                  <h4 class="card-title"><i class="far fa-comment ic-w mr-1"></i> What is EzGitDoc?</h4>
                   <!-- Text -->
-                  <p class="card-text text-justify">EzGitDoc is a project made with JavaScript and HTML to improve Git documentation experience. 
-                    Project's target was to create page where user can prepare doc template that later can be generated and pasted into *.md file. This
+                  <p class="card-text text-justify help-text-style" style="font-size: 110%;">EzGitDoc is a project made with JavaScript and HTML to improve Git documentation experience. 
+                    Project's target was to create page where user can prepare doc' template that can be generated, pasted into *.md file and edited later. This
                     gives ability to prepare nice, thought schemes that will increase quality of repository for newcomers and employers checking portfolios.
                     You don't need to install anything as the project is setup and ready to use on github-pages. It's worth mentioning that some of the output
                     elements are using HTML tags and some not (e.g. unordered list) but that is totally fine. By making linebreak these two ways of designing
-                    document are not causing conflicts between themselves(sometimes it's not necessary but still welcome). This gives ability of mixing both approaches 
-                    which sometimes I find useful. EzGitDoc in its current stage allows you to create almost every desired element(no horiznotal rule but I dont
-                    think it's must have). Some of them e.g. table can't be edited inside. But still.. This leaves you opportunity to make prototype of your 
+                    document are not causing conflicts between themselves(sometimes it's not obligatory but still welcome for readability). EzGitDoc in its current stage allows you to create almost every desired element(no horizontal rule but I don't
+                    think it's that necessary). Some of them e.g. table can't be edited inside(for now). But still.. This leaves you opportunity to make prototype of your 
                     document which later only needs to be polished with data, reducing the risk of problems and necessity to look after markdown cheatsheet. EzGitDoc
-                    code translation outputs markdown that *.md files accept. EzGitDoc is using among others SortableJS library to let you switch elements positions.
-                    For extra details please see repository page by clicking on the button below.
+                    code translation outputs markdown that *.md files accept. To read more about advantages of using EzGitDoc, please see repository page by clicking on the button below.
                   </p>
                   <!-- Button -->
-                  <a href="https://github.com/trolit/EzGitDoc" target="_blank" class="btn btn-elegant btn-sm">Repository (GitHub)</a>         
+                  <a href="https://github.com/trolit/EzGitDoc" target="_blank" class="btn btn-primary">Repository (GitHub)</a>         
                 </div>
               
               </div>
             </div>
 
             <!-- How to start -->
-            <div class="col-md-8 helpDataPart" style="display: none;">
+            <div class="col-md-8 helpDataPart" style="display: none; line-height: 2.2em;">
               <div class="card">
                 <!-- Card content -->
                 <div class="card-body">
               
                   <!-- Title -->
-                  <h4 class="card-title">Quick start</h4>
+                  <h4 class="card-title"><i class="fas fa-running mr-1"></i> Quick start</h4>
                   <!-- Text -->
-                  <div class="card-text" style="margin: 0 10% 0 10%;">
+                  <div class="card-text" style="margin: 0 10% 0 10%; font-size: 110%;">
                     <div class="row">
                       <img class="helpImage" src="images/quick_start_1.PNG" alt="EzGitDoc UI"/>
                     </div>
-                    <br/>
+                    <br/><br/>
                     <div class="row">
                       <p class="text-justify">
-                      In the above example buttons placed between red and yellow one are the one responsible for creating desired 
-                      elements of template. If you make at least one element, in the right bottom corner you will see button that on
+                      In the example above, buttons placed between red and cyan are the one responsible for creating desired 
+                      elements of template. In each white tile, there is a note about key combinations that can be used in order
+                      to trigger specific modal. If you make at least one element, in the right bottom corner you will see button that on
                       click will generate the scheme output. Example:
                       </p>
                     </div>
+                    <br/><br/>
                     <div class="row">
                       <img class="helpImage" src="images/quick_start_2.PNG" alt="EzGitDoc generated code result"/>
                     </div>
-                    <br/>
+                    <br/><br/>
                     <div class="row">
                       <p class="text-justify">
-                      Then you only need to click button 'Copy to clipboard', put the output into *.md file and put your own data(if
-                      you for e.g. used table block). Or you can choose to save code to text file. And.. that's it! But you probably
-                      would also like to know more about the page. The red button allows you to clear your currently made scheme and
+                      Then you only need to click <button type="button" class="btn btn-info btn-sm" disabled>Copy to clipboard</button> button,
+                      paste the output into doc' file and overwrite data if necessary(when you used for e.g. table element). 
+                      Or you can choose <button type="button" class="btn btn-unique btn-sm" disabled>Save to file</button> option. 
+                      And use it how you want! The red button that you saw in the first photo, allows you to clear your currently made scheme and
                       start from the beginning(use it with caution!). You might want to think: what when I will do my scheme very long?
-                      I don't want to get back to top to click on button! Well after scrolling certain amount the "toolbar" will popup
+                      I don't want to get back to the top and click on the button! Well after scrolling certain amount the "toolbar" will popup
                       to your aid as below:
                       </p>
                     </div>
-                    <br/>
+                    <br/><br/>
                     <div class="row">
                       <img class="helpImage" src="images/quick_start_3.PNG" alt="EzGitDoc toolbar view"/>
                     </div>
-                    <br/>
+                    <br/><br/>
                     <div class="row">
                       <p class="text-justify">
-                      If you want to create something, take a look at note section in modal. There might be some crucial information.
-                      If you don't fullfil certain element pre-conditions (e.g. header text) you will see notification in the top right 
-                      corner why it wasn't created. Example:
+                      If you don't fullfil certain element pre-conditions(e.g. code tag text requirement), you will see notification in
+                      the top right corner and element won't be created until it's fixed. Be advised that notification must be closed manually. 
+                      It won't disappear by itself. Some of you might find this as disadvantage but I decided to do this as notifies
+                      are not stackable(you will only see one, last notify). Personally I would also like to see why something failed
+                      when I will have opportunity, rather than having in mind, that in 5 minutes it won't be visible. Example:
                       </p>
                     </div>
-                    <br/>
+                    <br/><br/>
                     <div class="row">
                       <img class="helpImage" src="images/quick_start_4.PNG" alt="EzGitDoc toast notification"/>
                     </div>
-                    <br/>
+                    <br/><br/>
                     <div class="row">
                       <p class="text-justify">
-                      Don't forget that you can switch created elements thanks to SortableJS library! You only need to click with mouse
-                      button on element and drag it to desired position. By the way.. If you don't like element you made, you can delete it
-                      by using red cross placed on the right side of element. Be sure to pick the correct one!
+                      Don't forget that you can switch created elements, thanks to SortableJS library! You only need to click with mouse
+                      button element and drag by holding it, until reaching desired position. By the way.. If you don't like element you've made,
+                      you can delete it by using the red cross placed on the right side of element. Be sure to pick the correct one! Demonstration
+                      of moving elements below:
                       </p>
                     </div>
                     <br/>
                     <div class="row">
-                      <img class="helpImage" src="images/quick_start_5.PNG" alt="EzGitDoc moving elements"/>
+                      <img class="helpImage" src="images/quick_start_5.gif" alt="EzGitDoc moving elements"/>
                     </div>
                     <br/>
                     <br/>
@@ -768,120 +772,136 @@ MODALS
               </div>
             </div>
 
-            <!-- EzGitDoc Manual -->
-            <div class="col-md-8 helpDataPart" style="display: none;">
+            <!-- EzGitDoc Examples -->
+            <div class="col-md-8 helpDataPart" style="display: none; line-height: 2.2em;">
               <div class="card">
                 <!-- Card content -->
                 <div class="card-body">
               
                   <!-- Title -->
-                  <h4 class="card-title">EzGitDoc examples</h4>
+                  <h4 class="card-title"><i class="fas fa-cogs ic-w mr-1"></i> EzGitDoc examples</h4>
                   <!-- Text -->
-                  <div class="card-text">
+                  <div class="card-text" style="font-size: 110%; margin: 0 10% 0 10%;">
                     <p class="text-justify">
                         Here you will find some examples how each element is being displayed on EzGitDoc page and how generated code
-                        looks in *.md file. Most of them are generated in HTML tags but not all. Keep in mind the rule about mixing
-                        markdown to make empty line between them. It's not required in every case but by dividing elements with empty
-                        line document, scheme is far more readable! <i class="far fa-smile-wink"></i> 
+                        looks in *.md file. Most of them are generated in HTML tags but not all(as mentioned in the first case). Keep
+                        in mind the tip about mixing markdown to make empty line between them. It's not required in every case but by
+                        dividing elements with empty line document, scheme is far more readable! <i class="far fa-smile-wink"></i> 
                     </p>
                     <blockquote class="blockquote bq-info">
+                      <hr class="hr-custom-style"/>
                       <p class="bq-title">Code</p>
-                      <p>EzGitDoc:</p>
-                      <div class="row">
-                        <img src="images/examples_1.1.PNG" style="width: 70%; margin-left: 5%;"/>
+                      <hr class="hr-custom-style"/>
+                      <p>EzGitDoc</p>
+                      <div class="row justify-content-center">
+                        <img src="images/examples_1.1.PNG" style="width: 70%;"/>
                       </div>
-                      <p>*.md file:</p>
-                      <div class="row">
-                        <img src="images/examples_1.2.PNG" style="width: 70%; margin-left: 5%;"/>
+                      <p>Result on GitHub</p>
+                      <div class="row justify-content-center">
+                        <img src="images/examples_1.2.PNG" style="width: 70%;"/>
                       </div>
-                      <p class="text-justify">If you plan to use code area, keep in mind that in EzGitDoc
-                        breaklines won't be visible(like in the example above).
+                      <p class="text-justify">If you plan to use code area, keep in mind that in EzGitDoc preview
+                        breaklines won't be visible(like in the example shown above).
                       </p>
 
+                      <hr class="hr-custom-style"/>
                       <p class="bq-title">Header</p>
-                      <p>EzGitDoc:</p>
-                      <div class="row">
-                        <img src="images/examples_2.1.PNG" style="width: 70%; margin-left: 5%;"/>
+                      <hr class="hr-custom-style"/>
+                      <p>EzGitDoc</p>
+                      <div class="row justify-content-center">
+                        <img src="images/examples_2.1.PNG" style="width: 70%;"/>
                       </div>
-                      <p>*.md file:</p>
-                      <div class="row">
-                        <img src="images/examples_2.2.PNG" style="width: 70%; margin-left: 5%;"/>
+                      <p>Result on GitHub</p>
+                      <div class="row justify-content-center">
+                        <img src="images/examples_2.2.PNG" style="width: 70%;"/>
                       </div>
                       <p class="text-justify">EzGitDoc is using HTML &LeftAngleBracket; h &RightAngleBracket; tags to create 
                         headers in *.md file but it's also possible to use hashtags. 
                       </p>
 
+                      <hr class="hr-custom-style"/>
                       <p class="bq-title">Image</p>
-                      <p>EzGitDoc:</p>
-                      <div class="row">
-                        <img src="images/examples_3.1.PNG" style="width: 70%; margin-left: 5%;"/>
+                      <hr class="hr-custom-style"/>
+                      <p>EzGitDoc</p>
+                      <div class="row justify-content-center">
+                        <img src="images/examples_3.1.PNG" style="width: 70%;"/>
                       </div>
-                      <p>*.md file:</p>
-                      <div class="row">
-                        <img src="images/examples_3.2.PNG" style="width: 70%; margin-left: 5%;"/>
+                      <p>Result on GitHub</p>
+                      <div class="row justify-content-center">
+                        <img src="images/examples_3.2.PNG" style="width: 70%;"/>
                       </div>
 
+                      <hr class="hr-custom-style"/>
                       <p class="bq-title">Link</p>
-                      <p>EzGitDoc:</p>
-                      <div class="row">
-                        <img src="images/examples_4.1.PNG" style="width: 70%; margin-left: 5%;"/>
+                      <hr class="hr-custom-style"/>
+                      <p>EzGitDoc</p>
+                      <div class="row justify-content-center">
+                        <img src="images/examples_4.1.PNG" style="width: 70%;"/>
                       </div>
-                      <p class="text-justify">You can also make hyperlink by using Text element and anchor tag if you plan on
+                      <p class="text-justify">FYI: You can also make hyperlink by using Text element and anchor tag if you plan on
                         making longer text. 
                       </p>
 
-                      <p>*.md file:</p>
-                      <div class="row">
-                        <img src="images/examples_4.2.PNG" style="width: 70%; margin-left: 5%;"/>
+                      <p>Result on GitHub</p>
+                      <div class="row justify-content-center">
+                        <img src="images/examples_4.2.PNG" style="width: 70%;"/>
                       </div>
 
+                      <hr class="hr-custom-style"/>
                       <p class="bq-title">List</p>
-                      <p>EzGitDoc:</p>
-                      <div class="row">
-                        <img src="images/examples_5.1.PNG" style="width: 70%; margin-left: 5%;"/>
+                      <hr class="hr-custom-style"/>
+                      <p>EzGitDoc</p>
+                      <div class="row justify-content-center">
+                        <img src="images/examples_5.1.PNG" style="width: 70%;"/>
                       </div>
-                      <p>*.md file:</p>
-                      <div class="row">
-                        <img src="images/examples_5.2.PNG" style="width: 70%; margin-left: 5%;"/>
+                      <p>Result on GitHub</p>
+                      <div class="row justify-content-center">
+                        <img src="images/examples_5.2.PNG" style="width: 70%;"/>
                       </div>
                       <p class="text-justify">Example shows two types of list that you can create. Typical one with point or 
                         custom one(with icon). If you checked games on e.g. steam it's popular to describe the game pros in 
                         short with icons but it can be used to describe pros of your library too! Below is mine example from
                         one of the repositories: 
                       </p>
-                      <div class="row">
-                        <img src="images/examples_extra1.PNG" style="width: 70%; margin-left: 5%;"/>
+                      <div class="row justify-content-center">
+                        <img src="images/examples_extra1.PNG" style="width: 70%;"/>
                       </div>
 
+                      <hr class="hr-custom-style"/>
                       <p class="bq-title">Table</p>
-                      <p>EzGitDoc:</p>
-                      <div class="row">
-                        <img src="images/examples_6.1.PNG" style="width: 70%; margin-left: 5%;"/>
+                      <hr class="hr-custom-style"/>
+                      <p>EzGitDoc</p>
+                      <div class="row justify-content-center">
+                        <img src="images/examples_6.1.PNG" style="width: 70%;"/>
                       </div>
-                      <p>*.md file:</p>
-                      <div class="row">
-                        <img src="images/examples_6.2.PNG" style="width: 70%; margin-left: 5%;"/>
+                      <p>Result on GitHub</p>
+                      <div class="row justify-content-center">
+                        <img src="images/examples_6.2.PNG" style="width: 70%;"/>
                       </div>
                       <p class="text-justify">Image shows two types of table. Typical one used on GitHub is the text one. EzGitDoc
-                        currently does not allow to edit table data but it's easy to do after making template right? Sometimes we
+                        currently does not allow to edit table data but it's easy to do after making template. Sometimes we
                         want to share some screenshots if it's game repository or front-end part example etc. I suggest using table
                         to make fancy gallery. If you plan to make one, remember that you need to have same resolution images and then
                         find best width x height composition(or accept unequal rows/image stretches). It costs some time but 
-                        the effect is satisfying! My example below on reduced images in 1920x1080: 
+                        the effect is very satisfying! My example below on reduced images in 1920x1080: 
                       </p>
-                      <div class="row">
-                        <img src="images/examples_extra2.PNG" style="width: 70%; margin-left: 5%;"/>
+                      <div class="row justify-content-center">
+                        <img src="images/examples_extra2.PNG" style="width: 70%;"/>
                       </div>
 
+                      <hr class="hr-custom-style"/>
                       <p class="bq-title">Text</p>
-                      <p>EzGitDoc:</p>
-                      <div class="row">
-                        <img src="images/examples_7.1.PNG" style="width: 70%; margin-left: 5%;"/>
+                      <hr class="hr-custom-style"/>
+                      <p>EzGitDoc</p>
+                      <div class="row justify-content-center">
+                        <img src="images/examples_7.1.PNG" style="width: 70%;"/>
                       </div>
-                      <p>*.md file:</p>
-                      <div class="row">
-                        <img src="images/examples_7.2.PNG" style="width: 70%; margin-left: 5%;"/>
+                      <p>Result on GitHub</p>
+                      <div class="row justify-content-center">
+                        <img src="images/examples_7.2.PNG" style="width: 70%;"/>
                       </div>
+                      <p class="text-justify">In the text element you can use HTML tags like em, strong, a, li etc.
+                      </p>
                     </blockquote>
                     </div>        
                 </div> 
@@ -895,22 +915,22 @@ MODALS
                 <div class="card-body">
               
                   <!-- Title -->
-                  <h4 class="card-title">Support</h4>
+                  <h4 class="card-title"><i class="fas fa-desktop ic-w mr-1"></i> Support</h4>
                   <!-- Text -->
                   <p class="card-text">
-                    <h6>Browser</h6><hr/>
-                    <p class="text-justify">
+                    <h4>Browser</h4><hr/>
+                    <p class="text-justify" style="font-size: 110%; line-height: 2.2em;">
                     It is recommended to use modern browser in order to get maximum functionality out of the
-                    project. EzGitDoc uses for example classList (HTML DOM property) which is not working on every browser version. 
+                    project. EzGitDoc uses for example classList(HTML DOM property) which is not working on every browser version. 
                     According to w3schools <a href="https://www.w3schools.com/jsref/prop_element_classlist.asp" target="_blank">documentation</a>
                     you must have at least Chrome 8, IE10, Firefox 3.6, Safari 5.1 or Opera 11.5 in order to properly use all implemented EzGitDoc 
                     functions.</p>
-                    <h6>Device</h6><hr/>
-                    <p class="text-justify">
+                    <h4>Device</h4><hr/>
+                    <p class="text-justify" style="font-size: 110%; line-height: 2.2em;">
                     EzGitDoc user interface(UI) is built using Bootstrap and MDBootstrap frameworks that allow to make the page react very nice
-                    on different screens (act responsively). If you would use operate EzGitDoc on smartphone it would be probably harder to work
-                    with than on typical device with keyboard and mouse, but not impossible (maybe switching element's position would be hard). 
-                    The project was created with purpose to be used on for e.g. PC, notebook but the way its UI is built, allows user to use it
+                    on different screens(act responsively). If you would use EzGitDoc on smartphone it would be probably harder to work
+                    with than on typical device with keyboard and mouse, but not impossible(maybe switching element's position would be challenging). 
+                    The project was created with purpose to be used on for e.g. PC, notebooks but the way its UI is built, allows user to use it
                     on more portable devices. Try it by yourself!</p> 
                   </p>        
                 </div> 
@@ -924,7 +944,7 @@ MODALS
                 <div class="card-body">
               
                   <!-- Title -->
-                  <h4 class="card-title">Possible questions</h4>
+                  <h4 class="card-title"><i class="fas fa-question mr-1"></i> Possible questions</h4>
                   <!-- Text -->
                   <p class="card-text">
                     <div class="list-group">
@@ -969,7 +989,7 @@ MODALS
                 <div class="card-body">
               
                   <!-- Title -->
-                  <h4 class="card-title">Updates</h4>
+                  <h4 class="card-title"><i class="fas fa-code-branch mr-1"></i> Updates</h4>
                   <!-- Text -->
                   <div class="card-text text-justify">
                     <h5>v1.1 (04.03.2020)</h5>
@@ -996,7 +1016,7 @@ MODALS
                 <div class="card-body">
               
                   <!-- Title -->
-                  <h4 class="card-title">MIT License</h4>
+                  <h4 class="card-title"><i class="far fa-copyright mr-1"></i> MIT License</h4>
                   <!-- Text -->
                   <p class="card-text text-justify">
                     Copyright (c) 2020 Paweł Idzikowski
