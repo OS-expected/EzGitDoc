@@ -22,6 +22,8 @@ var tableTypeNotSpecified = 'Table type was not specified.';
 // Onpage Generator Logic
 // ********************************************
 
+var startingNoteRef = document.getElementById('startNote');
+
 function createHeader() {
     // get
     var title = document.getElementById('headerName').value;
@@ -404,11 +406,18 @@ function removeElementByParentId(elementId) {
     if(document.getElementsByClassName('ezGitPart').length <= 0) {
         changeElementsVisiblity(codeGenButton);
         document.getElementById('resetButton').disabled = true;
+
+        if(startingNoteRef.classList.contains('hide')) {
+            startingNoteRef.classList.remove('hide');
+        }
     }
 }
 
 function createDeleteTool()
 {
+    if(!startingNoteRef.classList.contains('hide')) {
+        startingNoteRef.classList.add('hide');
+    }
     document.getElementById('resetButton').disabled = false;
     var icon = document.createElement('i');
     icon.setAttribute('onclick', 'removeElementByParentId(this)');
