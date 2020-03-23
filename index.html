@@ -71,7 +71,7 @@ Navbar (toolbar)
         <a class="nav-link" data-toggle="modal" data-target="#textModal">Text</a>
       </li>
     </ul>
-    <button type="button" class="btn btn-warning"  data-toggle="modal" data-target="#helpModal">Help</button>
+    <button type="button" class="btn btn-info"  data-toggle="modal" data-target="#helpModal">Help</button>
 </div>
 </nav>
 
@@ -80,36 +80,36 @@ Navbar (toolbar)
 Logo & buttons
 ********************************************
 -->
-<div class="row shine" onselectstart="return false" ondragstart="return false" style="width: 100%; background-color: #55606E; padding: 10px 0 12px 0;">
-  <div class="col">
+<div class="row shine" onselectstart="return false" ondragstart="return false" style="width: 100%; background-color: #55606E; padding: 10px 0 0 0; margin-bottom: 150px;">
+  <div class="col-lg-3">
     <div class="logo-body" style="margin: 0 auto 0 auto; font-family: 'Josefin Sans'; ">
       <i id="ezLogo" class="fab fa-earlybirds fa-10x" style="color: #55606E;"></i>
       <p style="font-size: 40px; color: #55606E; margin: 0; padding: 30px 0 10px 0; line-height: 0;">EzGitDoc</p>
       <small style="font-size: 10px;">Improve your documentation easily</small>
     </div>
   </div>
-</div>
 
-<div class="row" style="width: 100%;"> <!-- w100 prevents horizontal scroll to appear -->
-  <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups" style="margin: 0 auto 0 auto;">
-    <div class="btn-group" role="group" aria-label="Second group">
-      <button id="resetButton" type="button" class="btn btn-danger" onclick="removeAllElements()" disabled>Reset</button>
-    </div>
-    <div class="btn-group mr-2" role="group" aria-label="Third group">
-      <button type="button" class="btn btn-mdb-color" data-toggle="modal" data-target="#codeModal">Code<br/><span class="badge badge-light badge-custom-style">Alt + Q</span></button>
-      <button type="button" class="btn btn-mdb-color" data-toggle="modal" data-target="#headerModal">Header<br/><span class="badge badge-light badge-custom-style">Alt + W</span></button>
-    </div>
-    <div class="btn-group mr-2" role="group" aria-label="Fourth group">
-      <button type="button" class="btn btn-mdb-color" data-toggle="modal" data-target="#imageModal">Image<br/><span class="badge badge-light badge-custom-style">Alt + E</span></button>
-      <button type="button" class="btn btn-mdb-color" data-toggle="modal" data-target="#linkModal">Link<br/><span class="badge badge-light badge-custom-style">Alt + A</span></button>
-    </div>
-    <div class="btn-group" role="group" aria-label="Fifth group">
-      <button type="button" class="btn btn-mdb-color"  data-toggle="modal" data-target="#listModal">List<br/><span class="badge badge-light badge-custom-style">Alt + S</span></button>
-      <button type="button" class="btn btn-mdb-color"  data-toggle="modal" data-target="#arrayModal">Table<br/><span class="badge badge-light badge-custom-style">Alt + D</span></button>
-      <button type="button" class="btn btn-mdb-color"  data-toggle="modal" data-target="#textModal">Text<br/><span class="badge badge-light badge-custom-style">Alt + R</span></button>
-    </div>
-    <div class="btn-group" role="group" aria-label="Sixth group">
-      <button type="button" class="btn btn-warning"  data-toggle="modal" data-target="#helpModal">Help</button>
+  <div class="col-lg-9" style="margin-top: 2%;">
+    <div> <!-- w100 prevents horizontal scroll to appear -->
+      <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups" style="margin: 0 auto 0 auto; height: 200px;">
+        <div class="btn-group mr-2" role="group" aria-label="First group">
+        <button id="resetButton" type="button" class="btn btn-lg btn-danger" onclick="removeAllElements()" disabled>Reset</button>
+        </div>
+        <div class="btn-group mr-2" role="group" aria-label="Second group">
+          <button type="button" class="btn btn-mdb-color" data-toggle="modal" data-target="#codeModal">Code<br/><span class="badge badge-light badge-custom-style">Alt + Q</span></button>
+          <button type="button" class="btn btn-mdb-color" data-toggle="modal" data-target="#headerModal">Header<br/><span class="badge badge-light badge-custom-style">Alt + W</span></button>
+          <button type="button" class="btn btn-mdb-color" data-toggle="modal" data-target="#imageModal">Image<br/><span class="badge badge-light badge-custom-style">Alt + E</span></button>
+        </div>
+        <div class="btn-group mr-2" role="group" aria-label="Third group">
+          <button type="button" class="btn btn-mdb-color" data-toggle="modal" data-target="#linkModal">Link<br/><span class="badge badge-light badge-custom-style">Alt + A</span></button>
+          <button type="button" class="btn btn-mdb-color"  data-toggle="modal" data-target="#listModal">List<br/><span class="badge badge-light badge-custom-style">Alt + S</span></button>
+          <button type="button" class="btn btn-mdb-color"  data-toggle="modal" data-target="#arrayModal">Table<br/><span class="badge badge-light badge-custom-style">Alt + D</span></button>
+          <button type="button" class="btn btn-mdb-color"  data-toggle="modal" data-target="#textModal">Text<br/><span class="badge badge-light badge-custom-style">Alt + R</span></button>
+        </div>
+        <div class="btn-group" role="group" aria-label="Fourth group">
+          <button type="button" class="btn btn-lg btn-info"  data-toggle="modal" data-target="#helpModal">Help</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
