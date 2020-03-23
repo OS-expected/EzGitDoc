@@ -73,6 +73,6 @@ table, th, td {
     left: -9999px !important;
  }
 
- .neutralize-margin {
-     margin: 0 !important;
+ .footer-badge {
+     padding: 5px !important;
  }
