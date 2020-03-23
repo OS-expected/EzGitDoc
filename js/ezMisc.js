@@ -164,8 +164,7 @@ $(document).ready(function () {
     // fade in .navbar
     $(function () {
         $(window).scroll(function () {
-            if ($(this).scrollTop() > 400) 
-            if ($(this).scrollTop() > 300) 
+            if ($(this).scrollTop() > 220) 
             {
                 $('.navbar').fadeIn();
             } else 
