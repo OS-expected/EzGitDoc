@@ -578,6 +578,50 @@ MODALS
 </div>
 </div>
 
+<!-- Contact Modal -->
+<div class="modal fade left" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-full-height modal-left" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title w-100" id="myModalLabel"><i class="far fa-comment-alt"></i> Contact Form</h4>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div class="modal-body">
+      <div id="contact-form">
+          <form method="POST" action="https://formspree.io/iddziku@gmail.com">
+
+            <div class="form-group">
+              <label>Subject</label>
+              <input type="text" name="_subject" class="form-control" placeholder="EzGitDoc: " autocomplete="off" required>
+              <small class="form-text text-muted">e.g. EzGitDoc: taking part in a project</small>
+            </div>
+        
+            <div class="form-group">
+              <label>Your email</label>
+              <input type="email" name="_replyto" class="form-control" placeholder="email@test.com" autocomplete="off" required>
+            </div>
+            
+            <!-- Message Description -->
+            <div class="form-group">
+              <label for="commentArea">Text</label>
+              <textarea class="form-control" maxlength="200" rows="5" id="commentArea" autocomplete="off" name="message" placeholder="Description" required></textarea>
+              <small class="form-text text-muted">Max 200 characters</small>
+            </div>
+
+            <div style="float: right;">
+              <button type="submit" class="btn btn-deep-purple">Send Message</button>
+            </div>
+          </form>
+      </div>
+      <!-- End #contact-form -->
+    </div>
+  </div>
+</div>
+</div>
+
 <!-- Help modal -->
 <div class="modal fade top" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">
