@@ -59,7 +59,7 @@ table, th, td {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 75%;
+    width: 90%;
 }
 
 .badge-custom-style {
@@ -76,3 +76,11 @@ table, th, td {
  .footer-badge {
      padding: 5px !important;
  }
+
+.toast {
+    background-color: #E0E0E0 !important;
+}
+
+.hr-custom-style {
+    border: 1px solid #33b5e5;
+}
