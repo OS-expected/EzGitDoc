@@ -270,7 +270,7 @@ function createText()
 
     if(checkboxStatus == 1)
     {
-        paragraph.setAttribute('style', 'text-align: justify');
+        paragraph.setAttribute('style', 'text-align: justify; padding: 0 2% 0 2%');
     }
 
     textDiv.appendChild(paragraph);
