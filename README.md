@@ -41,6 +41,8 @@ EzGitDoc uses:
 - <a href="https://getbootstrap.com/docs/4.2/getting-started/introduction/">Bootstrap and required dependencies</a>
 - <a href="https://mdbootstrap.com/">MDBootstrap</a>
 - <a href="https://github.com/eligrey/FileSaver.js/">FileSaverJS</a>
+- <a href="https://formspree.io/">FormSpree</a>
+- <a href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js">JQuery 3.4.1</a>
 
 ## Screenshots
 
