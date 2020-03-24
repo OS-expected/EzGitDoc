@@ -143,12 +143,14 @@ window.onbeforeunload = null;
 // on page startup with JQuery
 $(document).ready(function () {
     // add page leaving confirmation
-    window.addEventListener("beforeunload", function (e) {
-        var message = "Are you sure you want to leave/refresh?";
-      
-        (e || window.event).returnValue = message;     
-        return message;                                
-    });
+    if (location.hostname != "localhost" && location.hostname != "127.0.0.1") {
+        window.addEventListener("beforeunload", function (e) {
+            var message = "Are you sure you want to leave/refresh?";
+          
+            (e || window.event).returnValue = message;     
+            return message;                                
+        });
+    }
     // power up Tooltip
     $('[data-toggle="tooltip"]').tooltip();
     // power up MDB Tree (help modal)
