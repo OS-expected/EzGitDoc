@@ -72,11 +72,15 @@ Note: Images can be scaled manually(best to do this with one axis(e.g. width), a
 | :--: | :--: | 
 | <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/ex4_a.PNG" alt="" width="100%"> | <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/ex4_b.PNG" alt="" width="100%"> | 
 
+### Note
+
+<img src="https://github.com/trolit/EzGitDoc/blob/master/images/quick_start_5.gif" alt="" width="50%">
+
+I also wanted to mention here, that you can switch element's position by clicking on it and dragging to desired position, holding <em>LMB(Left Mouse Button)</em> at the same time. Free the <em>LMB</em> to stop dragging and drop element in it's current position.
+
 ## License
 <a href="https://github.com/trolit/EzGitDoc/blob/master/LICENSE">MIT License</a> - Paweł Idzikowski
 
-<br/>
-<br/>
 <br/>
 <br/>
 <br/>
