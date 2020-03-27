@@ -114,6 +114,12 @@ function disassembleToast()
 var currentlyActive;
 var listOption;
 
+// listOption, occupied values
+// 0 - icon list
+// 1 - normal list 
+// 2 - link list
+// 3 - text table
+// 4 - image table
 function setElementAsActive(element, extraArg = 'empty')
 {
     // Reset if no extraArg applied
@@ -130,7 +136,7 @@ function setElementAsActive(element, extraArg = 'empty')
     element.classList.add('active');
     currentlyActive = element;
 
-    if (extraArg == 'list_iconField') {
+    if (extraArg == 'toggle_list_iconField') {
         document.getElementById('iconDiv').hidden = false;
     }
 }
@@ -149,7 +155,7 @@ $(document).ready(function () {
         html: true,
         trigger: 'hover',
         placement: 'right',
-        content: function () { return '<img src="' + $(this).data('img') + '" width=\'75%\' />'; }
+        content: function () { return '<img src="' + $(this).data('img') + '" width=\'100%\' />'; }
     });
     // add page leaving confirmation
     if (location.hostname != "localhost" && location.hostname != "127.0.0.1") {
