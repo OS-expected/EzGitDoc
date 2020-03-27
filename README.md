@@ -1,4 +1,4 @@
-<a href="https://trolit.github.io/EzGitDoc/"><img src="https://github.com/trolit/EzGitDoc/blob/master/images/banner.PNG" alt="banner, icon from FontAwesome" height="100%"></a>
+<a href="https://trolit.github.io/EzGitDoc/"><img src="https://github.com/trolit/EzGitDoc/blob/images/images/banner.PNG" alt="banner, icon from FontAwesome" height="100%"></a>
 
 ![Website](https://img.shields.io/website?down_message=offline&up_message=online&url=https%3A%2F%2Ftrolit.github.io%2FEzGitDoc%2F)
 ![GitHub](https://img.shields.io/github/license/trolit/EzGitdoc)
@@ -35,7 +35,7 @@
 
 | Scheme | Result |
 | :--: | :--: | 
-| <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/ex1_a.PNG" alt="" width="100%"> | <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/ex1_b.PNG" alt="" width="100%"> | 
+| <img src="https://github.com/trolit/EzGitDoc/blob/images/images/readme/ex1_a.PNG" alt="" width="100%"> | <img src="https://github.com/trolit/EzGitDoc/blob/images/images/readme/ex1_b.PNG" alt="" width="100%"> | 
 
 Note: Images placed in table can be scaled manually(best to do this with one axis(e.g. width), assuming that they have the same resolution) if you want to achieve table that takes all available width(like shown in the Examples section, on EzGitDoc page).
 
@@ -43,23 +43,23 @@ Note: Images placed in table can be scaled manually(best to do this with one axi
 
 | Scheme | Result |
 | :--: | :--: | 
-| <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/ex2_a.PNG" alt="" width="100%"> | <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/ex2_b.PNG" alt="" width="100%"> | 
+| <img src="https://github.com/trolit/EzGitDoc/blob/images/images/readme/ex2_a.PNG" alt="" width="100%"> | <img src="https://github.com/trolit/EzGitDoc/blob/images/images/readme/ex2_b.PNG" alt="" width="100%"> | 
 
 ### Example 3
 
 | Modal | Scheme | Result |
 | :--: | :--: | :--: |
-| <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/ex3_a.PNG" alt="" height="70%"> | <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/ex3_b.PNG" alt="" height="100%"> | <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/ex3_c.PNG" alt="" height="100%"> | 
+| <img src="https://github.com/trolit/EzGitDoc/blob/images/images/readme/ex3_a.PNG" alt="" height="70%"> | <img src="https://github.com/trolit/EzGitDoc/blob/images/images/readme/ex3_b.PNG" alt="" height="100%"> | <img src="https://github.com/trolit/EzGitDoc/blob/images/images/readme/ex3_c.PNG" alt="" height="100%"> | 
 
 ### Example 4
 
 | Scheme | Result |
 | :--: | :--: | 
-| <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/ex4_a.PNG" alt="" width="100%"> | <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/ex4_b.PNG" alt="" width="100%"> | 
+| <img src="https://github.com/trolit/EzGitDoc/blob/images/images/readme/ex4_a.PNG" alt="" width="100%"> | <img src="https://github.com/trolit/EzGitDoc/blob/images/images/readme/ex4_b.PNG" alt="" width="100%"> | 
 
 ### Note
 
-<img src="https://github.com/trolit/EzGitDoc/blob/master/images/quick_start_5.gif" alt="" width="50%">
+<img src="https://github.com/trolit/EzGitDoc/blob/images/images/quick_start_5.gif" alt="" width="50%">
 
 I also wanted to mention here, that you can switch element's position by clicking on it and dragging to desired position, holding <em>LMB(Left Mouse Button)</em> at the same time. Free the <em>LMB</em> to stop dragging and drop element in it's current position.
 
