@@ -235,12 +235,16 @@ function changeElementsVisiblity(element)
 function removeAllElements()
 {
     document.getElementById('resetButton').disabled = true;
-    const myNode = document.getElementById("workingSpace");
-    myNode.textContent = '';
     
+    $("#workingSpace").children(":not(#startNote)").remove();
+
     if (codeGenButton.style.visibility = 'visible')
     {
         changeElementsVisiblity(codeGenButton);
+    }
+
+    if(startingNoteRef.classList.contains('hide')) {
+        startingNoteRef.classList.remove('hide');
     }
 }
 
