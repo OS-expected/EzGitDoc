@@ -144,6 +144,13 @@ window.onbeforeunload = null;
 
 // on page startup with JQuery
 $(document).ready(function () {
+    // add popover-hover with images
+    $('[data-toggle="popover-hover"]').popover({
+        html: true,
+        trigger: 'hover',
+        placement: 'right',
+        content: function () { return '<img src="' + $(this).data('img') + '" width=\'75%\' />'; }
+    });
     // add page leaving confirmation
     if (location.hostname != "localhost" && location.hostname != "127.0.0.1") {
         window.addEventListener("beforeunload", function (e) {
