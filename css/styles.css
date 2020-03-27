@@ -84,3 +84,8 @@ table, th, td {
 .hr-custom-style {
     border: 1px solid #33b5e5;
 }
+
+.popover{
+
+    max-width:1000px !important;
+}
