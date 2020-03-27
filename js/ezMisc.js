@@ -114,8 +114,13 @@ function disassembleToast()
 var currentlyActive;
 var listOption;
 
-function setElementAsActive(element)
+function setElementAsActive(element, extraArg = 'empty')
 {
+    // Reset if no extraArg applied
+    if (extraArg == 'empty') {
+        document.getElementById('iconDiv').hidden = true;
+    }
+
     if (currentlyActive)
     {
         currentlyActive.classList.remove('active');
@@ -125,11 +130,8 @@ function setElementAsActive(element)
     element.classList.add('active');
     currentlyActive = element;
 
-    if (element.value == 0) {
+    if (extraArg == 'list_iconField') {
         document.getElementById('iconDiv').hidden = false;
-    }
-    else {
-        document.getElementById('iconDiv').hidden = true;
     }
 }
 
