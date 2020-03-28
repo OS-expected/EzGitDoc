@@ -280,11 +280,11 @@ MODALS
           
           <div class="form-group">
               <label for="imageURL">URL</label>
-              <input class="form-control" id="imageURL" placeholder="e.g. https://www.mypage.com/myimage.png" autocomplete="off">
+              <input class="form-control" id="imageURL" value="blank" autocomplete="off">
             </div>
 
           <div class="form-group">
-              <label class="my-1 mr-2" for="imagePositionList">Position</label>
+              <label class="my-1 mr-2" for="imagePositionList">Alignment</label>
               <select class="custom-select my-1 mr-sm-2" id="imagePositionList" autocomplete="off">
               <option value="0" selected>Choose...</option>
               <option value="1">Left aligned</option>
@@ -324,8 +324,8 @@ MODALS
         <div class="row">
           <div class="col text-left">
             <ul class="list-unstyled">
-                <li><small class="form-text text-muted"><i class="fas fa-times"></i> If you don't have URL yet, type blank.</small> </li>
-                <li><small class="form-text text-muted"><i class="fas fa-times"></i> If position is not picked image will be center aligned.</small></li>
+                <li><small class="form-text text-muted" style="color: red !important;"><i class="fas fa-times"></i> If you don't have URL yet, leave blank.</small> </li>
+                <li><small class="form-text text-muted"><i class="fas fa-times"></i> If alignment is not picked, image will be center aligned.</small></li>
                 <li><small class="form-text text-muted"><i class="fas fa-times"></i> Set only one of the axis if you want proportion to be preserved.</small></li>
                 <li><small class="form-text text-muted"><i class="fas fa-times"></i> At least one axis needs to be set (it's value must be different than 0).</small></li>
             </ul>
@@ -375,7 +375,7 @@ MODALS
           <ul class="list-unstyled">
               <li><small class="form-text text-muted"><i class="fas fa-times"></i> Specify the name of the link by text input.</small></li>
               <li><small class="form-text text-muted"><i class="fas fa-times"></i> Both fields are required.</small></li>
-              <li><small class="form-text text-muted"><i class="fas fa-times"></i> You can also use 'text' element to create links with anchor tag!</small></li>
+              <li><small class="form-text text-muted"><i class="fas fa-times"></i> You can also use <span class="badge badge-primary" style="padding: 5px;">TEXT</span> element to create links with anchor tag.</small></li>
           </ul>
         </div>
       </div>
