@@ -37,7 +37,7 @@
 | :--: | :--: | 
 | <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/ex1_a.PNG" alt="" width="100%"> | <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/ex1_b.PNG" alt="" width="100%"> | 
 
-Note: Images placed in table can be scaled manually(best to do this with one axis(e.g. width), assuming that they have the same resolution) if you want to achieve table that takes all available width(like shown in the Examples section, on EzGitDoc page).
+Note: If you want to achieve table that takes all available width(like shown in the Examples section, on EzGitDoc page), images placed in the table must be scaled manually using both axis(assuming that they have the same resolution). By having same resolution images you have guarantees that all cells will be equal and there will be no stretches. 
 
 ### Example 2
 
