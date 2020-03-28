@@ -209,7 +209,7 @@ MODALS
 
 <!-- Header Modal -->
 <div class="modal fade left" id="headerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-full-height modal-left" role="document">
+  <div class="modal-dialog modal-full-height modal-left" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title w-100" id="myModalLabel"><i class="fas fa-heading"></i> Header Settings</h4>
@@ -224,22 +224,19 @@ MODALS
             <label for="headerName">Text</label>
             <input class="form-control" id="headerName" placeholder="Text" autocomplete="off">
           </div>
-          
-          <div class="form-group">
-              <label class="my-1 mr-2" for="headerStyleList">Style</label>
-              <select class="custom-select my-1 mr-sm-2" id="headerStyleList" autocomplete="off">
-              <option value="0" selected>Choose...</option>
-              <option value="1">h1</option>
-              <option value="2">h2</option>
-              <option value="3">h3</option>
-              <option value="4">h4</option>
-              <option value="5">h5</option>
-              <option value="6">h6</option>
-              </select>
-          </div>
+        
+          <ul class="list-group" style="cursor: pointer;" onselectstart="return false" ondragstart="return false">
+            <label>Style</label>
+            <li class="list-group-item" value="5" onclick="setElementAsActive(this)" data-toggle="popover-hover" data-img="/images/hover/header_1.PNG">h1</li>
+            <li class="list-group-item" value="6" onclick="setElementAsActive(this)" data-toggle="popover-hover" data-img="/images/hover/header_2.PNG">h2</li>
+            <li class="list-group-item" value="7" onclick="setElementAsActive(this)" data-toggle="popover-hover" data-img="/images/hover/header_3.PNG">h3</li>
+            <li class="list-group-item" value="8" onclick="setElementAsActive(this)" data-toggle="popover-hover" data-img="/images/hover/header_4.PNG">h4</li>
+            <li class="list-group-item" value="9" onclick="setElementAsActive(this)" data-toggle="popover-hover" data-img="/images/hover/header_5.PNG">h5</li>
+            <li class="list-group-item" value="10" onclick="setElementAsActive(this)" data-toggle="popover-hover" data-img="/images/hover/header_6.PNG">h6</li>
+          </ul> 
         </form>
 
-        <div class="row" style="margin-top: 25px;">
+        <div class="row" style="margin-top: 20px;">
           <div class="col text-center mdb-color lighten-1" style="color: white;">
             <i class="fab fa-laravel fa-sm"></i> Notes
           </div>
