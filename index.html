@@ -483,16 +483,16 @@ MODALS
                         <input class="form-control col-md-auto text-center" id="arrColsAmount" placeholder="0" autocomplete="off">
                     </div>
                 </div>
+                
+                <br/>
 
-                <div class="form-group">
-                  <label class="my-1 mr-2" for="tableType">Table type</label>
-                  <select class="custom-select my-1 mr-sm-2" id="tableType" autocomplete="off">
-                  <option value="0" selected>Choose...</option>
-                  <option value="1">Text table</option>
-                  <option value="2">Image table</option>
-                  </select>
-                  <small class="form-text text-muted text-center">Choose what table cell will contain.</small>
-              </div>
+                <ul class="list-group" style="cursor: pointer;" onselectstart="return false" ondragstart="return false">
+                  <label>Type</label>
+                  <li class="list-group-item" value="3" onclick="setElementAsActive(this)" data-toggle="popover-hover" data-img="/images/hover/table_text.PNG">text</li>
+                  <li class="list-group-item" value="4" onclick="setElementAsActive(this)" data-toggle="popover-hover" data-img="/images/hover/table_image.PNG">image</li>
+                </ul> 
+                <small class="form-text text-muted text-center">Hover over specific type to see the example.</small>
+                <small class="form-text text-muted text-center">Choose what table cell will contain.</small>
             </div>
         </div>
       </form>
@@ -506,15 +506,14 @@ MODALS
       <div class="row">
         <div class="col text-left">
           <ul class="list-unstyled">
-              <li><small class="form-text text-muted text-justify"><i class="fas fa-times"></i> Table data can be filled in manually just after generating md file code.</small> </li>
+              <li><small class="form-text text-muted text-justify"><i class="fas fa-times"></i> Table data can be filled in manually just after generating code.</small> </li>
               <li><small class="form-text text-muted"><i class="fas fa-times"></i> Only positive integer values are accepted (different than 0).</small></li>
-              <li><small class="form-text text-muted"><i class="fas fa-times"></i> In EzGitDoc v1 all cells are centered.</small></li>
-              <li><small class="form-text text-muted text-justify"><i class="fas fa-times"></i> For image table it's highly recommend to have the same resolution images and manipulate both axis to find best values(or accept some stretches/different cell sizes if you use only one axis).</small></li>
+              <li><small class="form-text text-muted"><i class="fas fa-times"></i> All cells are centered.</small></li>
           </ul>
         </div>
-      </div>
-      
+      </div>    
     </div>
+    
     <div class="modal-footer justify-content-center">
       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       <button onclick="createTable()" type="button" class="btn btn-primary">Create</button>
@@ -556,7 +555,7 @@ MODALS
           <i class="fab fa-laravel fa-sm"></i> Notes
         </div>
       </div>
-
+     
       <div class="row">
         <div class="col text-left">
           <ul class="list-unstyled">
