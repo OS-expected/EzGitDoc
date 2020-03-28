@@ -36,25 +36,23 @@ function createHeader() {
     }
 
     // create
-    var style = document.getElementById('headerStyleList');
-
-    switch(style.value) {
-        case '1':
+    switch(listOption) {
+        case 5:
             var h = document.createElement('h1');           
             break;
-        case '2':
+        case 6:
             var h = document.createElement('h2');
             break;
-        case '3':
+        case 7:
             var h = document.createElement('h3');
             break;
-        case '4':
+        case 8:
             var h = document.createElement('h4');
             break;
-        case '5':
+        case 9:
             var h = document.createElement('h5');
             break;
-        case '6':
+        case 10:
             var h = document.createElement('h6');
             break;
         default:
@@ -70,12 +68,13 @@ function createHeader() {
     renderElementOnPage(headerDiv);
   }
 
-var basicImage = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png';
+var basicImage = 'http://placehold.it/';
 
 function createImage()
 {
-    // get & validate
+    var tmpImageAdress;
 
+    // alt check
     var imageAlt = document.getElementById('altImageText').value;
     if (!imageAlt) 
     {  
@@ -84,12 +83,50 @@ function createImage()
     }
 
     var imageURL = document.getElementById('imageURL').value;
+
     var image = document.createElement('img');
     image.alt = imageAlt;
 
+    var xAxisVal = document.getElementById('xAxisProperty').value;
+    var yAxisVal = document.getElementById('yAxisProperty').value;
+
+    // width/height check
+    if (checkIfNumber(xAxisVal) == false || checkIfNumber(yAxisVal) == false)
+    {
+        triggerToast(notAnumber);
+        return false;
+    }
+    else if (xAxisVal != 0 && yAxisVal != 0)
+    {
+        image.setAttribute('width', xAxisVal);
+        image.setAttribute('height', yAxisVal);
+
+        tmpImageAdress = basicImage + xAxisVal + 'x' + yAxisVal;
+    }
+    else if (xAxisVal != 0 && yAxisVal == 0)
+    {
+        image.setAttribute('width', xAxisVal);
+        image.classList.add('wide');
+
+        tmpImageAdress = basicImage + xAxisVal;
+    }
+    else if (xAxisVal == 0 && yAxisVal != 0)
+    {
+        image.setAttribute('height', yAxisVal);
+        image.classList.add('high');
+
+        tmpImageAdress = basicImage + xAxisVal;
+    }
+    else if(xAxisVal == 0 && yAxisVal == 0)
+    {
+        triggerToast(minimumOneAxis);
+        return false;
+    }
+
+    // url check
     if (imageURL == 'blank')
     {
-        image.src = basicImage;
+        image.src = tmpImageAdress;
     }
     else if (validateURL(imageURL) == true)
     {
@@ -103,35 +140,6 @@ function createImage()
     else
     {
         triggerToast(wrongImageExtension_part1 + '(' + imageURL.slice(-4) + ')' + wrongImageExtension_part2);
-        return false;
-    }
-
-    var xAxisVal = document.getElementById('xAxisProperty').value;
-    var yAxisVal = document.getElementById('yAxisProperty').value;
-
-    if (checkIfNumber(xAxisVal) == false || checkIfNumber(yAxisVal) == false)
-    {
-        triggerToast(notAnumber);
-        return false;
-    }
-    else if (xAxisVal != 0 && yAxisVal != 0)
-    {
-        image.setAttribute('width', xAxisVal);
-        image.setAttribute('height', yAxisVal);
-    }
-    else if (xAxisVal != 0 && yAxisVal == 0)
-    {
-        image.setAttribute('width', xAxisVal);
-        image.classList.add('wide');
-    }
-    else if (xAxisVal == 0 && yAxisVal != 0)
-    {
-        image.setAttribute('height', yAxisVal);
-        image.classList.add('high');
-    }
-    else if(xAxisVal == 0 && yAxisVal == 0)
-    {
-        triggerToast(minimumOneAxis);
         return false;
     }
 
@@ -167,7 +175,6 @@ function createTable()
     // get
     var rows = document.getElementById('arrRowsAmount').value;
     var cols = document.getElementById('arrColsAmount').value;
-    var tableType = document.getElementById('tableType').value;
 
     // validate
     if (checkIfNumber(rows) == false || checkIfNumber(cols) == false)
@@ -185,7 +192,7 @@ function createTable()
         triggerToast(arrayColSizeExceeded);
         return false;
     }
-    else if (tableType != 1 && tableType != 2)
+    else if (listOption != 3 && listOption != 4)
     {
         triggerToast(tableTypeNotSpecified);
         return false;
@@ -197,12 +204,17 @@ function createTable()
     var tbl = document.createElement('table');
     tbl.style.width = '100%';
 
-    if (tableType == 1) {
+    if (listOption == 3) {
         tbl.classList.add('textTable');
     } else {
         tbl.classList.add('imageTable');
     }
     
+    // MDB extra classes
+    tbl.classList.add('table');
+    tbl.classList.add('table-bordered');
+    tbl.classList.add('table-responsive');
+
     tableDiv = setElement(tableDiv);
     
     var tbdy = document.createElement('tbody');
@@ -213,7 +225,7 @@ function createTable()
 
       for (var j = 0; j < cols; j++) {
         var td = document.createElement('td');
-        if (i == 0 && tableType == 1)
+        if (i == 0 && listOption == 3)
         {
             var bold = document.createElement('strong');
             var text = document.createTextNode('header');
@@ -222,16 +234,16 @@ function createTable()
         }
         else
         {
-            if (tableType == 1)
+            if (listOption == 3)
             {
                 td.appendChild(document.createTextNode('test'))
             }
-            else if (tableType == 2)
+            else if (listOption == 4)
             {
                 var image = document.createElement('img');
-                image.src = basicImage;
+                image.src = basicImage + '350x140';
                 image.alt = '#toadd';
-                image.width = '180';
+                image.width = '350';
                 image.height = '140';
                 td.appendChild(image);
             }
@@ -294,7 +306,7 @@ function createList()
         triggerToast(restrictedValue);
         return false;
     }
-    else if (listOption == null)
+    else if (listOption == null || listOption == 3 || listOption == 4)
     {
         triggerToast(listTypeNotSpecified);
         return false;
@@ -332,6 +344,19 @@ function createList()
         for (var i = 0; i < listSize; i++) {
             var point = document.createElement('li');
             point.textContent = 'text';
+            list.appendChild(point);
+        }
+        listDiv.appendChild(list);
+    }
+    else if (listOption == 2) 
+    {
+        var list = document.createElement('ul');
+        for (var i = 0; i < listSize; i++) {
+            var point = document.createElement('li');
+            var anchor = document.createElement('a');
+            anchor.href = '#to_do:add_href';
+            anchor.textContent = 'link text';
+            point.appendChild(anchor);
             list.appendChild(point);
         }
         listDiv.appendChild(list);
@@ -384,6 +409,8 @@ function createCode()
     // create
     var div = document.createElement('div');
     div = setElement(div);
+    div.style.whiteSpace = "pre"; 
+
     var code = document.createElement('code');
 
     if(!codeLanguage) {
