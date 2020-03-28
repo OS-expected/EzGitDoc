@@ -31,11 +31,23 @@
 
     <!-- Material Design Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.13.0/css/mdb.min.css" rel="stylesheet">
-    
     <title>ezGitDoc</title>
   </head>
 
 <body style="position: relative; background-color: #55606E;">
+
+<!-- Preloader -->
+<div class="se-pre-con" style="width: 100%; font-family: 'Josefin Sans';">
+  <div class="logo-body" style="margin: 5% auto 0 auto;">
+    <i class="fab fa-earlybirds fa-10x" style="color: #55606E;"></i>
+    <p style="font-size: 40px; color: #55606E; margin: 0; padding: 37px 0 10px 0; line-height: 0;">EzGitDoc</p>
+  </div>
+  <img style="display: block; margin: 4% auto 0 auto; width: 100px" src="images/loader.svg"/>
+  <br/>
+  <br/>
+  <p class="text-center faa-horizontal animated " style="font-size: 20px; color: white;">Loading</p>
+</div>
+
 <!-- 
 ********************************************
 Navbar (toolbar)
@@ -998,6 +1010,7 @@ MODALS
                       <li class="list-group-item"><span class="badge badge-warning">Change</span> Buttons responsible for creating elements are now bonded into one group.<br/><small>(previously there were 2 groups of 4 and 3 buttons).</small></li>
                       <li class="list-group-item"><span class="badge badge-warning">Change</span> removeAllElements uses JQuery remove func now.<br/><small>(previously removeAllElements used textContent variable)</small>.</li>
                       <li class="list-group-item"><span class="badge badge-success">New</span> Hovering over header, list and table types will show examples.</li>
+                      <li class="list-group-item"><span class="badge badge-success">New</span> Added preloader.</li>
                       <li class="list-group-item"><span class="badge badge-success">New</span> Added to the list third type which allows to create list of links.</li>
                       <li class="list-group-item"><span class="badge badge-success">New</span> Added 'back to the top' button for <em>Quick start</em> and <em>EzGitDoc examples</em> sections.</li>
                     </ul>

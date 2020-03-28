@@ -267,3 +267,8 @@ function saveStaticDataToFile() {
         { type: "text/plain;charset=utf-8" });
     saveAs(blob, "ezGitDoc_" + hour + '-' + minutes + '.txt');
 }
+
+$(function() {
+    // Animate loader off screen
+    $(".se-pre-con").fadeOut("slow");;
+});
