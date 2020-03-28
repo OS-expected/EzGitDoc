@@ -154,12 +154,28 @@ function GenerateMDCode()
         // Unordered list translation
         else if (elementTag.startsWith('UL'))
         {
-            var listLength = datas.item(i).getElementsByTagName("LI").length;
-            for (var x = 0; x < listLength; x++) {
-                tmp = tmp + '- text';
+            var firstElementTag = datas.item(i).children[0].childNodes[0].firstChild.tagName;
 
-                if (x < listLength - 1) {
-                    tmp = tmp + '\r\n';
+            var listLength = datas.item(i).getElementsByTagName("LI").length;
+
+            // link list
+            if(firstElementTag == 'A') {
+                for (var x = 0; x < listLength; x++) {
+                    tmp = tmp + '- <a href="https://ToDo:add_href">link text</a>';
+    
+                    if (x < listLength - 1) {
+                        tmp = tmp + '\r\n';
+                    }
+                }
+            }
+            // normal list
+            else {
+                for (var x = 0; x < listLength; x++) {
+                    tmp = tmp + '- text';
+    
+                    if (x < listLength - 1) {
+                        tmp = tmp + '\r\n';
+                    }
                 }
             }
         }
