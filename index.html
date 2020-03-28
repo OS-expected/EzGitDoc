@@ -622,10 +622,10 @@ MODALS
 <div class="modal fade top" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">
 
-  <div class="modal-dialog modal-notify modal-info modal-full-height modal-top" role="document">
+  <div id="modalTop" class="modal-dialog modal-notify modal-info modal-full-height modal-top" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 id="modalTop" class="modal-title w-100" id="myModalLabel">EzGitDoc Manual</h4>
+        <h4 class="modal-title w-100" id="myModalLabel">EzGitDoc Manual</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -673,11 +673,11 @@ MODALS
                   <!-- Title -->
                   <h4 class="card-title"><i class="far fa-comment ic-w mr-1"></i> What is EzGitDoc?</h4>
                   <!-- Text -->
-                  <p class="card-text text-justify help-text-style" style="font-size: 110%;">EzGitDoc is a project made with JavaScript and HTML to improve Git documentation experience. 
+                  <p class="card-text text-justify help-text-style" style="font-size: 110%;">EzGitDoc is made with JavaScript and HTML to improve Git documentation experience. 
                     Project's target was to create page where user can prepare doc' template that can be generated, pasted into *.md file and edited later. This
                     gives ability to prepare nice, thought schemes that will increase quality of repository for newcomers and employers checking portfolios.
                     You don't need to install anything as the project is setup and ready to use on github-pages. It's worth mentioning that some of the output
-                    elements are using HTML tags and some not (e.g. unordered list) but that is totally fine. By making linebreak these two ways of designing
+                    elements are using HTML tags and some not (e.g. unordered list) but that is totally fine. By making linebreak, these two ways of designing
                     document are not causing conflicts between themselves(sometimes it's not obligatory but still welcome for readability). EzGitDoc in its current stage allows you to create almost every desired element(no horizontal rule but I don't
                     think it's that necessary). Some of them e.g. table can't be edited inside(for now). But still.. This leaves you opportunity to make prototype of your 
                     document which later only needs to be polished with data, reducing the risk of problems and necessity to look after markdown cheatsheet. EzGitDoc
@@ -695,7 +695,6 @@ MODALS
               <div class="card">
                 <!-- Card content -->
                 <div class="card-body">
-              
                   <!-- Title -->
                   <h4 class="card-title"><i class="fas fa-running mr-1"></i> Quick start</h4>
                   <!-- Text -->
@@ -707,8 +706,10 @@ MODALS
                     <div class="row">
                       <p class="text-justify">
                       In the example above, buttons placed between red and cyan are the one responsible for creating desired 
-                      elements of template. In each white tile, there is a note about key combinations that can be used in order
-                      to trigger specific modal. If you make at least one element, in the right bottom corner you will see button that on
+                      elements of the template. In each white tile, there is a note about key combinations that can be used in order
+                      to trigger specific modal. Only one modal can be opened at a time, so feel free to use combinations to show
+                      other side windows and close one that's actually opened. Using the same combination that triggered modal will
+                      work as close function. If you make at least one element, in the right bottom corner you will see button that on
                       click will generate the scheme output. Example:
                       </p>
                     </div>
@@ -720,10 +721,10 @@ MODALS
                     <div class="row">
                       <p class="text-justify">
                       Then you only need to click <button type="button" class="btn btn-info btn-sm" disabled>Copy to clipboard</button> button,
-                      paste the output into doc' file and overwrite data if necessary(when you used for e.g. table element). 
+                      paste the output into doc' file and overwrite data if necessary(when you used for e.g. table segment). 
                       Or you can choose <button type="button" class="btn btn-unique btn-sm" disabled>Save to file</button> option. 
-                      And use it how you want! The red button that you saw in the first photo, allows you to clear your currently made scheme and
-                      start from the beginning(use it with caution!). You might want to think: what when I will do my scheme very long?
+                      and use it how you want. The red  <button type="button" class="btn btn-danger btn-sm" disabled>RESET</button> button that you saw in the first photo, allows you to clear your currently made scheme and
+                      start from the beginning(use it with caution). You might want to think: what when I will do my scheme very long?
                       I don't want to get back to the top and click on the button! Well after scrolling certain amount the "toolbar" will popup
                       to your aid as below:
                       </p>
@@ -738,8 +739,8 @@ MODALS
                       If you don't fullfil certain element pre-conditions(e.g. code tag text requirement), you will see notification in
                       the top right corner and element won't be created until it's fixed. Be advised that notification must be closed manually. 
                       It won't disappear by itself. Some of you might find this as disadvantage but I decided to do this as notifies
-                      are not stackable(you will only see one, last notify). Personally I would also like to see why something failed
-                      when I will have opportunity, rather than having in mind, that in 5 minutes it won't be visible. Example:
+                      are not stackable(you will only see one, last notify). Personally I thought that it's better to see why something failed
+                      when I will have opportunity, rather than having in mind, that in 5 minutes, it won't be visible. Example:
                       </p>
                     </div>
                     <br/><br/>
@@ -775,7 +776,6 @@ MODALS
               <div class="card">
                 <!-- Card content -->
                 <div class="card-body">
-              
                   <!-- Title -->
                   <h4 class="card-title"><i class="fas fa-cogs ic-w mr-1"></i> EzGitDoc examples</h4>
                   <!-- Text -->
@@ -798,10 +798,6 @@ MODALS
                       <div class="row justify-content-center">
                         <img src="images/examples_1.2.PNG" style="width: 70%;"/>
                       </div>
-                      <p class="text-justify">If you plan to use code area, keep in mind that in EzGitDoc preview
-                        breaklines won't be visible(like in the example shown above).
-                      </p>
-
                       <hr class="hr-custom-style"/>
                       <p class="bq-title">Header</p>
                       <hr class="hr-custom-style"/>
@@ -814,9 +810,13 @@ MODALS
                         <img src="images/examples_2.2.PNG" style="width: 70%;"/>
                       </div>
                       <p class="text-justify">EzGitDoc is using HTML &LeftAngleBracket; h &RightAngleBracket; tags to create 
-                        headers in *.md file but it's also possible to use hashtags. 
+                        headers in *.md file but it's also possible to use hashtag markdown. HTML tags can be considered as
+                        'slightly better' due to the fact that they can be used inside other tags like paragraphs while hashtags not.
+                        Check the image below.
                       </p>
-
+                      <div class="row justify-content-center">
+                        <img src="images/examples_2.2.1.PNG" style="width: 90%;"/>
+                      </div>
                       <hr class="hr-custom-style"/>
                       <p class="bq-title">Image</p>
                       <hr class="hr-custom-style"/>
@@ -836,8 +836,9 @@ MODALS
                       <div class="row justify-content-center">
                         <img src="images/examples_4.1.PNG" style="width: 70%;"/>
                       </div>
-                      <p class="text-justify">FYI: You can also make hyperlink by using Text element and anchor tag if you plan on
-                        making longer text. 
+                      <p class="text-justify">FYI: You can also make hyperlink by using <span class="badge badge-primary">Text</span> element 
+                        and anchor tag. If you want that single link to be aligned center or right, you can do this manually later, using 
+                        align attribute.
                       </p>
 
                       <p>Result on GitHub</p>
@@ -856,10 +857,10 @@ MODALS
                       <div class="row justify-content-center">
                         <img src="images/examples_5.2.PNG" style="width: 70%;"/>
                       </div>
-                      <p class="text-justify">Example shows two types of list that you can create. Typical one with point or 
+                      <p class="text-justify">Example shows two(out of three) types of list that you can create. Typical one with point or 
                         custom one(with icon). If you checked games on e.g. steam it's popular to describe the game pros in 
-                        short with icons but it can be used to describe pros of your library too! Below is mine example from
-                        one of the repositories: 
+                        short with icons but it can be used to describe pros of your library too! Below is example from EzGitDoc repository.
+                        Note that by adding extra breakline, you can put description of each advantage below bold title. 
                       </p>
                       <div class="row justify-content-center">
                         <img src="images/examples_extra1.PNG" style="width: 70%;"/>
@@ -877,11 +878,12 @@ MODALS
                         <img src="images/examples_6.2.PNG" style="width: 70%;"/>
                       </div>
                       <p class="text-justify">Image shows two types of table. Typical one used on GitHub is the text one. EzGitDoc
-                        currently does not allow to edit table data but it's easy to do after making template. Sometimes we
-                        want to share some screenshots if it's game repository or front-end part example etc. I suggest using table
+                        currently does not allow to edit table data but it's super easy to do after making template. Sometimes we
+                        want to share some screenshots if it's game repository, library or front-end part example etc. I suggest using table
                         to make fancy gallery. If you plan to make one, remember that you need to have same resolution images and then
                         find best width x height composition(or accept unequal rows/image stretches). It costs some time but 
-                        the effect is very satisfying! My example below on reduced images in 1920x1080: 
+                        the effect is very satisfying! My example below on reduced images in 1920x1080. Trust me, it's worth spending
+                        few extra minutes <i class="far fa-smile"></i>
                       </p>
                       <div class="row justify-content-center">
                         <img src="images/examples_extra2.PNG" style="width: 70%;"/>
@@ -898,7 +900,7 @@ MODALS
                       <div class="row justify-content-center">
                         <img src="images/examples_7.2.PNG" style="width: 70%;"/>
                       </div>
-                      <p class="text-justify">In the text element you can use HTML tags like em, strong, a, li etc.
+                      <p class="text-justify">In the <span class="badge badge-primary">Text</span> element, feel free to use HTML tags like em, strong, a, li etc.
                       </p>
                     </blockquote>
                     </div>        
@@ -927,9 +929,9 @@ MODALS
                     <p class="text-justify" style="font-size: 110%; line-height: 2.2em;">
                     EzGitDoc user interface(UI) is built using Bootstrap and MDBootstrap frameworks that allow to make the page react very nice
                     on different screens(act responsively). If you would use EzGitDoc on smartphone it would be probably harder to work
-                    with than on typical device with keyboard and mouse, but not impossible(maybe switching element's position would be challenging). 
-                    The project was created with purpose to be used on for e.g. PC, notebooks but the way its UI is built, allows user to use it
-                    on more portable devices. Try it by yourself!</p> 
+                    with, than on typical device with keyboard and mouse, but not impossible. The project was created with purpose to be used
+                    on for e.g. PC, notebooks. The most effective(quick and comfortable) way to use EzGitDoc will be through device with bigger
+                    screen than e.g. smartphones.</p> 
                   </p>        
                 </div> 
               </div>
@@ -946,15 +948,6 @@ MODALS
                   <!-- Text -->
                   <p class="card-text">
                     <div class="list-group">
-                      <a class="list-group-item flex-column align-items-start" readonly>
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-2 h5">Will EzGitDoc be maintained?</h5>
-                        </div>
-                        <p class="mb-2 text-justify"> I hope so. Even if it won't be known. Updates won't be regular for sure but I have few more 
-                          ideas I would like to see here. On the other hand I have other project thoughts I would like to create and limited time.
-                          I guess, we will see :) 
-                        </p>
-                      </a>
                       <a class="list-group-item flex-column align-items-start" readonly>
                         <div class="d-flex w-100 justify-content-between">
                           <h5 class="mb-2 h5">Can I contribute?</h5>
@@ -990,28 +983,40 @@ MODALS
                   <h4 class="card-title"><i class="fas fa-code-branch mr-1"></i> Updates</h4>
                   <!-- Text -->
                   <div class="card-text text-justify">
+                    <h5>v1.3 (28.03.2020)</h5>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item"><span class="badge badge-warning">Change</span> Reduced scroll amount needed to show navbar(from 400 to 220)</li>
+                      <li class="list-group-item"><span class="badge badge-warning">Change</span> Rearranged main page interface, added footer</li>
+                      <li class="list-group-item"><span class="badge badge-warning">Change</span> Updated manual data, images</li>
+                      <li class="list-group-item"><span class="badge badge-success">New</span> Added demo element on the page</li>
+                      <li class="list-group-item"><span class="badge badge-success">New</span> Added GitHub repository reference and Help button to navbar</li>
+                      <li class="list-group-item"><span class="badge badge-success">New</span> Added some padding to created text element</li>
+                      <li class="list-group-item"><span class="badge badge-success">New</span> Added contact form option</li>
+                      <li class="list-group-item"><span class="badge badge-success">New</span> Added leaving/refreshing page confirmation</li>
+                    </ul>
+                    <br/><br/>
                     <h5>v1.2 (24.03.2020)</h5>
                     <ul class="list-group list-group-flush">
-                      <li class="list-group-item">Reduced scroll amount needed to show navbar(from 400 to 220)</li>
-                      <li class="list-group-item">Rearranged main page interface, added footer</li>
-                      <li class="list-group-item">Added demo element on the page</li>
-                      <li class="list-group-item">Added GitHub repository reference and Help button to navbar</li>
-                      <li class="list-group-item">Added some padding to created text element</li>
-                      <li class="list-group-item">Added contact form option</li>
-                      <li class="list-group-item">Added leaving/refreshing page confirmation</li>
-                      <li class="list-group-item">Updated manual data, images</li>
+                      <li class="list-group-item"><span class="badge badge-warning">Change</span> Reduced scroll amount needed to show navbar(from 400 to 220)</li>
+                      <li class="list-group-item"><span class="badge badge-warning">Change</span> Rearranged main page interface, added footer</li>
+                      <li class="list-group-item"><span class="badge badge-warning">Change</span> Updated manual data, images</li>
+                      <li class="list-group-item"><span class="badge badge-success">New</span> Added demo element on the page</li>
+                      <li class="list-group-item"><span class="badge badge-success">New</span> Added GitHub repository reference and Help button to navbar</li>
+                      <li class="list-group-item"><span class="badge badge-success">New</span> Added some padding to created text element</li>
+                      <li class="list-group-item"><span class="badge badge-success">New</span> Added contact form option</li>
+                      <li class="list-group-item"><span class="badge badge-success">New</span> Added leaving/refreshing page confirmation</li>
                     </ul>
                     <br/><br/>
                     <h5>v1.1 (04.03.2020)</h5>
                     <ul class="list-group list-group-flush">
-                      <li class="list-group-item">Reduced scroll amount needed to show navbar(from 700 to 400)</li>
-                      <li class="list-group-item">Implementend shortcut keys for markdown parts</li>
-                      <li class="list-group-item">Added Updates section to Help modal</li>
+                      <li class="list-group-item"><span class="badge badge-warning">Change</span> Reduced scroll amount needed to show navbar(from 700 to 400)</li>
+                      <li class="list-group-item"><span class="badge badge-success">New</span> Implementend shortcut keys for markdown parts</li>
+                      <li class="list-group-item"><span class="badge badge-success">New</span> Added Updates section to Help modal</li>
                     </ul>
                     <br/><br/>
                     <h5>v1.0 (29.02.2020)</h5>
                     <ul class="list-group list-group-flush">
-                      <li class="list-group-item">EzGitDoc release</li>
+                      <li class="list-group-item"><span class="badge badge-primary">Init</span> EzGitDoc release</li>
                     </ul>
                   </div>        
                 </div>
