@@ -412,7 +412,7 @@ MODALS
             <label>Type</label>
             <li class="list-group-item" value="0" onclick="setElementAsActive(this, 'toggle_list_iconField')" data-toggle="popover-hover" data-img="/images/hover/list_iconic.PNG">iconic</li>
             <li class="list-group-item" value="1" onclick="setElementAsActive(this)" data-toggle="popover-hover" data-img="/images/hover/list_normal.PNG">normal</li>
-            <li class="list-group-item" value="2" onclick="setElementAsActive(this)" data-toggle="popover-hover" data-img="/images/hover/list_link.PNG">link &nbsp; <span class="badge badge-danger">new in v1.3</span></li>
+            <li class="list-group-item" value="2" onclick="setElementAsActive(this)" data-toggle="popover-hover" data-img="/images/hover/list_link.PNG">link &nbsp; <span class="badge badge-danger">v1.3</span></li>
           </ul> 
           <small class="form-text text-muted text-center">Hover over specific type to see the example.</small>
           <small class="form-text text-muted text-center">Click on the desired type to confirm.</small>
@@ -985,38 +985,43 @@ MODALS
                   <div class="card-text text-justify">
                     <h5>v1.3 (28.03.2020)</h5>
                     <ul class="list-group list-group-flush">
-                      <li class="list-group-item"><span class="badge badge-warning">Change</span> Reduced scroll amount needed to show navbar(from 400 to 220)</li>
-                      <li class="list-group-item"><span class="badge badge-warning">Change</span> Rearranged main page interface, added footer</li>
-                      <li class="list-group-item"><span class="badge badge-warning">Change</span> Updated manual data, images</li>
-                      <li class="list-group-item"><span class="badge badge-success">New</span> Added demo element on the page</li>
-                      <li class="list-group-item"><span class="badge badge-success">New</span> Added GitHub repository reference and Help button to navbar</li>
-                      <li class="list-group-item"><span class="badge badge-success">New</span> Added some padding to created text element</li>
-                      <li class="list-group-item"><span class="badge badge-success">New</span> Added contact form option</li>
-                      <li class="list-group-item"><span class="badge badge-success">New</span> Added leaving/refreshing page confirmation</li>
+                      <li class="list-group-item"><span class="badge badge-danger">Fix</span> <button class="btn btn-danger btn-sm" disabled>reset</button> button properly recovers 'Add first element..' block.</li>
+                      <li class="list-group-item"><span class="badge badge-warning">Change</span> Updated Notes section for each element.</li>
+                      <li class="list-group-item"><span class="badge badge-warning">Change</span> Updated EzGitDoc manual.</li>
+                      <li class="list-group-item"><span class="badge badge-warning">Change</span> Some elements(e.g. image table) will have extra tips printed as comments.</li>
+                      <li class="list-group-item"><span class="badge badge-warning">Change</span> Header styles can be now picked from the list.<br/><small>(previously: header styles could be picked from the dropdown)</small></li>
+                      <li class="list-group-item"><span class="badge badge-warning">Change</span> Table type can be now picked from the list.<br/><small>(previously: table type could be picked from the dropdown)</small></li>
+                      <li class="list-group-item"><span class="badge badge-warning">Change</span> Now EzGitDoc uses placehold to display blank image containers.<br/><small>(previously: used wiki 'no image' image)</small></li>
+                      <li class="list-group-item"><span class="badge badge-warning">Change</span> Updated some images stored in the repository.</li>
+                      <li class="list-group-item"><span class="badge badge-warning">Change</span> Buttons responsible for creating elements are now bonded into one group.<br/><small>(previously there were 2 groups of 4 and 3 buttons).</small></li>
+                      <li class="list-group-item"><span class="badge badge-warning">Change</span> removeAllElements uses JQuery remove func now.<br/><small>(previously removeAllElements used textContent variable)</small>.</li>
+                      <li class="list-group-item"><span class="badge badge-success">New</span> Hovering over header, list and table types will show examples.</li>
+                      <li class="list-group-item"><span class="badge badge-success">New</span> Added to the list third type which allows to create list of links.</li>
+                      <li class="list-group-item"><span class="badge badge-success">New</span> Added 'back to the top' button for <em>Quick start</em> and <em>EzGitDoc examples</em> sections.</li>
                     </ul>
                     <br/><br/>
                     <h5>v1.2 (24.03.2020)</h5>
                     <ul class="list-group list-group-flush">
-                      <li class="list-group-item"><span class="badge badge-warning">Change</span> Reduced scroll amount needed to show navbar(from 400 to 220)</li>
-                      <li class="list-group-item"><span class="badge badge-warning">Change</span> Rearranged main page interface, added footer</li>
-                      <li class="list-group-item"><span class="badge badge-warning">Change</span> Updated manual data, images</li>
-                      <li class="list-group-item"><span class="badge badge-success">New</span> Added demo element on the page</li>
-                      <li class="list-group-item"><span class="badge badge-success">New</span> Added GitHub repository reference and Help button to navbar</li>
-                      <li class="list-group-item"><span class="badge badge-success">New</span> Added some padding to created text element</li>
-                      <li class="list-group-item"><span class="badge badge-success">New</span> Added contact form option</li>
-                      <li class="list-group-item"><span class="badge badge-success">New</span> Added leaving/refreshing page confirmation</li>
+                      <li class="list-group-item"><span class="badge badge-warning">Change</span> Reduced scroll amount needed to show navbar(from 400 to 220).</li>
+                      <li class="list-group-item"><span class="badge badge-warning">Change</span> Rearranged main page interface, added footer.</li>
+                      <li class="list-group-item"><span class="badge badge-warning">Change</span> Updated manual data, images.</li>
+                      <li class="list-group-item"><span class="badge badge-success">New</span> Added demo element on the page.</li>
+                      <li class="list-group-item"><span class="badge badge-success">New</span> Added GitHub repository reference and Help button to navbar.</li>
+                      <li class="list-group-item"><span class="badge badge-success">New</span> Added some padding to created text element.</li>
+                      <li class="list-group-item"><span class="badge badge-success">New</span> Added contact form option.</li>
+                      <li class="list-group-item"><span class="badge badge-success">New</span> Added leaving/refreshing page confirmation.</li>
                     </ul>
                     <br/><br/>
                     <h5>v1.1 (04.03.2020)</h5>
                     <ul class="list-group list-group-flush">
-                      <li class="list-group-item"><span class="badge badge-warning">Change</span> Reduced scroll amount needed to show navbar(from 700 to 400)</li>
-                      <li class="list-group-item"><span class="badge badge-success">New</span> Implementend shortcut keys for markdown parts</li>
-                      <li class="list-group-item"><span class="badge badge-success">New</span> Added Updates section to Help modal</li>
+                      <li class="list-group-item"><span class="badge badge-warning">Change</span> Reduced scroll amount needed to show navbar(from 700 to 400).</li>
+                      <li class="list-group-item"><span class="badge badge-success">New</span> Implementend shortcut keys for markdown parts.</li>
+                      <li class="list-group-item"><span class="badge badge-success">New</span> Added Updates section to Help modal.</li>
                     </ul>
                     <br/><br/>
                     <h5>v1.0 (29.02.2020)</h5>
                     <ul class="list-group list-group-flush">
-                      <li class="list-group-item"><span class="badge badge-primary">Init</span> EzGitDoc release</li>
+                      <li class="list-group-item"><span class="badge badge-primary">Init</span> EzGitDoc release.</li>
                     </ul>
                   </div>        
                 </div>
