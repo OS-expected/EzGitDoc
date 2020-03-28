@@ -120,6 +120,7 @@ var listOption;
 // 2 - link list
 // 3 - text table
 // 4 - image table
+// 5,6,7,8,9,10 - header
 function setElementAsActive(element, extraArg = 'empty')
 {
     // Reset if no extraArg applied
@@ -192,6 +193,8 @@ $(document).ready(function () {
     });
 });
 
+var backToTheTopButton = document.getElementById('modal-back-to-top-btn');
+
 // Help modal content renderer
 function insertHelpData(partId)
 {
@@ -202,6 +205,12 @@ function insertHelpData(partId)
     }
 
     datas.item(partId).style.display = 'block';
+
+    if(partId == 1 || partId == 2) {
+        backToTheTopButton.classList.remove('hide');
+    } else if (backToTheTopButton.classList.contains('hide') == false) {
+        backToTheTopButton.classList.add('hide');
+    }
 }
 
 // Generated code copy function
