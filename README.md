@@ -87,3 +87,5 @@ EzGitDoc uses:
 
 ---
 Icon responding for EzGitDoc logo belongs to Font Awesome and is available <a href="https://fontawesome.com/icons/earlybirds">over here</a>.
+
+Loading image source: <a href="https://loading.io/spinner/">Loading.io</a>
