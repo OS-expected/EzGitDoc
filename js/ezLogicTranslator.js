@@ -103,13 +103,15 @@ function GenerateMDCode()
                             tmp = tmp + ' :---: |';
                         }
                         else if (x >= 1) {
-                            tmp = tmp + ' <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png" alt="#toadd" width="250" height="140"/> |';
+                            tmp = tmp + ' <img src="http://placehold.it/350x140" alt="#toadd" width="350" height="140"/> |';
                         }
                     }
                     if (x != rowAmount + 1) {
                         tmp = tmp + '\r\n';
                     }
                 }
+                
+                tmp = tmp + '\r\n' + '<!-- For image table, it\'s highly recommended to have the same resolution images. \r\n To find best results(no stretches, equal cells), both axis should be adjusted manually. -->'
             }
             else {
                 triggerToast('Code generation failed (table type problem).');
@@ -133,6 +135,8 @@ function GenerateMDCode()
                         tmp = tmp + '\r\n';
                     }
                 }
+                tmp = tmp + '\r\n' + '<!-- If you did not specify icon, simply overwrite Id put between : : characters with desired icon name -->' +
+                '\r\n' + '<!-- Supported by GitHub icon list can be found here: https://gist.github.com/rxaviers/7360908 -->'
             }
             // else it's raw text
             else
