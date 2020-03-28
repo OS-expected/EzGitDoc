@@ -404,22 +404,26 @@ MODALS
       <form>
         <div class="container">
           <div class="form-group">
-            <label for="listSize">Size of list</label>
+            <label for="listSize">Size</label>
             <input class="form-control" id="listSize" placeholder="0" autocomplete="off">
           </div>
 
           <ul class="list-group" style="cursor: pointer;" onselectstart="return false" ondragstart="return false">
-            <label>Separator</label>
-            <li class="list-group-item" value="0" onclick="setElementAsActive(this)">GitHub Icon and bold text</li>
-            <li class="list-group-item" value="1" onclick="setElementAsActive(this)">Point</li>
-            <small class="form-text text-muted text-center">Choose how each element of list should be introduced.</small>
+            <label>Type</label>
+            <li class="list-group-item" value="0" onclick="setElementAsActive(this, 'toggle_list_iconField')" data-toggle="popover-hover" data-img="/images/hover/list_iconic.PNG">iconic</li>
+            <li class="list-group-item" value="1" onclick="setElementAsActive(this)" data-toggle="popover-hover" data-img="/images/hover/list_normal.PNG">normal</li>
+            <li class="list-group-item" value="2" onclick="setElementAsActive(this)" data-toggle="popover-hover" data-img="/images/hover/list_link.PNG">link &nbsp; <span class="badge badge-danger">new in v1.3</span></li>
           </ul> 
+          <small class="form-text text-muted text-center">Hover over specific type to see the example.</small>
+          <small class="form-text text-muted text-center">Click on the desired type to confirm.</small>
 
           <br/>
 
           <div id="iconDiv" class="form-group">
             <label for="iconName">Got icon? Type name here</label>
             <input class="form-control" id="iconName" placeholder="e.g. smiley" autocomplete="off">
+            <small class="form-text text-muted text-left">For the list of icons supported by GitHub, refer <a href="https://gist.github.com/rxaviers/7360908" target="_blank">here</a>.</small>
+            <small class="form-text text-muted text-left">Icon can be added later by replacing Id put between : : with icon name.</small>
           </div>
         </div>
       </form>
@@ -433,9 +437,8 @@ MODALS
       <div class="row">
         <div class="col text-left">
           <ul class="list-unstyled">
-              <li><small class="form-text text-muted"><i class="fas fa-times"></i> Point separator <br/> Jagged elements of the list must be added manually later.</small> </li>
-              <li><small class="form-text text-muted"><i class="fas fa-times"></i> GitHub Icon separator <br/> Icon can be added within generated template later by replacing Id(value put between : chars) using Ctrl+F. (You can find icons for e.g. <a href="https://gist.github.com/rxaviers/7360908" target="_blank">here</a>)</small> </li>
-              <li><small class="form-text text-muted"><i class="fas fa-times"></i> Size of list must be integer value different than 0.</small> </li>
+              <li><small class="form-text text-muted"><i class="fas fa-times"></i> If you want to have jagged elements of the list, they must be added manually later.</small> </li>
+              <li><small class="form-text text-muted"><i class="fas fa-times"></i> Size of the list must be of integer value, different than 0.</small> </li>
           </ul>
         </div>
       </div>
