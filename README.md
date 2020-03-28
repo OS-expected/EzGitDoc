@@ -1,9 +1,9 @@
 <a href="https://trolit.github.io/EzGitDoc/"><img src="https://github.com/trolit/EzGitDoc/blob/master/images/banner.PNG" alt="banner, icon from FontAwesome" height="100%"></a>
 
-![Website](https://img.shields.io/website?down_message=offline&up_message=online&url=https%3A%2F%2Ftrolit.github.io%2FEzGitDoc%2F)
-![GitHub](https://img.shields.io/github/license/trolit/EzGitdoc)
-![GitHub last commit](https://img.shields.io/github/last-commit/trolit/EzGitDoc)
-![GitHub repo size](https://img.shields.io/github/repo-size/trolit/EzGitDoc)
+![Website label](https://img.shields.io/website?down_message=offline&up_message=online&url=https%3A%2F%2Ftrolit.github.io%2FEzGitDoc%2F)
+![License label](https://img.shields.io/github/license/trolit/EzGitdoc)
+![Last commit label](https://img.shields.io/github/last-commit/trolit/EzGitDoc)
+![Current version label](https://img.shields.io/badge/current%20version-1.3-red)
 
 ## Description
 
