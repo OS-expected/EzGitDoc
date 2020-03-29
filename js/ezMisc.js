@@ -268,6 +268,17 @@ function saveStaticDataToFile() {
     saveAs(blob, "ezGitDoc_" + hour + '-' + minutes + '.txt');
 }
 
+// Preloader
 $(window).on("load", function() { 
-    $(".se-pre-con").fadeOut("slow");
+    // extra delay 
+    if (location.hostname != "localhost" && location.hostname != "127.0.0.1") {
+        setTimeout(beginHidingPreLoader, 1200);
+    }
+    else {
+        beginHidingPreLoader();
+    }
 });
+
+function beginHidingPreLoader() {
+    $(".se-pre-con").fadeOut("slow");
+}
