@@ -167,20 +167,6 @@ $(document).ready(function () {
         group: 'shared',
         animation: 150
     });
-    // hide .navbar first
-    $(".navbar").hide();  
-    // fade in .navbar
-    $(function () {
-        $(window).scroll(function () {
-            if ($(this).scrollTop() > 220) 
-            {
-                $('.navbar').fadeIn();
-            } else 
-            {
-                $('.navbar').fadeOut();
-            }
-        }); 
-    });
 });
 
 var backToTheTopButton = document.getElementById('modal-back-to-top-btn');
