@@ -5,16 +5,6 @@ window.addEventListener('load', function () {
     document.getElementById('resetButton').disabled = true;
     // Hide GitHub List element
     document.getElementById('iconDiv').hidden = true;
-    // Start bounce animation on logo
-    var logo = document.getElementById('ezLogo');
-    logo.classList.add('faa-bounce', 'animated');
-    setTimeout(removeLogoAnimationAndManageToolbar, 2000);
-    function removeLogoAnimationAndManageToolbar()
-    {
-        logo.classList.remove('faa-bounce', 'animated');
-        logo.classList.add('faa-shake', 'animated-hover');
-        changeElementsVisiblity(document.getElementById('toolbar'));
-    }
 })
 
 // Toast Time Handler
