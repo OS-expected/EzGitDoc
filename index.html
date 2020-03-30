@@ -390,6 +390,7 @@ aria-hidden="true" data-backdrop="true">
         <div class="col text-left">
           <ul class="list-unstyled">
               <li><small class="form-text text-muted"><i class="fas fa-times"></i> Language field is optional.</small> </li>
+              <li><small class="form-text text-muted"><i class="fas fa-times"></i> In the code area you can use &nbsp; <span class="badge badge-light" style="padding: 6px;">TAB</span> &nbsp; key to make indent.</small> </li>
               <li><small class="form-text text-muted"><i class="fas fa-times"></i> Code area <strong>must contain</strong> at least one character.</small></li>
               <li><small class="form-text text-muted"><i class="fas fa-times"></i> Syntax highlighting is not visible in EzGitDoc. However, if the typed language name is supported by the service where you plan to use template(e.g. GitHub), it will work.</small></li> <br/>
           </ul>
@@ -398,8 +399,9 @@ aria-hidden="true" data-backdrop="true">
 
     </div>
     <div class="modal-footer justify-content-center">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      <button onclick="createCode()" type="button" class="btn btn-primary">Create</button>
+      <button onclick="createCode()" type="button" class="btn btn-deep-purple">Create</button>
+      <button type="button" class="btn btn-purple" data-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-amber" onclick="clearModal('#codeModal')">Reset</button>
     </div>
   </div>
 </div>
@@ -451,8 +453,9 @@ aria-hidden="true" data-backdrop="true">
       </div>
 
       <div class="modal-footer justify-content-center">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button onclick="createHeader()" type="button" class="btn btn-primary">Create</button>
+        <button onclick="createHeader()" type="button" class="btn btn-deep-purple">Create</button>
+        <button type="button" class="btn btn-purple" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-amber" onclick="clearModal('#headerModal')">Reset</button>
       </div>
     </div>
   </div>
@@ -471,47 +474,47 @@ aria-hidden="true" data-backdrop="true">
 
     <div class="modal-body">
       <form>
-          <div class="form-group">
-            <label for="altImageText">Alternate text</label>
-            <input class="form-control" id="altImageText" placeholder="Image shows.." autocomplete="off">
+        <div class="form-group">
+          <label for="altImageText">Alternate text</label>
+          <input class="form-control" id="altImageText" placeholder="Image shows.." autocomplete="off">
+        </div>
+        
+        <div class="form-group">
+            <label for="imageURL">URL</label>
+            <input class="form-control" id="imageURL" value="blank" autocomplete="off">
           </div>
-          
-          <div class="form-group">
-              <label for="imageURL">URL</label>
-              <input class="form-control" id="imageURL" value="blank" autocomplete="off">
+
+        <div class="form-group">
+            <label class="my-1 mr-2" for="imagePositionList">Alignment</label>
+            <select class="custom-select my-1 mr-sm-2" id="imagePositionList" autocomplete="off">
+            <option value="0" selected>Choose...</option>
+            <option value="1">Left aligned</option>
+            <option value="2">Center aligned</option>
+            <option value="3">Right aligned</option>
+            </select>
+        </div>
+
+        <div class="container">
+            <div class="form-group" id="scalingOptions">
+                <div class="row justify-content-md-center">
+
+                    <div class="col-md-12 text-center">
+                        <label class="my-1 mr-2">Size</label>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="text-center col-md-12" for="xAxisProperty">X axis (width)</label>
+                        <input class="form-control col-md-auto text-center" id="xAxisProperty" placeholder="0" autocomplete="off">
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <label class="text-center col-md-12" for="yAxisProperty">Y axis (height)</label>
+                        <input class="form-control col-md-auto text-center" id="yAxisProperty" placeholder="0" autocomplete="off">
+                    </div>
+                </div>
             </div>
-
-          <div class="form-group">
-              <label class="my-1 mr-2" for="imagePositionList">Alignment</label>
-              <select class="custom-select my-1 mr-sm-2" id="imagePositionList" autocomplete="off">
-              <option value="0" selected>Choose...</option>
-              <option value="1">Left aligned</option>
-              <option value="2">Center aligned</option>
-              <option value="3">Right aligned</option>
-              </select>
-          </div>
-
-          <div class="container">
-              <div class="form-group" id="scalingOptions">
-                  <div class="row justify-content-md-center">
-
-                      <div class="col-md-12 text-center">
-                          <label class="my-1 mr-2">Size</label>
-                      </div>
-
-                      <div class="col-md-6">
-                          <label class="text-center col-md-12" for="xAxisProperty">X axis (width)</label>
-                          <input class="form-control col-md-auto text-center" id="xAxisProperty" placeholder="0" autocomplete="off">
-                      </div>
-                      
-                      <div class="col-md-6">
-                          <label class="text-center col-md-12" for="yAxisProperty">Y axis (height)</label>
-                          <input class="form-control col-md-auto text-center" id="yAxisProperty" placeholder="0" autocomplete="off">
-                      </div>
-                  </div>
-              </div>
-          </div>
-        </form>     
+        </div>
+      </form>     
 
         <div class="row" style="margin-top: 25px;">
           <div class="col text-center mdb-color lighten-1" style="color: white;">
@@ -531,9 +534,10 @@ aria-hidden="true" data-backdrop="true">
         </div>
       </div>
 
-      <div class="modal-footer justify-content-center"">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button onclick="createImage()" type="button" class="btn btn-primary">Create</button>
+      <div class="modal-footer justify-content-center">
+        <button onclick="createImage()" type="button" class="btn btn-deep-purple">Create</button>
+        <button type="button" class="btn btn-purple" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-amber" onclick="clearModal('#imageModal')">Reset</button>
       </div>
     </div>
   </div>
@@ -561,6 +565,7 @@ aria-hidden="true" data-backdrop="true">
           <label for="hrefAddress">Href</label>
           <input class="form-control" id="hrefAddress" placeholder="e.g. https://mylink.com" autocomplete="off">
         </div>
+      </form>
 
       <div class="row" style="margin-top: 25px;">
         <div class="col text-center mdb-color lighten-1" style="color: white;">
@@ -580,8 +585,9 @@ aria-hidden="true" data-backdrop="true">
     </div>
 
     <div class="modal-footer justify-content-center">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      <button onclick="createLink()" type="button" class="btn btn-primary">Create</button>
+      <button onclick="createLink()" type="button" class="btn btn-deep-purple">Create</button>
+      <button type="button" class="btn btn-purple" data-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-amber" onclick="clearModal('#linkModal')">Reset</button>
     </div>
   </div>
 </div>
@@ -590,64 +596,65 @@ aria-hidden="true" data-backdrop="true">
 <!-- List Modal -->
 <div class="modal fade right" id="listModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-full-height modal-right" role="document">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h4 class="modal-title w-100" id="myModalLabel"><i class="fas fa-bars"></i> List Settings</h4>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-
-    <div class="modal-body">
-      <form>
-        <div class="container">
-          <div class="form-group">
-            <label for="listSize">Size</label>
-            <input class="form-control" id="listSize" placeholder="0" autocomplete="off">
-          </div>
-
-          <ul class="list-group" style="cursor: pointer;" onselectstart="return false" ondragstart="return false">
-            <label>Type</label>
-            <li class="list-group-item" value="0" onclick="setElementAsActive(this, 'toggle_list_iconField')" data-toggle="popover-hover" data-img="images/hover/list_iconic.PNG">iconic</li>
-            <li class="list-group-item" value="1" onclick="setElementAsActive(this)" data-toggle="popover-hover" data-img="images/hover/list_normal.PNG">normal</li>
-            <li class="list-group-item" value="2" onclick="setElementAsActive(this)" data-toggle="popover-hover" data-img="images/hover/list_link.PNG">link &nbsp; <span class="badge badge-danger">v1.3</span></li>
-          </ul> 
-          <small class="form-text text-muted text-center">Hover over specific type to see the example.</small>
-          <small class="form-text text-muted text-center">Click on the desired type to confirm.</small>
-
-          <br/>
-
-          <div id="iconDiv" class="form-group">
-            <label for="iconName">Got icon? Type name here</label>
-            <input class="form-control" id="iconName" placeholder="e.g. smiley" autocomplete="off">
-            <small class="form-text text-muted text-left">For the list of icons supported by GitHub, refer <a href="https://gist.github.com/rxaviers/7360908" target="_blank">here</a>.</small>
-            <small class="form-text text-muted text-left">Icon can be added later by replacing Id put between : : with icon name.</small>
-          </div>
-        </div>
-      </form>
-
-      <div class="row" style="margin-top: 25px;">
-        <div class="col text-center mdb-color lighten-1" style="color: white;">
-          <i class="fab fa-laravel fa-sm"></i> Notes
-        </div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title w-100"><i class="fas fa-bars"></i> List Settings</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
 
-      <div class="row">
-        <div class="col text-left">
-          <ul class="list-unstyled">
-              <li><small class="form-text text-muted"><i class="fas fa-times"></i> If you want to have jagged elements of the list, they must be added manually later.</small> </li>
-              <li><small class="form-text text-muted"><i class="fas fa-times"></i> Size of the list must be of integer value, different than 0.</small> </li>
-          </ul>
-        </div>
-      </div>
+      <div class="modal-body">
+        <form>
+            <div class="form-group">
+              <label for="listSize">Size</label>
+              <input class="form-control" id="listSize" placeholder="0" autocomplete="off">
+            </div>
 
-    </div>
-    <div class="modal-footer justify-content-center">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      <button onclick="createList()" type="button" class="btn btn-primary">Create</button>
+            <div class="form-group">
+              <ul class="list-group" style="cursor: pointer;" onselectstart="return false" ondragstart="return false">
+                <label>Type</label>
+                <li class="list-group-item" value="0" onclick="setElementAsActive(this, 'toggle_list_iconField')" data-toggle="popover-hover" data-img="images/hover/list_iconic.PNG">iconic</li>
+                <li class="list-group-item" value="1" onclick="setElementAsActive(this)" data-toggle="popover-hover" data-img="images/hover/list_normal.PNG">normal</li>
+                <li class="list-group-item" value="2" onclick="setElementAsActive(this)" data-toggle="popover-hover" data-img="images/hover/list_link.PNG">link &nbsp; <span class="badge badge-danger">v1.3</span></li>
+              </ul> 
+              <small class="form-text text-muted text-center">Hover over specific type to see the example.</small>
+              <small class="form-text text-muted text-center">Click on the desired type to confirm.</small>
+            </div>
+
+            <br/>
+
+            <div id="iconDiv" class="form-group">
+              <label for="iconName">Got icon? Type name here</label>
+              <input class="form-control" id="iconName" placeholder="e.g. smiley" autocomplete="off">
+              <small class="form-text text-muted text-left">For the list of icons supported by GitHub, refer <a href="https://gist.github.com/rxaviers/7360908" target="_blank">here</a>.</small>
+              <small class="form-text text-muted text-left">Icon can be added later by replacing Id put between : : with icon name.</small>
+            </div>
+        </form>
+
+        <div class="row" style="margin-top: 25px;">
+          <div class="col text-center mdb-color lighten-1" style="color: white;">
+            <i class="fab fa-laravel fa-sm"></i> Notes
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col text-left">
+            <ul class="list-unstyled">
+                <li><small class="form-text text-muted"><i class="fas fa-times"></i> If you want to have jagged elements of the list, they must be added manually later.</small> </li>
+                <li><small class="form-text text-muted"><i class="fas fa-times"></i> Size of the list must be of integer value, different than 0.</small> </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button onclick="createList()" type="button" class="btn btn-deep-purple">Create</button>
+        <button type="button" class="btn btn-purple" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-amber" onclick="clearModal('#listModal')">Reset</button>
+      </div>
     </div>
   </div>
-</div>
 </div>
 
 <!-- Table Modal -->
@@ -713,8 +720,9 @@ aria-hidden="true" data-backdrop="true">
     </div>
     
     <div class="modal-footer justify-content-center">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      <button onclick="createTable()" type="button" class="btn btn-primary">Create</button>
+      <button onclick="createTable()" type="button" class="btn btn-deep-purple">Create</button>
+      <button type="button" class="btn btn-purple" data-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-amber" onclick="clearModal('#arrayModal')">Reset</button>
     </div>
   </div>
 </div>
@@ -765,8 +773,9 @@ aria-hidden="true" data-backdrop="true">
 
     </div>
     <div class="modal-footer justify-content-center">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      <button onclick="createText()" type="button" class="btn btn-primary">Create</button>
+      <button onclick="createText()" type="button" class="btn btn-deep-purple">Create</button>
+      <button type="button" class="btn btn-purple" data-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-amber" onclick="clearModal('#textModal')">Reset</button>
     </div>
   </div>
 </div>
