@@ -93,13 +93,15 @@ var toast = document.getElementById('myToast');
 
 function triggerToast(message)
 {
-    toast.style.display = "block";
-
     var toastBody = document.getElementById('toastBody');
     toastBody.innerHTML = '<i class="fas fa-exclamation-circle"></i> ' + message;
 
     beginToastCounter();
     $("#myToast").toast('show');
+
+    if (isAutoToastHideChecked == true) {
+        setTimeout(HideToastManually, 6000);
+    }
 }
 
 function disassembleToast()
