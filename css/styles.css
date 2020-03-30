@@ -4,6 +4,7 @@ html, body {
     min-height: 100vh;
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
 }
 
 .middle-aligned-image {
@@ -116,6 +117,14 @@ table, th, td {
 
 .label-extra-styling {
     padding: 10px !important;
+}
+
+#workingSpace {
+    min-height: 80vh;
+}
+
+a {
+    color:inherit !important;
 }
 
 /* Preloader styles */
