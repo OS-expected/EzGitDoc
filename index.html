@@ -781,6 +781,59 @@ aria-hidden="true" data-backdrop="true">
 </div>
 </div>
 
+<!-- Label Modal -->
+<div class="modal fade right" id="labelModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-full-height modal-right" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title w-100" id="myModalLabel"><i class="far fa-sticky-note"></i> Label Settings</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <form>
+          <div class="container">
+            <div class="form-group">
+              <label for="commentArea">Text:</label>
+              <textarea class="form-control" rows="5" id="commentArea" autocomplete="off"></textarea>
+            </div>
+
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="checkbox" class="form-check-input" value="" id="commentJustify">text justification
+              </label>
+            </div>
+            
+          </div>
+        </form>
+
+        <div class="row" style="margin-top: 25px;">
+          <div class="col text-center mdb-color lighten-1" style="color: white;">
+            <i class="fab fa-laravel fa-sm"></i> Notes
+          </div>
+        </div>
+      
+        <div class="row">
+          <div class="col text-left">
+            <ul class="list-unstyled">
+                <li><small class="form-text text-muted"><i class="fas fa-times"></i> Leave text field empty if you want to use lorem ipsum template.</small> </li>
+                <li><small class="form-text text-muted"><i class="fas fa-times"></i> You can use HTML markup in the text area like: <br/> &lt;a href="address"&gt; text &lt;/a&gt; &nbsp; (to create link) <br/> &lt;strong&gt; text &lt;/strong&gt; &nbsp; (to bold text) <br/> &lt;em&gt; text &lt;/em&gt; &nbsp; (to emphasis text) <br/> &lt;del&gt; text &lt;/del&gt; &nbsp; (to strike text) <br/> etc. </small> </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button onclick="createText()" type="button" class="btn btn-deep-purple">Create</button>
+        <button type="button" class="btn btn-purple" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-amber" onclick="clearModal('#textModal')">Reset</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Contact Modal -->
 <div class="modal fade right" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-full-height modal-right" role="document">
