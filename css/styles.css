@@ -52,6 +52,18 @@ html, body {
     border: 7px inset #92A8D1;
 }
 
+.logo-preloader-body
+{
+    width: 200px;
+    height: 200px;
+    background: #AAC1DC; 
+    -moz-border-radius: 70px; 
+    -webkit-border-radius: 70px; 
+    border-radius: 70px;
+    text-align: center;
+    border: 7px inset #92A8D1;
+}
+
 table, th, td {
     border: 1px solid black;
 }
