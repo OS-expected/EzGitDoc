@@ -167,7 +167,7 @@ $(document).ready(function () {
     $('[data-toggle="popover-hover"]').popover({
         html: true,
         trigger: 'hover',
-        placement: 'right',
+        placement: 'left',
         content: function () { return '<img src="' + $(this).data('img') + '" width=\'100%\' />'; }
     });
     // add page leaving confirmation
