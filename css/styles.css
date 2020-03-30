@@ -110,6 +110,14 @@ table, th, td {
     font-size: 18px;
 }
 
+.mCSB_inside > .mCSB_container{ 
+    margin: 0 !important; 
+}
+
+.label-extra-styling {
+    padding: 10px !important;
+}
+
 /* Preloader styles */
 
 /* This only works with JavaScript, 
