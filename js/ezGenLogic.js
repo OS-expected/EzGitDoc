@@ -60,7 +60,8 @@ function createHeader() {
       } 
 
     h.textContent = title;
-
+    h.style.wordWrap = 'break-word';
+    
     var headerDiv = document.createElement('div');
     headerDiv = setElement(headerDiv);
     headerDiv.appendChild(h);
@@ -389,6 +390,7 @@ function createLink()
     var div = document.createElement('div');
     div = setElement(div);
     var link = document.createElement('a');
+    link.style.wordWrap = 'break-word';
 
     link.href = linkHref;
     link.textContent = linkName;
@@ -413,7 +415,7 @@ function createCode()
     // create
     var div = document.createElement('div');
     div = setElement(div);
-    
+
     var pre = document.createElement('pre');
 
     var code = document.createElement('code');
