@@ -186,9 +186,9 @@ $(document).ready(function () {
             (e || window.event).returnValue = message;     
             return message;                                
         });
-    }
+    } 
     // power up Tooltip
-    $('[data-toggle="tooltip"]').tooltip({
+    $('[data-tooltip="tooltip"]').tooltip({
         trigger : 'hover'
     })
     // power up MDB Tree (help modal)
@@ -237,19 +237,17 @@ function insertHelpData(partId)
 }
 
 // Generated code copy function
-function copyToClipboard()
+function copyToClipboard(btn)
 {
-    setTimeout(hide, 400);
-
     var copyText = document.getElementById("codeTextBox");
     copyText.select();
     copyText.setSelectionRange(0, 99999)
     document.execCommand("copy");
     document.getSelection().removeAllRanges(); 
-    
-    function hide() {
-        $('[data-toggle="tooltip"]').tooltip("hide");
-    }
+
+    btn.innerText = 'Copied';
+
+    setTimeout(function() { btn.innerText = 'Copy to clipboard' }, 5000);
 }
 
 // Show/hide code generator button
@@ -303,3 +301,11 @@ $("#close-sidebar").click(function() {
 $("#show-sidebar").click(function() {
     $(".page-wrapper").addClass("toggled");
 });
+
+// Modal clear
+function clearModal(id) {
+    $(id).find('form').trigger('reset');
+
+    // clear chosen option
+    setElementAsActive('-1');
+}
