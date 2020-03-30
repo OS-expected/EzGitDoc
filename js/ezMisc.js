@@ -149,6 +149,20 @@ window.onbeforeunload = null;
 
 // on page startup with JQuery
 $(document).ready(function () {
+    //custom scroll bar is only on desktop
+    if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        $(".sidebar-content").mCustomScrollbar({
+            scrollButtons:{
+                enable:true
+            },
+            axis: "y",
+            autoHideScrollbar: true,
+            scrollInertia: 300,
+            theme:"light",
+            scrollbarPosition: "inside"
+        });
+        $(".sidebar-content").addClass("desktop");
+    }
     // add popover-hover with images
     $('[data-toggle="popover-hover"]').popover({
         html: true,
