@@ -180,7 +180,9 @@ $(document).ready(function () {
         });
     }
     // power up Tooltip
-    $('[data-toggle="tooltip"]').tooltip();
+    $('[data-toggle="tooltip"]').tooltip({
+        trigger : 'hover'
+    })
     // power up MDB Tree (help modal)
     $('.treeview-animated').mdbTreeview();
     // power up SortableJS
