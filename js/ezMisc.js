@@ -112,7 +112,6 @@ function HideToastManually() {
 // List modal picker
 var currentlyActive;
 var listOption;
-
 // listOption, occupied values
 // 0 - icon list
 // 1 - normal list 
@@ -125,6 +124,14 @@ function setElementAsActive(element, extraArg = 'empty')
     // Reset if no extraArg applied
     if (extraArg == 'empty') {
         document.getElementById('iconDiv').hidden = true;
+    } 
+    
+    if (element === '-1') {
+        if(currentlyActive) {
+            currentlyActive.classList.remove('active');
+        }
+        listOption = 999;
+        return;
     }
 
     if (currentlyActive)
