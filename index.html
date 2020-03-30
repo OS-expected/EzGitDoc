@@ -153,14 +153,14 @@ Sidebar
       <a id="close-sidebar" data-toggle="tooltip" data-placement="top" title="Full page preview">
         <i class="far fa-eye"></i>
       </a>
-      <a data-toggle="tooltip" data-placement="top" title="Scroll to the top">
+      <a href="#top" data-toggle="tooltip" data-placement="top" title="Scroll to the top">
         <i class="fas fa-angle-double-up"></i>
       </a>
-      <a data-toggle="tooltip" data-placement="top" title="Scroll to the bottom">
+      <a href="#bottom" data-toggle="tooltip" data-placement="top" title="Scroll to the bottom">
         <i class="fas fa-angle-double-down"></i>
         <!-- <span class="badge badge-pill badge-success notification">7</span> -->
       </a>
-      <a data-toggle="tooltip" data-placement="top" title="Refresh page">
+      <a onClick="window.location.reload();" style="color: #818896;" data-toggle="tooltip" data-placement="top" title="Refresh page">
         <i class="fas fa-redo"></i>
       </a>
     </div>
@@ -170,9 +170,11 @@ Sidebar
   <main class="page-content">
     <div class="container-fluid">
       
-      <!-- Working space Area -->
       <div>
-        <div id="workingSpace" style="margin: 3% 15% 4% 15%; border: 1px solid white;">
+        <div id="top"></div>
+
+        <!-- Working space Area -->
+        <div id="workingSpace" style="margin: 3% 15% 4% 15%; border: 3px solid white;">
           <div id="startNote" class="row" style="color: white; font-size: 25px; margin: 20% auto 20% auto; text-align: center;font-family: Calibri, Arial;">
               <div class="col-5 faa-parent animated-hover">
                 <i class="fas fa-angle-double-left fa-4x faa-horizontal"></i><br/><br/>
@@ -189,6 +191,8 @@ Sidebar
               </div>
           </div>
         </div>
+
+        <div id="bottom"></div>
       </div>
 
       <!-- Code Generation Button -->
