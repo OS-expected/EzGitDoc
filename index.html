@@ -274,6 +274,60 @@ MODALS
 ********************************************
 -->
 
+<!-- Settings Modal -->
+<div class="modal fade right" id="settingsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+aria-hidden="true" data-backdrop="true">
+<div class="modal-dialog modal-side modal-top-right modal-notify modal-primary" role="document">
+  <!--Content-->
+  <div class="modal-content">
+    <!--Header-->
+    <div class="modal-header">
+      <p class="heading">Settings
+      </p>
+
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true" class="white-text">&times;</span>
+      </button>
+    </div>
+
+    <!--Body-->
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-12">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="autoMod_switch" onclick="updateSetting('autoModals')" checked>
+            <label class="custom-control-label" for="autoMod_switch" style="width: 100%;">Automated modals: <span id="autoMod_switch_label" class="badge badge-pill badge-success" style="float: right;">enabled</span></label>
+            <small class="form-text text-muted">Decide whether modals should be closed automatically on successful object render(enabled) or not(disabled).</small>
+          </div>
+
+          <br/>
+
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="autoDisappear_switch" onclick="updateSetting('autoDisappear')">
+            <label class="custom-control-label" for="autoDisappear_switch" style="width: 100%;">Autohide notifications: <span id="autoDisappear_switch_label" class="badge badge-pill badge-danger" style="float: right;">disabled</span></label>
+            <small class="form-text text-muted">If enabled, error messages will be shown for limited time of 7 seconds. When disabled, notifications needs to be closed manually.</small>
+          </div>
+
+          <br/>
+
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="hintKeys_switch" onclick="updateSetting('hintKeys')" checked>
+            <label class="custom-control-label" for="hintKeys_switch" style="width: 100%;">Hint keys: <span id="hintKeys_switch_label" class="badge badge-pill badge-danger" style="float: right;">disabled</span></label>
+            <small class="form-text text-muted">Enable this option to see shortkeys hints for each element from the sidebar tools section.</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Footer-->
+    <div class="modal-footer flex-center">
+      <a type="button" class="btn btn-light-blue" data-dismiss="modal">Close</a>
+    </div>
+  </div>
+  <!--/.Content-->
+</div>
+</div>
+
 <!-- Are you sure Modal -->
 <div class="modal fade" id="resetConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
