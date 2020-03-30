@@ -228,9 +228,12 @@ left: 0px;
 #show-sidebar {
     position: fixed;
     left: 0;
-    top: 10px;
+    margin: 0;
+    height: 50px;
+    text-align: center;
+    top: 0;
     border-radius: 0 4px 4px 0px;
-    width: 35px;
+    width: 70px;
     transition-delay: 0.3s;
 }
 .page-wrapper.toggled #show-sidebar {
@@ -556,13 +559,15 @@ left: 0px;
     color: #b8bfce;
 }
 
+/*
 .page-wrapper.chiller-theme.toggled #close-sidebar {
-    color: #bdbdbd;
+
 }
 
 .page-wrapper.chiller-theme.toggled #close-sidebar:hover {
     color: #ffffff;
 }
+*/
 
 .chiller-theme .sidebar-wrapper ul li:hover a i,
 .chiller-theme .sidebar-wrapper .sidebar-dropdown .sidebar-submenu li a:hover:before,
