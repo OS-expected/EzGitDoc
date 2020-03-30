@@ -1,6 +1,14 @@
 var codeGenButton = document.getElementById('codeGenButton');
 
 window.addEventListener('load', function () {
+    // extra delay 
+    if (location.hostname != "localhost" && location.hostname != "127.0.0.1") {
+        setTimeout(beginHidingPreLoader, 1200);
+    }
+    else {
+        beginHidingPreLoader();
+    }
+
     // Disable RESET button
     document.getElementById('resetButton').disabled = true;
     // Hide GitHub List element
