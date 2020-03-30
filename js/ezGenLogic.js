@@ -284,6 +284,9 @@ function createText()
     {
         paragraph.setAttribute('style', 'text-align: justify; padding: 0 2% 0 2%');
     }
+    else {
+        paragraph.setAttribute('style', 'word-wrap:break-word; padding: 0 2% 0 2%');
+    }
 
     textDiv.appendChild(paragraph);
     textDiv.appendChild(createDeleteTool());
