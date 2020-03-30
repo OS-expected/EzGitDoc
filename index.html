@@ -75,7 +75,7 @@ Sidebar
         </div>
       </div>
       <div class="text-center">
-        <button id="resetButton" type="button" class="btn btn-sm btn-danger" onclick="removeAllElements()" disabled>Reset template</button>
+        <button id="resetButton" type="button" class="btn btn-sm btn-danger"  data-toggle="modal" data-target="#resetConfirmationModal" disabled>Reset template</button>
       </div>
       <!-- sidebar-header  -->
       <div class="sidebar-menu">
@@ -266,6 +266,32 @@ MODALS
 ********************************************
 -->
 
+<!-- Are you sure Modal -->
+<div class="modal fade" id="resetConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-sm modal-notify modal-danger" role="document">
+    <!--Content-->
+    <div class="modal-content text-center">
+      <!--Header-->
+      <div class="modal-header d-flex justify-content-center">
+        <p class="heading">Are you sure?</p>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body">
+        <i class="fas fa-times fa-4x animated rotateIn"></i>
+      </div>
+
+      <!--Footer-->
+      <div class="modal-footer flex-center">
+        <a onclick="removeAllElements()" data-dismiss="modal" class="btn  btn-outline-danger">Yes</a>
+        <a type="button" class="btn btn-danger waves-effect" data-dismiss="modal">No</a>
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+
 <!-- Code Modal -->
 <div class="modal fade right" id="codeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-full-height modal-right" role="document">
@@ -281,7 +307,7 @@ MODALS
       <form>
         <div class="form-group">
           <label for="codeLanguage">Language</label>
-          <input class="form-control" id="codeLanguage" placeholder="e.g. javascript" autocomplete="off">
+          <input class="form-control" id="codeLanguage" placeholder="e.g. javascript" maxlength="15" autocomplete="off">
         </div>
 
         <div class="container">
