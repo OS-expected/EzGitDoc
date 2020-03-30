@@ -67,6 +67,8 @@ function createHeader() {
     headerDiv.appendChild(h);
     headerDiv.appendChild(createDeleteTool());
     renderElementOnPage(headerDiv);
+
+    hideModalAfterRender('#headerModal');
   }
 
 var basicImage = 'http://placehold.it/';
@@ -169,6 +171,8 @@ function createImage()
     paragraph.appendChild(image); 
     paragraph.appendChild(createDeleteTool());
     renderElementOnPage(paragraph);
+
+    hideModalAfterRender('#imageModal');
 }
 
 function createTable() 
@@ -292,6 +296,8 @@ function createText()
     textDiv.appendChild(paragraph);
     textDiv.appendChild(createDeleteTool());
     renderElementOnPage(textDiv);
+
+    hideModalAfterRender('#textModal');
 }
 
 function createList()
@@ -310,7 +316,7 @@ function createList()
         triggerToast(restrictedValue);
         return false;
     }
-    else if (listOption == null || listOption == 3 || listOption == 4)
+    else if (listOption == null || listOption == 999 | listOption == 3 || listOption == 4)
     {
         triggerToast(listTypeNotSpecified);
         return false;
@@ -368,6 +374,8 @@ function createList()
 
     listDiv.appendChild(createDeleteTool());
     renderElementOnPage(listDiv);
+
+    hideModalAfterRender('#listModal');
 }
 
 function createLink()
@@ -398,6 +406,8 @@ function createLink()
     div.appendChild(link);
     div.appendChild(createDeleteTool());
     renderElementOnPage(div);
+
+    hideModalAfterRender('#linkModal');
 }
 
 function createCode() 
@@ -431,6 +441,8 @@ function createCode()
     div.appendChild(pre);
     div.appendChild(createDeleteTool());
     renderElementOnPage(div);
+
+    hideModalAfterRender('#codeModal');
 }
 
 function removeElementByParentId(elementId) {
@@ -479,3 +491,7 @@ function renderElementOnPage(element)
     var workingSpace = document.getElementById('workingSpace');
     workingSpace.appendChild(element);
 };
+
+function hideModalAfterRender(id) {
+    $(id).modal('hide');
+}
