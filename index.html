@@ -39,7 +39,11 @@
 
 <body style="background-color: #55606E;">
 
-<!-- Preloader -->
+<!-- 
+********************************************
+Preloader
+********************************************
+-->
 <div class="se-pre-con" style="width: 100%; font-family: 'Josefin Sans';">
   <div class="logo-body" style="margin: 5% auto 0 auto;">
     <i class="fab fa-earlybirds fa-10x" style="color: #55606E;"></i>
@@ -53,17 +57,138 @@
 
 <!-- 
 ********************************************
-Logo & buttons
+Sidebar
 ********************************************
 -->
-<div class="row shine" onselectstart="return false" ondragstart="return false" style="width: 100%; background-color: #55606E; padding: 10px 0 0 0; margin-bottom: 150px;">
-  <div class="col-lg-3">
-    <div class="logo-body" style="margin: 0 auto 0 auto; font-family: 'Josefin Sans'; ">
-      <i id="ezLogo" class="fab fa-earlybirds fa-10x" style="color: #55606E;"></i>
-      <p style="font-size: 40px; color: #55606E; margin: 0; padding: 30px 0 10px 0; line-height: 0;">EzGitDoc</p>
-      <small style="font-size: 10px;">Improve your documentation easily</small>
+<div class="page-wrapper chiller-theme toggled">
+  <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+    <i class="fas fa-bars"></i>
+  </a>
+  <nav id="sidebar" class="sidebar-wrapper">
+    <div class="sidebar-content">
+      <div id="close-sidebar">
+        <span class="badge badge-danger"><i class="fas fa-times fa-2x" style="float: left; font-size: 15px; cursor: pointer;"></i></span>
+      </div>
+      <div class="sidebar-header" style="margin-left: 2%;">
+        <div class="logo-preloader-body" style="font-family: 'Josefin Sans'; ">
+          <i class="fab fa-earlybirds fa-8x faa-tada animated-hover " style="color: #55606E;"></i>
+          <p style="font-size: 30px; color: #55606E; margin: 0; padding: 20px 0 4px 0; line-height: 0;">EzGitDoc</p>
+          <small style="font-size: 9px;">Improve your documentation easily</small>
+        </div>
+      </div>
+      <div class="text-center">
+        <button id="resetButton" type="button" class="btn btn-sm btn-danger" onclick="removeAllElements()" disabled>Reset template</button>
+      </div>
+      <!-- sidebar-header  -->
+      <div class="sidebar-menu">
+        <ul>
+          <li class="header-menu">
+            <span>Tools</span>
+          </li>
+          <li data-toggle="modal" data-target="#codeModal">
+            <a href="#">
+              <i class="fas fa-code"></i>
+              <span>Code</span>
+            </a>
+          </li> 
+          <li data-toggle="modal" data-target="#headerModal">
+            <a href="#">
+              <i class="fas fa-heading"></i>
+              <span>Header</span>
+            </a>
+          </li> 
+          <li data-toggle="modal" data-target="#imageModal">
+            <a href="#">
+              <i class="far fa-image"></i>
+              <span>Image</span>
+            </a>
+          </li> 
+          <li data-toggle="modal" data-target="#linkModal">
+            <a href="#">
+              <i class="fas fa-link"></i>
+              <span>Link</span>
+            </a>
+          </li> 
+          <li data-toggle="modal" data-target="#listModal">
+            <a href="#">
+              <i class="fas fa-bars"></i>
+              <span>List</span>
+            </a>
+          </li> 
+          <li data-toggle="modal" data-target="#arrayModal">
+            <a href="#">
+              <i class="fas fa-table"></i>
+              <span>Table</span>
+            </a>
+          </li> 
+          <li data-toggle="modal" data-target="#textModal">
+            <a href="#">
+              <i class="far fa-sticky-note"></i>
+              <span>Text</span>
+            </a>
+          </li> 
+          <li data-toggle="modal" data-target="#textModal">
+            <a href="#">
+              <i class="fas fa-tag"></i>
+              <span>Label</span>
+              <span class="badge badge-info">New</span>
+            </a>
+          </li> 
+          <li class="header-menu">
+            <span>Extra</span>
+          </li>
+          <li data-toggle="modal" data-target="#helpModal">
+            <a href="#">
+              <i class="fa fa-book"></i>
+              <span>Documentation</span>
+              <!-- <span class="badge-sonar"></span> -->
+            </a>
+          </li>
+          <li style="margin-top: 25px; float: right;">
+          </li>  
+        </ul>
+      </div>
+      <!-- sidebar-menu  -->
     </div>
-  </div>
+    <!-- sidebar-content  -->
+    <div class="sidebar-footer">
+      <a href="#" data-toggle="tooltip" data-placement="top" title="Scroll to the top">
+        <i class="fas fa-angle-double-up"></i>
+      </a>
+      <a href="#" data-toggle="tooltip" data-placement="top" title="Scroll to the bottom">
+        <i class="fas fa-angle-double-down"></i>
+        <!-- <span class="badge badge-pill badge-success notification">7</span> -->
+      </a>
+      <a href="#" data-toggle="tooltip" data-placement="top" title="Refresh page">
+        <i class="fas fa-redo"></i>
+      </a>
+    </div>
+  </nav>
+  
+  <!-- sidebar-wrapper  -->
+  <main class="page-content">
+    <div class="container-fluid">
+      
+      <!-- Working space Area -->
+      <div>
+        <div id="workingSpace" style="margin: 3% 15% 4% 15%; border: 1px solid white;">
+          <div id="startNote" class="row" style="color: white; font-size: 25px; margin: 20% auto 20% auto; text-align: center;font-family: Calibri, Arial;">
+              <div class="col-5 faa-parent animated-hover">
+                <i class="fas fa-angle-double-left fa-4x faa-horizontal"></i><br/><br/>
+                <span class="badge badge-primary label-extra-styling">Add first element</span>
+              </div>
+              <div class="col-2" style="font-size: 135%;">
+                <br/>
+                <br/>
+                <span class="badge badge-primary label-extra-styling">OR</span>
+              </div>
+              <div class="col-5 faa-parent animated-hover">
+                <i class="fas fa-cogs fa-4x faa-vertical "></i><br/><br/>
+                <span class="badge badge-primary label-extra-styling">Review the docs</span><br/><button type="button" style="margin-top: 0;" class="btn btn-indigo"  data-toggle="modal" data-target="#helpModal">click here</button>
+              </div>
+          </div>
+        </div>
+      </div>
 
   <div class="col-lg-9" style="margin-top: 2%;">
     <div> <!-- w100 prevents horizontal scroll to appear -->
