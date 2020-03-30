@@ -104,9 +104,8 @@ function triggerToast(message)
     }
 }
 
-function disassembleToast()
-{
-    toast.style.display = "none";
+function HideToastManually() { 
+    $("#myToast").toast('hide');
     resetLastInterval();
 }
 
