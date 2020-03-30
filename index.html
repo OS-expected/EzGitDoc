@@ -62,13 +62,11 @@ Sidebar
 -->
 <div class="page-wrapper chiller-theme toggled">
   <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
-    <i class="fas fa-bars"></i>
+    <i class="fas fa-bars fa-2x text-center" style="margin-top: 30%;"></i>
   </a>
   <nav id="sidebar" class="sidebar-wrapper">
     <div class="sidebar-content">
-      <div id="close-sidebar">
-        <span class="badge badge-danger"><i class="fas fa-times fa-2x" style="float: left; font-size: 15px; cursor: pointer;"></i></span>
-      </div>
+
       <div class="sidebar-header" style="margin-left: 2%;">
         <div class="logo-preloader-body" style="font-family: 'Josefin Sans'; ">
           <i class="fab fa-earlybirds fa-8x faa-tada animated-hover " style="color: #55606E;"></i>
@@ -86,49 +84,49 @@ Sidebar
             <span>Tools</span>
           </li>
           <li data-toggle="modal" data-target="#codeModal">
-            <a href="#">
+            <a>
               <i class="fas fa-code"></i>
               <span>Code</span>
             </a>
           </li> 
           <li data-toggle="modal" data-target="#headerModal">
-            <a href="#">
+            <a>
               <i class="fas fa-heading"></i>
               <span>Header</span>
             </a>
           </li> 
           <li data-toggle="modal" data-target="#imageModal">
-            <a href="#">
+            <a>
               <i class="far fa-image"></i>
               <span>Image</span>
             </a>
           </li> 
           <li data-toggle="modal" data-target="#linkModal">
-            <a href="#">
+            <a>
               <i class="fas fa-link"></i>
               <span>Link</span>
             </a>
           </li> 
           <li data-toggle="modal" data-target="#listModal">
-            <a href="#">
+            <a>
               <i class="fas fa-bars"></i>
               <span>List</span>
             </a>
           </li> 
           <li data-toggle="modal" data-target="#arrayModal">
-            <a href="#">
+            <a>
               <i class="fas fa-table"></i>
               <span>Table</span>
             </a>
           </li> 
           <li data-toggle="modal" data-target="#textModal">
-            <a href="#">
+            <a>
               <i class="far fa-sticky-note"></i>
               <span>Text</span>
             </a>
           </li> 
           <li data-toggle="modal" data-target="#textModal">
-            <a href="#">
+            <a>
               <i class="fas fa-tag"></i>
               <span>Label</span>
               <span class="badge badge-info">New</span>
@@ -138,7 +136,7 @@ Sidebar
             <span>Extra</span>
           </li>
           <li data-toggle="modal" data-target="#helpModal">
-            <a href="#">
+            <a>
               <i class="fa fa-book"></i>
               <span>Documentation</span>
               <!-- <span class="badge-sonar"></span> -->
@@ -152,14 +150,17 @@ Sidebar
     </div>
     <!-- sidebar-content  -->
     <div class="sidebar-footer">
-      <a href="#" data-toggle="tooltip" data-placement="top" title="Scroll to the top">
+      <a id="close-sidebar" data-toggle="tooltip" data-placement="top" title="Full page preview">
+        <i class="far fa-eye"></i>
+      </a>
+      <a data-toggle="tooltip" data-placement="top" title="Scroll to the top">
         <i class="fas fa-angle-double-up"></i>
       </a>
-      <a href="#" data-toggle="tooltip" data-placement="top" title="Scroll to the bottom">
+      <a data-toggle="tooltip" data-placement="top" title="Scroll to the bottom">
         <i class="fas fa-angle-double-down"></i>
         <!-- <span class="badge badge-pill badge-success notification">7</span> -->
       </a>
-      <a href="#" data-toggle="tooltip" data-placement="top" title="Refresh page">
+      <a data-toggle="tooltip" data-placement="top" title="Refresh page">
         <i class="fas fa-redo"></i>
       </a>
     </div>
