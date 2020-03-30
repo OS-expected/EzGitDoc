@@ -389,6 +389,7 @@ function createLink()
     var div = document.createElement('div');
     div = setElement(div);
     var link = document.createElement('a');
+
     link.href = linkHref;
     link.textContent = linkName;
 
@@ -412,7 +413,8 @@ function createCode()
     // create
     var div = document.createElement('div');
     div = setElement(div);
-    div.style.whiteSpace = "pre"; 
+    
+    var pre = document.createElement('pre');
 
     var code = document.createElement('code');
 
@@ -423,7 +425,8 @@ function createCode()
         code.innerHTML = '```' + codeLanguage + '<br/>' + codeText + '<br/>```';
     }
 
-    div.appendChild(code);
+    pre.appendChild(code);
+    div.appendChild(pre);
     div.appendChild(createDeleteTool());
     renderElementOnPage(div);
 }
