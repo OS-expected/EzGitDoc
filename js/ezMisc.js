@@ -206,7 +206,7 @@ function insertHelpData(partId)
 
     datas.item(partId).style.display = 'block';
 
-    if(partId == 1 || partId == 2) {
+    if(partId == 1 || partId == 2 || partId == 5) {
         backToTheTopButton.classList.remove('hide');
     } else if (backToTheTopButton.classList.contains('hide') == false) {
         backToTheTopButton.classList.add('hide');
