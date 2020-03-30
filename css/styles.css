@@ -123,10 +123,6 @@ table, th, td {
     min-height: 80vh;
 }
 
-a {
-    color:inherit !important;
-}
-
 /* Preloader styles */
 
 /* This only works with JavaScript, 
@@ -568,15 +564,13 @@ left: 0px;
     color: #b8bfce;
 }
 
-/*
 .page-wrapper.chiller-theme.toggled #close-sidebar {
-
+    color: #818896;
 }
 
 .page-wrapper.chiller-theme.toggled #close-sidebar:hover {
     color: #ffffff;
 }
-*/
 
 .chiller-theme .sidebar-wrapper ul li:hover a i,
 .chiller-theme .sidebar-wrapper .sidebar-dropdown .sidebar-submenu li a:hover:before,
