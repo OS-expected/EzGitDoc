@@ -17,29 +17,35 @@ $(document).keydown(function(evt){
         closeAllActiveModals();
         openModal('imageModal');
     }
+    // 82 => R
+    else if ((evt.altKey) && (evt.keyCode==82)){
+        evt.preventDefault();
+        closeAllActiveModals();
+        openModal('linkModal');
+    }
     // 65 => A
     else if ((evt.altKey) && (evt.keyCode==65)){
         evt.preventDefault();
         closeAllActiveModals();
-        openModal('linkModal');
+        openModal('listModal');
     }
     // 83 => S
     else if ((evt.altKey) && (evt.keyCode==83)){
         evt.preventDefault();
         closeAllActiveModals();
-        openModal('listModal');
+        openModal('arrayModal');
     }
     // 68 => D
     else if ((evt.altKey) && (evt.keyCode==68)){
         evt.preventDefault();
         closeAllActiveModals();
-        openModal('arrayModal');
+        openModal('textModal');
     }    
     // 82 => R
-    else if ((evt.altKey) && (evt.keyCode==82)){
+    else if ((evt.altKey) && (evt.keyCode==70)){
         evt.preventDefault();
         closeAllActiveModals();
-        openModal('textModal');
+        openModal('labelModal');
     }
 });
 
