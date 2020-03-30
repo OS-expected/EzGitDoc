@@ -190,11 +190,10 @@ Sidebar
         </div>
       </div>
 
-  <div class="col-lg-9" style="margin-top: 2%;">
-    <div> <!-- w100 prevents horizontal scroll to appear -->
-      <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups" style="margin: 0 auto 0 auto; height: 200px;">
-        <div class="btn-group mr-2" role="group" aria-label="First group">
-        <button id="resetButton" type="button" class="btn btn-lg btn-danger" onclick="removeAllElements()" disabled>Reset</button>
+      <!-- Code Generation Button -->
+      <div class="row">
+        <div class="col-12">
+          <button type="button" id="codeGenButton" class="btn btn-elegant btn-lg" style="float: right; visibility: hidden;" onclick="GenerateMDCode()">Generate Code</button>
         </div>
         <div class="btn-group mr-2" role="group" aria-label="Second group">
           <button type="button" class="btn btn-mdb-color" data-toggle="modal" data-target="#codeModal">Code<br/><span class="badge badge-light badge-custom-style">Alt + Q</span></button>
