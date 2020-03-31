@@ -155,19 +155,19 @@ function createImage()
 
     // alt check
     var imageAlt = document.getElementById('altImageText').value;
-    if (!imageAlt) 
+    if (!imageAlt || isWhiteSpaceOrIndentOnly(imageAlt) == false) 
     {  
         triggerToast(noAltForImageSpecified);
         return false;
     }
 
-    var imageURL = document.getElementById('imageURL').value;
+    var imageURL = document.getElementById('imageURL').value.trim();
 
     var image = document.createElement('img');
     image.alt = imageAlt;
 
-    var xAxisVal = document.getElementById('xAxisProperty').value;
-    var yAxisVal = document.getElementById('yAxisProperty').value;
+    var xAxisVal = document.getElementById('xAxisProperty').value.trim();
+    var yAxisVal = document.getElementById('yAxisProperty').value.trim();
 
     // width/height check
     if (checkIfNumber(xAxisVal) == false || checkIfNumber(yAxisVal) == false)
@@ -256,8 +256,8 @@ function createImage()
 function createTable() 
 {
     // get
-    var rows = document.getElementById('arrRowsAmount').value;
-    var cols = document.getElementById('arrColsAmount').value;
+    var rows = document.getElementById('arrRowsAmount').value.trim();
+    var cols = document.getElementById('arrColsAmount').value.trim();
 
     // validate
     if (checkIfNumber(rows) == false || checkIfNumber(cols) == false)
@@ -354,7 +354,7 @@ function createText()
     var checkboxStatus = document.getElementById('commentJustify').checked;
 
     // validate
-    if (!text || /\S/.test(text) == false)
+    if (!text || isWhiteSpaceOrIndentOnly(text) == false)
     {
         text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
     }
@@ -387,7 +387,7 @@ function createText()
 function createList()
 {
     // get
-    var listSize = document.getElementById('listSize').value;
+    var listSize = document.getElementById('listSize').value.trim();
     
     // validate
     if (checkIfNumber(listSize) == false)
@@ -474,10 +474,14 @@ function createLink()
     if (!linkName) {
         triggerToast(noLinkName);
         return false;
-    }
-    else if (!linkHref) {
+    } else if (isWhiteSpaceOrIndentOnly(linkName) == false) {
+        triggerToast(emptyInputFiled + ' (text)');
+        return false;
+    } else if (!linkHref) {
         triggerToast(noLinkHref);
         return false;
+    } else if (isWhiteSpaceOrIndentOnly(linkHref) == false) { 
+        linkHref = 'https://need_To_Add_Link_Later'
     }
 
     // create
@@ -505,7 +509,7 @@ function createCode()
     var codeLanguage = document.getElementById('codeLanguage').value;
 
     // validate
-    if(!codeText) {
+    if(!codeText || isWhiteSpaceOrIndentOnly(codeText) == false) {
         triggerToast(atLeastOneCharacter);
         return false;
     }

@@ -321,3 +321,10 @@ function clearModal(id, extraArg) {
     // clear chosen option
     setElementAsActive('-1');
 }
+
+// Verify if string contains only whitespaces/indents
+function isWhiteSpaceOrIndentOnly(_text) {
+    if(!/\S/.test(_text)) {
+        return false;
+    } return true;
+}
