@@ -17,6 +17,8 @@ var noLinkHref = 'Link adress is missing.';
 var atLeastOneCharacter = 'Code textarea requires at least one character.';
 var emptyTableInput = 'One or more input fields responsible for creating table were empty!';
 var tableTypeNotSpecified = 'Table type was not specified.';
+var inputLengthLimitReached = 'Input field contained more characters than allowed.';
+var emptyInputFiled = 'Input field was empty.';
 
 // ********************************************
 // Settings Management
@@ -24,6 +26,7 @@ var tableTypeNotSpecified = 'Table type was not specified.';
 var isAutomatedModalEnabled;
 var isAutoToastHideEnabled;
 var isHintKeyEnabled; 
+
 function updateSetting(id) {
 
     if (id == 'autoModals') {
@@ -139,7 +142,7 @@ function createHeader() {
     headerDiv.appendChild(createDeleteTool());
     renderElementOnPage(headerDiv);
 
-    if(isAutomatedModalsChecked) {
+    if(isAutomatedModalEnabled) {
         hideModalAfterRender('#headerModal');
     }
   }
@@ -245,7 +248,7 @@ function createImage()
     paragraph.appendChild(createDeleteTool());
     renderElementOnPage(paragraph);
 
-    if(isAutomatedModalsChecked) {
+    if(isAutomatedModalEnabled) {
         hideModalAfterRender('#imageModal');
     }
 }
@@ -339,7 +342,7 @@ function createTable()
     tableDiv.appendChild(createDeleteTool());
     renderElementOnPage(tableDiv);
 
-    if(isAutomatedModalsChecked) {
+    if(isAutomatedModalEnabled) {
         hideModalAfterRender('#arrayModal');
     }
 }
@@ -376,7 +379,7 @@ function createText()
     textDiv.appendChild(createDeleteTool());
     renderElementOnPage(textDiv);
 
-    if(isAutomatedModalsChecked) {
+    if(isAutomatedModalEnabled) {
         hideModalAfterRender('#textModal');
     }
 }
@@ -456,7 +459,7 @@ function createList()
     listDiv.appendChild(createDeleteTool());
     renderElementOnPage(listDiv);
 
-    if(isAutomatedModalsChecked) {
+    if(isAutomatedModalEnabled) {
         hideModalAfterRender('#listModal');
     }
 }
@@ -490,7 +493,7 @@ function createLink()
     div.appendChild(createDeleteTool());
     renderElementOnPage(div);
 
-    if(isAutomatedModalsChecked) {
+    if(isAutomatedModalEnabled) {
         hideModalAfterRender('#linkModal');
     }
 }
@@ -527,8 +530,84 @@ function createCode()
     div.appendChild(createDeleteTool());
     renderElementOnPage(div);
 
-    if(isAutomatedModalsChecked) {
+    if(isAutomatedModalEnabled) {
         hideModalAfterRender('#codeModal');
+    }
+}
+
+function createLabel() {
+    // get
+    var label = document.getElementById('l_label').value;
+    var message = document.getElementById('l_message').value;
+    var color = document.getElementById('l_color').value; 
+
+    // validate
+    if(validateLabel(label, message, color) == false) {
+        return false;
+    };
+
+    // create
+    var div = document.createElement('div');
+    div = setElement(div);
+
+    var img = document.createElement('img');
+    img.src = 'https://img.shields.io/badge/' + label + '-' + message + '-red?color=' + color.substr(1);
+
+    div.appendChild(img);
+    div.appendChild(createDeleteTool());
+    renderElementOnPage(div);
+
+    if(isAutomatedModalEnabled) {
+        hideModalAfterRender('#labelModal');
+    }
+}
+
+function labelPreview() {
+    // clear previously generated preview
+    var img = document.getElementById('label_preview_img');
+    img.src = '';
+
+    var label = document.getElementById('l_label').value;
+    var message = document.getElementById('l_message').value;
+    var color = document.getElementById('l_color').value; 
+
+    if(validateLabel(label, message, color) == false) {
+        return false;
+    };
+
+    $('#loader_img').show();
+
+    img.src = 'https://img.shields.io/badge/' + label + '-' + message + '-red?color=' + color.substr(1);
+    // if HEX color address: https://img.shields.io/badge/label-message-red?color=value
+}
+
+$('#label_preview_img').on('load', function(){
+    // hide/remove the loading image
+    $('#loader_img').fadeOut(100);
+});
+
+function validateLabel(_label, _message, _color) { 
+    if(_label.length > 25) {
+        triggerToast(inputLengthLimitReached + ' (label)');
+        return false;
+    } else if (_message.length > 25) {
+        triggerToast(inputLengthLimitReached + ' (message)');
+        return false; 
+    } else if (!_label) {
+        triggerToast(emptyInputFiled + ' (label)');
+        return false;
+    } else if (!_message) {
+        triggerToast(emptyInputFiled + ' (message)');
+        return false; 
+    } else if (!_color) {
+        triggerToast(emptyInputFiled + ' (color)');
+        return false; 
+    } else if(_color.startsWith('#') == false) {
+        triggerToast('Color input must contain hexadecimal value (e.g. #235689).');
+        return false;
+    } else if(_color.length > 7) {
+        triggerToast('Max characters for Color input reached (7).');
+        return false;
     }
 }
 
