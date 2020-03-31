@@ -157,6 +157,7 @@ window.onbeforeunload = null;
 
 // on page startup with JQuery
 $(document).ready(function () {
+    loadSettings();
     //custom scroll bar is only on desktop
     if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
         $(".sidebar-content").mCustomScrollbar({
