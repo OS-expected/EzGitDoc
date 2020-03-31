@@ -304,8 +304,12 @@ $("#show-sidebar").click(function() {
 });
 
 // Modal clear
-function clearModal(id) {
+function clearModal(id, extraArg) {
     $(id).find('form').trigger('reset');
+
+    if(extraArg == 'withImage') {
+        document.getElementById('label_preview_img').src = '';
+    }
 
     // clear chosen option
     setElementAsActive('-1');
