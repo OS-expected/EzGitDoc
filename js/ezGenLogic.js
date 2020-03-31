@@ -368,7 +368,9 @@ function createText()
     textDiv.appendChild(createDeleteTool());
     renderElementOnPage(textDiv);
 
-    hideModalAfterRender('#textModal');
+    if(isAutomatedModalsChecked) {
+        hideModalAfterRender('#textModal');
+    }
 }
 
 function createList()
@@ -446,7 +448,9 @@ function createList()
     listDiv.appendChild(createDeleteTool());
     renderElementOnPage(listDiv);
 
-    hideModalAfterRender('#listModal');
+    if(isAutomatedModalsChecked) {
+        hideModalAfterRender('#listModal');
+    }
 }
 
 function createLink()
@@ -478,7 +482,9 @@ function createLink()
     div.appendChild(createDeleteTool());
     renderElementOnPage(div);
 
-    hideModalAfterRender('#linkModal');
+    if(isAutomatedModalsChecked) {
+        hideModalAfterRender('#linkModal');
+    }
 }
 
 function createCode() 
@@ -513,7 +519,9 @@ function createCode()
     div.appendChild(createDeleteTool());
     renderElementOnPage(div);
 
-    hideModalAfterRender('#codeModal');
+    if(isAutomatedModalsChecked) {
+        hideModalAfterRender('#codeModal');
+    }
 }
 
 function removeElementByParentId(elementId) {
