@@ -19,6 +19,77 @@ var emptyTableInput = 'One or more input fields responsible for creating table w
 var tableTypeNotSpecified = 'Table type was not specified.';
 
 // ********************************************
+// Settings Management
+// ********************************************
+var isAutomatedModalEnabled;
+var isAutoToastHideEnabled;
+var isHintKeyEnabled; 
+function updateSetting(id) {
+
+    if (id == 'autoModals') {
+        isAutomatedModalEnabled = document.getElementById('autoMod_switch').checked;
+
+        changeStatusLabel(isAutomatedModalEnabled, 'autoMod_switch_label');
+    }
+    else if (id == 'autoDisappear') {
+        isAutoToastHideEnabled = document.getElementById('autoDisappear_switch').checked;
+
+        changeStatusLabel(isAutoToastHideEnabled, 'autoDisappear_switch_label');
+    }
+    else if(id == 'hintKeys') {
+        isHintKeyEnabled = document.getElementById('hintKeys_switch').checked;
+
+        changeStatusLabel(isHintKeyEnabled, 'hintKeys_switch_label');
+        
+        if(isHintKeyEnabled) { 
+            manageKeyHints('show');
+        } else {
+            manageKeyHints('hide');
+        }
+    }
+}
+
+function changeStatusLabel(checkStatus, labelId) { 
+    var tmp = document.getElementById(labelId);
+    if(checkStatus == true) {
+        tmp.classList.remove('badge-danger');
+        tmp.classList.add('badge-success');
+        tmp.textContent = 'enabled';
+    }
+    else {
+        tmp.classList.remove('badge-success');
+        tmp.classList.add('badge-danger');
+        tmp.textContent = 'disabled';
+    } 
+}
+
+function loadSettings() {
+    isAutomatedModalEnabled = document.getElementById('autoMod_switch').checked;
+    changeStatusLabel(isAutomatedModalEnabled, 'autoMod_switch_label')
+    isAutoToastHideEnabled = document.getElementById('autoDisappear_switch').checked;
+    changeStatusLabel(isAutoToastHideEnabled,'autoDisappear_switch_label')
+    isHintKeyEnabled = document.getElementById('hintKeys_switch').checked;
+    changeStatusLabel(isHintKeyEnabled, 'hintKeys_switch_label');
+
+    if(isHintKeyEnabled) { 
+        manageKeyHints('show');
+    } else {
+        manageKeyHints('hide');
+    }
+}
+
+function manageKeyHints(flag) {
+    var badges = document.getElementsByClassName('hintKey');
+    for(var i = 0; i < badges.length; i++) {
+        if(flag == 'show') {
+            badges[i].classList.remove('hide');
+        } else if(flag == 'hide') {
+            badges[i].classList.add('hide');
+        }
+    }
+}
+
+// ********************************************
 // Onpage Generator Logic
 // ********************************************
 
