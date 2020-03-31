@@ -544,7 +544,7 @@ function createLabel() {
     // validate
     if(validateLabel(label, message, color) == false) {
         return false;
-    };
+    }
 
     // create
     var div = document.createElement('div');
@@ -573,7 +573,7 @@ function labelPreview() {
 
     if(validateLabel(label, message, color) == false) {
         return false;
-    };
+    }
 
     $('#loader_img').show();
 
@@ -602,6 +602,12 @@ function validateLabel(_label, _message, _color) {
     } else if (!_color) {
         triggerToast(emptyInputFiled + ' (color)');
         return false; 
+    } else if(isWhiteSpaceOrIndentOnly(_label) == false) {
+        triggerToast(emptyInputFiled + ' (label)');
+        return false;
+    } else if(isWhiteSpaceOrIndentOnly(_message) == false) {
+        triggerToast(emptyInputFiled + ' (message)');
+        return false;
     } else if(_color.startsWith('#') == false) {
         triggerToast('Color input must contain hexadecimal value (e.g. #235689).');
         return false;
