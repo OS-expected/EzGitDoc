@@ -25,7 +25,8 @@
     <!-- Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet"> 
-
+    <link href="https://fonts.googleapis.com/css2?family=Sen&display=swap" rel="stylesheet">
+  
     <!-- Bootstrap core CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
 
@@ -314,7 +315,7 @@ aria-hidden="true" data-backdrop="true">
           <br/>
 
           <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="hintKeys_switch" onclick="updateSetting('hintKeys')" checked>
+            <input type="checkbox" class="custom-control-input" id="hintKeys_switch" onclick="updateSetting('hintKeys')">
             <label class="custom-control-label" for="hintKeys_switch" style="width: 100%;">Hint keys: <span id="hintKeys_switch_label" class="badge badge-pill badge-danger" style="float: right;">disabled</span></label>
             <small class="form-text text-muted">Enable this option to see shortkeys hints for each element from the sidebar tools section.</small>
           </div>
@@ -797,21 +798,52 @@ aria-hidden="true" data-backdrop="true">
 
       <div class="modal-body">
         <form>
-          <div class="container">
-            <div class="form-group">
-              <label for="commentArea">Text:</label>
-              <textarea class="form-control" rows="5" id="commentArea" autocomplete="off"></textarea>
-            </div>
+          <div class="form-group">
+            <label for="l_label">Label</label>
+            <input class="form-control" id="l_label" maxlength="25" autocomplete="off">
+          </div>
 
-            <div class="form-check">
-              <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" value="" id="commentJustify">text justification
-              </label>
+          <div class="form-group">
+            <label for="l_message">Message</label>
+            <input class="form-control" id="l_message" maxlength="25" autocomplete="off">
+          </div>
+
+          <div class="form-group">
+            <label for="l_color">Color</label>
+            <input class="form-control" id="l_color" autocomplete="off" value="#2B95E2">
+          </div>
+
+          <div class="form-group">
+            <div class="row">
+              <div class="col-12">
+                <button onclick="labelPreview()" type="button" data-toggle="popover-click" class="btn btn-deep-purple" style="width: 100%; padding: auto 0 auto 0; margin: 0;">Preview</button>
+              </div>
             </div>
-            
+            <div class="row">
+              <div class="col-12 justify-content-center d-flex">
+                <img id="loader_img" src="images/img_loader.svg" height="60"/>
+                <img id="label_preview_img" style="padding-top: 20px;"/>
+              </div>
+            </div>
           </div>
         </form>
 
+        <div class="row" style="font-family: 'Sen', sans-serif;">
+          <div class="col-12">
+            <a href="https://shields.io/" target="_blank" style="color: black;">
+              <p style="font-size: 18px; float: right; margin-bottom: 0; margin-right: 10px;">Generated with</p>
+            </a>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <a href="https://shields.io/" target="_blank">
+              <img src="images/shields_logo.PNG" style="width: 35%; float: right;"/>
+            </a>
+          </div>
+        </div>
+        
         <div class="row" style="margin-top: 25px;">
           <div class="col text-center mdb-color lighten-1" style="color: white;">
             <i class="fab fa-laravel fa-sm"></i> Notes
@@ -821,17 +853,18 @@ aria-hidden="true" data-backdrop="true">
         <div class="row">
           <div class="col text-left">
             <ul class="list-unstyled">
-                <li><small class="form-text text-muted"><i class="fas fa-times"></i> Leave text field empty if you want to use lorem ipsum template.</small> </li>
-                <li><small class="form-text text-muted"><i class="fas fa-times"></i> You can use HTML markup in the text area like: <br/> &lt;a href="address"&gt; text &lt;/a&gt; &nbsp; (to create link) <br/> &lt;strong&gt; text &lt;/strong&gt; &nbsp; (to bold text) <br/> &lt;em&gt; text &lt;/em&gt; &nbsp; (to emphasis text) <br/> &lt;del&gt; text &lt;/del&gt; &nbsp; (to strike text) <br/> etc. </small> </li>
+                <li><small class="form-text text-muted"><i class="fas fa-times"></i> Label and Message fields are limited to 25 characters.</small> </li>
+                <li><small class="form-text text-muted"><i class="fas fa-times"></i> Color has to be picked from the picker shown after clicking on the field or put by pasting full hex code.</small> </li>
+                <li><small class="form-text text-muted"><i class="fas fa-times"></i> Find predefined and dynamic labels on Shields.io.</small> </li>
             </ul>
           </div>
         </div>
 
       </div>
       <div class="modal-footer justify-content-center">
-        <button onclick="createText()" type="button" class="btn btn-deep-purple">Create</button>
+        <button onclick="createLabel()" type="button" class="btn btn-deep-purple">Create</button>
         <button type="button" class="btn btn-purple" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-amber" onclick="clearModal('#textModal')">Reset</button>
+        <button type="button" class="btn btn-amber" onclick="clearModal('#labelModal', 'withImage')">Reset</button>
       </div>
     </div>
   </div>
