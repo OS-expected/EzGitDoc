@@ -49,7 +49,6 @@ function GenerateMDCode()
 
             if(image.src.includes('shields')) {
                 tmp = '<img src=\"' + image.src + '\"/>';
-                console.log(tmp);
             } else {
                 tmp = '<p align="' + paragraph.style.textAlign + '"><img src="' + image.src + '"';
             
