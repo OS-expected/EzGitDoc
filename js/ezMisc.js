@@ -99,8 +99,8 @@ function triggerToast(message)
     beginToastCounter();
     $("#myToast").toast('show');
 
-    if (isAutoToastHideChecked == true) {
-        setTimeout(HideToastManually, 6000);
+    if (isAutoToastHideEnabled == true) {
+        setTimeout(HideToastManually, 6400);
     }
 }
 
