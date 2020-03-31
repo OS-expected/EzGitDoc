@@ -157,6 +157,13 @@ window.onbeforeunload = null;
 
 // on page startup with JQuery
 $(document).ready(function () {
+    //hide label loader
+    $('#loader_img').hide();
+    //bs colorpicker init
+    $('#l_color').colorpicker({
+        format: 'hex'
+    });
+    //load additional settings
     loadSettings();
     //custom scroll bar is only on desktop
     if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
