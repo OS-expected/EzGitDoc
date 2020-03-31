@@ -139,7 +139,9 @@ function createHeader() {
     headerDiv.appendChild(createDeleteTool());
     renderElementOnPage(headerDiv);
 
-    hideModalAfterRender('#headerModal');
+    if(isAutomatedModalsChecked) {
+        hideModalAfterRender('#headerModal');
+    }
   }
 
 var basicImage = 'http://placehold.it/';
@@ -243,7 +245,9 @@ function createImage()
     paragraph.appendChild(createDeleteTool());
     renderElementOnPage(paragraph);
 
-    hideModalAfterRender('#imageModal');
+    if(isAutomatedModalsChecked) {
+        hideModalAfterRender('#imageModal');
+    }
 }
 
 function createTable() 
@@ -334,6 +338,10 @@ function createTable()
     tableDiv.appendChild(tbl);
     tableDiv.appendChild(createDeleteTool());
     renderElementOnPage(tableDiv);
+
+    if(isAutomatedModalsChecked) {
+        hideModalAfterRender('#arrayModal');
+    }
 }
 
 function createText()
