@@ -262,7 +262,7 @@ function createTable()
         triggerToast(notAnumber);
         return false;
     }
-    else if(!rows || !cols)
+    else if(!rows || !cols || rows <= 0 || cols <= 0)
     {
         triggerToast(emptyTableInput);
         return false;
