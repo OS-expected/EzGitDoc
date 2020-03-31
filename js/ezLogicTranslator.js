@@ -124,7 +124,7 @@ function GenerateMDCode()
             }
         }
         // Text translation
-        else if (elementTag.startsWith('P'))
+        else if (elementTag.startsWith('P') && elementTag.length == 1)
         {
             var paragraph = datas.item(i).children[0];
 
@@ -192,9 +192,9 @@ function GenerateMDCode()
             tmp = tmp + '<a href="' + href + '">' + element.textContent + '</a>'
         }
         // Code translation
-        else if (elementTag.startsWith('CODE'))
+        else if (elementTag.startsWith('PRE'))
         {
-            var element =  datas.item(i).children[0];
+            var element =  datas.item(i).children[0].children[0];
             tmp = tmp + element.innerHTML.replace(/<br\s*[\/]?>/gi, "\r\n");
         }
         code = code + tmp;
