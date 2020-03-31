@@ -47,22 +47,27 @@ function GenerateMDCode()
             var paragraph = datas.item(i); 
             var image = paragraph.children[0];
 
-            tmp = '<p align="' + paragraph.style.textAlign + '"><img src="' + image.src + '"';
+            if(image.src.includes('shields')) {
+                tmp = '<img src=\"' + image.src + '\"/>';
+                console.log(tmp);
+            } else {
+                tmp = '<p align="' + paragraph.style.textAlign + '"><img src="' + image.src + '"';
             
-            if (image.classList.contains('wide') == true)
-            {
-                tmp = tmp + ' width="' + image.width + '"';
-            }
-            else if (image.classList.contains('high') == true)
-            {
-                tmp = tmp + ' height="' + image.height + '"';
-            }
-            else
-            {
-                tmp = tmp + ' height="' + image.height + '"' + ' width="' + image.width + '"'; 
-            }
-
-            tmp = tmp + ' alt="' + image.alt + '"></p>';
+                if (image.classList.contains('wide') == true)
+                {
+                    tmp = tmp + ' width="' + image.width + '"';
+                }
+                else if (image.classList.contains('high') == true)
+                {
+                    tmp = tmp + ' height="' + image.height + '"';
+                }
+                else
+                {
+                    tmp = tmp + ' height="' + image.height + '"' + ' width="' + image.width + '"'; 
+                }
+    
+                tmp = tmp + ' alt="' + image.alt + '"></p>';
+            }   
         }
         // Table translation
         else if (elementTag.startsWith('TABLE'))
