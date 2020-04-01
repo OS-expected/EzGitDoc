@@ -367,13 +367,7 @@ function createText()
     var paragraph = document.createElement('p');
     paragraph.innerHTML = text;
 
-    if(checkboxStatus == 1)
-    {
-        paragraph.setAttribute('style', 'text-align: justify; padding: 0 2% 0 2%');
-    }
-    else {
-        paragraph.setAttribute('style', 'word-wrap:break-word; padding: 0 2% 0 2%');
-    }
+    paragraph.setAttribute('style', 'word-wrap:break-word; text-align: justify; padding: 1% 2% 1% 2%');
 
     textDiv.appendChild(paragraph);
     textDiv.appendChild(createDeleteTool());
