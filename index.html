@@ -925,7 +925,7 @@ aria-hidden="true" data-backdrop="true">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" style="min-height: 80vh;">
         <div class="row">
             <div class="col-md-4">
               <div class="treeview-animated w-20 border mx-4 my-4">
@@ -938,8 +938,37 @@ aria-hidden="true" data-backdrop="true">
                   <li>
                     <div class="treeview-animated-element" onclick="insertHelpData(1)"><i class="fas fa-running mr-1"></i>Quick start</div>
                   </li>
-                  <li>
-                    <div class="treeview-animated-element" onclick="insertHelpData(2)"><i class="fas fa-cogs ic-w mr-1"></i>EzGitDoc examples</div>
+                  <li class="treeview-animated-items">
+                    <a class="closed" onclick="insertHelpData(2)">
+                      <i class="fas fa-angle-right"></i>
+                      <span><i class="fas fa-cogs ic-w mx-1"></i>EzGitDoc examples</span>
+                    </a>
+                    <ul class="nested">
+                      <li>
+                        <div onclick="insertHelpData(2, '#codeRef')" class="treeview-animated-element"><i class="fas fa-code ic-w mr-1"></i>Code</div>
+                      </li>
+                      <li>
+                        <div onclick="insertHelpData(2, '#headerRef')" class="treeview-animated-element"><i class="fas fa-heading ic-w mr-1"></i>Header</div>
+                      </li>
+                      <li>
+                        <div onclick="insertHelpData(2, '#imageRef')" class="treeview-animated-element"><i class="far fa-image ic-w mr-1"></i>Image</div>
+                      </li>
+                      <li>
+                        <div onclick="insertHelpData(2, '#linkRef')" class="treeview-animated-element"><i class="fas fa-link ic-w mr-1"></i>Link</div>
+                      </li>
+                      <li>
+                        <div onclick="insertHelpData(2, '#listRef')" class="treeview-animated-element"><i class="fas fa-bars ic-w mr-1"></i>List</div>
+                      </li>
+                      <li>
+                        <div onclick="insertHelpData(2, '#tableRef')" class="treeview-animated-element"><i class="fas fa-table ic-w mr-1"></i>Table</div>
+                      </li>
+                      <li>
+                        <div onclick="insertHelpData(2, '#textRef')" class="treeview-animated-element"><i class="far fa-sticky-note ic-w mr-1"></i>Text</div>
+                      </li>
+                      <li>
+                        <div onclick="insertHelpData(2, '#labelRef')" class="treeview-animated-element"><i class="fas fa-tag ic-w mr-1"></i>Label</div>
+                      </li>
+                    </ul>
                   </li>
                   <li>
                     <div class="treeview-animated-element" onclick="insertHelpData(3)"><i class="fas fa-desktop ic-w mr-1"></i>Support</div>
@@ -1105,7 +1134,7 @@ aria-hidden="true" data-backdrop="true">
                     </p>
                     <blockquote class="blockquote bq-info">
                       <hr class="hr-custom-style"/>
-                      <p class="bq-title">Code</p>
+                      <p id="codeRef" class="bq-title">Code</p>
                       <hr class="hr-custom-style"/>
                       <p>EzGitDoc</p>
                       <div class="row justify-content-center">
@@ -1116,7 +1145,7 @@ aria-hidden="true" data-backdrop="true">
                         <img src="images/examples_1.2.PNG" style="width: 70%;"/>
                       </div>
                       <hr class="hr-custom-style"/>
-                      <p class="bq-title">Header</p>
+                      <p id="headerRef" class="bq-title">Header</p>
                       <hr class="hr-custom-style"/>
                       <p>EzGitDoc</p>
                       <div class="row justify-content-center">
@@ -1135,7 +1164,7 @@ aria-hidden="true" data-backdrop="true">
                         <img src="images/examples_2.2.1.PNG" style="width: 90%;"/>
                       </div>
                       <hr class="hr-custom-style"/>
-                      <p class="bq-title">Image</p>
+                      <p id="imageRef" class="bq-title">Image</p>
                       <hr class="hr-custom-style"/>
                       <p>EzGitDoc</p>
                       <div class="row justify-content-center">
@@ -1147,7 +1176,7 @@ aria-hidden="true" data-backdrop="true">
                       </div>
 
                       <hr class="hr-custom-style"/>
-                      <p class="bq-title">Link</p>
+                      <p id="linkRef" class="bq-title">Link</p>
                       <hr class="hr-custom-style"/>
                       <p>EzGitDoc</p>
                       <div class="row justify-content-center">
@@ -1164,7 +1193,7 @@ aria-hidden="true" data-backdrop="true">
                       </div>
 
                       <hr class="hr-custom-style"/>
-                      <p class="bq-title">List</p>
+                      <p id="listRef" class="bq-title">List</p>
                       <hr class="hr-custom-style"/>
                       <p>EzGitDoc</p>
                       <div class="row justify-content-center">
@@ -1184,7 +1213,7 @@ aria-hidden="true" data-backdrop="true">
                       </div>
 
                       <hr class="hr-custom-style"/>
-                      <p class="bq-title">Table</p>
+                      <p id="tableRef" class="bq-title">Table</p>
                       <hr class="hr-custom-style"/>
                       <p>EzGitDoc</p>
                       <div class="row justify-content-center">
@@ -1207,7 +1236,7 @@ aria-hidden="true" data-backdrop="true">
                       </div>
 
                       <hr class="hr-custom-style"/>
-                      <p class="bq-title">Text</p>
+                      <p id="textRef" class="bq-title">Text</p>
                       <hr class="hr-custom-style"/>
                       <p>EzGitDoc</p>
                       <div class="row justify-content-center">
@@ -1221,7 +1250,7 @@ aria-hidden="true" data-backdrop="true">
                       </p>
 
                       <hr class="hr-custom-style"/>
-                      <p class="bq-title">Label</p>
+                      <p id="labelRef" class="bq-title">Label</p>
                       <hr class="hr-custom-style"/>
                       <p>EzGitDoc</p>
                       <div class="row justify-content-center">
@@ -1266,10 +1295,8 @@ aria-hidden="true" data-backdrop="true">
                     <h4>Device</h4><hr/>
                     <p class="text-justify" style="font-size: 110%; line-height: 2.2em;">
                     EzGitDoc user interface(UI) is built using Bootstrap and MDBootstrap frameworks that allow to make the page react very nice
-                    on different screens(act responsively). If you would use EzGitDoc on smartphone it would be probably harder to work
-                    with, than on typical device with keyboard and mouse, but not impossible. The project was created with purpose to be used
-                    on for e.g. PC, notebooks. The most effective(quick and comfortable) way to use EzGitDoc will be through device with bigger
-                    screen than e.g. smartphones.</p> 
+                    on different screens(act responsively). However, the project was created with purpose to be used on for e.g. PC, notebooks.
+                    The most effective(quick and comfortable) way to use EzGitDoc will be through device with bigger screen than e.g. smartphone.</p> 
                   </p>        
                 </div> 
               </div>
