@@ -227,8 +227,12 @@ $(document).ready(function () {
 var backToTheTopButton = document.getElementById('modal-back-to-top-btn');
 
 // Help modal content renderer
-function insertHelpData(partId)
+function insertHelpData(partId, extraParam = 'none')
 {
+    // refer to subsection
+    if(extraParam != 'none') {
+        location.href = extraParam;
+    }
     var datas = document.getElementsByClassName('helpDataPart');
 
     for (var i = 0; i < datas.length; i++) {
