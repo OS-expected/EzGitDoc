@@ -48,7 +48,7 @@ function GenerateMDCode()
             var image = paragraph.children[0];
 
             if(image.src.includes('shields')) {
-                tmp = '<img src=\"' + image.src + '\"/>';
+                tmp = '<img src=\"' + image.src + '\" alt="to do: add alt text"/>';
             } else {
                 tmp = '<p align="' + paragraph.style.textAlign + '"><img src="' + image.src + '"';
             
