@@ -58,7 +58,7 @@ Note: If you want to achieve table that takes all available width(like shown in 
 
 ### Note
 
-<img src="https://github.com/trolit/EzGitDoc/blob/master/images/quick_start_5.gif" alt="" width="50%">
+<img src="https://github.com/trolit/EzGitDoc/blob/master/images/quick_start_6.gif" alt="" width="50%">
 
 I also wanted to mention here, that you can switch element's position by clicking on it and dragging to desired position, holding <em>LMB(Left Mouse Button)</em> at the same time. Free the <em>LMB</em> to stop dragging and drop element in it's current position.
 
@@ -76,6 +76,9 @@ EzGitDoc uses:
 - <a href="https://github.com/eligrey/FileSaver.js/">FileSaverJS</a>
 - <a href="https://formspree.io/">FormSpree</a>
 - <a href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js">JQuery 3.4.1</a>
+- <a href="https://github.com/malihu/malihu-custom-scrollbar-plugin">Custom scrollbar plugin</a>
+- <a href="https://bootsnipp.com/snippets/Q0dAX">Modified sidebar snippet</a>
+- <a href="https://github.com/itsjavi/bootstrap-colorpicker">Bootstrap colorpicker</a>
 
 ## License
 <a href="https://github.com/trolit/EzGitDoc/blob/master/LICENSE">MIT License</a> - Paweł Idzikowski
