@@ -1,7 +1,5 @@
 <a href="https://trolit.github.io/EzGitDoc/"><img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/0.PNG" alt="EzGitDoc UI" height="100%"></a>
 
-![Current version label](https://img.shields.io/badge/current%20version-1.4-red)
-
 ## Start
 
 <p align="justify">
@@ -48,12 +46,6 @@ Note: If you want to achieve table that takes all available width(like shown in 
 
 ### Example 3
 
-| Modal | Scheme | Result |
-| :--: | :--: | :--: |
-| <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/ex3_a.PNG" alt="" width="50%"> | <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/ex3_b.PNG" alt="" width="100%"> | <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/ex3_c.PNG" alt="" height="100%"> | 
-
-### Example 4
-
 | Scheme | Result |
 | :--: | :--: | 
 | <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/ex4_a.PNG" alt="" width="100%"> | <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/ex4_b.PNG" alt="" width="100%"> | 
@@ -62,7 +54,7 @@ Note: If you want to achieve table that takes all available width(like shown in 
 
 <img src="https://github.com/trolit/EzGitDoc/blob/master/images/quick_start_6.gif" alt="" width="50%">
 
-I also wanted to mention here, that you can switch element's position by clicking on it and dragging to desired position, holding <em>LMB(Left Mouse Button)</em> at the same time. Free the <em>LMB</em> to stop dragging and drop element in it's current position.
+You can switch element's position by clicking on it and dragging to desired position, holding <em>LMB(Left Mouse Button)</em> at the same time. Free the <em>LMB</em> to stop dragging and drop element in it's current position.
 
 ## Libraries
 
@@ -89,10 +81,11 @@ EzGitDoc uses:
 <br/>
 <br/>
 
+<a href="https://trolit.github.io/EzGitDoc/"><img src="https://github.com/trolit/EzGitDoc/blob/master/images/banner.PNG" alt="EzGitDoc banner" height="100%"></a>
+
+
 ---
 
 Icon responding for EzGitDoc logo belongs to Font Awesome and is available <a href="https://fontawesome.com/icons/earlybirds">over here</a>.
 
 Loading image source: <a href="https://loading.io/spinner/">Loading.io</a>
-
-<a href="https://trolit.github.io/EzGitDoc/"><img src="https://github.com/trolit/EzGitDoc/blob/master/images/banner.PNG" alt="EzGitDoc banner" height="100%"></a>
