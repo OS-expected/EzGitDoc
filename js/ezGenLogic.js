@@ -662,7 +662,7 @@ function setElement(element)
     }
     
     element.setAttribute('id', GenerateUniqueId());
-    element.setAttribute('style', 'position: relative; margin: 5px 0 5px 0; border-left: 9px solid #333942; border-right: 9px solid #888F99;');
+    element.setAttribute('style', 'position: relative; margin: 2% 0; border-left: 9px solid #333942; border-right: 9px solid #888F99;');
     element.setAttribute('class', 'block-stylizer ezGitPart');
     element.setAttribute('onselectstart', 'return false'); 
     return element;

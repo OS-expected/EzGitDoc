@@ -107,7 +107,7 @@ function GenerateMDCode()
                             tmp = tmp + ' :---: |';
                         }
                         else if (x >= 1) {
-                            tmp = tmp + ' <img src="http://placehold.it/350x140" alt="#toadd" width="350" height="140"/> |';
+                            tmp = tmp + ' <img src="https://placehold.it/350x140" alt="#toadd" width="350" height="140"/> |';
                         }
                     }
                     if (x != rowAmount + 1) {
