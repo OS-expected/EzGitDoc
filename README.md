@@ -1,8 +1,7 @@
 <a href="https://trolit.github.io/EzGitDoc/"><img src="https://github.com/trolit/EzGitDoc/blob/master/images/banner.PNG" alt="banner, icon from FontAwesome" height="100%"></a>
 
 ![Website label](https://img.shields.io/website?down_message=offline&up_message=online&url=https%3A%2F%2Ftrolit.github.io%2FEzGitDoc%2F)
-![License label](https://img.shields.io/github/license/trolit/EzGitdoc)
-![Current version label](https://img.shields.io/badge/current%20version-1.3-red)
+![Current version label](https://img.shields.io/badge/current%20version-1.4-red)
 
 ## Description
 
