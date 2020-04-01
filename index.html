@@ -855,9 +855,7 @@ aria-hidden="true" data-backdrop="true">
             <ul class="list-unstyled">
                 <li><small class="form-text text-muted"><i class="fas fa-times"></i> Label and Message fields are limited to 25 characters.</small> </li>
                 <li><small class="form-text text-muted"><i class="fas fa-times"></i> Color has to be picked from the picker shown after clicking on the field or put by pasting full hex code.</small> </li>
-                <li><small class="form-text text-muted"><i class="fas fa-times"></i> Find predefined and dynamic labels on Shields.io.</small> </li>
-                <li><small class="form-text text-muted"><i class="fas fa-times"></i> In generated code, labels will be placed next to each other. You can use for e.g. br tag to place them one per line.</small> </li>
-            </ul>
+                <li><small class="form-text text-muted"><i class="fas fa-times"></i> Check predefined and dynamic labels on Shields.io.</small> </li>            </ul>
           </div>
         </div>
 
@@ -1002,12 +1000,10 @@ aria-hidden="true" data-backdrop="true">
                     <br/><br/>
                     <div class="row">
                       <p class="text-justify">
-                      In the example above, buttons placed between red and cyan are the one responsible for creating desired 
-                      elements of the template. In each white tile, there is a note about key combinations that can be used in order
-                      to trigger specific modal. Only one modal can be opened at a time, so feel free to use combinations to show
-                      other side windows and close one that's actually opened. Using the same combination that triggered modal will
-                      work as close function. If you make at least one element, in the right bottom corner you will see button that on
-                      click will generate the scheme output. Example:
+                      EzGitDoc interface conception got fully redesigned as the sidebar(instead of navbar and top menu). First section, 
+                      named <strong>Tools</strong> trigger side modals that allow to configure elements before render. Modals can be opened/closed by clicking 
+                      on the mentioned buttons or by using shortkeys combination. Only one modal can be opened at a time. If you make at
+                      least one element, in the right bottom corner you will find button that on click will generate the scheme output. Example:
                       </p>
                     </div>
                     <br/><br/>
@@ -1020,29 +1016,39 @@ aria-hidden="true" data-backdrop="true">
                       Then you only need to click <button type="button" class="btn btn-info btn-sm" disabled>Copy to clipboard</button> button,
                       paste the output into doc' file and overwrite data if necessary(when you used for e.g. table segment). 
                       Or you can choose <button type="button" class="btn btn-unique btn-sm" disabled>Save to file</button> option. 
-                      and use it how you want. The red  <button type="button" class="btn btn-danger btn-sm" disabled>RESET</button> button that you saw in the first photo, allows you to clear your currently made scheme and
-                      start from the beginning(use it with caution). You might want to think: what when I will do my scheme very long?
-                      I don't want to get back to the top and click on the button! Well after scrolling certain amount the "toolbar" will popup
-                      to your aid as below:
+                      and use it how you want. 
                       </p>
                     </div>
                     <br/><br/>
                     <div class="row">
-                      <img class="helpImage" src="images/quick_start_3.PNG" alt="EzGitDoc toolbar view"/>
+                      <img class="helpImage" src="images/quick_start_3.PNG" alt="EzGitDoc sidebar"/>
+                    </div>
+                    <br/><br/>
+                    <div class="row">
+                      <p class="text-justify">
+                      Let's get back to the sidebar. Notice red <button type="button" class="btn btn-danger btn-sm" disabled>Reset template</button> 
+                      button placed below logo. This option lets you clear your currently made scheme and start from the beginning. It needs confirmation,
+                      so don't worry if you click on it by mistake. 
+                      <br/><br/> 
+                      At the bottom of the sidebar there are actions that you may find useful. From the left: allows you to close sidebar and enter full
+                      screen mode, scroll to the top or to the bottom of template and finally, additional settings. If you toggle last option, you can 
+                      configure some extra settings. Take a look at image below for more details or check it by yourself. 
+                      </p>
+                    </div>
+                    <br/><br/>
+                    <div class="row">
+                      <img class="helpImage" style="width: 40%; border: 2px solid #4285F4;" src="images/quick_start_4.PNG" alt="EzGitDoc settings modal"/>
                     </div>
                     <br/><br/>
                     <div class="row">
                       <p class="text-justify">
                       If you don't fullfil certain element pre-conditions(e.g. code tag text requirement), you will see notification in
-                      the top right corner and element won't be created until it's fixed. Be advised that notification must be closed manually. 
-                      It won't disappear by itself. Some of you might find this as disadvantage but I decided to do this as notifies
-                      are not stackable(you will only see one, last notify). Personally I thought that it's better to see why something failed
-                      when I will have opportunity, rather than having in mind, that in 5 minutes, it won't be visible. Example:
+                      the top left corner and element won't be created until it's fixed. Example:
                       </p>
                     </div>
                     <br/><br/>
                     <div class="row">
-                      <img class="helpImage" src="images/quick_start_4.PNG" alt="EzGitDoc toast notification"/>
+                      <img class="helpImage" src="images/quick_start_5.png" alt="EzGitDoc toast notification"/>
                     </div>
                     <br/><br/>
                     <div class="row">
@@ -1053,10 +1059,24 @@ aria-hidden="true" data-backdrop="true">
                       of moving elements below:
                       </p>
                     </div>
+                    <br/><br/>
+                    <div class="row">
+                      <img class="helpImage" src="images/quick_start_6.gif" alt="EzGitDoc moving elements"/>
+                    </div>
+                    <br/><br/>
+                    <div class="row">
+                      <p class="text-justify">
+                      Keep in mind that you can access EzGitDoc documentation from different places. They have been marked on the picture below.
+                      </p>
+                    </div>
+                    <br/>
                     <br/>
                     <div class="row">
-                      <img class="helpImage" src="images/quick_start_5.gif" alt="EzGitDoc moving elements"/>
+                      <img class="helpImage" src="images/quick_start_7.PNG" alt="EzGitDoc - where documentation can be toggled"/>
                     </div>
+                    <br/>
+                    <br/>
+                    <br/>
                     <br/>
                     <br/>
                     <p class="text-center">
@@ -1198,6 +1218,27 @@ aria-hidden="true" data-backdrop="true">
                         <img src="images/examples_7.2.PNG" style="width: 70%;"/>
                       </div>
                       <p class="text-justify">In the <span class="badge badge-primary">Text</span> element, feel free to use HTML tags like em, strong, a, li etc.
+                      </p>
+
+                      <hr class="hr-custom-style"/>
+                      <p class="bq-title">Label</p>
+                      <hr class="hr-custom-style"/>
+                      <p>EzGitDoc</p>
+                      <div class="row justify-content-center">
+                        <img src="images/examples_8.1.PNG" style="width: 70%;"/>
+                      </div>
+                      <p>Result on GitHub</p>
+                      <div class="row justify-content-center">
+                        <img src="images/examples_8.2.PNG" style="width: 70%;"/>
+                      </div>
+                      <p>Result on GitHub (left whitespace between each label)</p>
+                      <div class="row justify-content-center">
+                        <img src="images/examples_8.3.PNG" style="width: 70%;"/>
+                      </div>
+                      <p class="text-justify">
+                        Labels are great to give short information. EzGitDoc allows to make static badges but you can make dynamic
+                        ones by yourself or use predefined. Visit <a href="https://shields.io/" target="_blank">Shields.io</a> to
+                        learn more. If you want labels to stay in one line, simply leave just one whitespace between them. 
                       </p>
                     </blockquote>
                     </div>        
