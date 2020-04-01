@@ -550,6 +550,9 @@ function createLabel() {
         return false;
     }
 
+    label = replaceReservedCharacters(label);
+    message = replaceReservedCharacters(message);
+    
     // create
     var div = document.createElement('div');
     div = setElement(div);
@@ -578,6 +581,9 @@ function labelPreview() {
     if(validateLabel(label, message, color) == false) {
         return false;
     }
+    
+    label = replaceReservedCharacters(label);
+    message = replaceReservedCharacters(message);
 
     $('#loader_img').show();
 
@@ -621,6 +627,12 @@ function validateLabel(_label, _message, _color) {
     }
 }
 
+function replaceReservedCharacters(str) {
+    str = str.replace("-", "--");
+    str = str.replace("_", "__");
+    return str;
+}
+
 function removeElementByParentId(elementId) {
     var element = document.getElementById(elementId.parentNode.id);
     if(element != null) {
@@ -658,7 +670,7 @@ function setElement(element)
     element.setAttribute('id', GenerateUniqueId());
     element.setAttribute('style', 'position: relative; margin: 5px 0 5px 0; border-left: 9px solid #333942; border-right: 9px solid #888F99;');
     element.setAttribute('class', 'block-stylizer ezGitPart');
-
+    element.setAttribute('onselectstart', 'return false'); 
     return element;
 }
 
