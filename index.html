@@ -187,6 +187,7 @@ Sidebar
 
         <!-- Working space Area -->
         <div id="workingSpace" style="margin: 3% 15% 4% 15%; padding: 0 0;border: 3px solid white;">
+
           <div id="startNote" class="row" style="color: white; font-size: 25px; margin: 20% auto 20% auto; text-align: center;font-family: Calibri, Arial;">
               <div class="col-5 faa-parent animated-hover">
                 <i class="fas fa-angle-double-left fa-4x faa-horizontal"></i><br/><br/>
@@ -409,6 +410,63 @@ aria-hidden="true" data-backdrop="true">
     </div>
   </div>
 </div>
+</div>
+
+<!-- Code Update Modal -->
+<div class="modal fade right" id="codeUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-side modal-top-right" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title w-100"><i class="fas fa-code"></i> Code Update</h4>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div class="modal-body">
+      <form>
+        <div class="form-group">
+          <label for="codeLanguage_update">Language</label>
+          <input class="form-control" id="codeLanguage_update" placeholder="e.g. javascript" maxlength="15" autocomplete="off">
+        </div>
+
+        <div class="container">
+          <div class="form-group">
+            <label for="codeArea_update">Code</label>
+            <textarea class="form-control" rows="5" id="codeArea_update" autocomplete="off"></textarea>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer justify-content-center">
+      <button onclick="updateCode()" type="button" class="btn btn-deep-purple">Update</button>
+      <button type="button" class="btn btn-purple" data-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-amber" onclick="clearModal('#codeUpdateModal')">Reset</button>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<div class="modal fade" id="centralModalSm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title w-100" id="myModalLabel">Modal title</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary btn-sm">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- Header Modal -->
@@ -1527,6 +1585,8 @@ Script references
 
     <!-- ezGitDoc references -->
     <script src="js/ezMisc.js"></script>
+    <script src="js/ezULogic.js"></script>
+    <script src="js/ezValidation.js"></script>
     <script src="js/ezGenLogic.js"></script>
     <script src="js/ezLogicTranslator.js"></script>
     <script src="js/ezBtnController.js"></script>
