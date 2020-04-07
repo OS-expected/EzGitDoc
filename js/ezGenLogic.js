@@ -178,6 +178,7 @@ function createImage()
     {
         triggerToast(minimumOneAxis);
         return false;
+        tmpImageAdress = basicImage + yAxisVal;
     }
 
     // url check
