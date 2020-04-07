@@ -33,7 +33,6 @@ function updateCode() {
     // get
     var codeText = document.getElementById('codeArea_update').value;
     var codeLanguage = document.getElementById('codeLanguage_update').value;
-    var codeToUpdate = document.getElementById(lastReferencedId).children[0]; // get pre element
 
     // validate
     if(validateCode(codeText) == false) { 
@@ -41,6 +40,8 @@ function updateCode() {
     }
 
     // update
+    var codeToUpdate = document.getElementById(lastReferencedId).children[0]; // get pre element
+
     if(!codeLanguage) {
         codeToUpdate.innerHTML = '```<br/>' + codeText + '<br/>```';
     }
@@ -50,13 +51,15 @@ function updateCode() {
 }
 
 function updateHeader() { 
-    // get
+    // 1. get
     var title = document.getElementById('headerName_update').value;
 
+    // 2. validate
     if(validateHeader(title) == false) {
         return false;
     }
 
+    // 3. update
     var headerToUpdate = document.getElementById(lastReferencedId).children[0]; // get h element
 
     headerToUpdate.textContent = title;
@@ -69,4 +72,73 @@ function updateHeader() {
     }
 
     headerToUpdate.outerHTML = headerToUpdate.outerHTML.replace(tag, 'h' + headerType);
+}
+
+function updateImage() {
+    // 1. get
+    var imageAlt = document.getElementById('altImageText_update').value;
+    var imageURL = document.getElementById('imageURL_update').value.trim();
+    var xAxisVal = document.getElementById('xAxisProperty_update').value.trim();
+    var yAxisVal = document.getElementById('yAxisProperty_update').value.trim();
+    var imagePosition = document.getElementById('imagePositionList_update');
+
+    // 2. validate
+    if(validateImage(imageAlt, xAxisVal, yAxisVal, imageURL) == false) {
+        return false;
+    }
+
+    // 3. update
+    var imageToUpdate = document.getElementById(lastReferencedId).children[0]; // get img element
+    var paragraph = document.getElementById(lastReferencedId);
+
+    // ALT
+    imageToUpdate.alt = imageAlt;
+
+    // X/Y
+    if (xAxisVal != 0 && yAxisVal != 0)
+    {
+        imageToUpdate.setAttribute('width', xAxisVal);
+        imageToUpdate.setAttribute('height', yAxisVal);
+
+        tmpImageAdress = basicImage + xAxisVal + 'x' + yAxisVal;
+    }
+    else if (xAxisVal != 0 && yAxisVal == 0)
+    {
+        imageToUpdate.setAttribute('width', xAxisVal);
+        imageToUpdate.classList.add('wide');
+
+        tmpImageAdress = basicImage + xAxisVal;
+    }
+    else if (xAxisVal == 0 && yAxisVal != 0)
+    {
+        imageToUpdate.setAttribute('height', yAxisVal);
+        imageToUpdate.classList.add('high');
+
+        tmpImageAdress = basicImage + yAxisVal;
+    }
+
+    // URL
+    if (imageURL == 'blank')
+    {
+        imageToUpdate.src = tmpImageAdress;
+    }
+    else if (validateURL(imageURL) == true)
+    {
+        imageToUpdate.src = imageURL;
+    }
+
+    switch (imagePosition.value) {
+        case '1':
+            paragraph.style.textAlign = 'left';
+        break;
+        case '2':
+            paragraph.style.textAlign = 'center';
+        break;
+        case '3':
+            paragraph.style.textAlign = 'right';
+        break;
+        default:
+            paragraph.style.textAlign = 'center';
+        break;
+    }
 }
