@@ -31,3 +31,12 @@ function validateCode(codeText) {
     }
     return true;
 }
+
+function validateHeader(title) {
+    if (title == false)
+    {
+        triggerToast(missingHeaderWarning);
+        return false;
+    }
+    return true;
+}
