@@ -20,11 +20,15 @@ html, body {
 }
 
 .delete-icon-stylizer {
-    color: red;
+    color: white;
+    background-color: red; 
     position: absolute;
-    right: -20px;
-    top: -10px; 
+    right: -46px;
+    top: 0; 
     cursor: pointer;
+    padding: 5px 5px 5px 15px; 
+}
+
 .edit-icon-stylizer {
     color: white;
     background-color: #8A2BE2;
