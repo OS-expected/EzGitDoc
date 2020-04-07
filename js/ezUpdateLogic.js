@@ -5,7 +5,7 @@
 var lastReferencedId;
 
 function showEditModal(modalReference, elementId) {
-    tmp = document.getElementById(elementId).children[0];
+    var tmp = document.getElementById(elementId).children[0];
     lastReferencedId = elementId;
     switch(modalReference) { 
         case '#codeUpdateModal':
@@ -24,6 +24,24 @@ function showEditModal(modalReference, elementId) {
                     break;
                 }
             }
+        break;
+        case '#imageUpdateModal':
+            document.getElementById('altImageText_update').value = tmp.alt;
+            if(tmp.src.includes('placehold') == false) {
+                document.getElementById('imageURL_update').value = tmp.src;
+            }
+            var paragraphAlignVal = document.getElementById(elementId).style.textAlign;
+            var alignNumericValue = 1;
+            if(paragraphAlignVal == 'left') {
+                alignNumericValue = 1;
+            } else if(paragraphAlignVal == 'center') {
+                alignNumericValue = 2;
+            } else if(paragraphAlignVal == 'right') {
+                alignNumericValue = 3;
+            }
+            document.getElementById('imagePositionList_update').value = alignNumericValue;
+            document.getElementById('xAxisProperty_update').value = tmp.width;
+            document.getElementById('yAxisProperty_update').value = tmp.height;
         break;
     }
     $(modalReference).modal('show');
