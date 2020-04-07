@@ -52,6 +52,11 @@ function updateCode() {
 function updateHeader() { 
     // get
     var title = document.getElementById('headerName_update').value;
+
+    if(validateHeader(title) == false) {
+        return false;
+    }
+
     var headerToUpdate = document.getElementById(lastReferencedId).children[0]; // get h element
 
     headerToUpdate.textContent = title;
