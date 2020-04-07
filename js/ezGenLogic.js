@@ -146,7 +146,7 @@ function createImage()
     var image = document.createElement('img');
     image.alt = imageAlt;
 
-    // X/Y SET
+    // Set X/Y
     if (xAxisVal != 0 && yAxisVal != 0)
     {
         image.setAttribute('width', xAxisVal);
@@ -169,7 +169,7 @@ function createImage()
         tmpImageAdress = basicImage + yAxisVal;
     }
 
-    // url SET
+    // Set URL
     if (imageURL == 'blank')
     {
         image.src = tmpImageAdress;
@@ -178,7 +178,6 @@ function createImage()
     {
         image.src = imageURL;
     }
-
 
     // create
     var paragraph = document.createElement('p');
@@ -329,7 +328,7 @@ function createText()
     var paragraph = document.createElement('p');
     paragraph.innerHTML = text;
 
-    paragraph.setAttribute('style', 'word-wrap:break-word; text-align: justify; padding: 1% 2% 1% 2%');
+    paragraph.setAttribute('style', 'word-wrap:break-word; text-align: justify; padding: 1% 2% 1% 2%; margin: 0;');
 
     textDiv.appendChild(paragraph);
     textDiv.appendChild(createDeleteTool());
@@ -623,7 +622,7 @@ function createDeleteTool()
 function createEditTool(modalReference, elementId) {
     var icon = document.createElement('i');
     icon.setAttribute('onclick', 'showEditModal(\'#' + modalReference + '\', \'' + elementId + '\')');
-    icon.setAttribute('class', 'fas fa-hammer fa-lg edit-icon-stylizer');
+    icon.setAttribute('class', 'fas fa-expand fa-lg edit-icon-stylizer');
     return icon;
 }
 
@@ -635,7 +634,7 @@ function setElement(element)
     }
     
     element.setAttribute('id', GenerateUniqueId());
-    element.setAttribute('style', 'position: relative; margin: 2% 0; border-left: 9px solid #333942; border-right: 9px solid #333942;');
+    element.setAttribute('style', 'position: relative; margin: 1% 0; border-left: 9px groove #333942; border-right: 9px groove #333942;');
     element.setAttribute('class', 'block-stylizer ezGitPart');
     element.setAttribute('onselectstart', 'return false'); 
     return element;
