@@ -25,6 +25,14 @@ html, body {
     right: -20px;
     top: -10px; 
     cursor: pointer;
+.edit-icon-stylizer {
+    color: white;
+    background-color: #8A2BE2;
+    position: absolute;
+    left: -56px;
+    top: 0; 
+    cursor: pointer;
+    padding: 5px 15px 5px 5px;
 }
 
 .block-stylizer {
