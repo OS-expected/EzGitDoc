@@ -22,6 +22,7 @@ html, body {
 .delete-icon-stylizer {
     color: white;
     background-color: red; 
+    height: 100%;
     position: absolute;
     right: -46px;
     top: 0; 
@@ -32,11 +33,17 @@ html, body {
 .edit-icon-stylizer {
     color: white;
     background-color: #8A2BE2;
+    height: 100%;
     position: absolute;
     left: -56px;
     top: 0; 
     cursor: pointer;
-    padding: 5px 15px 5px 5px;
+    padding: 5px 24px 5px 5px;
+}
+
+.edit-icon-stylizer:hover {
+    background-color: #601E9E;
+    transition: 0.2s linear;
 }
 
 .block-stylizer {
