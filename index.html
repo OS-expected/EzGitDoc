@@ -501,6 +501,45 @@ aria-hidden="true" data-backdrop="true">
   </div>
 </div>
 
+<!-- Header Update Modal -->
+<div class="modal fade right" id="headerUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-side modal-top-right" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title w-100" id="myModalLabel"><i class="fas fa-heading"></i> Header Update</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="headerName_update">Text</label>
+            <input class="form-control" id="headerName_update" placeholder="Text" autocomplete="off">
+          </div>
+        
+          <ul class="list-group" style="cursor: pointer;" onselectstart="return false" ondragstart="return false">
+            <label>Style</label>
+            <li class="list-group-item headerStyle_update" value="5" onclick="setElementAsActive(this)" data-toggle="popover-hover" data-img="images/hover/header_1.png">h1</li>
+            <li class="list-group-item headerStyle_update" value="6" onclick="setElementAsActive(this)" data-toggle="popover-hover" data-img="images/hover/header_2.png">h2</li>
+            <li class="list-group-item headerStyle_update" value="7" onclick="setElementAsActive(this)" data-toggle="popover-hover" data-img="images/hover/header_3.png">h3</li>
+            <li class="list-group-item headerStyle_update" value="8" onclick="setElementAsActive(this)" data-toggle="popover-hover" data-img="images/hover/header_4.png">h4</li>
+            <li class="list-group-item headerStyle_update" value="9" onclick="setElementAsActive(this)" data-toggle="popover-hover" data-img="images/hover/header_5.png">h5</li>
+            <li class="list-group-item headerStyle_update" value="10" onclick="setElementAsActive(this)" data-toggle="popover-hover" data-img="images/hover/header_6.png">h6</li>
+          </ul> 
+        </form>
+      </div>
+
+      <div class="modal-footer justify-content-center">
+        <button onclick="updateHeader()" type="button" class="btn btn-deep-purple">Create</button>
+        <button type="button" class="btn btn-purple" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-amber" onclick="clearModal('#headerUpdateModal')">Reset</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Image Modal -->
 <div class="modal fade right" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-full-height modal-right" role="document">
@@ -1563,7 +1602,7 @@ Script references
 
     <!-- ezGitDoc references -->
     <script src="js/ezMisc.js"></script>
-    <script src="js/ezULogic.js"></script>
+    <script src="js/ezUpdateLogic.js"></script>
     <script src="js/ezValidation.js"></script>
     <script src="js/ezGenLogic.js"></script>
     <script src="js/ezLogicTranslator.js"></script>
