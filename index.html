@@ -234,7 +234,7 @@ Sidebar
             </div>
             <hr class="clearfix w-100 d-md-none pb-3">
             <div class="col-md-4 mb-md-0 mb-3">
-              <h5 class="text-uppercase font-weight-bold"><i class="fas fa-desktop"></i> Contribution</h5>
+              <h5 class="text-uppercase font-weight-bold"><i class="fas fa-desktop"></i> Contribution & Contact</h5>
               <p class="text-justify">Want to take part in making EzGitDoc more powerful and advanced for the community? Please check 
                 <a href="#" class="badge badge-info footer-badge"  data-toggle="modal" data-target="#helpModal">Help</a> <i class="fas fa-angle-double-right"></i> <span class="badge badge-light">Possible Questions</span> section and then feel free to contact via <a href="#" class="badge badge-secondary footer-badge"  data-toggle="modal" data-target="#contactModal">this form <i class="fas fa-comment-alt"></i></a> or email. 
                 Whether you want to share your template, suggest an idea or lend a hand with making tool more advanced. You are welcome!
@@ -617,6 +617,71 @@ aria-hidden="true" data-backdrop="true">
         <button onclick="createImage()" type="button" class="btn btn-deep-purple">Create</button>
         <button type="button" class="btn btn-purple" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-amber" onclick="clearModal('#imageModal')">Reset</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Image Update Modal -->
+<div class="modal fade right" id="imageUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-side modal-top-right" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title w-100" id="myModalLabel"><i class="far fa-image"></i> Image Update</h4>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div class="modal-body">
+      <form>
+        <div class="form-group">
+          <label for="altImageText_update">Alternate text</label>
+          <input class="form-control" id="altImageText_update" placeholder="Image shows.." autocomplete="off">
+        </div>
+        
+        <div class="form-group">
+            <label for="imageURL_update">URL</label>
+            <input class="form-control" id="imageURL_update" value="blank" autocomplete="off">
+          </div>
+
+        <div class="form-group">
+            <label class="my-1 mr-2" for="imagePositionList_update">Alignment</label>
+            <select class="custom-select my-1 mr-sm-2" id="imagePositionList_update" autocomplete="off">
+            <option value="0" selected>Choose...</option>
+            <option value="1">Left aligned</option>
+            <option value="2">Center aligned</option>
+            <option value="3">Right aligned</option>
+            </select>
+        </div>
+
+        <div class="container">
+            <div class="form-group" id="scalingOptions">
+                <div class="row justify-content-md-center">
+
+                    <div class="col-md-12 text-center">
+                        <label class="my-1 mr-2">Size</label>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="text-center col-md-12" for="xAxisProperty_update">X axis (width)</label>
+                        <input class="form-control col-md-auto text-center" id="xAxisProperty_update" placeholder="0" autocomplete="off">
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <label class="text-center col-md-12" for="yAxisProperty_update">Y axis (height)</label>
+                        <input class="form-control col-md-auto text-center" id="yAxisProperty_update" placeholder="0" autocomplete="off">
+                    </div>
+                </div>
+            </div>
+        </div>
+      </form>     
+      </div>
+
+      <div class="modal-footer justify-content-center">
+        <button onclick="updateImage()" type="button" class="btn btn-deep-purple">Update</button>
+        <button type="button" class="btn btn-purple" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-amber" onclick="clearModal('#imageUpdateModal')">Reset</button>
       </div>
     </div>
   </div>
