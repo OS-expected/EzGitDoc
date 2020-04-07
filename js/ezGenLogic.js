@@ -81,9 +81,7 @@ function createHeader() {
     var title = document.getElementById('headerName').value;
 
     // validate
-    if (title == false)
-    {
-        triggerToast(missingHeaderWarning);
+    if(validateHeader(title) == false) {
         return false;
     }
 
@@ -109,7 +107,8 @@ function createHeader() {
             break;
         default:
             var h = document.createElement('h2');
-      } 
+            break;
+    } 
 
     h.textContent = title;
     h.style.wordWrap = 'break-word';
@@ -118,7 +117,7 @@ function createHeader() {
     headerDiv = setElement(headerDiv);
     headerDiv.appendChild(h);
     headerDiv.appendChild(createDeleteTool());
-    headerDiv.appendChild(createEditTool());
+    headerDiv.appendChild(createEditTool('headerUpdateModal', headerDiv.id));
     renderElementOnPage(headerDiv);
 
     if(isAutomatedModalEnabled) {
