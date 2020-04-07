@@ -40,3 +40,29 @@ function validateHeader(title) {
     }
     return true;
 }
+
+// X -> width, Y -> height
+function validateImage(altText, X, Y, URL) {
+    if (!altText || isWhiteSpaceOrIndentOnly(altText) == false) 
+    {  
+        triggerToast(noAltForImageSpecified);
+        return false;
+    } else if (checkIfNumber(X) == false || checkIfNumber(Y) == false)
+    {
+        triggerToast(notAnumber);
+        return false;
+    } else if(X == 0 && Y == 0)
+    {
+        triggerToast(minimumOneAxis);
+        return false;
+    } else if (!URL)
+    {
+        triggerToast(noURLorBlank);
+        return false;
+    }
+    else if (validateURL(URL) == false && URL != 'blank')
+    {
+        triggerToast(wrongImageExtension_part1 + '(' + URL.slice(-4) + ')' + wrongImageExtension_part2);
+        return false;
+    }
+}

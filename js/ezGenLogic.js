@@ -131,29 +131,23 @@ function createImage()
 {
     var tmpImageAdress;
 
-    // alt check
+    // get
     var imageAlt = document.getElementById('altImageText').value;
-    if (!imageAlt || isWhiteSpaceOrIndentOnly(imageAlt) == false) 
-    {  
-        triggerToast(noAltForImageSpecified);
-        return false;
-    }
-
     var imageURL = document.getElementById('imageURL').value.trim();
-
-    var image = document.createElement('img');
-    image.alt = imageAlt;
-
     var xAxisVal = document.getElementById('xAxisProperty').value.trim();
     var yAxisVal = document.getElementById('yAxisProperty').value.trim();
 
-    // width/height check
-    if (checkIfNumber(xAxisVal) == false || checkIfNumber(yAxisVal) == false)
-    {
-        triggerToast(notAnumber);
+    // validate
+    if (validateImage(imageAlt, xAxisVal, yAxisVal, imageURL) == false) {
         return false;
     }
-    else if (xAxisVal != 0 && yAxisVal != 0)
+
+    // Set img container
+    var image = document.createElement('img');
+    image.alt = imageAlt;
+
+    // X/Y SET
+    if (xAxisVal != 0 && yAxisVal != 0)
     {
         image.setAttribute('width', xAxisVal);
         image.setAttribute('height', yAxisVal);
@@ -172,16 +166,10 @@ function createImage()
         image.setAttribute('height', yAxisVal);
         image.classList.add('high');
 
-        tmpImageAdress = basicImage + xAxisVal;
-    }
-    else if(xAxisVal == 0 && yAxisVal == 0)
-    {
-        triggerToast(minimumOneAxis);
-        return false;
         tmpImageAdress = basicImage + yAxisVal;
     }
 
-    // url check
+    // url SET
     if (imageURL == 'blank')
     {
         image.src = tmpImageAdress;
@@ -190,16 +178,7 @@ function createImage()
     {
         image.src = imageURL;
     }
-    else if (!imageURL)
-    {
-        triggerToast(noURLorBlank);
-        return false;
-    }
-    else
-    {
-        triggerToast(wrongImageExtension_part1 + '(' + imageURL.slice(-4) + ')' + wrongImageExtension_part2);
-        return false;
-    }
+
 
     // create
     var paragraph = document.createElement('p');
@@ -225,7 +204,7 @@ function createImage()
     paragraph.style.position = 'relative';
     paragraph.appendChild(image); 
     paragraph.appendChild(createDeleteTool());
-    paragraph.appendChild(createEditTool());
+    paragraph.appendChild(createEditTool('imageUpdateModal', paragraph.id));
     renderElementOnPage(paragraph);
 
     if(isAutomatedModalEnabled) {
