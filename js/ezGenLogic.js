@@ -428,17 +428,8 @@ function createLink()
     var linkHref = document.getElementById('hrefAddress').value;
 
     // validate
-    if (!linkName) {
-        triggerToast(noLinkName);
+    if(validateLink(linkName, linkHref) == false) {
         return false;
-    } else if (isWhiteSpaceOrIndentOnly(linkName) == false) {
-        triggerToast(emptyInputFiled + ' (text)');
-        return false;
-    } else if (!linkHref) {
-        triggerToast(noLinkHref);
-        return false;
-    } else if (isWhiteSpaceOrIndentOnly(linkHref) == false) { 
-        linkHref = 'https://need_To_Add_Link_Later'
     }
 
     // create
@@ -452,7 +443,7 @@ function createLink()
 
     div.appendChild(link);
     div.appendChild(createDeleteTool());
-    div.appendChild(createEditTool());
+    div.appendChild(createEditTool('linkUpdateModal', div.id));
     renderElementOnPage(div);
 
     if(isAutomatedModalEnabled) {

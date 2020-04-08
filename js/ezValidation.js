@@ -65,4 +65,21 @@ function validateImage(altText, X, Y, URL) {
         triggerToast(wrongImageExtension_part1 + '(' + URL.slice(-4) + ')' + wrongImageExtension_part2);
         return false;
     }
+    return true;
+}
+
+function validateLink(linkName, linkHref) {
+    if (!linkName) {
+        triggerToast(noLinkName);
+        return false;
+    } else if (isWhiteSpaceOrIndentOnly(linkName) == false) {
+        triggerToast(emptyInputFiled + ' (text)');
+        return false;
+    } else if (!linkHref) {
+        triggerToast(noLinkHref);
+        return false;
+    } else if (isWhiteSpaceOrIndentOnly(linkHref) == false) { 
+        linkHref = 'https://need_To_Add_Link_Later'
+    }
+    return true;
 }
