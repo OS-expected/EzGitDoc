@@ -346,19 +346,7 @@ function createList()
     var listSize = document.getElementById('listSize').value.trim();
     
     // validate
-    if (checkIfNumber(listSize) == false)
-    {
-        triggerToast(notAnumber);
-        return false;
-    }
-    else if(listSize == 0)
-    {
-        triggerToast(restrictedValue);
-        return false;
-    }
-    else if (listOption == null || listOption == 999 | listOption == 3 || listOption == 4)
-    {
-        triggerToast(listTypeNotSpecified);
+    if(validateList(listSize) == false) {
         return false;
     }
 
@@ -391,6 +379,7 @@ function createList()
     else if (listOption == 1)
     {
         var list = document.createElement('ul');
+        listDiv.classList.add('list_normal');
         for (var i = 0; i < listSize; i++) {
             var point = document.createElement('li');
             point.textContent = 'text';
@@ -401,10 +390,11 @@ function createList()
     else if (listOption == 2) 
     {
         var list = document.createElement('ul');
+        list.classList.add('list_link');
         for (var i = 0; i < listSize; i++) {
             var point = document.createElement('li');
             var anchor = document.createElement('a');
-            anchor.href = '#to_do:add_href';
+            anchor.href = 'https://#to_do:add_href';
             anchor.textContent = 'link text';
             point.appendChild(anchor);
             list.appendChild(point);
@@ -413,7 +403,7 @@ function createList()
     }
 
     listDiv.appendChild(createDeleteTool());
-    listDiv.appendChild(createEditTool());
+    listDiv.appendChild(createEditTool('listUpdateModal', listDiv.id));
     renderElementOnPage(listDiv);
 
     if(isAutomatedModalEnabled) {

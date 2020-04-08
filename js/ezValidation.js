@@ -83,3 +83,22 @@ function validateLink(linkName, linkHref) {
     }
     return true;
 }
+
+function validateList(listSize) {
+    if (checkIfNumber(listSize) == false)
+    {
+        triggerToast(notAnumber);
+        return false;
+    }
+    else if(listSize == 0)
+    {
+        triggerToast(restrictedValue);
+        return false;
+    }
+    else if (listOption == null || listOption == 999 | listOption == 3 || listOption == 4)
+    {
+        triggerToast(listTypeNotSpecified);
+        return false;
+    }
+    return true;
+}
