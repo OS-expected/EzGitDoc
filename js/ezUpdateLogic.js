@@ -56,12 +56,13 @@ function showEditModal(modalReference, elementId) {
 
             if(firstElementTag == 'P') {
                 listSize = document.getElementById(lastReferencedId).children.length;
+                tmp = document.getElementById(elementId);
                 for(var i = 0; i < listSize - 2; i++) {
                     var row = document.createElement('div');
                     row.classList.add('row', 'listUpdateData');
-                    row.appendChild(setInputField(tmp.childNodes[0].textContent.replace(/:/g, '').trim(), 3));
-                    row.appendChild(setInputField(tmp.childNodes[1].textContent.replace(/:/g, '').trim(), 4));
-                    row.appendChild(setInputField(tmp.childNodes[2].textContent.trim(), 5));
+                    row.appendChild(setInputField(tmp.children[i].childNodes[0].textContent.replace(/:/g, '').trim(), 3));
+                    row.appendChild(setInputField(tmp.children[i].childNodes[1].textContent.replace(/:/g, '').trim(), 4));
+                    row.appendChild(setInputField(tmp.children[i].childNodes[2].textContent.trim(), 5));
                     listFieldSpace.appendChild(row);
                 }      
             } else if (firstElementTag == 'UL') {
@@ -265,11 +266,17 @@ function updateList() {
     } else if (firstElementTag == 'UL') {
         listSize = listToUpdate.children[0].getElementsByTagName("LI").length;
         firstLI_Tag = listToUpdate.children[0].childNodes[0].firstChild.tagName;
-
         if(firstLI_Tag == 'A') {
-
+            for(var i = 0; i < listSize; i++) { 
+                var col1 = newData[i].children[0].childNodes[0].value;
+                var col2 = newData[i].children[1].childNodes[0].value;
+                listToUpdate.children[0].childNodes[i].innerHTML = '<a href=\"' + col2 + '\"/>' + col1 + '</a>'; 
+            }
         } else {
-
+            for(var i = 0; i < listSize; i++) { 
+                var col1 = newData[i].children[0].childNodes[0].value;
+                listToUpdate.children[0].childNodes[i].textContent = col1;; 
+            }
         }
     }
 }
