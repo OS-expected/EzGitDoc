@@ -43,6 +43,10 @@ function showEditModal(modalReference, elementId) {
             document.getElementById('xAxisProperty_update').value = tmp.width;
             document.getElementById('yAxisProperty_update').value = tmp.height;
         break;
+        case '#linkUpdateModal':
+            document.getElementById('hrefName_update').value = tmp.textContent;
+            document.getElementById('hrefAddress_update').value = tmp.href;
+        break;
     }
     $(modalReference).modal('show');
 }
@@ -159,4 +163,23 @@ function updateImage() {
             paragraph.style.textAlign = 'center';
         break;
     }
+}
+
+function updateLink() {
+    // 1. get
+    var linkName = document.getElementById('hrefName_update').value;
+    var linkHref = document.getElementById('hrefAddress_update').value;
+
+    // 2. validate
+    if (validateLink(linkName, linkHref) == false) {
+        return false;
+    }
+
+    // 3. update
+    var linkToUpdate = document.getElementById(lastReferencedId).children[0]; // get anchor
+
+    linkToUpdate.textContent = linkName;
+    linkToUpdate.href = linkHref;
+
+    return true;
 }
