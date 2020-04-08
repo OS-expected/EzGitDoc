@@ -111,14 +111,15 @@ function HideToastManually() {
 
 // List modal picker
 var currentlyActive;
+var currentlyActive_update;
 var listOption;
 // listOption, occupied values
-// 0 - icon list
+// 0 - icon list 
 // 1 - normal list 
 // 2 - link list
 // 3 - text table
 // 4 - image table
-// 5,6,7,8,9,10 - header
+// 5,6,7,8,9,10 - header (+5 for update section)
 function setElementAsActive(element, extraArg = 'empty')
 {
     // Reset if no extraArg applied
@@ -126,17 +127,22 @@ function setElementAsActive(element, extraArg = 'empty')
         document.getElementById('iconDiv').hidden = true;
     } 
     
+    if (currentlyActive)
+    {
+        currentlyActive.classList.remove('active');
+    }
+
+    if (currentlyActive_update) 
+    {
+        currentlyActive_update.classList.remove('active');
+    }
+
     if (element === '-1') {
         if(currentlyActive) {
             currentlyActive.classList.remove('active');
         }
         listOption = 999;
         return;
-    }
-
-    if (currentlyActive)
-    {
-        currentlyActive.classList.remove('active');
     }
 
     listOption = element.value;
