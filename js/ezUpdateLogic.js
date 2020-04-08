@@ -18,9 +18,9 @@ function showEditModal(modalReference, elementId) {
             var styles = document.getElementsByClassName('headerStyle_update');
             var currentStyle = tmp.tagName.substring(1);
             for(var i = 0; i < styles.length; i++) {
-                if(currentStyle == styles[i].value - 4) {
+                if(currentStyle == styles[i].value - 9) {
                     styles[i].classList.add('active');
-                    currentlyActive = styles[i];
+                    currentlyActive_update = styles[i];
                     break;
                 }
             }
@@ -47,8 +47,62 @@ function showEditModal(modalReference, elementId) {
             document.getElementById('hrefName_update').value = tmp.textContent;
             document.getElementById('hrefAddress_update').value = tmp.href;
         break;
+        case '#listUpdateModal':
+            $("#list_update_dynamic_fields").empty();
+
+            var firstElementTag = tmp.tagName;
+            var listSize;
+            var listFieldSpace = document.getElementById('list_update_dynamic_fields');
+
+            if(firstElementTag == 'P') {
+                listSize = document.getElementById(lastReferencedId).children.length;
+                for(var i = 0; i < listSize - 2; i++) {
+                    var row = document.createElement('div');
+                    row.classList.add('row', 'listUpdateData');
+                    row.appendChild(setInputField(tmp.childNodes[0].textContent.replace(/:/g, '').trim(), 3));
+                    row.appendChild(setInputField(tmp.childNodes[1].textContent.replace(/:/g, '').trim(), 4));
+                    row.appendChild(setInputField(tmp.childNodes[2].textContent.trim(), 5));
+                    listFieldSpace.appendChild(row);
+                }      
+            } else if (firstElementTag == 'UL') {
+                listSize = tmp.getElementsByTagName("LI").length;
+                firstLI_Tag = tmp.childNodes[0].firstChild.tagName;
+
+                if(firstLI_Tag == 'A') {
+                    for(var i = 0; i < listSize; i++) {
+                        var row = document.createElement('div');
+                        row.classList.add('row', 'listUpdateData');
+                        row.appendChild(setInputField(tmp.childNodes[i].textContent, 6));
+                        row.appendChild(setInputField(tmp.childNodes[i].children[0].href, 6));
+                        listFieldSpace.appendChild(row);
+                    }  
+                } else {
+                    for(var i = 0; i < listSize; i++) {
+                        var row = document.createElement('div');
+                        row.classList.add('row', 'listUpdateData');
+                        row.appendChild(setInputField(tmp.childNodes[i].textContent, 12));
+                        listFieldSpace.appendChild(row);
+                    }
+                }
+            }
+        break;
     }
+
     $(modalReference).modal('show');
+}
+
+function setInputField(placeholder, columnSize) {
+    var col = document.createElement('div');
+    col.classList.add('col-' + columnSize);
+
+    var input = document.createElement('input');
+    input.classList.add('form-control');
+    input.autocomplete = 'off';
+    input.value = placeholder;
+    input.style.marginTop = '2px';
+
+    col.appendChild(input);
+    return col;
 }
 
 function updateCode() {
@@ -87,10 +141,10 @@ function updateHeader() {
     headerToUpdate.textContent = title;
     var tag = headerToUpdate.tagName.toLowerCase();
 
-    var headerType = listOption - 4; // 5(h1), 6, 7, 8, 9, 10(h6)
+    var headerType = listOption - 9; // 10(h1), 11, 12, 13, 14, 15(h6)
 
-    if(listOption < 5) {
-        headerType = 6;
+    if(listOption < 10) {
+        headerType = 2;
     }
 
     headerToUpdate.outerHTML = headerToUpdate.outerHTML.replace(tag, 'h' + headerType);
@@ -182,4 +236,40 @@ function updateLink() {
     linkToUpdate.href = linkHref;
 
     return true;
+}
+
+function updateList() {
+    // 3. update
+    var listToUpdate = document.getElementById(lastReferencedId);
+    var newData = document.getElementsByClassName('listUpdateData');
+    var firstElementTag = listToUpdate.children[0].tagName;
+    var listSize;
+
+    if(firstElementTag == 'P') {
+        listSize = document.getElementById(lastReferencedId).children.length;
+        for(var i = 0; i < listSize - 2; i++) {
+            var col1 = newData[i].children[0].childNodes[0].value;
+            var col2 = newData[i].children[1].childNodes[0].value;
+            var col3 = newData[i].children[2].childNodes[0].value;
+            if(!col1) {
+                col1 = 'empty';
+            }
+            if(!col2) {
+                col2 = 'empty';
+            }
+            if(!col3) {
+                col3 = 'empty';
+            }
+            listToUpdate.children[i].innerHTML = ':' + col1 + ':' + ' <strong>' + col2 + '</strong>: ' + col3;
+        }
+    } else if (firstElementTag == 'UL') {
+        listSize = listToUpdate.children[0].getElementsByTagName("LI").length;
+        firstLI_Tag = listToUpdate.children[0].childNodes[0].firstChild.tagName;
+
+        if(firstLI_Tag == 'A') {
+
+        } else {
+
+        }
+    }
 }
