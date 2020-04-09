@@ -81,13 +81,13 @@ function GenerateMDCode()
     
                     for (var y = 0; y < columnAmount; y++) {
                         if (x == 0) {
-                            tmp = tmp + ' header |';
+                            tmp = tmp + ' ' + table.rows[x].cells[y].textContent + ' |';
                         }
                         if (x == 1) {
                             tmp = tmp + ' :---: |';
                         }
                         else if (x >= 1) {
-                            tmp = tmp + ' text |';
+                            tmp = tmp + ' ' + table.rows[x-1].cells[y].textContent + ' |';
                         }
                     }
                     if (x != rowAmount) {
@@ -159,14 +159,13 @@ function GenerateMDCode()
         else if (elementTag.startsWith('UL'))
         {
             var firstElementTag = datas.item(i).children[0].childNodes[0].firstChild.tagName;
-
             var listLength = datas.item(i).getElementsByTagName("LI").length;
+            var listElement = datas.item(i).children[0];
 
             // link list
             if(firstElementTag == 'A') {
                 for (var x = 0; x < listLength; x++) {
-                    tmp = tmp + '- <a href="https://ToDo:add_href">link text</a>';
-    
+                    tmp = tmp + '- <a href=\"' + listElement.childNodes[x].childNodes[0].href  + '\">' + listElement.childNodes[x].textContent + '</a>';              
                     if (x < listLength - 1) {
                         tmp = tmp + '\r\n';
                     }
@@ -175,7 +174,7 @@ function GenerateMDCode()
             // normal list
             else {
                 for (var x = 0; x < listLength; x++) {
-                    tmp = tmp + '- text';
+                    tmp = tmp + '- ' + listElement.childNodes[x].textContent;
     
                     if (x < listLength - 1) {
                         tmp = tmp + '\r\n';
