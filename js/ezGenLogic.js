@@ -414,7 +414,6 @@ function createLink()
     div = setElement(div);
     var link = document.createElement('a');
     link.style.wordWrap = 'break-word';
-
     link.href = linkHref;
     link.textContent = linkName;
 
@@ -570,7 +569,7 @@ function createDeleteTool()
 function createEditTool(modalReference, elementId) {
     var icon = document.createElement('i');
     icon.setAttribute('onclick', 'showEditModal(\'#' + modalReference + '\', \'' + elementId + '\')');
-    icon.setAttribute('class', 'fas fa-expand fa-lg edit-icon-stylizer');
+    icon.setAttribute('class', 'fas fa-vial fa-lg edit-icon-stylizer');
     return icon;
 }
 
@@ -582,7 +581,7 @@ function setElement(element)
     }
     
     element.setAttribute('id', GenerateUniqueId());
-    element.setAttribute('style', 'position: relative; margin: 1% 0; border-left: 9px groove #333942; border-right: 9px groove #333942;');
+    element.setAttribute('style', 'position: relative; margin: 0.5% 0; border-left: 9px solid #588393; border-right: 9px solid #810401;');
     element.setAttribute('class', 'block-stylizer ezGitPart');
     element.setAttribute('onselectstart', 'return false'); 
     return element;
