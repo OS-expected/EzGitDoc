@@ -18,6 +18,7 @@
 :star2: **Validation:** Get easy to understand notifies if something goes wrong. <br/><br/>
 :star2: **Minimalistic UI:** Don't waste time on learning UI, just use it. <br/><br/>
 :star2: **Easy to understand:** Don't waste time on looking after examples, markdown language. Create element and see it instantly. It's that easy. <br/><br/>
+:star2: **Documented:** If you still want to read about it, there is extensive documentation on the page. <br/><br/>
 
 ## Predefined templates
 <p align="justify">
