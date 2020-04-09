@@ -124,4 +124,5 @@ function validateTable(rows, cols) {
         triggerToast(tableTypeNotSpecified);
         return false;
     }
+    return true;
 }
