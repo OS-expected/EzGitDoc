@@ -218,24 +218,7 @@ function createTable()
     var cols = document.getElementById('arrColsAmount').value.trim();
 
     // validate
-    if (checkIfNumber(rows) == false || checkIfNumber(cols) == false)
-    {
-        triggerToast(notAnumber);
-        return false;
-    }
-    else if(!rows || !cols || rows <= 0 || cols <= 0)
-    {
-        triggerToast(emptyTableInput);
-        return false;
-    }
-    else if(cols >= 27)
-    {
-        triggerToast(arrayColSizeExceeded);
-        return false;
-    }
-    else if (listOption != 3 && listOption != 4)
-    {
-        triggerToast(tableTypeNotSpecified);
+    if(validateTable(rows, cols) == false) {
         return false;
     }
 
@@ -299,7 +282,7 @@ function createTable()
     tableDiv.appendChild(tbl);
     tableDiv.appendChild(createDeleteTool());
     if(listOption == 3) {
-        tableDiv.appendChild(createEditTool());
+        tableDiv.appendChild(createEditTool('arrayUpdateModal', tableDiv.id));
     }
     renderElementOnPage(tableDiv);
 
@@ -315,7 +298,7 @@ function createText()
     var checkboxStatus = document.getElementById('commentJustify').checked;
 
     // validate
-    if (!text || isWhiteSpaceOrIndentOnly(text) == false)
+    if (!text || isWhiteSpaceOrIndentOnly(text) == true)
     {
         text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
     }
@@ -552,10 +535,10 @@ function validateLabel(_label, _message, _color) {
     } else if (!_color) {
         triggerToast(emptyInputFiled + ' (color)');
         return false; 
-    } else if(isWhiteSpaceOrIndentOnly(_label) == false) {
+    } else if(isWhiteSpaceOrIndentOnly(_label) == true) {
         triggerToast(emptyInputFiled + ' (label)');
         return false;
-    } else if(isWhiteSpaceOrIndentOnly(_message) == false) {
+    } else if(isWhiteSpaceOrIndentOnly(_message) == true) {
         triggerToast(emptyInputFiled + ' (message)');
         return false;
     } else if(_color.startsWith('#') == false) {
