@@ -34,10 +34,10 @@
 ### Website
 | | |
 | :---: | :---: |
-| <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/gallery/fancy1.PNG" alt="#toadd" width="400" height="183"/> | <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/gallery/fancy2.PNG" alt="#toadd" width="400" height="183"/> |
-| <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/gallery/fancy3.PNG" alt="#toadd" width="400" height="183"/> | <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/gallery/fancy4.PNG" alt="#toadd" width="400" height="183"/> |
-| <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/gallery/fancy5.png" alt="#toadd" width="400" height="183"/> | <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/gallery/fancy6.PNG" alt="#toadd" width="400" height="183"/> |
-| <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/gallery/fancy7.PNG" alt="#toadd" width="400" height="183"/> | <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/gallery/fancy8.PNG" alt="#toadd" width="400" height="183"/> |
+| <img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/gallery/fancy1.PNG" alt="#toadd" width="400" height="183"/> | <img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/gallery/fancy2.PNG" alt="#toadd" width="400" height="183"/> |
+| <img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/gallery/fancy3.PNG" alt="#toadd" width="400" height="183"/> | <img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/gallery/fancy4.PNG" alt="#toadd" width="400" height="183"/> |
+| <img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/gallery/fancy5.png" alt="#toadd" width="400" height="183"/> | <img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/gallery/fancy6.PNG" alt="#toadd" width="400" height="183"/> |
+| <img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/gallery/fancy7.PNG" alt="#toadd" width="400" height="183"/> | <img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/gallery/fancy8.PNG" alt="#toadd" width="400" height="183"/> |
 
 ### Output examples
 
@@ -45,7 +45,7 @@
 
 | Scheme | Result |
 | :--: | :--: | 
-| <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/ex1_a.PNG" alt="" width="90%"> | <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/ex1_b.PNG" alt="" width="100%"> | 
+| <img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/ex1_a.PNG" alt="" width="90%"> | <img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/ex1_b.PNG" alt="" width="100%"> | 
 
 <strong>Please note:</strong> If you want to achieve table that takes all available width(like shown in the Examples section, on EzGitDoc page), images placed in the table must be scaled manually using both axis(assuming that they have the same resolution). By having same resolution images you have guarantees that all cells will be equal and there will be no stretches. 
 
@@ -53,24 +53,24 @@
 
 | Scheme | Result |
 | :--: | :--: | 
-| <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/ex2_a.PNG" alt="" width="90%"> | <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/ex2_b.PNG" alt="" width="100%"> | 
+| <img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/ex2_a.PNG" alt="" width="90%"> | <img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/ex2_b.PNG" alt="" width="100%"> | 
 
 #### Example 3
 
 | Scheme | Result |
 | :--: | :--: | 
-| <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/ex4_a.PNG" alt="" width="100%"> | <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/ex4_b.PNG" alt="" width="100%"> | 
+| <img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/ex4_a.PNG" alt="" width="100%"> | <img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/ex4_b.PNG" alt="" width="100%"> | 
 
 ### Web design history
 
 #### v1.4(01.04.2020)
-<img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/v1.4.PNG" width="60%" alt="v1.4 interface design"/>
+<img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/v1.4.PNG" width="60%" alt="v1.4 interface design"/>
 
 #### v1.2(24.03.2020)
-<img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/v1.2.PNG" width="60%" alt="v1.2 interface design"/>
+<img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/v1.2.PNG" width="60%" alt="v1.2 interface design"/>
 
 #### v1.0(29.02.2020)
-<img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/v1.0.png" width="60%" alt="v1.0 interface design"/>
+<img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/v1.0.png" width="60%" alt="v1.0 interface design"/>
 
 ## Libraries
 
