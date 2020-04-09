@@ -335,6 +335,6 @@ function clearModal(id, extraArg) {
 // Verify if string contains only whitespaces/indents
 function isWhiteSpaceOrIndentOnly(_text) {
     if(!/\S/.test(_text)) {
-        return false;
-    } return true;
+        return true;
+    } return false;
 }
