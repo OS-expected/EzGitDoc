@@ -297,7 +297,7 @@ function createText()
     var text = document.getElementById('commentArea').value;
     var checkboxStatus = document.getElementById('commentJustify').checked;
 
-    // validate
+    // check
     if (!text || isWhiteSpaceOrIndentOnly(text) == true)
     {
         text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
@@ -311,11 +311,15 @@ function createText()
     var paragraph = document.createElement('p');
     paragraph.innerHTML = text;
 
-    paragraph.setAttribute('style', 'word-wrap:break-word; text-align: justify; padding: 1% 2% 1% 2%; margin: 0;');
+    if(checkboxStatus == true) {
+        paragraph.setAttribute('style', 'word-wrap:break-word; text-align: justify; padding: 1% 2% 1% 2%; margin: 0;');
+    } else {
+        paragraph.setAttribute('style', 'word-wrap:break-word; padding: 1% 2% 1% 2%; margin: 0;');
+    }
 
     textDiv.appendChild(paragraph);
     textDiv.appendChild(createDeleteTool());
-    textDiv.appendChild(createEditTool());
+    textDiv.appendChild(createEditTool('textUpdateModal', textDiv.id));
     renderElementOnPage(textDiv);
 
     if(isAutomatedModalEnabled) {
