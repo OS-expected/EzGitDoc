@@ -915,7 +915,7 @@ aria-hidden="true" data-backdrop="true">
         <div class="col text-left">
           <ul class="list-unstyled">
               <li><small class="form-text text-muted"><i class="fas fa-times"></i> Only positive integer values are accepted (different than 0).</small></li>
-              <li><small class="form-text text-muted"><i class="fas fa-times"></i> Image type can't be edited on EzGitDoc due to different resolutions possibility.</small></li>
+              <li><small class="form-text text-muted"><i class="fas fa-times"></i> Image type table can't be edited after render due to obligatory height/width manual testing.</small></li>
               <li><small class="form-text text-muted"><i class="fas fa-times"></i> All cells are centered.</small></li>
           </ul>
         </div>
@@ -1677,9 +1677,23 @@ aria-hidden="true" data-backdrop="true">
                   <h4 class="card-title"><i class="fas fa-code-branch mr-1"></i> Updates</h4>
                   <!-- Text -->
                   <div class="card-text text-justify">
-                    <h5>v1.5 (DD.MM.2020)</h5>
+                    <h5>v1.5 (09.04.2020)</h5>
                     <ul class="list-group list-group-flush">
-                      <li class="list-group-item"><span class="badge badge-secondary">Upcoming</span> Created tools data edition.</li>
+                      <li class="list-group-item"><span class="badge badge-danger">Fix</span> Fixed problem of uneven margin between some rendered elements.</li>
+                      <li class="list-group-item"><span class="badge badge-danger">Fix</span> Fixed list code generation.</li>  
+                      <li class="list-group-item"><span class="badge badge-danger">Fix</span> Fixed image src when feeding only height field.</li>
+                      <li class="list-group-item"><span class="badge badge-warning">Change</span> Changed delete tool background color.</li>    
+                      <li class="list-group-item"><span class="badge badge-warning">Change</span> Changed left and right border of rendered elements.</li>   
+                      <li class="list-group-item"><span class="badge badge-warning">Change</span> Moved passed data validation to separate file - ezValidation.js.</li>    
+                      <li class="list-group-item"><span class="badge badge-warning">Change</span> Set minimum cell width for td tag.</li>
+                      <li class="list-group-item"><span class="badge badge-warning">Change</span> Removed margin for table class.</li>
+                      <li class="list-group-item"><span class="badge badge-warning">Change</span> Reversed values returned by isWhiteSpaceOrIndentOnly().</li>
+                      <li class="list-group-item"><span class="badge badge-warning">Change</span> Limited rendered table height to 200px. Any higher height will cause vertical scroll to appear.</li>
+                      <li class="list-group-item"><span class="badge badge-success">New</span> Added to each EzGitDoc tool, button allowing to edit data(except image type table).</li>
+                      <li class="list-group-item"><span class="badge badge-success">New</span> Added ezUpdateLogic.js.</li>
+                      <li class="list-group-item"><span class="badge badge-success">New</span> Added for each tool update modal.</li>
+                      <li class="list-group-item"><span class="badge badge-success">New</span> Added extra pickable parameter to label tool called style.</li>
+                      <li class="list-group-item"><span class="badge badge-success">New</span> Added hover effect for both, delete and edit tool.</li>
                     </ul>
                     <br/><br/>
                     <h5>v1.4 (01.04.2020)</h5>
