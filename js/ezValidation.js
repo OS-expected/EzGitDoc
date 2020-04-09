@@ -126,3 +126,34 @@ function validateTable(rows, cols) {
     }
     return true;
 }
+
+function validateLabel(_label, _message, _color) { 
+    if(_label.length > 25) {
+        triggerToast(inputLengthLimitReached + ' (label)');
+        return false;
+    } else if (_message.length > 25) {
+        triggerToast(inputLengthLimitReached + ' (message)');
+        return false; 
+    } else if (!_label) {
+        triggerToast(emptyInputFiled + ' (label)');
+        return false;
+    } else if (!_message) {
+        triggerToast(emptyInputFiled + ' (message)');
+        return false; 
+    } else if (!_color) {
+        triggerToast(emptyInputFiled + ' (color)');
+        return false; 
+    } else if(isWhiteSpaceOrIndentOnly(_label) == true) {
+        triggerToast(emptyInputFiled + ' (label)');
+        return false;
+    } else if(isWhiteSpaceOrIndentOnly(_message) == true) {
+        triggerToast(emptyInputFiled + ' (message)');
+        return false;
+    } else if(_color.startsWith('#') == false) {
+        triggerToast('Color input must contain hexadecimal value (e.g. #235689).');
+        return false;
+    } else if(_color.length > 7) {
+        triggerToast('Max characters for Color input reached (7).');
+        return false;
+    }
+}
