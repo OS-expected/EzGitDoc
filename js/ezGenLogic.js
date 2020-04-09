@@ -470,6 +470,7 @@ function createLabel() {
     var label = document.getElementById('l_label').value;
     var message = document.getElementById('l_message').value;
     var color = document.getElementById('l_color').value; 
+    var style = document.getElementById('l_style').value;
 
     // validate
     if(validateLabel(label, message, color) == false) {
@@ -484,11 +485,16 @@ function createLabel() {
     div = setElement(div);
 
     var img = document.createElement('img');
-    img.src = 'https://img.shields.io/badge/' + label + '-' + message + '-red?color=' + color.substr(1);
+
+    if(style != 'default') {
+        img.src = 'https://img.shields.io/badge/' + label + '-' + message + '-red?color=' + color.substr(1) + '&style=' + style;
+    } else { 
+        img.src = 'https://img.shields.io/badge/' + label + '-' + message + '-red?color=' + color.substr(1);
+    }
 
     div.appendChild(img);
     div.appendChild(createDeleteTool());
-    div.appendChild(createEditTool());
+    div.appendChild(createEditTool('labelUpdateModal', div.id));
     renderElementOnPage(div);
 
     if(isAutomatedModalEnabled) {
@@ -504,6 +510,7 @@ function labelPreview() {
     var label = document.getElementById('l_label').value;
     var message = document.getElementById('l_message').value;
     var color = document.getElementById('l_color').value; 
+    var style = document.getElementById('l_style').value;
 
     if(validateLabel(label, message, color) == false) {
         return false;
@@ -514,7 +521,11 @@ function labelPreview() {
 
     $('#loader_img').show();
 
-    img.src = 'https://img.shields.io/badge/' + label + '-' + message + '-red?color=' + color.substr(1);
+    if(style != 'default') {
+        img.src = 'https://img.shields.io/badge/' + label + '-' + message + '-red?color=' + color.substr(1) + '&style=' + style;
+    } else { 
+        img.src = 'https://img.shields.io/badge/' + label + '-' + message + '-red?color=' + color.substr(1);
+    }
     // if HEX color address: https://img.shields.io/badge/label-message-red?color=value
 }
 
@@ -522,37 +533,6 @@ $('#label_preview_img').on('load', function(){
     // hide/remove the loading image
     $('#loader_img').fadeOut(100);
 });
-
-function validateLabel(_label, _message, _color) { 
-    if(_label.length > 25) {
-        triggerToast(inputLengthLimitReached + ' (label)');
-        return false;
-    } else if (_message.length > 25) {
-        triggerToast(inputLengthLimitReached + ' (message)');
-        return false; 
-    } else if (!_label) {
-        triggerToast(emptyInputFiled + ' (label)');
-        return false;
-    } else if (!_message) {
-        triggerToast(emptyInputFiled + ' (message)');
-        return false; 
-    } else if (!_color) {
-        triggerToast(emptyInputFiled + ' (color)');
-        return false; 
-    } else if(isWhiteSpaceOrIndentOnly(_label) == true) {
-        triggerToast(emptyInputFiled + ' (label)');
-        return false;
-    } else if(isWhiteSpaceOrIndentOnly(_message) == true) {
-        triggerToast(emptyInputFiled + ' (message)');
-        return false;
-    } else if(_color.startsWith('#') == false) {
-        triggerToast('Color input must contain hexadecimal value (e.g. #235689).');
-        return false;
-    } else if(_color.length > 7) {
-        triggerToast('Max characters for Color input reached (7).');
-        return false;
-    }
-}
 
 function replaceReservedCharacters(str) {
     str = str.replace("-", "--");
