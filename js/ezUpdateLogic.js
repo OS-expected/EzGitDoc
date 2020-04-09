@@ -162,6 +162,10 @@ function updateCode() {
     else {
         codeToUpdate.innerHTML = '```' + codeLanguage + '<br/>' + codeText + '<br/>```';
     }
+
+    if(isAutomatedModalEnabled) {
+        hideModalAfterRender('#codeUpdateModal');
+    }
 }
 
 function updateHeader() { 
@@ -186,6 +190,10 @@ function updateHeader() {
     }
 
     headerToUpdate.outerHTML = headerToUpdate.outerHTML.replace(tag, 'h' + headerType);
+
+    if(isAutomatedModalEnabled) {
+        hideModalAfterRender('#headerUpdateModal');
+    }
 }
 
 function updateImage() {
@@ -255,6 +263,10 @@ function updateImage() {
             paragraph.style.textAlign = 'center';
         break;
     }
+
+    if(isAutomatedModalEnabled) {
+        hideModalAfterRender('#imageUpdateModal');
+    }
 }
 
 function updateLink() {
@@ -273,7 +285,9 @@ function updateLink() {
     linkToUpdate.textContent = linkName;
     linkToUpdate.href = linkHref;
 
-    return true;
+    if(isAutomatedModalEnabled) {
+        hideModalAfterRender('#linkUpdateModal');
+    }
 }
 
 function updateList() {
@@ -316,6 +330,10 @@ function updateList() {
             }
         }
     }
+
+    if(isAutomatedModalEnabled) {
+        hideModalAfterRender('#listUpdateModal');
+    }
 }
 
 function updateTable() {
@@ -337,6 +355,10 @@ function updateTable() {
           }
         }
     }
+
+    if(isAutomatedModalEnabled) {
+        hideModalAfterRender('#arrayUpdateModal');
+    }
 }
 
 function updateText() {
@@ -356,6 +378,10 @@ function updateText() {
         textToUpdate.setAttribute('style', 'word-wrap:break-word; text-align: justify; padding: 1% 2% 1% 2%; margin: 0;');
     } else {
         textToUpdate.setAttribute('style', 'word-wrap:break-word; padding: 1% 2% 1% 2%; margin: 0;');
+    }
+
+    if(isAutomatedModalEnabled) {
+        hideModalAfterRender('#textUpdateModal');
     }
 }
 
@@ -378,5 +404,9 @@ function updateLabel() {
         labelToUpdate.src = 'https://img.shields.io/badge/' + label + '-' + message + '-red?color=' + color.substr(1) + '&style=' + style;
     } else { 
         labelToUpdate.src = 'https://img.shields.io/badge/' + label + '-' + message + '-red?color=' + color.substr(1);
+    }
+
+    if(isAutomatedModalEnabled) {
+        hideModalAfterRender('#labelUpdateModal');
     }
 }
