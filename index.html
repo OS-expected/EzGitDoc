@@ -1085,6 +1085,17 @@ aria-hidden="true" data-backdrop="true">
           </div>
 
           <div class="form-group">
+            <label for="l_style">Style</label>
+            <select id="l_style" class="browser-default custom-select" autocomplete="off">
+              <option value="default" selected>Plastic(default)</option>
+              <option value="flat">Flat</option>
+              <option value="flat-square">Flat-square</option>
+              <option value="for-the-badge">For-the-badge</option>
+              <option value="social">Social</option>
+            </select>
+          </div>
+
+          <div class="form-group">
             <div class="row">
               <div class="col-12">
                 <button onclick="labelPreview()" type="button" data-toggle="popover-click" class="btn btn-deep-purple" style="width: 100%; padding: auto 0 auto 0; margin: 0;">Preview</button>
@@ -1135,6 +1146,70 @@ aria-hidden="true" data-backdrop="true">
         <button onclick="createLabel()" type="button" class="btn btn-deep-purple">Create</button>
         <button type="button" class="btn btn-purple" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-amber" onclick="clearModal('#labelModal', 'withImage')">Reset</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Label Update Modal -->
+<div class="modal fade right" id="labelUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-side modal-top-right" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title w-100" id="myModalLabel"><i class="far fa-sticky-note"></i> Label Update</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="l_label_update">Label</label>
+            <input class="form-control" id="l_label_update" maxlength="25" autocomplete="off">
+          </div>
+
+          <div class="form-group">
+            <label for="l_message_update">Message</label>
+            <input class="form-control" id="l_message_update" maxlength="25" autocomplete="off">
+          </div>
+
+          <div class="form-group">
+            <label for="l_color_update">Color</label>
+            <input class="form-control" id="l_color_update" autocomplete="off" value="#2B95E2">
+          </div>
+
+          <div class="form-group">
+            <label for="l_style_update">Style</label>
+            <select id="l_style_update" class="browser-default custom-select" autocomplete="off">
+              <option value="default" selected>Plastic(default)</option>
+              <option value="flat">Flat</option>
+              <option value="flat-square">Flat-square</option>
+              <option value="for-the-badge">For-the-badge</option>
+              <option value="social">Social</option>
+            </select>
+          </div>
+        </form>
+
+        <div class="row" style="font-family: 'Sen', sans-serif;">
+          <div class="col-12">
+            <a href="https://shields.io/" target="_blank" style="color: black;">
+              <p style="font-size: 18px; float: right; margin-bottom: 0; margin-right: 10px;">Made with</p>
+            </a>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <a href="https://shields.io/" target="_blank">
+              <img src="images/shields_logo.PNG" style="width: 35%; float: right;"/>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button onclick="updateLabel()" type="button" class="btn btn-deep-purple">Create</button>
+        <button type="button" class="btn btn-purple" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
