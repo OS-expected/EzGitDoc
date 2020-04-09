@@ -21,28 +21,33 @@ html, body {
 
 .delete-icon-stylizer {
     color: white;
-    background-color: red; 
+    background-color: #B90702; 
     height: 100%;
     position: absolute;
-    right: -46px;
+    right: -35px;
     top: 0; 
     cursor: pointer;
-    padding: 5px 5px 5px 15px; 
+    padding: 5px 5px 5px 10px; 
+}
+
+.delete-icon-stylizer:hover {
+    background-color: #810401;
+    transition: 0.2s linear;
 }
 
 .edit-icon-stylizer {
     color: white;
-    background-color: #8A2BE2;
+    background-color: #6EA4B8;
     height: 100%;
     position: absolute;
-    left: -46px;
+    left: -40px;
     top: 0; 
     cursor: pointer;
-    padding: 5px 15px 5px 5px;
+    padding: 5px 10px 5px 5px;
 }
 
 .edit-icon-stylizer:hover {
-    background-color: #601E9E;
+    background-color: #588393;
     transition: 0.2s linear;
 }
 
