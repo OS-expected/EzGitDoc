@@ -49,13 +49,13 @@
 
 <strong>Please note:</strong> If you want to achieve table that takes all available width(like shown in the Examples section, on EzGitDoc page), images placed in the table must be scaled manually using both axis(assuming that they have the same resolution). By having same resolution images you have guarantees that all cells will be equal and there will be no stretches. 
 
-### Example 2
+#### Example 2
 
 | Scheme | Result |
 | :--: | :--: | 
 | <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/ex2_a.PNG" alt="" width="90%"> | <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/ex2_b.PNG" alt="" width="100%"> | 
 
-### Example 3
+#### Example 3
 
 | Scheme | Result |
 | :--: | :--: | 
