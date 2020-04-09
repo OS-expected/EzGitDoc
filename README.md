@@ -64,13 +64,13 @@
 ### Web design history
 
 #### v1.4(01.04.2020)
-<img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/v1.4.PNG"/>
+<img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/v1.4.PNG" width="60%" alt="v1.4 interface design"/>
 
 #### v1.2(24.03.2020)
-<img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/v1.2.png"/>
+<img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/v1.2.PNG" width="60%" alt="v1.2 interface design"/>
 
 #### v1.0(29.02.2020)
-<img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/v1.0.png"/>
+<img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/v1.0.png" width="60%" alt="v1.0 interface design"/>
 
 ## Libraries
 
