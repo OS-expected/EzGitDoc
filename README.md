@@ -34,10 +34,10 @@
 ### Website
 | | |
 | :---: | :---: |
-| <img src="https://github.com/trolit/EzGitDoc/blob/master/images/gallery/fancy1.PNG" alt="#toadd" width="400" height="183"/> | <img src="https://github.com/trolit/EzGitDoc/blob/master/images/gallery/fancy2.PNG" alt="#toadd" width="400" height="183"/> |
-| <img src="https://github.com/trolit/EzGitDoc/blob/master/images/gallery/fancy3.PNG" alt="#toadd" width="400" height="183"/> | <img src="https://github.com/trolit/EzGitDoc/blob/master/images/gallery/fancy4.PNG" alt="#toadd" width="400" height="183"/> |
-| <img src="https://github.com/trolit/EzGitDoc/blob/master/images/gallery/fancy5.png" alt="#toadd" width="400" height="183"/> | <img src="https://github.com/trolit/EzGitDoc/blob/master/images/gallery/fancy6.PNG" alt="#toadd" width="400" height="183"/> |
-| <img src="https://github.com/trolit/EzGitDoc/blob/master/images/gallery/fancy7.PNG" alt="#toadd" width="400" height="183"/> | <img src="https://github.com/trolit/EzGitDoc/blob/master/images/gallery/fancy8.PNG" alt="#toadd" width="400" height="183"/> |
+| <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/gallery/fancy1.PNG" alt="#toadd" width="400" height="183"/> | <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/gallery/fancy2.PNG" alt="#toadd" width="400" height="183"/> |
+| <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/gallery/fancy3.PNG" alt="#toadd" width="400" height="183"/> | <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/gallery/fancy4.PNG" alt="#toadd" width="400" height="183"/> |
+| <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/gallery/fancy5.png" alt="#toadd" width="400" height="183"/> | <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/gallery/fancy6.PNG" alt="#toadd" width="400" height="183"/> |
+| <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/gallery/fancy7.PNG" alt="#toadd" width="400" height="183"/> | <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/gallery/fancy8.PNG" alt="#toadd" width="400" height="183"/> |
 
 ### Output examples
 
