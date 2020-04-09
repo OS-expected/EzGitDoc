@@ -441,7 +441,6 @@ aria-hidden="true" data-backdrop="true">
     <div class="modal-footer justify-content-center">
       <button onclick="updateCode()" type="button" class="btn btn-deep-purple">Update</button>
       <button type="button" class="btn btn-purple" data-dismiss="modal">Close</button>
-      <button type="button" class="btn btn-amber" onclick="clearModal('#codeUpdateModal')">Reset</button>
     </div>
   </div>
 </div>
@@ -534,7 +533,6 @@ aria-hidden="true" data-backdrop="true">
       <div class="modal-footer justify-content-center">
         <button onclick="updateHeader()" type="button" class="btn btn-deep-purple">Update</button>
         <button type="button" class="btn btn-purple" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-amber" onclick="clearModal('#headerUpdateModal')">Reset</button>
       </div>
     </div>
   </div>
@@ -681,7 +679,6 @@ aria-hidden="true" data-backdrop="true">
       <div class="modal-footer justify-content-center">
         <button onclick="updateImage()" type="button" class="btn btn-deep-purple">Update</button>
         <button type="button" class="btn btn-purple" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-amber" onclick="clearModal('#imageUpdateModal')">Reset</button>
       </div>
     </div>
   </div>
@@ -765,7 +762,6 @@ aria-hidden="true" data-backdrop="true">
     <div class="modal-footer justify-content-center">
       <button onclick="updateLink()" type="button" class="btn btn-deep-purple">Update</button>
       <button type="button" class="btn btn-purple" data-dismiss="modal">Close</button>
-      <button type="button" class="btn btn-amber" onclick="clearModal('#linkUpdateModal')">Reset</button>
     </div>
   </div>
 </div>
@@ -836,27 +832,26 @@ aria-hidden="true" data-backdrop="true">
 </div>
 
 <!-- List Update Modal -->
-<div class="modal fade right" id="listUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-side modal-top-right" role="document">
+<div class="modal fade" id="listUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title w-100"><i class="fas fa-bars"></i> List Update</h4>
+        <h4 class="modal-title w-100" id="myModalLabel"><i class="fas fa-table"></i> Table Update</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-
       <div class="modal-body">
         <form>
-            <div class="form-group">
-              <label for="list_update_dynamic_fields">Data</label>
-              <div id="list_update_dynamic_fields">
+          <div class="form-group">
+            <label for="list_update_dynamic_fields">Data</label>
+            <div id="list_update_dynamic_fields">
 
-              </div>
             </div>
-        </form>
+          </div>
+      </form>
       </div>
-      
       <div class="modal-footer justify-content-center">
         <button onclick="updateList()" type="button" class="btn btn-deep-purple">Update</button>
         <button type="button" class="btn btn-purple" data-dismiss="modal">Close</button>
