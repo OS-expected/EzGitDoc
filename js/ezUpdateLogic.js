@@ -358,3 +358,25 @@ function updateText() {
         textToUpdate.setAttribute('style', 'word-wrap:break-word; padding: 1% 2% 1% 2%; margin: 0;');
     }
 }
+
+function updateLabel() {
+    // 1. get
+    var label = document.getElementById('l_label_update').value;
+    var message = document.getElementById('l_message_update').value;
+    var color = document.getElementById('l_color_update').value; 
+    var style = document.getElementById('l_style_update').value;
+
+    // 2. validate
+    if(validateLabel(label, message, color) == false) {
+        return false;
+    }
+
+    // 3. update
+    var labelToUpdate = document.getElementById(lastReferencedId).children[0];
+
+    if(style != 'default') {
+        labelToUpdate.src = 'https://img.shields.io/badge/' + label + '-' + message + '-red?color=' + color.substr(1) + '&style=' + style;
+    } else { 
+        labelToUpdate.src = 'https://img.shields.io/badge/' + label + '-' + message + '-red?color=' + color.substr(1);
+    }
+}
