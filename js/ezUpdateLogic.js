@@ -87,6 +87,37 @@ function showEditModal(modalReference, elementId) {
                 }
             }
         break;
+        case '#arrayUpdateModal':
+            $("#array_update_dynamic_fields").empty();
+            var arrayFieldSpace = document.getElementById('array_update_dynamic_fields');
+            var cols = tmp.rows[0].cells.length;
+            var rows = tmp.rows.length;
+
+            var table = document.createElement('table');
+            // MDB extra classes
+            table.classList.add('table');
+            table.classList.add('table-bordered');
+            table.classList.add('table-responsive');
+            var tbdy = document.createElement('tbody');
+            tbdy.setAttribute('style','text-align: center;');
+
+            for (var i = 0; i < rows; i++) {
+                var tr = document.createElement('tr'); 
+                for (var j = 0; j < cols; j++) {
+                  var td = document.createElement('td');
+                  var value = tmp.rows[i].cells[j].textContent;
+                  if(i == 0) {
+                    td.appendChild(setInputField(value));
+                  } else {
+                    td.appendChild(setInputField(value));
+                  }
+                  tr.appendChild(td)
+                }
+                tbdy.appendChild(tr);
+            }
+            table.appendChild(tbdy);
+            arrayFieldSpace.appendChild(table);
+        break;
     }
 
     $(modalReference).modal('show');
@@ -94,7 +125,9 @@ function showEditModal(modalReference, elementId) {
 
 function setInputField(placeholder, columnSize) {
     var col = document.createElement('div');
-    col.classList.add('col-' + columnSize);
+    if(columnSize) {
+        col.classList.add('col-' + columnSize);
+    }
 
     var input = document.createElement('input');
     input.classList.add('form-control');
@@ -277,6 +310,27 @@ function updateList() {
                 var col1 = newData[i].children[0].childNodes[0].value;
                 listToUpdate.children[0].childNodes[i].textContent = col1;; 
             }
+        }
+    }
+}
+
+function updateTable() {
+    // 3. update
+    var tableToUpdate = document.getElementById(lastReferencedId).children[0];
+    var cols = tableToUpdate.rows[0].cells.length;
+    var rows = tableToUpdate.rows.length;
+    var newData = document.getElementById('array_update_dynamic_fields').children[0];
+    for (var i = 0; i < rows; i++) {
+        for (var j = 0; j < cols; j++) {
+          var text = newData.rows[i].cells[j].children[0].childNodes[0].value;
+          if(!text || isWhiteSpaceOrIndentOnly(text) == true) {
+              text = 'empty';
+          }
+          if(i == 0) {
+            tableToUpdate.rows[i].cells[j].innerHTML = '<strong>' + text + '</strong>';
+          } else {
+            tableToUpdate.rows[i].cells[j].textContent = text;
+          }
         }
     }
 }
