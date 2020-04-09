@@ -169,6 +169,9 @@ $(document).ready(function () {
     $('#l_color').colorpicker({
         format: 'hex'
     });
+    $('#l_color_update').colorpicker({
+        format: 'hex'
+    });
     //load additional settings
     loadSettings();
     //custom scroll bar is only on desktop
