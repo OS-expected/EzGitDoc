@@ -1,4 +1,6 @@
-<a href="https://trolit.github.io/EzGitDoc/"><img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/0.PNG" alt="EzGitDoc UI" height="100%"></a>
+<p align="center">
+<a href="https://trolit.github.io/EzGitDoc/"><img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/logo.png" alt="EzGitDoc UI" height="250"></a>
+</p>
 
 ## Start
 
