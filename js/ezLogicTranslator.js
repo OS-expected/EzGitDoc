@@ -133,8 +133,8 @@ function GenerateMDCode()
                 var listLength =  datas.item(i).children.length;
                 
                 for (var x = 0; x < listLength - 2; x++) {
-                    //:icon: **header:** text <br/> <br/>
-                    tmp = tmp + datas.item(i).children[x].innerHTML + '<br>';
+                    //:icon: **header:** text <br/> <br>
+                    tmp = tmp + datas.item(i).children[x].innerHTML + '<br><br>';
                     if (x < listLength - 2) {
                         tmp = tmp + '\r\n';
                     }
