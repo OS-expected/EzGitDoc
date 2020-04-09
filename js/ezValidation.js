@@ -25,7 +25,7 @@ var emptyInputFiled = 'Input field was empty.';
 // ********************************************
 
 function validateCode(codeText) {
-    if(!codeText || isWhiteSpaceOrIndentOnly(codeText) == false) {
+    if(!codeText || isWhiteSpaceOrIndentOnly(codeText) == true) {
         triggerToast(atLeastOneCharacter);
         return false;
     }
@@ -43,7 +43,7 @@ function validateHeader(title) {
 
 // X -> width, Y -> height
 function validateImage(altText, X, Y, URL) {
-    if (!altText || isWhiteSpaceOrIndentOnly(altText) == false) 
+    if (!altText || isWhiteSpaceOrIndentOnly(altText) == true) 
     {  
         triggerToast(noAltForImageSpecified);
         return false;
@@ -72,13 +72,13 @@ function validateLink(linkName, linkHref) {
     if (!linkName) {
         triggerToast(noLinkName);
         return false;
-    } else if (isWhiteSpaceOrIndentOnly(linkName) == false) {
+    } else if (isWhiteSpaceOrIndentOnly(linkName) == true) {
         triggerToast(emptyInputFiled + ' (text)');
         return false;
     } else if (!linkHref) {
         triggerToast(noLinkHref);
         return false;
-    } else if (isWhiteSpaceOrIndentOnly(linkHref) == false) { 
+    } else if (isWhiteSpaceOrIndentOnly(linkHref) == true) { 
         linkHref = 'https://need_To_Add_Link_Later'
     }
     return true;
@@ -101,4 +101,27 @@ function validateList(listSize) {
         return false;
     }
     return true;
+}
+
+function validateTable(rows, cols) {
+    if (checkIfNumber(rows) == false || checkIfNumber(cols) == false)
+    {
+        triggerToast(notAnumber);
+        return false;
+    }
+    else if(!rows || !cols || rows <= 0 || cols <= 0)
+    {
+        triggerToast(emptyTableInput);
+        return false;
+    }
+    else if(cols >= 27)
+    {
+        triggerToast(arrayColSizeExceeded);
+        return false;
+    }
+    else if (listOption != 3 && listOption != 4)
+    {
+        triggerToast(tableTypeNotSpecified);
+        return false;
+    }
 }
