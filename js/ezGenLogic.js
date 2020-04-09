@@ -227,7 +227,7 @@ function createTable()
 
     var tbl = document.createElement('table');
     tbl.style.width = '100%';
-
+    tbl.style.maxHeight = '250px';
     if (listOption == 3) {
         tbl.classList.add('textTable');
     } else {
