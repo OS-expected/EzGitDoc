@@ -61,6 +61,17 @@
 | :--: | :--: | 
 | <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/ex4_a.PNG" alt="" width="100%"> | <img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/ex4_b.PNG" alt="" width="100%"> | 
 
+### Web design history
+
+#### v1.4(01.04.2020)
+<img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/v1.4.PNG"/>
+
+#### v1.2(24.03.2020)
+<img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/v1.2.png"/>
+
+#### v1.0(29.02.2020)
+<img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/v1.0.png"/>
+
 ## Libraries
 
 <p>
