@@ -118,6 +118,10 @@ function showEditModal(modalReference, elementId) {
             table.appendChild(tbdy);
             arrayFieldSpace.appendChild(table);
         break;
+        case '#textUpdateModal':
+            document.getElementById('commentArea_update').value = tmp.innerHTML;
+            document.getElementById('commentJustify_update').checked = tmp.style.textAlign == 'justify' ? true : false;
+        break;
     }
 
     $(modalReference).modal('show');
@@ -332,5 +336,25 @@ function updateTable() {
             tableToUpdate.rows[i].cells[j].textContent = text;
           }
         }
+    }
+}
+
+function updateText() {
+    // 3. update
+    var textToUpdate = document.getElementById(lastReferencedId).children[0];
+    var text = document.getElementById('commentArea_update').value;
+    var checkboxStatus = document.getElementById('commentJustify_update').checked;
+
+    if (!text || isWhiteSpaceOrIndentOnly(text) == true)
+    {
+        textToUpdate.textContent = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
+    } else {
+        textToUpdate.innerHTML = text;
+    }
+
+    if(checkboxStatus == true) {
+        textToUpdate.setAttribute('style', 'word-wrap:break-word; text-align: justify; padding: 1% 2% 1% 2%; margin: 0;');
+    } else {
+        textToUpdate.setAttribute('style', 'word-wrap:break-word; padding: 1% 2% 1% 2%; margin: 0;');
     }
 }
