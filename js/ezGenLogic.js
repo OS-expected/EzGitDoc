@@ -112,7 +112,8 @@ function createHeader() {
 
     h.textContent = title;
     h.style.wordWrap = 'break-word';
-    
+    h.style.marginBottom = 0;
+
     var headerDiv = document.createElement('div');
     headerDiv = setElement(headerDiv);
     headerDiv.appendChild(h);
@@ -352,7 +353,8 @@ function createList()
         }
         for (var i = 0; i < listSize; i++)
         {
-            var paragraph = document.createElement('p'); 
+            var paragraph = document.createElement('p');
+            paragraph.style.marginBottom = 0; 
             if (i == 0)
             {
                 paragraph.classList.add('customList'); // this is what makes difference to the TEXT option also stored in paragraph
@@ -366,7 +368,7 @@ function createList()
     else if (listOption == 1)
     {
         var list = document.createElement('ul');
-        listDiv.classList.add('list_normal');
+        list.style.marginBottom = 0;
         for (var i = 0; i < listSize; i++) {
             var point = document.createElement('li');
             point.textContent = 'text';
@@ -377,7 +379,7 @@ function createList()
     else if (listOption == 2) 
     {
         var list = document.createElement('ul');
-        list.classList.add('list_link');
+        list.style.marginBottom = 0;
         for (var i = 0; i < listSize; i++) {
             var point = document.createElement('li');
             var anchor = document.createElement('a');
@@ -443,6 +445,7 @@ function createCode()
     div = setElement(div);
 
     var pre = document.createElement('pre');
+    pre.style.marginBottom = 0;
 
     var code = document.createElement('code');
 
@@ -581,7 +584,7 @@ function setElement(element)
     }
     
     element.setAttribute('id', GenerateUniqueId());
-    element.setAttribute('style', 'position: relative; margin: 0.5% 0; border-left: 9px solid #588393; border-right: 9px solid #810401;');
+    element.setAttribute('style', 'position: relative; margin-bottom: 0.5%; border-left: 9px solid #588393; border-right: 9px solid #810401;');
     element.setAttribute('class', 'block-stylizer ezGitPart');
     element.setAttribute('onselectstart', 'return false'); 
     return element;
