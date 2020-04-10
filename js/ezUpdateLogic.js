@@ -154,7 +154,7 @@ function updateCode() {
     }
 
     // update
-    var codeToUpdate = document.getElementById(lastReferencedId).children[0]; // get pre element
+    var codeToUpdate = document.getElementById(lastReferencedId).children[0].children[0]; // get code element
 
     if(!codeLanguage) {
         codeToUpdate.innerHTML = '```<br/>' + codeText + '<br/>```';
