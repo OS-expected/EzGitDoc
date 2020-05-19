@@ -19,7 +19,9 @@ var emptyTableInput = 'One or more input fields responsible for creating table w
 var tableTypeNotSpecified = 'Table type was not specified.';
 var inputLengthLimitReached = 'Input field contained more characters than allowed.';
 var emptyInputFiled = 'Input field was empty.';
-
+var emptyQBTextArea = 'Quick builder terminal is empty.';
+var commandsNotRecognized_pt1 = 'Command(s): '
+var commandsNotRecognized_pt2 = ' not included in the output. Please make sure that the syntax is correct.'
 // ********************************************
 // Validators
 // ********************************************
@@ -154,6 +156,13 @@ function validateLabel(_label, _message, _color) {
         return false;
     } else if(_color.length > 7) {
         triggerToast('Max characters for Color input reached (7).');
+        return false;
+    }
+}
+
+function validateQuickBuilderTextArea(text) {
+    if(text.replace(/ /g,'').length <= 0) {
+        triggerToast(emptyQBTextArea);
         return false;
     }
 }
