@@ -266,11 +266,9 @@ function copyToClipboard(btn)
     document.execCommand("copy");
     document.getSelection().removeAllRanges(); 
 
-    if(btn != 'quickBuilder') {
-        btn.innerText = 'Copied';
+    btn.innerText = 'Copied';
 
-        setTimeout(function() { btn.innerText = 'Copy to clipboard' }, 5000);
-    }
+    setTimeout(function() { btn.innerText = 'Copy to clipboard' }, 5000);
 }
 
 // Show/hide code generator button
