@@ -1829,6 +1829,62 @@ aria-hidden="true" data-backdrop="true">
   </div>
 </div>
 
+<!-- Quick Builder Modal -->
+<div class="modal fade" id="quickBuilderModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+
+  <!-- Change class .modal-sm to change the size of the modal -->
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title w-100" id="myModalLabel">Quick Builder</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group shadow-textarea">
+          <label for="exampleFormControlTextarea6">Terminal</label>
+          <textarea class="form-control z-depth-1" id="quickBuilderTextArea" autocomplete="off" rows="15" placeholder="// EzGitDoc Quick Builder allows to make document schemes much more faster,&#10;// but for the cost of missing preview and less applicable options(e.g. data must be added later).&#10;&#10;// #1: Leave whitespace between every used command.&#10;// #2: Orders are case sensitive.&#10;// #3: Some commands parameters are required.&#10;&#10;examples: image{250} header{H3} text header image link list{iconic}{3} table{text}{2}{2} label"></textarea>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-6" style="padding-left: 25px;">
+              Elements with extra parameters<br/>
+              <small>Hover over example to see allowed data</small>
+              <br/>
+              <br/>
+              <div style="text-align: center; font-size: 20px; font-family: Consolas;">
+                <span class="badge badge-light" data-tooltip="tooltip" data-placement="top" title="header{X} where X is value from H1 to H6. H3 is default. {X} is optional.">header{H2}</span>
+                <span class="badge badge-light" data-tooltip="tooltip" data-placement="top" title="image{X} where X is integer value. 300 pixels is default value. {X} is optional.">image{250}</span>
+                <span class="badge badge-light" data-tooltip="tooltip" data-placement="top" title="list{X}{Y} where X is list type(link, normal, icon) and Y is number of elements. All parameters are required.">list{link}{4}</span>
+                <span class="badge badge-light" data-tooltip="tooltip" data-placement="top" title="table{X}{Y}{Z} where X is table type(text, image) and Y/Z amount of rows/columns. All parameters are required.">table{text}{2}{4}</span>
+                <span class="badge badge-light" data-tooltip="tooltip" data-placement="top" title="label{X} where X is color in hex value. {X} is optional.">label{#4256f5}</span>
+              </div>
+            </div>
+            <div style="text-align: center;" class="col-md-6">
+              <button type="button" class="btn btn-light" onclick="insertCodeTemplate()">code</button>
+              <button type="button" class="btn btn-light" onclick="insertHeaderTemplate()">header</button>
+              <button type="button" class="btn btn-light" onclick="insertImageTemplate()">image</button>
+              <button type="button" class="btn btn-light" onclick="insertLinkTemplate()">link</button>
+              <button type="button" class="btn btn-light" onclick="insertListTemplate()">list</button>
+              <button type="button" class="btn btn-light" onclick="insertTableTemplate()">table</button>
+              <button type="button" class="btn btn-light" onclick="insertTextTemplate()">text</button>
+              <button type="button" class="btn btn-light" onclick="insertLabelTemplate()">label</button>
+              <small>Left whitespace is included automatically</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button type="button" class="btn btn-purple" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-unique">Generate</button>
+      </div>
+      <small style="text-align: center;">After clicking <button type="button" class="btn btn-unique btn-sm disabled">Generate</button> output will be available in the copy clipboard.</small>
+    </div>
+  </div>
+</div>
+
 <!-- Generated Code Modal -->
 <div class="modal fade" id="generatedCodeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
   aria-hidden="true">
@@ -1888,5 +1944,6 @@ Script references
     <script src="js/ezGenLogic.js"></script>
     <script src="js/ezLogicTranslator.js"></script>
     <script src="js/ezBtnController.js"></script>
+    <script src="js/ezQuickBuilder.js"></script>
 </body>
 </html>
