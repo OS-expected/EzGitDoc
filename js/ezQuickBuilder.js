@@ -112,14 +112,21 @@ function generateQuickTemplate() {
         triggerToast(commandsNotRecognized_pt1 + unrecognizedCommands.trim() + commandsNotRecognized_pt2);
     }
 
-    quickBuilderCopyResult();
+    quickBuilderGenerateResult();
 }
 
-function quickBuilderCopyResult()
+function quickBuilderGenerateResult()
 {
-    quickBuilderTextAreaRef.value = quickBuilderOutput;
-    quickBuilderTextAreaRef.select();
-    quickBuilderTextAreaRef.setSelectionRange(0, 99999)
+    var textarea = document.getElementById('qbResultTextArea');
+    textarea.value = quickBuilderOutput; 
+
+    $('#qbResultModal').modal('show');
+}
+
+function quickBuilderCopyToClipboard() {
+    var textarea = document.getElementById('qbResultTextArea');
+    textarea.select();
+    textarea.setSelectionRange(0, 99999)
     document.execCommand("copy");
     document.getSelection().removeAllRanges(); 
 }
