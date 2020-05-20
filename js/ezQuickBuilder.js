@@ -152,7 +152,7 @@ function insertListTemplate() {
 }
 
 function insertTableTemplate() {
-    insertAtCursor(' table{type}{rows}{cols}');
+    insertAtCursor(' table{type-rows|cols}');
 }
 
 function insertTextTemplate() {
