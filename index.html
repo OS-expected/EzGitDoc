@@ -1857,8 +1857,8 @@ aria-hidden="true" data-backdrop="true">
               <div style="text-align: center; font-size: 20px; font-family: Consolas;">
                 <span class="badge badge-light" data-tooltip="tooltip" data-placement="top" title="header{X} where X is value from H1 to H6. H3 is default. {X} is optional.">header{H2}</span>
                 <span class="badge badge-light" data-tooltip="tooltip" data-placement="top" title="image{X} where X is integer value. 300 pixels is default value. {X} is optional.">image{250}</span>
-                <span class="badge badge-light" data-tooltip="tooltip" data-placement="top" title="list{X}{Y} where X is list type(link, normal, icon) and Y is number of elements. All parameters are required.">list{link}{4}</span>
-                <span class="badge badge-light" data-tooltip="tooltip" data-placement="top" title="table{X}{Y}{Z} where X is table type(text, image) and Y/Z amount of rows/columns. All parameters are required.">table{text}{2}{4}</span>
+                <span class="badge badge-light" data-tooltip="tooltip" data-placement="top" title="list{X-Y} where X is list type(iconic, normal, link) and Y is number of elements. Both parameters are required.">list{normal-4}</span>
+                <span class="badge badge-light" data-tooltip="tooltip" data-placement="top" title="table{X-Y|Z} where X is table type(text, image) and Y/Z amount of rows/columns. All parameters are required.">table{text-2|4}</span>
                 <span class="badge badge-light" data-tooltip="tooltip" data-placement="top" title="label{X} where X is color in hex value. {X} is optional.">label{#4256f5}</span>
               </div>
             </div>
@@ -1878,7 +1878,7 @@ aria-hidden="true" data-backdrop="true">
       </div>
       <div class="modal-footer justify-content-center">
         <button type="button" class="btn btn-purple" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-unique" onclick="generateQuickTemplate()" disabled>Generate</button>
+        <button type="button" class="btn btn-unique" onclick="generateQuickTemplate()">Generate</button>
       </div>
       <small style="text-align: center;">After clicking <button type="button" class="btn btn-unique btn-sm disabled">Generate</button> output will be available in the copy clipboard.</small>
     </div>
