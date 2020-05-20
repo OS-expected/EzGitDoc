@@ -179,6 +179,10 @@ function generateQuickTemplate() {
         triggerToast(commandsNotRecognized_pt1 + unrecognizedCommands.trim() + commandsNotRecognized_pt2);
     }
 
+    if(quickBuilderOutput.length > 20) {
+        quickBuilderOutput += '\r\n\r\nTemplate generated using <a href="https://github.com/trolit/EzGitDoc">EzGitDoc</a> Quick Builder tool.';
+    }
+
     quickBuilderGenerateResult();
 }
 
