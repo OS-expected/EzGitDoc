@@ -98,7 +98,56 @@ function generateQuickTemplate() {
                 continue;
             }       
         } else if(command.startsWith('table')) {
-            
+            var type = command.substring(
+                command.lastIndexOf("{") + 1, 
+                command.lastIndexOf("-")
+            );
+            var rows = parseInt(command.substring(
+                command.lastIndexOf("-") + 1, 
+                command.lastIndexOf("|")
+            )) + 1;
+            var cols = parseInt(command.substring(
+                command.lastIndexOf("|") + 1, 
+                command.lastIndexOf("}")
+            ));
+
+            if(rows <= 0 || cols <= 0) {
+                unrecognizedCommands += ' (' + commandNum + ')'; 
+                continue;
+            }
+
+            if(type == 'text') {
+                for(z = 0; z < rows; z++) {
+                    quickBuilderOutput += '| ';
+                    for(k = 0; k < cols; k++) {
+                        if(z == 0) {
+                            quickBuilderOutput += ' header |';
+                        } else if (z == 1) {
+                            quickBuilderOutput += ' :---: |';
+                        } else {
+                            quickBuilderOutput += ' text |';
+                        }
+                    }
+                    quickBuilderOutput += '\r\n';
+                }
+            } else if (type == 'image') {
+                for(z = 0; z <= rows; z++) {
+                    quickBuilderOutput += '| ';
+                    for(k = 0; k < cols; k++) {
+                        if(z == 0) {
+                            quickBuilderOutput += ' |';
+                        } else if (z == 1) {
+                            quickBuilderOutput += ' :---: |';
+                        } else {
+                            quickBuilderOutput += ' <img src="https://placehold.it/140x140" alt="#toadd" width="140" height="140"/> |';
+                        }
+                    }
+                    quickBuilderOutput += '\r\n';
+                }
+            } else {
+                unrecognizedCommands += ' (' + commandNum + ')'; 
+                continue;
+            }
         } else if(command.startsWith('text')) {
             quickBuilderOutput += '<p align="center|left|right">text</p>';
         } else if(command.startsWith('label')) {
