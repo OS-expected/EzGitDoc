@@ -151,7 +151,21 @@ function generateQuickTemplate() {
         } else if(command.startsWith('text')) {
             quickBuilderOutput += '<p align="center|left|right">text</p>';
         } else if(command.startsWith('label')) {
-            
+            var color = command.substring(
+                command.lastIndexOf("{") + 1, 
+                command.lastIndexOf("}")
+            );
+
+            if (color.length > 7) {
+                unrecognizedCommands += ' (' + commandNum + ':too many characters)'; 
+            }
+
+            // custom color
+            if (color.length > 0 && color.length <= 7) {
+                quickBuilderOutput += '<img src="https://img.shields.io/badge/Label-Message-red?color=' + color.slice(1) + '"/>';
+            } else {
+                quickBuilderOutput += '<img src="https://img.shields.io/badge/Label-Message-red?color=2B61E2"/>';
+            }
         } else {
             unrecognizedCommands += ' (' + commandNum + ')'; 
         }
