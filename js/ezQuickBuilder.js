@@ -35,9 +35,12 @@ function generateQuickTemplate() {
                 command.lastIndexOf("{") + 1, 
                 command.lastIndexOf("}")
             );
+            if(headerVal.length <= 0) {
+                headerVal = 'H3';
+            }
             if(headerVal != 'H1' && headerVal != 'H2' && headerVal != 'H3'
              && headerVal != 'H4' && headerVal != 'H5' && headerVal != 'H6') {
-                unrecognizedCommands += ' (' + commandNum + ')'; 
+                unrecognizedCommands += ' (' + commandNum + ':unknown style)'; 
                 continue;
             }
             quickBuilderOutput += '<' + headerVal.toLowerCase() + '> Heading </' + headerVal.toLowerCase() + '>';
@@ -46,14 +49,14 @@ function generateQuickTemplate() {
                 command.lastIndexOf("{") + 1, 
                 command.lastIndexOf("}")
             );
-            if(imgVal <= 0) {
-                unrecognizedCommands += ' (' + commandNum + ')'; 
-                continue;
-            } else if(imgVal > 0) {
-                quickBuilderOutput += '<img src="http://placehold.it/"' + imgVal + '/>';
+            if(imgVal.length <= 0 || imgVal <= 0) {
+                imgVal = '300';
+            }
+            if(imgVal > 0) {
+                quickBuilderOutput += '<img src="https://placehold.it/' + imgVal + '"/>';
             }
         } else if(command.startsWith('link')) {
-            quickBuilderOutput += '<a href="fill.in.address">link</a>"';
+            quickBuilderOutput += '<a href="fill.in.address">link</a>';
         } else if(command.startsWith('list')) {
             var type = command.substring(
                 command.lastIndexOf("{") + 1, 
@@ -63,18 +66,15 @@ function generateQuickTemplate() {
                 command.lastIndexOf("-") + 1, 
                 command.lastIndexOf("}")
             );
-            console.log('type => ' + type);
-            console.log('amount => ' + amount);
-
-            if(amount <= 0) {
-                unrecognizedCommands += ' (' + commandNum + ')'; 
+            if(amount <= 0 || type.length <= 0) {
+                unrecognizedCommands += ' (' + commandNum + ':wrong parameters)'; 
                 continue;
             }
 
             if(type == 'iconic') {
                 // :pirn2odiy: <strong>bold text:</strong> description
                 for(z = 0; z < amount; z++) {
-                    quickBuilderOutput += ':pirn2odiy: <strong>bold text:</strong> description';
+                    quickBuilderOutput += ':grey_question: <strong>bold text:</strong> description <br/>';
                     if((z + 1) != amount) {
                         quickBuilderOutput += '\r\n';
                     }
@@ -94,7 +94,7 @@ function generateQuickTemplate() {
                 }
                 quickBuilderOutput += '</ul>';
             } else {
-                unrecognizedCommands += ' (' + commandNum + ')'; 
+                unrecognizedCommands += ' (' + commandNum + ':unknown type)'; 
                 continue;
             }       
         } else if(command.startsWith('table')) {
@@ -112,7 +112,7 @@ function generateQuickTemplate() {
             ));
 
             if(rows <= 0 || cols <= 0) {
-                unrecognizedCommands += ' (' + commandNum + ')'; 
+                unrecognizedCommands += ' (' + commandNum + ':wrong row/col value)'; 
                 continue;
             }
 
@@ -128,7 +128,9 @@ function generateQuickTemplate() {
                             quickBuilderOutput += ' text |';
                         }
                     }
-                    quickBuilderOutput += '\r\n';
+                    if(z != (rows - 1)) {
+                        quickBuilderOutput += '\r\n';
+                    }
                 }
             } else if (type == 'image') {
                 for(z = 0; z <= rows; z++) {
@@ -142,10 +144,12 @@ function generateQuickTemplate() {
                             quickBuilderOutput += ' <img src="https://placehold.it/140x140" alt="#toadd" width="140" height="140"/> |';
                         }
                     }
-                    quickBuilderOutput += '\r\n';
+                    if (z != rows) {
+                        quickBuilderOutput += '\r\n';
+                    }
                 }
             } else {
-                unrecognizedCommands += ' (' + commandNum + ')'; 
+                unrecognizedCommands += ' (' + commandNum + ':unknown type)'; 
                 continue;
             }
         } else if(command.startsWith('text')) {
