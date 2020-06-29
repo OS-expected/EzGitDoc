@@ -126,7 +126,7 @@ function createHeader() {
     }
   }
 
-var basicImage = 'http://placehold.it/';
+var basicImage = 'https://placehold.it/';
 
 function createImage()
 {
