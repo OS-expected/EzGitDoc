@@ -27,7 +27,7 @@ function showEditModal(modalReference, elementId) {
         break;
         case '#imageUpdateModal':
             document.getElementById('altImageText_update').value = tmp.alt;
-            if(tmp.src.includes('placehold') == false) {
+            if(tmp.src.includes('place-hold') == false) {
                 document.getElementById('imageURL_update').value = tmp.src;
             }
             var paragraphAlignVal = document.getElementById(elementId).style.textAlign;
