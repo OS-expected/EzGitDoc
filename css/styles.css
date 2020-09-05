@@ -7,6 +7,10 @@ html, body {
     scroll-behavior: smooth;
 }
 
+.position-absolute {
+    position: absolute;
+}
+
 .table {
     margin: 0 !important;
 }

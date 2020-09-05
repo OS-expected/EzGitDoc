@@ -70,7 +70,7 @@ Sidebar
   </a>
   <nav id="sidebar" class="sidebar-wrapper">
     <div class="sidebar-content">
-
+      <span class="badge badge-info position-absolute">v1.7</span>
       <div class="sidebar-header" style="margin-left: 2%;">
         <div class="logo-preloader-body" style="font-family: 'Josefin Sans'; ">
           <i class="fab fa-earlybirds fa-8x faa-tada animated-hover " style="color: #55606E;"></i>
@@ -158,7 +158,6 @@ Sidebar
             <a>
               <i class="fas fa-terminal"></i>
               <span>Quick Builder</span>
-              <span class="badge badge-success">New</span>
               <!-- <span class="badge-sonar"></span> -->
             </a>
           </li>
@@ -381,40 +380,39 @@ aria-hidden="true" data-backdrop="true">
     <div class="modal-body">
       <form>
         <div class="form-group">
-          <label for="codeLanguage">Language</label>
+          <label for="codeLanguage">Language <small class="grey-text">(optional)</small></label>
           <input class="form-control" id="codeLanguage" placeholder="e.g. javascript" maxlength="15" autocomplete="off">
         </div>
 
         <div class="container">
           <div class="form-group">
-            <label for="codeArea">Code</label>
+            <label for="codeArea">Code <small class="deep-purple-text">(required)</small></label>
             <textarea class="form-control" rows="5" id="codeArea" autocomplete="off"></textarea>
           </div>
         </div>
       </form>
 
-      <div class="row" style="margin-top: 25px;">
-        <div class="col text-center mdb-color lighten-1" style="color: white;">
-          <i class="fab fa-laravel fa-sm"></i> Notes
-        </div>
-      </div>
-
       <div class="row">
-        <div class="col text-left">
+        <div class="col text-left ml-3">
           <ul class="list-unstyled">
-              <li><small class="form-text text-muted"><i class="fas fa-times"></i> Language field is optional.</small> </li>
               <li><small class="form-text text-muted"><i class="fas fa-times"></i> In the code area you can use &nbsp; <span class="badge badge-light" style="padding: 6px;">TAB</span> &nbsp; key to make indent.</small> </li>
-              <li><small class="form-text text-muted"><i class="fas fa-times"></i> Code area <strong>must contain</strong> at least one character.</small></li>
-              <li><small class="form-text text-muted"><i class="fas fa-times"></i> Syntax highlighting is not visible in EzGitDoc. However, if the typed language name is supported by the service where you plan to use template(e.g. GitHub), it will work.</small></li> <br/>
+          </ul>
+        </div>
+        <div class="col text-center mr-3">
+          <ul class="list-unstyled">
+              <li><small class="form-text text-muted"><i class="fas fa-times"></i> Syntax highlighting is not visible. If typed language name is supported by the service where you plan to put template(e.g. GitHub), it will work.</small></li> <br/>
           </ul>
         </div>
       </div>
 
     </div>
-    <div class="modal-footer justify-content-center">
-      <button onclick="createCode()" type="button" class="btn btn-deep-purple">Create</button>
-      <button type="button" class="btn btn-purple" data-dismiss="modal">Close</button>
-      <button type="button" class="btn btn-amber" onclick="clearModal('#codeModal')">Reset</button>
+    <div class="modal-footer">
+      <div class="col text-left ml-0">
+        <button onclick="createCode()" type="button" class="btn btn-deep-purple">Create</button>
+      </div>
+      <div class="col text-right mr-0">
+        <button type="button" class="btn btn-danger" onclick="clearModal('#codeModal')">Reset</button>
+      </div>
     </div>
   </div>
 </div>
@@ -468,12 +466,12 @@ aria-hidden="true" data-backdrop="true">
       <div class="modal-body">
         <form>
           <div class="form-group">
-            <label for="headerName">Text</label>
+            <label for="headerName">Text <small class="deep-purple-text">(required)</small></label>
             <input class="form-control" id="headerName" placeholder="Text" autocomplete="off">
           </div>
         
           <ul class="list-group" style="cursor: pointer;" onselectstart="return false" ondragstart="return false">
-            <label>Style</label>
+            <label>Style <small class="grey-text">(optional, default = h2)</small></label>
             <li class="list-group-item" value="5" onclick="setElementAsActive(this)" data-toggle="popover-hover" data-img="images/hover/header_1.png">h1</li>
             <li class="list-group-item" value="6" onclick="setElementAsActive(this)" data-toggle="popover-hover" data-img="images/hover/header_2.png">h2</li>
             <li class="list-group-item" value="7" onclick="setElementAsActive(this)" data-toggle="popover-hover" data-img="images/hover/header_3.png">h3</li>
@@ -482,27 +480,15 @@ aria-hidden="true" data-backdrop="true">
             <li class="list-group-item" value="10" onclick="setElementAsActive(this)" data-toggle="popover-hover" data-img="images/hover/header_6.png">h6</li>
           </ul> 
         </form>
-
-        <div class="row" style="margin-top: 20px;">
-          <div class="col text-center mdb-color lighten-1" style="color: white;">
-            <i class="fab fa-laravel fa-sm"></i> Notes
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col text-left">
-            <ul class="list-unstyled">
-                <li><small class="form-text text-muted"><i class="fas fa-times"></i> If style is not picked, header will be built using h2 tag.</small></li>
-                <li><small class="form-text text-muted"><i class="fas fa-times"></i> Text field is obligatory.</small></li>
-            </ul>
-          </div>
-        </div>
       </div>
 
-      <div class="modal-footer justify-content-center">
-        <button onclick="createHeader()" type="button" class="btn btn-deep-purple">Create</button>
-        <button type="button" class="btn btn-purple" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-amber" onclick="clearModal('#headerModal')">Reset</button>
+      <div class="modal-footer">
+        <div class="col text-left ml-0">
+          <button onclick="createHeader()" type="button" class="btn btn-deep-purple">Create</button>
+        </div>
+        <div class="col text-right mr-0">
+          <button type="button" class="btn btn-danger" onclick="clearModal('#headerModal')">Reset</button>
+        </div>
       </div>
     </div>
   </div>
@@ -560,17 +546,18 @@ aria-hidden="true" data-backdrop="true">
     <div class="modal-body">
       <form>
         <div class="form-group">
-          <label for="altImageText">Alternate text</label>
+          <label for="altImageText">Alternate text <small class="deep-purple-text">(required)</small></label>
           <input class="form-control" id="altImageText" placeholder="Image shows.." autocomplete="off">
         </div>
         
         <div class="form-group">
-            <label for="imageURL">URL</label>
+            <label for="imageURL">URL <small class="deep-purple-text">(required)</small></label>
             <input class="form-control" id="imageURL" value="blank" autocomplete="off">
-          </div>
+            <small class="form-text text-muted">If you don't have URL yet, leave blank.</small>
+        </div>
 
         <div class="form-group">
-            <label class="my-1 mr-2" for="imagePositionList">Alignment</label>
+            <label class="my-1 mr-2" for="imagePositionList">Alignment <small class="grey-text">(optional, default = center)</small></label>
             <select class="custom-select my-1 mr-sm-2" id="imagePositionList" autocomplete="off">
             <option value="0" selected>Choose...</option>
             <option value="1">Left aligned</option>
@@ -601,28 +588,23 @@ aria-hidden="true" data-backdrop="true">
         </div>
       </form>     
 
-        <div class="row" style="margin-top: 25px;">
-          <div class="col text-center mdb-color lighten-1" style="color: white;">
-            <i class="fab fa-laravel fa-sm"></i> Notes
-          </div>
-        </div>
-
         <div class="row">
           <div class="col text-left">
             <ul class="list-unstyled">
-                <li><small class="form-text text-muted" style="color: red !important;"><i class="fas fa-times"></i> If you don't have URL yet, leave blank.</small> </li>
-                <li><small class="form-text text-muted"><i class="fas fa-times"></i> If alignment is not picked, image will be center aligned.</small></li>
                 <li><small class="form-text text-muted"><i class="fas fa-times"></i> Set only one of the axis if you want proportion to be preserved.</small></li>
-                <li><small class="form-text text-muted"><i class="fas fa-times"></i> At least one axis needs to be set (it's value must be different than 0).</small></li>
+                <li><small class="form-text text-muted"><i class="fas fa-times"></i> At least one axis needs to be set (it's value must be higher than 0).</small></li>
             </ul>
           </div>
         </div>
       </div>
 
-      <div class="modal-footer justify-content-center">
-        <button onclick="createImage()" type="button" class="btn btn-deep-purple">Create</button>
-        <button type="button" class="btn btn-purple" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-amber" onclick="clearModal('#imageModal')">Reset</button>
+      <div class="modal-footer">
+        <div class="col text-left ml-0">
+          <button onclick="createImage()" type="button" class="btn btn-deep-purple">Create</button>
+        </div>
+        <div class="col text-right mr-0">
+          <button type="button" class="btn btn-danger" onclick="clearModal('#imageModal')">Reset</button>
+        </div>
       </div>
     </div>
   </div>
@@ -706,37 +688,24 @@ aria-hidden="true" data-backdrop="true">
     <div class="modal-body">
       <form>
         <div class="form-group">
-          <label for="hrefName">Text</label>
+          <label for="hrefName">Text <small class="deep-purple-text">(required)</small></label>
           <input class="form-control" id="hrefName" placeholder="Text" autocomplete="off">
         </div>
 
         <div class="form-group">
-          <label for="hrefAddress">Href</label>
+          <label for="hrefAddress">Href <small class="deep-purple-text">(required)</small></label>
           <input class="form-control" id="hrefAddress" placeholder="e.g. https://mylink.com" autocomplete="off">
         </div>
       </form>
-
-      <div class="row" style="margin-top: 25px;">
-        <div class="col text-center mdb-color lighten-1" style="color: white;">
-          <i class="fab fa-laravel fa-sm"></i> Notes
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col text-left">
-          <ul class="list-unstyled">
-              <li><small class="form-text text-muted"><i class="fas fa-times"></i> Specify the name of the link by text input.</small></li>
-              <li><small class="form-text text-muted"><i class="fas fa-times"></i> Both fields are required.</small></li>
-              <li><small class="form-text text-muted"><i class="fas fa-times"></i> You can also use <span class="badge badge-primary" style="padding: 5px;">TEXT</span> element to create links with anchor tag.</small></li>
-          </ul>
-        </div>
-      </div>
     </div>
 
-    <div class="modal-footer justify-content-center">
-      <button onclick="createLink()" type="button" class="btn btn-deep-purple">Create</button>
-      <button type="button" class="btn btn-purple" data-dismiss="modal">Close</button>
-      <button type="button" class="btn btn-amber" onclick="clearModal('#linkModal')">Reset</button>
+    <div class="modal-footer">
+      <div class="col text-left ml-0">
+        <button onclick="createLink()" type="button" class="btn btn-deep-purple">Create</button>
+      </div>
+      <div class="col text-right mr-0">
+        <button type="button" class="btn btn-danger" onclick="clearModal('#linkModal')">Reset</button>
+      </div>
     </div>
   </div>
 </div>
@@ -789,13 +758,13 @@ aria-hidden="true" data-backdrop="true">
       <div class="modal-body">
         <form>
             <div class="form-group">
-              <label for="listSize">Size</label>
+              <label for="listSize">Size <small class="deep-purple-text">(required)</small></label>
               <input class="form-control" id="listSize" placeholder="0" autocomplete="off">
             </div>
 
             <div class="form-group">
               <ul class="list-group" style="cursor: pointer;" onselectstart="return false" ondragstart="return false">
-                <label>Type</label>
+                <label>Type <small class="deep-purple-text">(required)</small></label>
                 <li class="list-group-item" value="0" onclick="setElementAsActive(this, 'toggle_list_iconField')" data-toggle="popover-hover" data-img="images/hover/list_iconic.PNG">iconic</li>
                 <li class="list-group-item" value="1" onclick="setElementAsActive(this)" data-toggle="popover-hover" data-img="images/hover/list_normal.PNG">normal</li>
                 <li class="list-group-item" value="2" onclick="setElementAsActive(this)" data-toggle="popover-hover" data-img="images/hover/list_link.PNG">link</li>
@@ -813,27 +782,14 @@ aria-hidden="true" data-backdrop="true">
               <small class="form-text text-muted text-left">Icon can be added later by replacing Id put between : : with icon name.</small>
             </div>
         </form>
-
-        <div class="row" style="margin-top: 25px;">
-          <div class="col text-center mdb-color lighten-1" style="color: white;">
-            <i class="fab fa-laravel fa-sm"></i> Notes
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col text-left">
-            <ul class="list-unstyled">
-                <li><small class="form-text text-muted"><i class="fas fa-times"></i> If you want to have jagged elements of the list, they must be added manually later.</small> </li>
-                <li><small class="form-text text-muted"><i class="fas fa-times"></i> Size of the list must be of integer value, different than 0.</small> </li>
-            </ul>
-          </div>
-        </div>
-
       </div>
-      <div class="modal-footer justify-content-center">
-        <button onclick="createList()" type="button" class="btn btn-deep-purple">Create</button>
-        <button type="button" class="btn btn-purple" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-amber" onclick="clearModal('#listModal')">Reset</button>
+      <div class="modal-footer">
+        <div class="col text-left ml-0">
+          <button onclick="createList()" type="button" class="btn btn-deep-purple">Create</button>
+        </div>
+        <div class="col text-right mr-0">
+          <button type="button" class="btn btn-danger" onclick="clearModal('#listModal')">Reset</button>
+        </div>
       </div>
     </div>
   </div>
@@ -886,7 +842,7 @@ aria-hidden="true" data-backdrop="true">
                 <div class="row justify-content-md-center">
 
                     <div class="col-md-12 text-center">
-                        <label class="my-1 mr-2">Size</label>
+                        <label class="my-1 mr-2">Dimensions <small class="deep-purple-text">(required)</small></label>
                     </div>
 
                     <div class="col-md-6">
@@ -903,7 +859,7 @@ aria-hidden="true" data-backdrop="true">
                 <br/>
 
                 <ul class="list-group" style="cursor: pointer;" onselectstart="return false" ondragstart="return false">
-                  <label>Type</label>
+                  <label>Type <small class="deep-purple-text">(required)</small></label>
                   <li class="list-group-item" value="3" onclick="setElementAsActive(this)" data-toggle="popover-hover" data-img="images/hover/table_text.PNG">text</li>
                   <li class="list-group-item" value="4" onclick="setElementAsActive(this)" data-toggle="popover-hover" data-img="images/hover/table_image.PNG">image</li>
                 </ul> 
@@ -911,29 +867,16 @@ aria-hidden="true" data-backdrop="true">
                 <small class="form-text text-muted text-center">Choose what table cell will contain.</small>
             </div>
         </div>
-      </form>
-
-      <div class="row" style="margin-top: 25px;">
-        <div class="col text-center mdb-color lighten-1" style="color: white;">
-          <i class="fab fa-laravel fa-sm"></i> Notes
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col text-left">
-          <ul class="list-unstyled">
-              <li><small class="form-text text-muted"><i class="fas fa-times"></i> Only positive integer values are accepted (different than 0).</small></li>
-              <li><small class="form-text text-muted"><i class="fas fa-times"></i> Image type table can't be edited after render due to obligatory height/width manual testing.</small></li>
-              <li><small class="form-text text-muted"><i class="fas fa-times"></i> All cells are centered.</small></li>
-          </ul>
-        </div>
-      </div>    
+      </form> 
     </div>
     
-    <div class="modal-footer justify-content-center">
-      <button onclick="createTable()" type="button" class="btn btn-deep-purple">Create</button>
-      <button type="button" class="btn btn-purple" data-dismiss="modal">Close</button>
-      <button type="button" class="btn btn-amber" onclick="clearModal('#arrayModal')">Reset</button>
+    <div class="modal-footer">
+      <div class="col text-left ml-0">
+        <button onclick="createTable()" type="button" class="btn btn-deep-purple">Create</button>
+      </div>
+      <div class="col text-right mr-0">
+        <button type="button" class="btn btn-danger" onclick="clearModal('#arrayModal')">Reset</button>
+      </div>
     </div>
   </div>
 </div>
@@ -985,7 +928,7 @@ aria-hidden="true" data-backdrop="true">
       <form>
         <div class="container">
           <div class="form-group">
-            <label for="commentArea">Text:</label>
+            <label for="commentArea">Text <small class="grey-text">(optional)</small></label>
             <textarea class="form-control" rows="5" id="commentArea" autocomplete="off"></textarea>
           </div>
 
@@ -998,13 +941,7 @@ aria-hidden="true" data-backdrop="true">
         </div>
       </form>
 
-      <div class="row" style="margin-top: 25px;">
-        <div class="col text-center mdb-color lighten-1" style="color: white;">
-          <i class="fab fa-laravel fa-sm"></i> Notes
-        </div>
-      </div>
-     
-      <div class="row">
+      <div class="row mt-3">
         <div class="col text-left">
           <ul class="list-unstyled">
               <li><small class="form-text text-muted"><i class="fas fa-times"></i> Leave text field empty if you want to use lorem ipsum template.</small> </li>
@@ -1014,10 +951,13 @@ aria-hidden="true" data-backdrop="true">
       </div>
 
     </div>
-    <div class="modal-footer justify-content-center">
-      <button onclick="createText()" type="button" class="btn btn-deep-purple">Create</button>
-      <button type="button" class="btn btn-purple" data-dismiss="modal">Close</button>
-      <button type="button" class="btn btn-amber" onclick="clearModal('#textModal')">Reset</button>
+    <div class="modal-footer">
+      <div class="col text-left ml-0">
+        <button onclick="createText()" type="button" class="btn btn-deep-purple">Create</button>
+      </div>
+      <div class="col text-right mr-0">
+        <button type="button" class="btn btn-danger" onclick="clearModal('#textModal')">Reset</button>
+      </div>
     </div>
   </div>
 </div>
@@ -1073,22 +1013,22 @@ aria-hidden="true" data-backdrop="true">
       <div class="modal-body">
         <form>
           <div class="form-group">
-            <label for="l_label">Label</label>
+            <label for="l_label">Label <small class="deep-purple-text">(required)</small></label>
             <input class="form-control" id="l_label" maxlength="25" autocomplete="off">
           </div>
 
           <div class="form-group">
-            <label for="l_message">Message</label>
+            <label for="l_message">Message <small class="deep-purple-text">(required)</small></label>
             <input class="form-control" id="l_message" maxlength="25" autocomplete="off">
           </div>
 
           <div class="form-group">
-            <label for="l_color">Color</label>
+            <label for="l_color">Color <small class="deep-purple-text">(required)</small></label>
             <input class="form-control" id="l_color" autocomplete="off" value="#2B95E2">
           </div>
 
           <div class="form-group">
-            <label for="l_style">Style</label>
+            <label for="l_style">Style <small class="grey-text">(optional)</small></label>
             <select id="l_style" class="browser-default custom-select" autocomplete="off">
               <option value="default" selected>Plastic(default)</option>
               <option value="flat">Flat</option>
@@ -1129,13 +1069,7 @@ aria-hidden="true" data-backdrop="true">
           </div>
         </div>
         
-        <div class="row" style="margin-top: 25px;">
-          <div class="col text-center mdb-color lighten-1" style="color: white;">
-            <i class="fab fa-laravel fa-sm"></i> Notes
-          </div>
-        </div>
-      
-        <div class="row">
+        <div class="row mt-3">
           <div class="col text-left">
             <ul class="list-unstyled">
                 <li><small class="form-text text-muted"><i class="fas fa-times"></i> Label and Message fields are limited to 25 characters.</small> </li>
@@ -1145,10 +1079,13 @@ aria-hidden="true" data-backdrop="true">
         </div>
 
       </div>
-      <div class="modal-footer justify-content-center">
-        <button onclick="createLabel()" type="button" class="btn btn-deep-purple">Create</button>
-        <button type="button" class="btn btn-purple" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-amber" onclick="clearModal('#labelModal', 'withImage')">Reset</button>
+      <div class="modal-footer">
+        <div class="col text-left ml-0">
+          <button onclick="createLabel()" type="button" class="btn btn-deep-purple">Create</button>
+        </div>
+        <div class="col text-right mr-0">
+          <button type="button" class="btn btn-danger" onclick="clearModal('#labelModal', 'withImage')">Reset</button>
+        </div>
       </div>
     </div>
   </div>
