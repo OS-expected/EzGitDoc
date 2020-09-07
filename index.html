@@ -70,7 +70,7 @@ Sidebar
   </a>
   <nav id="sidebar" class="sidebar-wrapper">
     <div class="sidebar-content">
-      <span class="badge badge-info position-absolute">v1.7</span>
+      <span class="badge position-absolute">Version: 1.7</span>
       <div class="sidebar-header" style="margin-left: 2%;">
         <div class="logo-preloader-body" style="font-family: 'Josefin Sans'; ">
           <i class="fab fa-earlybirds fa-8x faa-tada animated-hover " style="color: #55606E;"></i>
@@ -85,7 +85,7 @@ Sidebar
       <div class="sidebar-menu">
         <ul>
           <li class="header-menu">
-            <span>Tools</span>
+            <span>Elements</span>
           </li>
           <li data-toggle="modal" data-target="#codeModal">
             <a>
@@ -157,7 +157,7 @@ Sidebar
           <li data-toggle="modal" data-target="#quickBuilderModal">
             <a>
               <i class="fas fa-terminal"></i>
-              <span>Quick Builder</span>
+              <span>Quick Builder<small>(v1.0)</small></span>
               <!-- <span class="badge-sonar"></span> -->
             </a>
           </li>
@@ -207,7 +207,7 @@ Sidebar
               </div>
               <div class="col-5 faa-parent animated-hover">
                 <i class="fas fa-cogs fa-4x faa-vertical "></i><br/><br/>
-                <span class="badge badge-primary label-extra-styling">Review the docs</span><br/><button type="button" style="margin-top: 0;" class="btn btn-indigo"  data-toggle="modal" data-target="#helpModal">click here</button>
+                <span class="badge badge-primary label-extra-styling">Review documentation</span><br/><button type="button" style="margin-top: 0;" class="btn btn-indigo"  data-toggle="modal" data-target="#helpModal">click here</button>
               </div>
           </div>
         </div>
@@ -218,7 +218,7 @@ Sidebar
       <!-- Code Generation Button -->
       <div class="row">
         <div class="col-12">
-          <button type="button" id="codeGenButton" class="btn btn-elegant btn-lg" style="float: right; visibility: hidden;" onclick="GenerateMDCode()">Generate Code</button>
+          <button type="button" id="codeGenButton" class="btn btn-mdb-color btn-lg" style="visibility: hidden; padding-top: 30px; font-size: 12px;" onclick="GenerateMDCode()">Generate Code</button>
         </div>
       </div>
 
@@ -248,9 +248,6 @@ Sidebar
               </p>
             </div>
           </div>
-        </div>
-        <div class="footer-copyright text-center py-3">EzGitDoc is maintained by
-          <a href="https://github.com/trolit" target="_blank"> trolit</a>
         </div>
       </footer>
       <!-- Footer -->
@@ -317,7 +314,7 @@ aria-hidden="true" data-backdrop="true">
           <div class="custom-control custom-switch">
             <input type="checkbox" class="custom-control-input" id="autoDisappear_switch" onclick="updateSetting('autoDisappear')">
             <label class="custom-control-label" for="autoDisappear_switch" style="width: 100%;">Autohide notifications: <span id="autoDisappear_switch_label" class="badge badge-pill badge-danger" style="float: right;">disabled</span></label>
-            <small class="form-text text-muted">If enabled, error messages will be shown for limited time of 7 seconds. When disabled, notifications needs to be closed manually.</small>
+            <small class="form-text text-muted">If enabled, error messages will be shown for limited time of 7 seconds. When disabled, notifications need to be closed manually.</small>
           </div>
 
           <br/>
@@ -325,7 +322,7 @@ aria-hidden="true" data-backdrop="true">
           <div class="custom-control custom-switch">
             <input type="checkbox" class="custom-control-input" id="hintKeys_switch" onclick="updateSetting('hintKeys')">
             <label class="custom-control-label" for="hintKeys_switch" style="width: 100%;">Hint keys: <span id="hintKeys_switch_label" class="badge badge-pill badge-danger" style="float: right;">disabled</span></label>
-            <small class="form-text text-muted">Enable this option to see shortkeys hints for each element from the sidebar tools section.</small>
+            <small class="form-text text-muted">Enable this option to see shortkeys hints for each element from the sidebar elements section.</small>
           </div>
         </div>
       </div>
@@ -386,7 +383,7 @@ aria-hidden="true" data-backdrop="true">
 
         <div class="container">
           <div class="form-group">
-            <label for="codeArea">Code <small class="deep-purple-text">(required)</small></label>
+            <label for="codeArea">Code <small class="mdb-color-text">(required)</small></label>
             <textarea class="form-control" rows="5" id="codeArea" autocomplete="off"></textarea>
           </div>
         </div>
@@ -395,12 +392,12 @@ aria-hidden="true" data-backdrop="true">
       <div class="row">
         <div class="col text-left ml-3">
           <ul class="list-unstyled">
-              <li><small class="form-text text-muted"><i class="fas fa-times"></i> In the code area you can use &nbsp; <span class="badge badge-light" style="padding: 6px;">TAB</span> &nbsp; key to make indent.</small> </li>
+              <li><small class="form-text text-muted"><i class="far fa-question-circle"></i> In the code area you can use &nbsp; <span class="badge badge-light" style="padding: 6px;">TAB</span> &nbsp; key to make indent.</small> </li>
           </ul>
         </div>
         <div class="col text-center mr-3">
           <ul class="list-unstyled">
-              <li><small class="form-text text-muted"><i class="fas fa-times"></i> Syntax highlighting is not visible. If typed language name is supported by the service where you plan to put template(e.g. GitHub), it will work.</small></li> <br/>
+              <li><small class="form-text text-muted"><i class="far fa-question-circle"></i> Syntax highlighting is not visible. If typed language name is supported by the service where you plan to put template(e.g. GitHub), it will work.</small></li> <br/>
           </ul>
         </div>
       </div>
@@ -466,7 +463,7 @@ aria-hidden="true" data-backdrop="true">
       <div class="modal-body">
         <form>
           <div class="form-group">
-            <label for="headerName">Text <small class="deep-purple-text">(required)</small></label>
+            <label for="headerName">Text <small class="mdb-color-text">(required)</small></label>
             <input class="form-control" id="headerName" placeholder="Text" autocomplete="off">
           </div>
         
@@ -546,12 +543,12 @@ aria-hidden="true" data-backdrop="true">
     <div class="modal-body">
       <form>
         <div class="form-group">
-          <label for="altImageText">Alternate text <small class="deep-purple-text">(required)</small></label>
+          <label for="altImageText">Alternate text <small class="mdb-color-text">(required)</small></label>
           <input class="form-control" id="altImageText" placeholder="Image shows.." autocomplete="off">
         </div>
         
         <div class="form-group">
-            <label for="imageURL">URL <small class="deep-purple-text">(required)</small></label>
+            <label for="imageURL">URL <small class="mdb-color-text">(required)</small></label>
             <input class="form-control" id="imageURL" value="blank" autocomplete="off">
             <small class="form-text text-muted">If you don't have URL yet, leave blank.</small>
         </div>
@@ -591,8 +588,8 @@ aria-hidden="true" data-backdrop="true">
         <div class="row">
           <div class="col text-left">
             <ul class="list-unstyled">
-                <li><small class="form-text text-muted"><i class="fas fa-times"></i> Set only one of the axis if you want proportion to be preserved.</small></li>
-                <li><small class="form-text text-muted"><i class="fas fa-times"></i> At least one axis needs to be set (it's value must be higher than 0).</small></li>
+                <li><small class="form-text text-muted"><i class="far fa-question-circle"></i> Set only one of the axis if you want proportion to be preserved.</small></li>
+                <li><small class="form-text text-muted"><i class="far fa-question-circle"></i> At least one axis needs to be set (it's value must be higher than 0).</small></li>
             </ul>
           </div>
         </div>
@@ -688,12 +685,12 @@ aria-hidden="true" data-backdrop="true">
     <div class="modal-body">
       <form>
         <div class="form-group">
-          <label for="hrefName">Text <small class="deep-purple-text">(required)</small></label>
+          <label for="hrefName">Text <small class="mdb-color-text">(required)</small></label>
           <input class="form-control" id="hrefName" placeholder="Text" autocomplete="off">
         </div>
 
         <div class="form-group">
-          <label for="hrefAddress">Href <small class="deep-purple-text">(required)</small></label>
+          <label for="hrefAddress">Href <small class="mdb-color-text">(required)</small></label>
           <input class="form-control" id="hrefAddress" placeholder="e.g. https://mylink.com" autocomplete="off">
         </div>
       </form>
@@ -758,13 +755,13 @@ aria-hidden="true" data-backdrop="true">
       <div class="modal-body">
         <form>
             <div class="form-group">
-              <label for="listSize">Size <small class="deep-purple-text">(required)</small></label>
+              <label for="listSize">Size <small class="mdb-color-text">(required)</small></label>
               <input class="form-control" id="listSize" placeholder="0" autocomplete="off">
             </div>
 
             <div class="form-group">
               <ul class="list-group" style="cursor: pointer;" onselectstart="return false" ondragstart="return false">
-                <label>Type <small class="deep-purple-text">(required)</small></label>
+                <label>Type <small class="mdb-color-text">(required)</small></label>
                 <li class="list-group-item" value="0" onclick="setElementAsActive(this, 'toggle_list_iconField')" data-toggle="popover-hover" data-img="images/hover/list_iconic.PNG">iconic</li>
                 <li class="list-group-item" value="1" onclick="setElementAsActive(this)" data-toggle="popover-hover" data-img="images/hover/list_normal.PNG">normal</li>
                 <li class="list-group-item" value="2" onclick="setElementAsActive(this)" data-toggle="popover-hover" data-img="images/hover/list_link.PNG">link</li>
@@ -842,7 +839,7 @@ aria-hidden="true" data-backdrop="true">
                 <div class="row justify-content-md-center">
 
                     <div class="col-md-12 text-center">
-                        <label class="my-1 mr-2">Dimensions <small class="deep-purple-text">(required)</small></label>
+                        <label class="my-1 mr-2">Dimensions <small class="mdb-color-text">(required)</small></label>
                     </div>
 
                     <div class="col-md-6">
@@ -859,7 +856,7 @@ aria-hidden="true" data-backdrop="true">
                 <br/>
 
                 <ul class="list-group" style="cursor: pointer;" onselectstart="return false" ondragstart="return false">
-                  <label>Type <small class="deep-purple-text">(required)</small></label>
+                  <label>Type <small class="mdb-color-text">(required)</small></label>
                   <li class="list-group-item" value="3" onclick="setElementAsActive(this)" data-toggle="popover-hover" data-img="images/hover/table_text.PNG">text</li>
                   <li class="list-group-item" value="4" onclick="setElementAsActive(this)" data-toggle="popover-hover" data-img="images/hover/table_image.PNG">image</li>
                 </ul> 
@@ -944,8 +941,8 @@ aria-hidden="true" data-backdrop="true">
       <div class="row mt-3">
         <div class="col text-left">
           <ul class="list-unstyled">
-              <li><small class="form-text text-muted"><i class="fas fa-times"></i> Leave text field empty if you want to use lorem ipsum template.</small> </li>
-              <li><small class="form-text text-muted"><i class="fas fa-times"></i> You can use HTML markup in the text area like: <br/> &lt;a href="address"&gt; text &lt;/a&gt; &nbsp; (to create link) <br/> &lt;strong&gt; text &lt;/strong&gt; &nbsp; (to bold text) <br/> &lt;em&gt; text &lt;/em&gt; &nbsp; (to emphasis text) <br/> &lt;del&gt; text &lt;/del&gt; &nbsp; (to strike text) <br/> etc. </small> </li>
+              <li><small class="form-text text-muted"><i class="far fa-question-circle"></i> Leave text field empty if you want to use lorem ipsum template.</small> </li>
+              <li><small class="form-text text-muted"><i class="far fa-question-circle"></i> You can use HTML markup in the text area like: <br/> &lt;a href="address"&gt; text &lt;/a&gt; &nbsp; (to create link) <br/> &lt;strong&gt; text &lt;/strong&gt; &nbsp; (to bold text) <br/> &lt;em&gt; text &lt;/em&gt; &nbsp; (to emphasis text) <br/> &lt;del&gt; text &lt;/del&gt; &nbsp; (to strike text) <br/> etc. </small> </li>
           </ul>
         </div>
       </div>
@@ -1013,17 +1010,17 @@ aria-hidden="true" data-backdrop="true">
       <div class="modal-body">
         <form>
           <div class="form-group">
-            <label for="l_label">Label <small class="deep-purple-text">(required)</small></label>
+            <label for="l_label">Label <small class="mdb-color-text">(required)</small></label>
             <input class="form-control" id="l_label" maxlength="25" autocomplete="off">
           </div>
 
           <div class="form-group">
-            <label for="l_message">Message <small class="deep-purple-text">(required)</small></label>
+            <label for="l_message">Message <small class="mdb-color-text">(required)</small></label>
             <input class="form-control" id="l_message" maxlength="25" autocomplete="off">
           </div>
 
           <div class="form-group">
-            <label for="l_color">Color <small class="deep-purple-text">(required)</small></label>
+            <label for="l_color">Color <small class="mdb-color-text">(required)</small></label>
             <input class="form-control" id="l_color" autocomplete="off" value="#2B95E2">
           </div>
 
@@ -1072,9 +1069,9 @@ aria-hidden="true" data-backdrop="true">
         <div class="row mt-3">
           <div class="col text-left">
             <ul class="list-unstyled">
-                <li><small class="form-text text-muted"><i class="fas fa-times"></i> Label and Message fields are limited to 25 characters.</small> </li>
-                <li><small class="form-text text-muted"><i class="fas fa-times"></i> Color has to be picked from the picker shown after clicking on the field or put by pasting full hex code.</small> </li>
-                <li><small class="form-text text-muted"><i class="fas fa-times"></i> Check predefined and dynamic labels on Shields.io.</small> </li>            </ul>
+                <li><small class="form-text text-muted"><i class="far fa-question-circle"></i> Label and Message fields are limited to 25 characters.</small> </li>
+                <li><small class="form-text text-muted"><i class="far fa-question-circle"></i> Color has to be picked from the picker shown after clicking on the field or put by pasting full hex code.</small> </li>
+                <li><small class="form-text text-muted"><i class="far fa-question-circle"></i> Check predefined and dynamic labels on Shields.io.</small> </li>            </ul>
           </div>
         </div>
 
@@ -1283,10 +1280,10 @@ aria-hidden="true" data-backdrop="true">
                   <!-- Title -->
                   <h4 class="card-title"><i class="far fa-comment ic-w mr-1"></i> What is EzGitDoc?</h4>
                   <!-- Text -->
-                  <p class="card-text text-justify help-text-style" style="font-size: 110%;">EzGitDoc is coded with JavaScript, CSS and HTML. Project's target was to to improve Git documentation experience by developing page, where user can prepare README template, that furtherly can be generated and pasted into md file. This gives ability to prepare nice, thought schemes that will increase quality of repository for people finding solutions and employers verifying repositories. You don't need to install anything as the project is setup and ready to use on github-pages. It's worth mentioning that some of the output elements are using HTML tags and some not (e.g. unordered list) but that is totally fine. By making linebreak, these two ways of designing document are not causing conflicts between themselves(sometimes it's not obligatory, but still welcome for readability). EzGitDoc in its current stage allows you to create crucial elements. In the newest version, every element's data can be modified after rendering it on page(except image type table). EzGitDoc leaves you opportunity to make prototype of your document, which later only needs to be polished, reducing the risk of problems and necessity to look after markdown cheatsheet. EzGitDoc code translation outputs markdown that *.md files accept. To read more about advantages of using EzGitDoc, please refer to the repository page by clicking on the button below.
+                  <p class="card-text text-justify help-text-style" style="font-size: 110%;">EzGitDoc is coded with JavaScript, CSS and HTML. Project's target was to to improve Git documentation experience by developing page, where user can prepare README template, that furtherly can be generated and pasted into md file. This gives ability to prepare nice, thought schemes that will increase quality of repository for people finding solutions and employers verifying repositories. You don't need to install anything as the project is setup and ready to use on github-pages. Every element's data can be modified after rendering it on page(except table of images). EzGitDoc leaves you opportunity to make prototype of your document, which later only needs to be polished, reducing the risk of problems and necessity to look after markdown cheatsheet. To read more about advantages of using EzGitDoc, please refer to the repository page by clicking on the button below.
                   </p>
                   <!-- Button -->
-                  <a href="https://github.com/trolit/EzGitDoc" target="_blank" class="btn btn-primary">GitHub</a>         
+                  <a href="https://github.com/trolit/EzGitDoc" target="_blank" class="btn btn-primary btn-sm">GitHub</a>         
                 </div>
               
               </div>
@@ -1307,7 +1304,7 @@ aria-hidden="true" data-backdrop="true">
                     <br/><br/>
                     <div class="row">
                       <p class="text-justify">
-                      EzGitDoc interface conception got fully redesigned as the sidebar(instead of navbar and top menu). First section, named <strong>Tools</strong>, trigger side modals that allow to configure elements before render. Modals can be opened/closed by clicking on the mentioned buttons or by using shortkeys combination(if you want to see hints which button triggers specific tool, it will be mentioned later). Only one modal can be opened at a time. If you make at least one element, in the right bottom corner you will find button that on click will generate the scheme output. Example:
+                      EzGitDoc interface conception got fully redesigned as the sidebar(instead of navbar and top menu). First section, named <strong>Elements</strong>, trigger side modals that allow to configure elements before render. Modals can be opened/closed by clicking on the mentioned buttons or by using shortkeys combination(if you want to see hints which button triggers specific tool, it will be mentioned later). Only one modal can be opened at a time. If you make at least one element, in the right bottom corner you will find button that on click will generate the scheme output. Example:
                       </p>
                     </div>
                     <br/><br/>
@@ -1570,7 +1567,7 @@ aria-hidden="true" data-backdrop="true">
                     <h4>Device</h4><hr/>
                     <p class="text-justify" style="font-size: 110%; line-height: 2.2em;">
                     EzGitDoc user interface(UI) is built using Bootstrap and MDBootstrap frameworks that allow to make the page react very nice
-                    on different screens(act responsively). However, the project was created with purpose to be used on for e.g. PC, notebooks.
+                    on different screens(act responsively). However, the project was created with purpose to be used on devices like PC, notebooks.
                     The most effective(quick and comfortable) way to use EzGitDoc will be through device with bigger screen than e.g. smartphone.</p> 
                   </p>        
                 </div> 
@@ -1761,7 +1758,7 @@ aria-hidden="true" data-backdrop="true">
                     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                   </p>
                   <!-- Button -->
-                  <a href="https://github.com/trolit/EzGitDoc/blob/master/LICENSE" target="_blank" class="btn btn-elegant btn-sm">Check via GitHub</a>         
+                  <a href="https://github.com/trolit/EzGitDoc/blob/master/LICENSE" target="_blank" class="btn btn-elegant btn-sm">GitHub</a>         
                 </div>
               
               </div>
