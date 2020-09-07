@@ -1,0 +1,27 @@
+{
+  "name": "ezgitdoc",
+  "version": "1.0.0",
+  "description": "<p align=\"center\">\r <a href=\"https://trolit.github.io/EzGitDoc/\"><img src=\"https://github.com/trolit/EzGitDoc/blob/master/images/readme/logo.png\" alt=\"EzGitDoc UI\" height=\"300\"></a>\r </p>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trolit/EzGitDoc.git"
+  },
+  "author": "trolit",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/trolit/EzGitDoc/issues"
+  },
+  "homepage": "https://github.com/trolit/EzGitDoc#readme",
+  "devDependencies": {
+    "eslint": "^7.8.1",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1"
+  }
+}
