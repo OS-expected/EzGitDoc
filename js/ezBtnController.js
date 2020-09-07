@@ -1,51 +1,34 @@
-$(document).keydown(function(evt){    
-    // 81 => Q
-    if ((evt.altKey) && (evt.keyCode==81)){
-        evt.preventDefault();
+$(document).keydown(function(evt){
+    if(evt.altKey && (evt.keyCode == 81 || evt.keyCode == 87 || evt.keyCode == 69 || evt.keyCode == 82 || evt.keyCode == 65 || evt.keyCode == 83 || evt.keyCode == 68 || evt.keyCode == 70)) {
+        evt.preventDefault();    
         closeAllActiveModals();
-        openModal('codeModal');
-    }
-    // 87 => W
-    else if ((evt.altKey) && (evt.keyCode==87)){
-        evt.preventDefault();
-        closeAllActiveModals();
-        openModal('headerModal');
-    }
-    // 69 => E
-    else if ((evt.altKey) && (evt.keyCode==69)){
-        evt.preventDefault();
-        closeAllActiveModals();
-        openModal('imageModal');
-    }
-    // 82 => R
-    else if ((evt.altKey) && (evt.keyCode==82)){
-        evt.preventDefault();
-        closeAllActiveModals();
-        openModal('linkModal');
-    }
-    // 65 => A
-    else if ((evt.altKey) && (evt.keyCode==65)){
-        evt.preventDefault();
-        closeAllActiveModals();
-        openModal('listModal');
-    }
-    // 83 => S
-    else if ((evt.altKey) && (evt.keyCode==83)){
-        evt.preventDefault();
-        closeAllActiveModals();
-        openModal('arrayModal');
-    }
-    // 68 => D
-    else if ((evt.altKey) && (evt.keyCode==68)){
-        evt.preventDefault();
-        closeAllActiveModals();
-        openModal('textModal');
-    }    
-    // 82 => R
-    else if ((evt.altKey) && (evt.keyCode==70)){
-        evt.preventDefault();
-        closeAllActiveModals();
-        openModal('labelModal');
+
+        switch(evt.keyCode) {
+            case 81: // Q
+                openModal('codeModal');
+                break;
+            case 87: // W
+                openModal('headerModal');
+                break;
+            case 69: // E
+                openModal('imageModal');
+                break;
+            case 82: // R
+                openModal('linkModal');
+                break;
+            case 65: // A
+                openModal('listModal');
+                break;
+            case 83: // S
+                openModal('arrayModal');
+                break;
+            case 68: // D
+                openModal('textModal');
+                break;
+            case 70: // F
+                openModal('labelModal');
+                break;
+        }
     }
 });
 
