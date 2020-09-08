@@ -1,28 +1,28 @@
 <p align="center">
-<a href="https://trolit.github.io/EzGitDoc/"><img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/logo.png" alt="EzGitDoc UI" height="300"></a>
+<a href="https://trolit.github.io/EzGitDoc/"><img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/logo.png" alt="EzGitDoc UI" height="240"></a>
 </p>
 
 ## Start
 
 <p align="justify">
-  :page_with_curl: <a href="https://trolit.github.io/EzGitDoc/">EzGitDoc</a> is a project which received <code>under work</code> status to create webpage where user can prepare repository document scheme "live" and obtain result as generated code ready to paste into file, to encourage people with making interesting documentations rather than leaving repo only with directory structure and primarily to make something useful. It was made as a page using HTML, JavaScript and CSS to independent potential users from necessity to install extra software. The one required element is.. modern browser in order to make all JS code work flawlessly. The process of creating doc scheme can look to You kinda similiar to creating WordPress webpage. You can switch elements between themselves, delete, edit or generate new. More technical data about EzGitDoc itself can be found on website. Here I wanted to focus on listing used libraries and showing some screenshots. Each element that EzGitDoc allow to create is showed in Help section. Big thanks to <a href="https://github.com/damianggg">@damianggg</a> for spending time on functional tests 👍 
+  :page_with_curl: <a href="https://trolit.github.io/EzGitDoc/">EzGitDoc</a> is WYSIWYG tool that helps prepare repository document scheme and obtain results as generated code "ready to paste" into file. It was made as a page using HTML, JavaScript and CSS to independent potential users from necessity to install extra software. The one required element is modern browser in order to make all JS code work flawlessly. The process of creating doc scheme can look to You kinda similiar to creating WordPress webpage. You can switch elements between themselves, delete, edit or generate new. More technical data about EzGitDoc itself can be found on website. Here I wanted to focus on listing used libraries and showing some screenshots. Thanks to <a href="https://github.com/damianggg">@damianggg</a> for spending time on functional tests 👍 
 </p>
 
 ## Why EzGitDoc?
 <p align="justify">
-    <em>Why would I use it when there is tons of other options where you can also edit data ad hoc and see the result?</em> At first, I would admit it too. The more popular tool is the more times it is picked - natural behaviour. EzGitDoc is fledgling solution but allows to create document very fast. You don't need to write by yourself to develop more complicated structure, you can insert data later or do it during template creation. If you want to make table, specify 3 elements: rows, cols, type and there it is! EzGitDoc <strong>glorifies more clicking</strong> rather than forcing user to spam keyboard. You don't need to change table structure independently in order to get more columns or rows. You just create new table and it's ready. In most WYSIWYG tools you have only basic scheme which needs to be polished manually. In EzGitDoc, element is generated through code. I've watched some projects and they are much more complex. Yet I don't like the idea when there is put a lot of interaction elements on UI. This is overwhelming. The more functionalities the better? I would not say that in every case. Look: most of the interested, who want to create their document <strong>will surely</strong> have minimal knowledge of HTML language. What's the point of adding option allowing you to make cursive tag then? For me it's only "space taker". I can't speak by all but personally, it annoys me. Making so many options requires learn UI. In EzGitDoc there are put only these functionalities that I find crucial on creating document scheme. No more, no less. Also added some extras from my experience(fancy gallery using table). If you value your time and fingers I suggest trying it :)  
+    EzGitDoc takes a different approach. You don't need to write by yourself to develop more complicated structure. You can insert data later or do it during template creation. If you want to make table, specify 3 elements: rows, cols, type and there it is! EzGitDoc focuses on "more clicking, less writing" strategy. In most WYSIWYG tools there are mostly basic schemes which need to be polished manually. In EzGitDoc, element is generated through code. Project also follows "minimalistic UI" strategy to prevent overwhelming UI. The more functionalities the better? I would not say that in every case. Look: most of the interested, who want to create their document <strong>will surely</strong> have minimal knowledge of HTML language. What's the point of adding option allowing you to make cursive tag then? In EzGitDoc I've put only these functionalities that I find crucial on creating document scheme. I've added also some extras from my experience(fancy gallery using table). If you value your time it might be worth to check it :wolf:
 </p>
 
 #### 8 reasons to use EzGitDoc
 
-:star2: **Fast:** Specify element required data and get instantly result on page. <br/><br/>
-:star2: **Customizable:** Personalize settings like automated modals or auto notification hide. <br/><br/>
-:star2: **Modifiable data:** Render element and edit it before generating template(if preferred). <br/><br/>
+:star2: **Fast:** Specify element required data and get instant results on page. <br/><br/>
+:star2: **Customizable:** Personalize settings like <em>automated modals</em> or <em>auto notification hide</em>. <br/><br/>
+:star2: **Modifiable data:** Render element and edit it if needed. <br/><br/>
 :star2: **Less writing more clicking:** Respect your fingers and try certain elements with more clicking than writing. <br/><br/>
 :star2: **Validation:** Get easy to understand notifies if something goes wrong. <br/><br/>
 :star2: **Minimalistic:** Don't waste time on learning UI, just use it. <br/><br/>
 :star2: **Easy to understand:** Don't waste time on looking after examples, markdown language. Create element and see it instantly. It's that easy. <br/><br/>
-:star2: **Well documented:** If you still press to read instructions, there is extensive documentation on the page. <br/><br/>
+:star2: **Well documented:** If you still press to read instructions, there is extensive documentation on the page :snake: <br/><br/>
 
 ## Predefined templates
 <p align="justify">
@@ -60,17 +60,6 @@
 | Scheme | Result |
 | :--: | :--: | 
 | <img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/ex4_a.PNG" alt="" width="100%"> | <img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/ex4_b.PNG" alt="" width="100%"> | 
-
-### Web design history
-
-#### v1.4(01.04.2020)
-<img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/v1.4.PNG" width="60%" alt="v1.4 interface design"/>
-
-#### v1.2(24.03.2020)
-<img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/v1.2.PNG" width="60%" alt="v1.2 interface design"/>
-
-#### v1.0(29.02.2020)
-<img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/v1.0.png" width="60%" alt="v1.0 interface design"/>
 
 ## Libraries
 
