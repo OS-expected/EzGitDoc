@@ -337,6 +337,19 @@ function updateTable() {
   var cols = tableToUpdate.rows[0].cells.length;
   var rows = tableToUpdate.rows.length;
   var newData = document.getElementById('array_update_dynamic_fields').children[0];
+  if (newData.rows.length !== rows) {
+    _tableToUpdateBody = tableToUpdate.getElementsByTagName('tbody')[0];
+    for (var i = 0; i < newData.rows.length - rows; i++) {
+      var newRow = _tableToUpdateBody.insertRow();
+      for (var j = 0; j < cols; j++) {
+        var newCell = newRow.insertCell(j);
+        var newText = document.createTextNode('default text | should not be seen');
+        newCell.appendChild(newText);
+      }
+    }
+    // refresh(reassign) rows variable
+    rows = tableToUpdate.rows.length;
+  }
   for (var i = 0; i < rows; i++) {
     for (var j = 0; j < cols; j++) {
       var text = newData.rows[i].cells[j].children[0].childNodes[0].value;
@@ -354,6 +367,21 @@ function updateTable() {
   if (isAutomatedModalEnabled) {
     hideModalAfterRender('#arrayUpdateModal');
   }
+}
+
+function insertNewRowIntoTableById(id) {
+  var tableRef = document.getElementById(id).children[0].getElementsByTagName('tbody')[0];
+  var newRow = tableRef.insertRow();
+  var cellsNumber = tableRef.rows[0].cells.length;
+
+  for (var i = 0; i < cellsNumber; i++) {
+    var newCell = newRow.insertCell(i);
+    addInputToTableCell(newCell);
+  }
+}
+
+function addInputToTableCell(cell) {
+  cell.appendChild(setInputField('test'));
 }
 
 function updateText() {
