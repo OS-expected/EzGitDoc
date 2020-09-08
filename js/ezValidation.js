@@ -40,7 +40,7 @@ function validateCode (codeText) {
 }
 
 function validateHeader (title) {
-  if (title === false) {
+  if (title.length <= 0) {
     triggerToast(missingHeaderWarning);
     return false;
   }
@@ -51,9 +51,6 @@ function validateHeader (title) {
 function validateImage (altText, X, Y, URL) {
   if (!altText || isWhiteSpaceOrIndentOnly(altText) === true) {
     triggerToast(noAltForImageSpecified);
-    return false;
-  } else if (checkIfNumber(X) === false || checkIfNumber(Y) === false) {
-    triggerToast(notAnumber);
     return false;
   } else if (X === 0 && Y === 0) {
     triggerToast(minimumOneAxis);
@@ -86,7 +83,7 @@ function validateLink (linkName, linkHref) {
 
 function validateList (listSize) {
   if (checkIfNumber(listSize) === false) {
-    triggerToast(notAnumber);
+    triggerToast(notAnumber.concat(' (Size)'));
     return false;
   } else if (listSize === 0) {
     triggerToast(restrictedValue);
@@ -99,8 +96,11 @@ function validateList (listSize) {
 }
 
 function validateTable (rows, cols) {
-  if (checkIfNumber(rows) === false || checkIfNumber(cols) === false) {
-    triggerToast(notAnumber);
+  if (checkIfNumber(rows) === false) {
+    triggerToast(notAnumber.concat(' (Rows)'));
+    return false;
+  } else if (checkIfNumber(cols) === false) {
+    triggerToast(notAnumber.concat(' (Columns)'));
     return false;
   } else if (!rows || !cols || rows <= 0 || cols <= 0) {
     triggerToast(emptyTableInput);

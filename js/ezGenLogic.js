@@ -10,18 +10,15 @@ var isAutomatedModalEnabled;
 var isAutoToastHideEnabled;
 var isHintKeyEnabled;
 
-function updateSetting(id) {
-  if (id === 'autoModals') {
+function updateSetting(name) {
+  if (name === 'autoModals') {
     isAutomatedModalEnabled = document.getElementById('autoMod_switch').checked;
-
     changeStatusLabel(isAutomatedModalEnabled, 'autoMod_switch_label');
-  } else if (id === 'autoDisappear') {
+  } else if (name === 'autoDisappear') {
     isAutoToastHideEnabled = document.getElementById('autoDisappear_switch').checked;
-
     changeStatusLabel(isAutoToastHideEnabled, 'autoDisappear_switch_label');
-  } else if (id === 'hintKeys') {
+  } else if (name === 'hintKeys') {
     isHintKeyEnabled = document.getElementById('hintKeys_switch').checked;
-
     changeStatusLabel(isHintKeyEnabled, 'hintKeys_switch_label');
 
     if (isHintKeyEnabled) {
@@ -89,27 +86,28 @@ function createHeader() {
   }
 
   // create
+  var h;
   switch (listOption) {
     case 5:
-      var h = document.createElement('h1');
+      h = document.createElement('h1');
       break;
     case 6:
-      var h = document.createElement('h2');
+      h = document.createElement('h2');
       break;
     case 7:
-      var h = document.createElement('h3');
+      h = document.createElement('h3');
       break;
     case 8:
-      var h = document.createElement('h4');
+      h = document.createElement('h4');
       break;
     case 9:
-      var h = document.createElement('h5');
+      h = document.createElement('h5');
       break;
     case 10:
-      var h = document.createElement('h6');
+      h = document.createElement('h6');
       break;
     default:
-      var h = document.createElement('h2');
+      h = document.createElement('h2');
       break;
   }
 
@@ -117,6 +115,7 @@ function createHeader() {
   h.style.wordWrap = 'break-word';
   h.style.marginBottom = 0;
 
+  // render
   var headerDiv = document.createElement('div');
   headerDiv = setElement(headerDiv);
   headerDiv.appendChild(h);
@@ -139,10 +138,11 @@ function createImage() {
   var imageURL = document.getElementById('imageURL').value.trim();
   var xAxisVal = parseInt(document.getElementById('xAxisProperty').value.trim());
   var yAxisVal = parseInt(document.getElementById('yAxisProperty').value.trim());
+
+  // validate
   xAxisVal = checkifNaN(xAxisVal);
   yAxisVal = checkifNaN(yAxisVal);
 
-  // validate
   if (validateImage(imageAlt, xAxisVal, yAxisVal, imageURL) === false) {
     return false;
   }
@@ -151,7 +151,7 @@ function createImage() {
   var image = document.createElement('img');
   image.alt = imageAlt;
 
-  // Set X/Y
+  // Set X/Y depending on composition
   if (xAxisVal !== 0 && yAxisVal !== 0) {
     image.setAttribute('width', xAxisVal);
     image.setAttribute('height', yAxisVal);
