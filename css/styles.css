@@ -7,6 +7,17 @@ html, body {
     scroll-behavior: smooth;
 }
 
+.position-absolute {
+    position: absolute;
+}
+
+#codeGenButton {
+    position: fixed;
+    top: -15px;
+    right: -7px; 
+    z-index: 150;
+}
+
 .table {
     margin: 0 !important;
 }
