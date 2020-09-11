@@ -323,12 +323,31 @@ function updateList() {
     listSize = listToUpdate.children[0].getElementsByTagName('LI').length;
     _firstListItemTag = listToUpdate.children[0].childNodes[0].firstChild.tagName;
     if (_firstListItemTag === 'A') {
+      if (updateListSize > listSize) {
+        for (var i = 0; i < updateListSize - listSize; i++) {
+          var point = document.createElement('li');
+          var anchor = document.createElement('a');
+          anchor.href = 'https://#to_do:add_href';
+          anchor.textContent = 'link text';
+          point.appendChild(anchor);
+          listToUpdate.children[0].appendChild(point);
+        }
+        listSize = updateListSize;
+      }
       for (var i = 0; i < listSize; i++) {
         var col1 = newData[i].children[0].childNodes[0].value;
         var col2 = newData[i].children[1].childNodes[0].value;
         listToUpdate.children[0].childNodes[i].innerHTML = '<a href="' + col2 + '"/>' + col1 + '</a>';
       }
     } else { // list with pure text
+      if (updateListSize > listSize) {
+        for (var i = 0; i < updateListSize - listSize; i++) {
+          var point = document.createElement('li');
+          point.textContent = 'text';
+          listToUpdate.children[0].appendChild(point);
+        }
+        listSize = updateListSize;
+      }
       for (var i = 0; i < listSize; i++) {
         var col1 = newData[i].children[0].childNodes[0].value;
         listToUpdate.children[0].childNodes[i].textContent = col1; ;
