@@ -66,7 +66,7 @@ function showEditModal(modalReference, elementId) {
           row.classList.add('row', 'listUpdateData');
           row.appendChild(setInputField(tmp.children[i].childNodes[0].textContent.replace(/:/g, '').trim(), 3));
           row.appendChild(setInputField(tmp.children[i].childNodes[1].textContent.replace(/:/g, '').trim(), 4));
-          row.appendChild(setInputField(tmp.children[i].childNodes[2].textContent.trim(), 5));
+          row.appendChild(setInputField(tmp.children[i].childNodes[2].textContent.replace(/:/g, '').trim(), 5));
           listFieldSpace.appendChild(row);
         }
       } else if (firstElementTag === 'UL') {
@@ -291,10 +291,20 @@ function updateList() {
   var newData = document.getElementsByClassName('listUpdateData');
   var firstElementTag = listToUpdate.children[0].tagName;
   var listSize;
+  var updateListSize = document.getElementById('list_update_dynamic_fields').children.length;
 
   if (firstElementTag === 'P') {
-    listSize = document.getElementById(lastReferencedId).children.length;
-    for (var i = 0; i < listSize - 2; i++) {
+    listSize = document.getElementById(lastReferencedId).children.length - 2; // substitute 2 cause of Update/Delete icons
+    if (updateListSize > listSize) { // if update list size got extra rows, render them
+      for (var i = 0; i < updateListSize - listSize; i++) {
+        var paragraph = document.createElement('p');
+        paragraph.style.marginBottom = 0;
+        paragraph.innerHTML = ':icon:' + ' <strong>bold text:</strong> ' + 'description';
+        listToUpdate.insertBefore(paragraph, listToUpdate.childNodes[listToUpdate.childNodes.length - 2]);
+      }
+      listSize = updateListSize;
+    }
+    for (var i = 0; i < listSize; i++) {
       var col1 = newData[i].children[0].childNodes[0].value;
       var col2 = newData[i].children[1].childNodes[0].value;
       var col3 = newData[i].children[2].childNodes[0].value;
@@ -313,12 +323,31 @@ function updateList() {
     listSize = listToUpdate.children[0].getElementsByTagName('LI').length;
     _firstListItemTag = listToUpdate.children[0].childNodes[0].firstChild.tagName;
     if (_firstListItemTag === 'A') {
+      if (updateListSize > listSize) {
+        for (var i = 0; i < updateListSize - listSize; i++) {
+          var point = document.createElement('li');
+          var anchor = document.createElement('a');
+          anchor.href = 'https://#to_do:add_href';
+          anchor.textContent = 'link text';
+          point.appendChild(anchor);
+          listToUpdate.children[0].appendChild(point);
+        }
+        listSize = updateListSize;
+      }
       for (var i = 0; i < listSize; i++) {
         var col1 = newData[i].children[0].childNodes[0].value;
         var col2 = newData[i].children[1].childNodes[0].value;
         listToUpdate.children[0].childNodes[i].innerHTML = '<a href="' + col2 + '"/>' + col1 + '</a>';
       }
-    } else {
+    } else { // list with pure text
+      if (updateListSize > listSize) {
+        for (var i = 0; i < updateListSize - listSize; i++) {
+          var point = document.createElement('li');
+          point.textContent = 'text';
+          listToUpdate.children[0].appendChild(point);
+        }
+        listSize = updateListSize;
+      }
       for (var i = 0; i < listSize; i++) {
         var col1 = newData[i].children[0].childNodes[0].value;
         listToUpdate.children[0].childNodes[i].textContent = col1; ;
@@ -331,12 +360,49 @@ function updateList() {
   }
 }
 
+function insertNewListElement() {
+  var listUpdateSection = document.getElementById('list_update_dynamic_fields');
+  var singleElementColumnNumber = listUpdateSection.children[0].childNodes.length;
+  var div = document.createElement('div');
+  div.classList.add('row', 'listUpdateData');
+  switch (singleElementColumnNumber) {
+    case 1:
+      div.appendChild(setInputField('empty', 12));
+      listUpdateSection.appendChild(div);
+      break;
+    case 2:
+      div.appendChild(setInputField('link text', 6));
+      div.appendChild(setInputField('https://#to_do:add_href', 6));
+      listUpdateSection.appendChild(div);
+      break;
+    case 3:
+      div.appendChild(setInputField('icon', 3));
+      div.appendChild(setInputField('bold text', 4));
+      div.appendChild(setInputField('description', 5));
+      listUpdateSection.appendChild(div);
+      break;
+  }
+}
+
 function updateTable() {
   // 3. update
   var tableToUpdate = document.getElementById(lastReferencedId).children[0];
   var cols = tableToUpdate.rows[0].cells.length;
   var rows = tableToUpdate.rows.length;
   var newData = document.getElementById('array_update_dynamic_fields').children[0];
+  if (newData.rows.length !== rows) {
+    _tableToUpdateBody = tableToUpdate.getElementsByTagName('tbody')[0];
+    for (var i = 0; i < newData.rows.length - rows; i++) {
+      var newRow = _tableToUpdateBody.insertRow();
+      for (var j = 0; j < cols; j++) {
+        var newCell = newRow.insertCell(j);
+        var newText = document.createTextNode('default text | should not be seen');
+        newCell.appendChild(newText);
+      }
+    }
+    // refresh(reassign) rows variable
+    rows = tableToUpdate.rows.length;
+  }
   for (var i = 0; i < rows; i++) {
     for (var j = 0; j < cols; j++) {
       var text = newData.rows[i].cells[j].children[0].childNodes[0].value;
@@ -354,6 +420,21 @@ function updateTable() {
   if (isAutomatedModalEnabled) {
     hideModalAfterRender('#arrayUpdateModal');
   }
+}
+
+function insertNewRowIntoTableById(id) {
+  var tableRef = document.getElementById(id).children[0].getElementsByTagName('tbody')[0];
+  var newRow = tableRef.insertRow();
+  var cellsNumber = tableRef.rows[0].cells.length;
+
+  for (var i = 0; i < cellsNumber; i++) {
+    var newCell = newRow.insertCell(i);
+    addInputToTableCell(newCell);
+  }
+}
+
+function addInputToTableCell(cell) {
+  cell.appendChild(setInputField('test'));
 }
 
 function updateText() {
