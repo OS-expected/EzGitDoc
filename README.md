@@ -8,11 +8,6 @@
 EzGitDoc is WYSIWYG tool designed to improve Git documentation experience. It allows to generate *.md file structure within projected template at https://trolit.github.io/EzGitDoc/. You don't need to install anything as the project is setup and ready to use on github-pages. Every element's data can be modified after rendering it on page(except table of images in it's current). EzGitDoc leaves you opportunity to make prototype of your document and fill in data, which later only needs to be polished, reducing the risk of problems and necessity to fight with searching cause of element(s) not being rendered as expected. Thanks to <a href="https://github.com/damianggg">@damianggg</a> for spending time on functional tests 👍 
 </p>
 
-## Why EzGitDoc?
-<p align="justify">
-    EzGitDoc takes a different approach. You don't need to write by yourself to develop more complicated structure. You can insert data later or do it during template creation. If you want to make table, specify 3 elements: rows, cols, type and there it is! EzGitDoc focuses on "more clicking, less writing" strategy. In most WYSIWYG tools there are mostly basic schemes which need to be polished manually. In EzGitDoc, element is generated through code. Project also follows "minimalistic UI" strategy to prevent overwhelming UI. The more functionalities the better? I would not say that in every case. Look: most of the interested, who want to create their document <strong>will surely</strong> have minimal knowledge of HTML language. What's the point of adding option allowing you to make cursive tag then? In EzGitDoc I've put only these functionalities that I find crucial on creating document scheme. I've added also some extras from my experience(fancy gallery using table). If you value your time it might be worth to check it :wolf:
-</p>
-
 #### Pros of EzGitDoc (read more <a href="https://trolit.github.io/EzGitDoc-documentation/#pros-of-ezgitdoc">here</a>)
 
 :star2: <strong>Less writing more clicking:</strong> <br/> <em>Don't spend extra time on working with markup manually.</em>  <br/><br/>
