@@ -227,29 +227,6 @@ $(document).ready(function () {
   }
 });
 
-var backToTheTopButton = document.getElementById('modal-back-to-top-btn');
-
-// Help modal content renderer
-function insertHelpData(partId, extraParam = 'none') {
-  // refer to subsection
-  if (extraParam !== 'none') {
-    location.href = extraParam;
-  }
-  var datas = document.getElementsByClassName('helpDataPart');
-
-  for (var i = 0; i < datas.length; i++) {
-    datas.item(i).style.display = 'none';
-  }
-
-  datas.item(partId).style.display = 'block';
-
-  if (partId === 1 || partId === 2 || partId === 5) {
-    backToTheTopButton.classList.remove('hide');
-  } else if (backToTheTopButton.classList.contains('hide') === false) {
-    backToTheTopButton.classList.add('hide');
-  }
-}
-
 // Generated code copy function
 function copyToClipboard(btn) {
   var copyText = document.getElementById('codeTextBox');
