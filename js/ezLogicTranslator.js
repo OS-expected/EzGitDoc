@@ -59,7 +59,7 @@ function GenerateMDCode() {
           tmp = tmp + ' height="' + image.height + '"' + ' width="' + image.width + '"';
         }
 
-        tmp = tmp + ' alt="' + image.alt + '"></p>';
+        tmp = tmp + ' alt="' + image.alt + '"/></p>';
       }
     } else if (elementTag.startsWith('TABLE')) { // Table translation
       var table = datas.item(i).children[0];
@@ -181,7 +181,7 @@ ezLogicTranslator output cheatsheet
 <h{value}>text</h{value}>
 
 ---------IMAGE-------------------------
-<p align="{value}"><img src="{value}" height="{value}" width="{value}"></p>
+<p align="{value}"><img src="{value}" height="{value}" width="{value}"/></p>
 
 ---------TABLE (of type text)----------
 | header | header | header |
