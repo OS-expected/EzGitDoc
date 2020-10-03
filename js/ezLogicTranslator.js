@@ -32,7 +32,11 @@ function printImageCodeWrappedInParagraph(alignment, image) {
 }
 
 function wrapCodeIntoParagraph(alignment, code) {
-  return `<p align="${alignment}">${code}</p>`;
+  if (alignment.length <= 0) {
+    return `<p>${code}</p>`;
+  } else {
+    return `<p align="${alignment}">${code}</p>`;
+  }
 }
 
 function printTextTableCode(table) {
@@ -81,6 +85,52 @@ function printImageTableCode(table) {
   return imageTableCode;
 }
 
+function printTextCodeInParagraph(paragraph) {
+  if (paragraph.style.textAlign === 'justify') {
+    return wrapCodeIntoParagraph('justify', `${paragraph.innerHTML}`);
+  } else {
+    return wrapCodeIntoParagraph('', `${paragraph.innerHTML}`);
+  }
+}
+
+function printIconListCode(listLength, elements, i) {
+  var iconListCode = '';
+  for (var x = 0; x < listLength - 2; x++) {
+    // :icon: **header:** text <br/> <br>
+    iconListCode = iconListCode + elements.item(i).children[x].innerHTML + '<br><br>';
+    if (x < listLength - 2) {
+      iconListCode = iconListCode + '\r\n';
+    }
+  }
+  return iconListCode;
+}
+
+function printLinkListCode(listLength, listElement) {
+  var linkListCode = '';
+  for (var x = 0; x < listLength; x++) {
+    linkListCode = linkListCode + `- <a href="${listElement.childNodes[x].childNodes[0].href}">${listElement.childNodes[x].textContent}</a>`;
+    if (x < listLength - 1) {
+      linkListCode = linkListCode + '\r\n';
+    }
+  }
+  return linkListCode;
+}
+
+function printTextListCode(listLength, listElement) {
+  var textListCode = '';
+  for (var x = 0; x < listLength; x++) {
+    textListCode = textListCode + '- ' + listElement.childNodes[x].textContent;
+    if (x < listLength - 1) {
+      textListCode = textListCode + '\r\n';
+    }
+  }
+  return textListCode;
+}
+
+function printLinkCode(href, textContent) {
+  return `<a href="${href}">${textContent}</a>`;
+}
+
 function generateCode() {
   var code = '';
   var elements = document.getElementsByClassName('ezGitPart');
@@ -113,49 +163,28 @@ function generateCode() {
       }
     } else if (elements.item(i).classList.contains('text')) {
       var paragraph = elements.item(i).children[0];
-      if (paragraph.style.textAlign === 'justify') {
-        currIterationCode = currIterationCode + '<p align="justify">' + paragraph.innerHTML + '</p>';
-      } else {
-        currIterationCode = currIterationCode + ' ' + paragraph.innerHTML;
-      }
+      currIterationCode = printTextCodeInParagraph(paragraph);
     } else if (elements.item(i).classList.contains('list')) {
       var listLength = elements.item(i).getElementsByTagName('LI').length;
       var listElement = elements.item(i).children[0];
 
       if (elements.item(i).children[0].firstChild.textContent.startsWith(':')) {
         var listLength = elements.item(i).children.length;
-        for (var x = 0; x < listLength - 2; x++) {
-          // :icon: **header:** text <br/> <br>
-          currIterationCode = currIterationCode + elements.item(i).children[x].innerHTML + '<br><br>';
-          if (x < listLength - 2) {
-            currIterationCode = currIterationCode + '\r\n';
-          }
-        }
+        currIterationCode = printIconListCode(listLength, elements, i);
         currIterationCode = currIterationCode + '\r\n' + '<!-- If you did not specify icon, simply overwrite Id put between : : characters with desired icon name -->' +
                 '\r\n' + '<!-- Supported by GitHub icon list can be found here: https://gist.github.com/rxaviers/7360908 -->';
       } else if (elements.item(i).children[0].childNodes[0].firstChild.tagName === 'A') { // link list
-        for (var x = 0; x < listLength; x++) {
-          currIterationCode = currIterationCode + '- <a href="' + listElement.childNodes[x].childNodes[0].href + '">' + listElement.childNodes[x].textContent + '</a>';
-          if (x < listLength - 1) {
-            currIterationCode = currIterationCode + '\r\n';
-          }
-        }
+        currIterationCode = printLinkListCode(listLength, listElement);
       } else { // normal list
-        for (var x = 0; x < listLength; x++) {
-          currIterationCode = currIterationCode + '- ' + listElement.childNodes[x].textContent;
-
-          if (x < listLength - 1) {
-            currIterationCode = currIterationCode + '\r\n';
-          }
-        }
+        currIterationCode = printTextListCode(listLength, listElement);
       }
     } else if (elements.item(i).classList.contains('link')) {
       var element = elements.item(i).children[0];
       var href = element.getAttribute('href');
-      currIterationCode = currIterationCode + '<a href="' + href + '">' + element.textContent + '</a>';
+      currIterationCode = printLinkCode(href, element.textContent);
     } else if (elements[i].classList.contains('code')) {
       var element = elements.item(i).children[0].children[0];
-      currIterationCode = currIterationCode + element.innerHTML.replace(/<br\s*[/]?>/gi, '\r\n');
+      currIterationCode = element.innerHTML.replace(/<br\s*[/]?>/gi, '\r\n');
     }
     code = code + currIterationCode;
     if (i === 0) {
@@ -169,7 +198,7 @@ function generateCode() {
   $('#generatedCodeModal').modal('show');
 }
 
-var credits = '\r\n\r\nTemplate generated using <a href="https://github.com/trolit/EzGitDoc">EzGitDoc</a>';
+var credits = '\r\nTemplate generated using <a href="https://github.com/trolit/EzGitDoc">EzGitDoc</a>';
 
 /*
 ezLogicTranslator output cheatsheet
