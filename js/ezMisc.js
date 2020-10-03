@@ -96,6 +96,7 @@ function triggerToast(message) {
   toastBody.innerHTML = '<i class="fas fa-exclamation-circle"></i> ' + message;
 
   beginToastCounter();
+  toast.style.display = 'block';
   $('#myToast').toast('show');
 
   if (isAutoToastHideEnabled === true) {
@@ -157,6 +158,7 @@ window.onbeforeunload = null;
 
 // on page startup with JQuery
 $(document).ready(function () {
+  $("#myToast").hide();
   // hide label loader
   $('#loader_img').hide();
   // bs colorpicker init
