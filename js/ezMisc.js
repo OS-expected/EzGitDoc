@@ -160,10 +160,10 @@ $(document).ready(function () {
   // hide label loader
   $('#loader_img').hide();
   // bs colorpicker init
-  $('#l_color').colorpicker({
+  $('#b_color').colorpicker({
     format: 'hex'
   });
-  $('#l_color_update').colorpicker({
+  $('#b_color_update').colorpicker({
     format: 'hex'
   });
   // load additional settings

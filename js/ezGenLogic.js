@@ -441,15 +441,15 @@ function createCode() {
   }
 }
 
-function createLabel() {
+function createBadge() {
   // get
-  var label = document.getElementById('l_label').value;
-  var message = document.getElementById('l_message').value;
-  var color = document.getElementById('l_color').value;
-  var style = document.getElementById('l_style').value;
+  var label = document.getElementById('b_label').value;
+  var message = document.getElementById('b_message').value;
+  var color = document.getElementById('b_color').value;
+  var style = document.getElementById('b_style').value;
 
   // validate
-  if (validateLabel(label, message, color) === false) {
+  if (validateBadge(label, message, color) === false) {
     return false;
   }
 
@@ -470,25 +470,25 @@ function createLabel() {
 
   div.appendChild(img);
   div.appendChild(createDeleteTool());
-  div.appendChild(createEditTool('labelUpdateModal', div.id));
+  div.appendChild(createEditTool('badgeUpdateModal', div.id));
   renderElementOnPage(div);
 
   if (isAutomatedModalEnabled) {
-    hideModalAfterRender('#labelModal');
+    hideModalAfterRender('#badgeModal');
   }
 }
 
-function labelPreview() {
+function badgePreview() {
   // clear previously generated preview
-  var img = document.getElementById('label_preview_img');
+  var img = document.getElementById('badge_preview_img');
   img.src = '';
 
-  var label = document.getElementById('l_label').value;
-  var message = document.getElementById('l_message').value;
-  var color = document.getElementById('l_color').value;
-  var style = document.getElementById('l_style').value;
+  var label = document.getElementById('b_label').value;
+  var message = document.getElementById('b_message').value;
+  var color = document.getElementById('b_color').value;
+  var style = document.getElementById('b_style').value;
 
-  if (validateLabel(label, message, color) === false) {
+  if (validateBadge(label, message, color) === false) {
     return false;
   }
 
@@ -505,7 +505,7 @@ function labelPreview() {
   // if HEX color address: https://img.shields.io/badge/label-message-red?color=value
 }
 
-$('#label_preview_img').on('load', function() {
+$('#badge_preview_img').on('load', function() {
   // hide/remove the loading image
   $('#loader_img').fadeOut(100);
 });

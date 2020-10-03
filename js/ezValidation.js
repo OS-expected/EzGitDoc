@@ -115,7 +115,7 @@ function validateTable (rows, cols) {
   return true;
 }
 
-function validateLabel (_label, _message, _color) {
+function validateBadge (_label, _message, _color) {
   if (_label.length > 25) {
     triggerToast(inputLengthLimitReached + ' (label)');
     return false;

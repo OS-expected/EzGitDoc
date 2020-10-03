@@ -136,12 +136,11 @@ Sidebar
               <span class="badge badge-pill badge-light hintKey">Alt + D</span>
             </a>
           </li> 
-          <li data-toggle="modal" data-target="#labelModal">
+          <li data-toggle="modal" data-target="#badgeModal">
             <a>
               <i class="fas fa-tag"></i>
-              <span>Label</span>
+              <span>Badge</span>
               <span class="badge badge-pill badge-light hintKey">Alt + F</span>
-              <span class="badge badge-info">Shields.io</span>
             </a>
           </li> 
           <li class="header-menu">
@@ -996,12 +995,12 @@ aria-hidden="true" data-backdrop="true">
 </div>
 </div>
 
-<!-- Label Modal -->
-<div class="modal fade right" id="labelModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<!-- Badge Modal -->
+<div class="modal fade right" id="badgeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-full-height modal-right" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title w-100" id="myModalLabel"><i class="far fa-sticky-note"></i> Label Settings</h4>
+        <h4 class="modal-title w-100" id="myModalLabel"><i class="far fa-sticky-note"></i> Badge Settings</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -1010,23 +1009,23 @@ aria-hidden="true" data-backdrop="true">
       <div class="modal-body">
         <form>
           <div class="form-group">
-            <label for="l_label">Label <small class="mdb-color-text">(required)</small></label>
-            <input class="form-control" id="l_label" maxlength="25" autocomplete="off">
+            <label for="b_label">Label <small class="mdb-color-text">(required)</small></label>
+            <input class="form-control" id="b_label" maxlength="25" autocomplete="off">
           </div>
 
           <div class="form-group">
-            <label for="l_message">Message <small class="mdb-color-text">(required)</small></label>
-            <input class="form-control" id="l_message" maxlength="25" autocomplete="off">
+            <label for="b_message">Message <small class="mdb-color-text">(required)</small></label>
+            <input class="form-control" id="b_message" maxlength="25" autocomplete="off">
           </div>
 
           <div class="form-group">
-            <label for="l_color">Color <small class="mdb-color-text">(required)</small></label>
-            <input class="form-control" id="l_color" autocomplete="off" value="#2B95E2">
+            <label for="b_color">Color <small class="mdb-color-text">(required)</small></label>
+            <input class="form-control" id="b_color" autocomplete="off" value="#2B95E2">
           </div>
 
           <div class="form-group">
-            <label for="l_style">Style <small class="grey-text">(optional)</small></label>
-            <select id="l_style" class="browser-default custom-select" autocomplete="off">
+            <label for="b_style">Style <small class="grey-text">(optional)</small></label>
+            <select id="b_style" class="browser-default custom-select" autocomplete="off">
               <option value="default" selected>Plastic(default)</option>
               <option value="flat">Flat</option>
               <option value="flat-square">Flat-square</option>
@@ -1038,13 +1037,13 @@ aria-hidden="true" data-backdrop="true">
           <div class="form-group">
             <div class="row">
               <div class="col-12">
-                <button onclick="labelPreview()" type="button" data-toggle="popover-click" class="btn btn-deep-purple" style="width: 100%; padding: auto 0 auto 0; margin: 0;">Preview</button>
+                <button onclick="badgePreview()" type="button" data-toggle="popover-click" class="btn btn-deep-purple" style="width: 100%; padding: auto 0 auto 0; margin: 0;">Preview</button>
               </div>
             </div>
             <div class="row">
               <div class="col-12 justify-content-center d-flex">
                 <img id="loader_img" src="images/img_loader.svg" height="60"/>
-                <img id="label_preview_img" style="padding-top: 20px;"/>
+                <img id="badge_preview_img" style="padding-top: 20px;"/>
               </div>
             </div>
           </div>
@@ -1078,22 +1077,22 @@ aria-hidden="true" data-backdrop="true">
       </div>
       <div class="modal-footer">
         <div class="col text-left ml-0">
-          <button onclick="createLabel()" type="button" class="btn btn-deep-purple">Create</button>
+          <button onclick="createBadge()" type="button" class="btn btn-deep-purple">Create</button>
         </div>
         <div class="col text-right mr-0">
-          <button type="button" class="btn btn-danger" onclick="clearModal('#labelModal', 'withImage')">Reset</button>
+          <button type="button" class="btn btn-danger" onclick="clearModal('#badgeModal', 'withImage')">Reset</button>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Label Update Modal -->
-<div class="modal fade right" id="labelUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<!-- Badge Update Modal -->
+<div class="modal fade right" id="badgeUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-side modal-top-right" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title w-100" id="myModalLabel"><i class="far fa-sticky-note"></i> Label Update</h4>
+        <h4 class="modal-title w-100" id="myModalLabel"><i class="far fa-sticky-note"></i> Badge Update</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -1102,23 +1101,23 @@ aria-hidden="true" data-backdrop="true">
       <div class="modal-body">
         <form>
           <div class="form-group">
-            <label for="l_label_update">Label</label>
-            <input class="form-control" id="l_label_update" maxlength="25" autocomplete="off">
+            <label for="b_label_update">Label</label>
+            <input class="form-control" id="b_label_update" maxlength="25" autocomplete="off">
           </div>
 
           <div class="form-group">
-            <label for="l_message_update">Message</label>
-            <input class="form-control" id="l_message_update" maxlength="25" autocomplete="off">
+            <label for="b_message_update">Message</label>
+            <input class="form-control" id="b_message_update" maxlength="25" autocomplete="off">
           </div>
 
           <div class="form-group">
-            <label for="l_color_update">Color</label>
-            <input class="form-control" id="l_color_update" autocomplete="off" value="#2B95E2">
+            <label for="b_color_update">Color</label>
+            <input class="form-control" id="b_color_update" autocomplete="off" value="#2B95E2">
           </div>
 
           <div class="form-group">
-            <label for="l_style_update">Style</label>
-            <select id="l_style_update" class="browser-default custom-select" autocomplete="off">
+            <label for="b_style_update">Style</label>
+            <select id="b_style_update" class="browser-default custom-select" autocomplete="off">
               <option value="default" selected>Plastic(default)</option>
               <option value="flat">Flat</option>
               <option value="flat-square">Flat-square</option>
@@ -1145,7 +1144,7 @@ aria-hidden="true" data-backdrop="true">
         </div>
       </div>
       <div class="modal-footer justify-content-center">
-        <button onclick="updateLabel()" type="button" class="btn btn-deep-purple">Create</button>
+        <button onclick="updateBadge()" type="button" class="btn btn-deep-purple">Update</button>
         <button type="button" class="btn btn-purple" data-dismiss="modal">Close</button>
       </div>
     </div>

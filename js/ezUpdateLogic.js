@@ -460,15 +460,15 @@ function updateText() {
   }
 }
 
-function updateLabel() {
+function updateBadge() {
   // 1. get
-  var label = document.getElementById('l_label_update').value;
-  var message = document.getElementById('l_message_update').value;
-  var color = document.getElementById('l_color_update').value;
-  var style = document.getElementById('l_style_update').value;
+  var label = document.getElementById('b_label_update').value;
+  var message = document.getElementById('b_message_update').value;
+  var color = document.getElementById('b_color_update').value;
+  var style = document.getElementById('b_style_update').value;
 
   // 2. validate
-  if (validateLabel(label, message, color) === false) {
+  if (validateBadge(label, message, color) === false) {
     return false;
   }
 
