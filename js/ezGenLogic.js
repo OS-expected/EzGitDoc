@@ -121,7 +121,7 @@ function createHeader() {
   headerDiv.appendChild(h);
   headerDiv.appendChild(createDeleteTool());
   headerDiv.appendChild(createEditTool('headerUpdateModal', headerDiv.id));
-  renderElementOnPage(headerDiv);
+  renderElementOnPage(headerDiv, 'header');
 
   if (isAutomatedModalEnabled) {
     hideModalAfterRender('#headerModal');
@@ -201,7 +201,7 @@ function createImage() {
   paragraph.appendChild(image);
   paragraph.appendChild(createDeleteTool());
   paragraph.appendChild(createEditTool('imageUpdateModal', paragraph.id));
-  renderElementOnPage(paragraph);
+  renderElementOnPage(paragraph, 'image');
 
   if (isAutomatedModalEnabled) {
     hideModalAfterRender('#imageModal');
@@ -274,7 +274,7 @@ function createTable() {
   if (listOption === 3) {
     tableDiv.appendChild(createEditTool('arrayUpdateModal', tableDiv.id));
   }
-  renderElementOnPage(tableDiv);
+  renderElementOnPage(tableDiv, 'table');
 
   if (isAutomatedModalEnabled) {
     hideModalAfterRender('#arrayModal');
@@ -308,7 +308,7 @@ function createText() {
   textDiv.appendChild(paragraph);
   textDiv.appendChild(createDeleteTool());
   textDiv.appendChild(createEditTool('textUpdateModal', textDiv.id));
-  renderElementOnPage(textDiv);
+  renderElementOnPage(textDiv, 'text');
 
   if (isAutomatedModalEnabled) {
     hideModalAfterRender('#textModal');
@@ -370,7 +370,7 @@ function createList() {
 
   listDiv.appendChild(createDeleteTool());
   listDiv.appendChild(createEditTool('listUpdateModal', listDiv.id));
-  renderElementOnPage(listDiv);
+  renderElementOnPage(listDiv, 'list');
 
   if (isAutomatedModalEnabled) {
     hideModalAfterRender('#listModal');
@@ -398,7 +398,7 @@ function createLink() {
   div.appendChild(link);
   div.appendChild(createDeleteTool());
   div.appendChild(createEditTool('linkUpdateModal', div.id));
-  renderElementOnPage(div);
+  renderElementOnPage(div, 'link');
 
   if (isAutomatedModalEnabled) {
     hideModalAfterRender('#linkModal');
@@ -434,7 +434,7 @@ function createCode() {
   div.appendChild(pre);
   div.appendChild(createDeleteTool());
   div.appendChild(createEditTool('codeUpdateModal', div.id));
-  renderElementOnPage(div);
+  renderElementOnPage(div, 'code');
 
   if (isAutomatedModalEnabled) {
     hideModalAfterRender('#codeModal');
@@ -471,7 +471,7 @@ function createBadge() {
   div.appendChild(img);
   div.appendChild(createDeleteTool());
   div.appendChild(createEditTool('badgeUpdateModal', div.id));
-  renderElementOnPage(div);
+  renderElementOnPage(div, 'badge');
 
   if (isAutomatedModalEnabled) {
     hideModalAfterRender('#badgeModal');
@@ -561,10 +561,11 @@ function setElement(element) {
   return element;
 }
 
-function renderElementOnPage(element) {
+function renderElementOnPage(element, content) {
+  element.classList.add(content);
   var workingSpace = document.getElementById('workingSpace');
   workingSpace.appendChild(element);
-};
+}
 
 function hideModalAfterRender(id) {
   $(id).modal('hide');
