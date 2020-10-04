@@ -6,54 +6,22 @@
 ## Start
 
 <p align="justify">
-EzGitDoc is WYSIWYG tool designed to improve Git documentation experience. It allows to generate *.md file structure within projected template at https://trolit.github.io/EzGitDoc/. You don't need to install anything as the project is setup and ready to use on github-pages. Every element's data can be modified after rendering it on page(except table of images in it's current). EzGitDoc leaves you opportunity to make prototype of your document and fill in data, which later only needs to be polished, reducing the risk of problems and necessity to fight with searching cause of element(s) not being rendered as expected. Thanks to <a href="https://github.com/damianggg">@damianggg</a> for spending time on functional tests 👍 
+EzGitDoc is open-source, WYSIWYG tool designed to improve Git documentation experience. Click on the images above to be redirected onto docs/tool page. Pros of using EzGitDoc can be found <a href="https://trolit.github.io/EzGitDoc-documentation/#pros-of-ezgitdoc">here</a>. Thanks to <a href="https://github.com/damianggg">@damianggg</a> for spending time on functional tests 👍 
 </p>
-
-#### Pros of EzGitDoc (read more <a href="https://trolit.github.io/EzGitDoc-documentation/#pros-of-ezgitdoc">here</a>)
-
-:star2: <strong>Less writing more clicking:</strong> <br/> <em>Don't spend extra time on working with markup manually.</em>  <br/><br/>
-:star2: <strong>Easy to understand & use:</strong> <br/> <em>Because of minimalistic, intuitive UI, you don't need to read documentation to get started. </em> <br/><br/>
-:star2: <strong>Well documented:</strong> <br/> <em>If you prefer reading docs first, EzGitDoc has extensive documentation about it's changes, explanations and examples.</em> <br/><br/>
-:star2: <strong>Customizable:</strong> <br/> <em>Personalize some settings which you might find comfortable to use.</em> <br/><br/>
-:star2: <strong>Validated:</strong> <br/> <em>Receive in case of error notifications on what needs to be polished.</em>  <br/><br/>
-:star2: <strong>Fast:</strong> <br/> <em>Create element structure faster by giving only basic info and clicking create button.</em>
 
 ## Predefined templates
 <p align="justify">
     :file_folder: Whether you have experience on creating docs for special purpose(e.g. open software, game, library, solution) or not and want to share pattern then it's possible! <a href="https://github.com/trolit/EzGitDoc/tree/master/templates">Here</a> are stored predefined templates. Before you mention your template, make sure to check <code>exampleTemplate</code> and use <code>emptyTemplate</code>. 
 </p>
 
-## Screenshots
+## Preview
 
-### Website
 | | |
 | :---: | :---: |
 | <img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/gallery/fancy1.PNG" alt="#toadd" width="400" height="183"/> | <img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/gallery/fancy2.PNG" alt="#toadd" width="400" height="183"/> |
 | <img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/gallery/fancy3.PNG" alt="#toadd" width="400" height="183"/> | <img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/gallery/fancy4.PNG" alt="#toadd" width="400" height="183"/> |
 | <img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/gallery/fancy5.png" alt="#toadd" width="400" height="183"/> | <img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/gallery/fancy6.PNG" alt="#toadd" width="400" height="183"/> |
 | <img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/gallery/fancy7.PNG" alt="#toadd" width="400" height="183"/> | <img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/gallery/fancy8.PNG" alt="#toadd" width="400" height="183"/> |
-
-### Output examples
-
-#### Example 1
-
-| Scheme | Result |
-| :--: | :--: | 
-| <img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/ex1_a.PNG" alt="" width="90%"> | <img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/ex1_b.PNG" alt="" width="100%"> | 
-
-<strong>Please note:</strong> If you want to achieve table that takes all available width(like shown in the Examples section, on EzGitDoc page), images placed in the table must be scaled manually using both axis(assuming that they have the same resolution). By having same resolution images you have guarantees that all cells will be equal and there will be no stretches. 
-
-#### Example 2
-
-| Scheme | Result |
-| :--: | :--: | 
-| <img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/ex2_a.PNG" alt="" width="90%"> | <img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/ex2_b.PNG" alt="" width="100%"> | 
-
-#### Example 3
-
-| Scheme | Result |
-| :--: | :--: | 
-| <img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/ex4_a.PNG" alt="" width="100%"> | <img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/ex4_b.PNG" alt="" width="100%"> | 
 
 ## Libraries
 
