@@ -1,5 +1,6 @@
 <p align="center">
-<a href="https://trolit.github.io/EzGitDoc/"><img src="https://github.com/trolit/EzGitDoc/blob/master/images/readme/logo.png" alt="EzGitDoc UI" height="240"></a>
+    <a href="https://trolit.github.io/EzGitDoc-documentation/"><kbd><img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/documentation.png" height="240" alt="docs image"/></kbd></a>&nbsp;&nbsp;
+    <a href="https://trolit.github.io/EzGitDoc/"><kbd><img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/tool.png" height="240" alt="tool image"/></kbd></a>
 </p>
 
 ## Start
