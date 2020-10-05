@@ -221,13 +221,16 @@ function generateCode() {
     }
   }
 
-  code += credits;
+  code += addCredits();
   lastGeneratedCode = code;
   document.getElementById('codeTextBox').value = code;
   $('#generatedCodeModal').modal('show');
 }
 
-var credits = '\r\nTemplate generated using <a href="https://github.com/trolit/EzGitDoc">EzGitDoc</a>';
+function addCredits() {
+  var dt = new Date();
+  return `\r\n\r\nTemplate created on ${dt.getDate()}/${dt.getMonth() + 1}/${dt.getFullYear()} <br/> in <a href="https://github.com/trolit/EzGitDoc">EzGitDoc</a>`;
+}
 
 /*
 ezLogicTranslator output cheatsheet
