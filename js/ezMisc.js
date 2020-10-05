@@ -158,7 +158,7 @@ window.onbeforeunload = null;
 
 // on page startup with JQuery
 $(document).ready(function () {
-  $("#myToast").hide();
+  $('#myToast').hide();
   // hide label loader
   $('#loader_img').hide();
   // bs colorpicker init
