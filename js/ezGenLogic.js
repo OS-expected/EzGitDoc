@@ -222,7 +222,10 @@ function createTable() {
   tableDiv.appendChild(createDeleteTool());
   if (listOption === 3) {
     tableDiv.appendChild(createEditTool('arrayUpdateModal', tableDiv.id));
+  } else if (listOption === 4 || listOption === 23 || listOption === 24) {
+    tableDiv.appendChild(createEditTool('tableUniUpdateModal', tableDiv.id));
   }
+
   renderElementOnPage(tableDiv, 'table');
 
   if (isAutomatedModalEnabled) {
@@ -240,7 +243,7 @@ function genKbdBody(rows, cols, flag = 'empty') {
       img.src = basicImage + '250x140';
       img.width = '250';
       img.height = '140';
-      img.alt = 'alternate text';
+      img.alt = 'alt text';
       kbd.appendChild(img);
       flag === 'linked' ? p.appendChild(wrapKbdIntoAnchor(kbd)) : p.appendChild(kbd);
     }
@@ -254,7 +257,7 @@ function genKbdBody(rows, cols, flag = 'empty') {
 
 function wrapKbdIntoAnchor(kbd) {
   var a = document.createElement('a');
-  a.href = 'URL';
+  a.href = 'https://AddURL';
   a.appendChild(kbd);
   return a;
 }

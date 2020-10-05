@@ -126,6 +126,25 @@ function showEditModal(modalReference, elementId) {
       document.getElementById('commentArea_update').value = tmp.innerHTML;
       document.getElementById('commentJustify_update').checked = tmp.style.textAlign === 'justify';
       break;
+    case '#tableUniUpdateModal':
+      var firstChild = tmp.firstChild;
+      var image;
+      if (firstChild.tagName === 'KBD') {
+        // <kbd><img src.../></kbd>
+        image = firstChild.children[0];
+      } else if (firstChild.tagName === 'A') {
+        // <a ...><kbd><img.../></kbd></a>
+        var kbd = firstChild.children[0];
+        image = kbd.children[0];
+      } else {
+        // <tbody><tr><td><img.../></td></tr></tbody>
+        var tr = firstChild.children[0];
+        var td = tr.children[0];
+        image = td.children[0];
+      }
+      document.getElementById('uniTabWidth').value = image.width;
+      document.getElementById('uniTabHeight').value = image.height;
+      break;
   }
 
   $(modalReference).modal('show');
@@ -419,6 +438,43 @@ function updateTable() {
 
   if (isAutomatedModalEnabled) {
     hideModalAfterRender('#arrayUpdateModal');
+  }
+}
+
+function updateNonTextTable() {
+  var tableToUpdate = document.getElementById(lastReferencedId).children[0];
+  var newWidth = document.getElementById('uniTabWidth').value;
+  var newHeight = document.getElementById('uniTabHeight').value;
+
+  if (validateHeightWidth(newHeight, newWidth) === false) {
+    return;
+  }
+
+  if (tableToUpdate.tagName === 'TABLE') {
+    var cols = tableToUpdate.rows[0].cells.length;
+    var rows = tableToUpdate.rows.length;
+  } else if (tableToUpdate.tagName === 'P') {
+    var firstElementTag = tableToUpdate.firstChild.tagName;
+    if (firstElementTag === 'KBD') {
+      updateBasicKbdTable(tableToUpdate, newWidth, newHeight);
+    } else if (firstElementTag === 'A') {
+
+    }
+  }
+}
+
+function updateBasicKbdTable(tableRef, width, height) {
+  var childNodes = tableRef.childNodes;
+  for (var i = 0; i < childNodes.length; i++) {
+    if (childNodes.item(i).tagName === 'BR') {
+      continue;
+    }
+    if (childNodes.item(i).firstChild.tagName === 'IMG') {
+      var image = childNodes.item(i).firstChild;
+      image.src = basicImage + `${width}x${height}`;
+      image.width = width;
+      image.height = height;
+    }
   }
 }
 

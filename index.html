@@ -873,7 +873,7 @@ aria-hidden="true" data-backdrop="true">
 </div>
 </div>
 
-<!-- Table Update Modal -->
+<!-- Text Table Update Modal -->
 <div class="modal fade" id="arrayUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
@@ -890,7 +890,6 @@ aria-hidden="true" data-backdrop="true">
             <div class="form-group">
               <label for="array_update_dynamic_fields">Data</label>
               <div id="array_update_dynamic_fields">
-  
               </div>
             </div>
           </div>
@@ -902,6 +901,45 @@ aria-hidden="true" data-backdrop="true">
       <div class="modal-footer justify-content-center">
         <button onclick="updateTable()" type="button" class="btn btn-deep-purple">Update</button>
         <button type="button" class="btn btn-purple" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Table Universal Update Modal -->
+<div class="modal fade" id="tableUniUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-side modal-top-right"" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title w-100" id="myModalLabel"><i class="fas fa-table"></i> Table Update</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="container" style="overflow: auto; max-height: 500px;">
+            <div class="form-group">
+              <div class="row justify-content-md-center">
+                <div class="col-md-12 text-center">
+                    <label class="my-1 mr-2">New images dimensions <small class="mdb-color-text">(required)</small></label>
+                </div>
+                <div class="col-md-6">
+                    <label class="text-center col-md-12" for="arrRowsAmount">Width</label>
+                    <input class="form-control col-md-auto text-center" id="uniTabWidth" placeholder="0" autocomplete="off">
+                </div>        
+                <div class="col-md-6">
+                    <label class="text-center col-md-12" for="arrColsAmount">Height</label>
+                    <input class="form-control col-md-auto text-center" id="uniTabHeight" placeholder="0" autocomplete="off">
+                </div>
+            </div>
+            </div>
+          </div>
+        </form> 
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button onclick="updateNonTextTable()" type="button" class="btn btn-deep-purple">Update</button>
       </div>
     </div>
   </div>
