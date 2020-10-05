@@ -27,6 +27,7 @@ var emptyInputFiled = 'Input field was empty.';
 var emptyQBTextArea = 'Quick builder terminal is empty.';
 var _commandsNotRecognizedPart1 = 'Command(s): ';
 var _commandsNotRecognizedPart2 = ' not included in the output. Please make sure that the syntax is correct.';
+
 // ********************************************
 // Validators
 // ********************************************
@@ -108,7 +109,7 @@ function validateTable (rows, cols) {
   } else if (cols >= 27) {
     triggerToast(arrayColSizeExceeded);
     return false;
-  } else if (listOption !== 3 && listOption !== 4) {
+  } else if (listOption !== 3 && listOption !== 4 && listOption !== 23 && listOption !== 24) {
     triggerToast(tableTypeNotSpecified);
     return false;
   }

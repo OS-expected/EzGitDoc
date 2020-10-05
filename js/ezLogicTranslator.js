@@ -31,8 +31,14 @@ function printImageCodeWrappedInParagraph(alignment, image) {
   }
 }
 
+function printPlaceHoldImageCode(width, height, alt) {
+  return `<img src="https://place-hold.it/${width}x${height}" alt="${alt}" width="${width}" height="${height}"/>`;
+}
+
 function wrapCodeIntoParagraph(alignment, code) {
-  if (alignment.length <= 0) {
+  if (alignment === 'kbd') {
+    return `<p align="center">\r\n${code}</p>`;
+  } else if (alignment.length <= 0) {
     return `<p>${code}</p>`;
   } else {
     return `<p align="${alignment}">${code}</p>`;
@@ -75,7 +81,7 @@ function printImageTableCode(table) {
       if (x === 1) {
         imageTableCode = imageTableCode + ' :---: |';
       } else if (x >= 1) {
-        imageTableCode = imageTableCode + ' <img src="https://place-hold.it/350x140" alt="#toadd" width="350" height="140"/> |';
+        imageTableCode = imageTableCode + ` ${printPlaceHoldImageCode(250, 140, '#toadd')} |`;
       }
     }
     if (x !== rowAmount + 1) {
@@ -131,6 +137,25 @@ function printLinkCode(href, textContent) {
   return `<a href="${href}">${textContent}</a>`;
 }
 
+function printKbdCode(content, mode = 'basic') {
+  var kbdCode = '';
+  for (var i = 0; i < content.length; i++) {
+    if (content.item(i).tagName !== 'BR') {
+      if (mode === 'basic') {
+        var image = content.item(i).firstChild;
+        kbdCode += `${printPlaceHoldImageCode(image.width, image.height, image.alt)} \r\n`;
+      } else if (mode === 'linked') {
+        var a = content.item(i);
+        var image = content.item(i).firstChild.children[0];
+        kbdCode += `${printLinkCode(a.href, printPlaceHoldImageCode(image.width, image.height, image.alt))} \r\n`;
+      }
+    } else {
+      kbdCode += '<br/> \r\n';
+    }
+  }
+  return wrapCodeIntoParagraph('kbd', kbdCode);
+}
+
 function generateCode() {
   var code = '';
   var elements = document.getElementsByClassName('ezGitPart');
@@ -157,6 +182,10 @@ function generateCode() {
       } else if (table.classList.contains('imageTable')) {
         currIterationCode = printImageTableCode(table);
         currIterationCode = currIterationCode + '\r\n' + '<!-- For image table, it\'s highly recommended to have the same resolution images. \r\n To find best results(no stretches, equal cells), both axis should be adjusted manually. -->';
+      } else if (table.firstChild.tagName === 'KBD') {
+        currIterationCode = printKbdCode(table.childNodes);
+      } else if (table.firstChild.tagName === 'A') {
+        currIterationCode = printKbdCode(table.childNodes, 'linked');
       } else {
         triggerToast('Code generation failed (table type problem).');
         return false;
