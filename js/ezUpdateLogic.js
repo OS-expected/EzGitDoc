@@ -453,12 +453,23 @@ function updateNonTextTable() {
   if (tableToUpdate.tagName === 'TABLE') {
     var cols = tableToUpdate.rows[0].cells.length;
     var rows = tableToUpdate.rows.length;
+    updateImageTable(tableToUpdate, cols, rows, newWidth, newHeight);
   } else if (tableToUpdate.tagName === 'P') {
     var firstElementTag = tableToUpdate.firstChild.tagName;
     if (firstElementTag === 'KBD') {
       updateBasicKbdTable(tableToUpdate, newWidth, newHeight);
     } else if (firstElementTag === 'A') {
+      updateAnchorKbdTable(tableToUpdate, newWidth, newHeight);
+    }
+  }
+}
 
+function updateImageTable(tableRef, cols, rows, width, height) {
+  for (var i = 0; i < rows; i++) {
+    for (var j = 0; j < cols; j++) {
+      var td = tableRef.rows[i].cells[j];
+      var image = td.children[0];
+      setNewImageResolution(image, width, height);
     }
   }
 }
@@ -466,16 +477,30 @@ function updateNonTextTable() {
 function updateBasicKbdTable(tableRef, width, height) {
   var childNodes = tableRef.childNodes;
   for (var i = 0; i < childNodes.length; i++) {
-    if (childNodes.item(i).tagName === 'BR') {
-      continue;
-    }
-    if (childNodes.item(i).firstChild.tagName === 'IMG') {
+    var elementTagName = childNodes.item(i).tagName;
+    if (elementTagName === 'KBD') {
       var image = childNodes.item(i).firstChild;
-      image.src = basicImage + `${width}x${height}`;
-      image.width = width;
-      image.height = height;
+      setNewImageResolution(image, width, height);
     }
   }
+}
+
+function updateAnchorKbdTable(tableRef, width, height) {
+  var childNodes = tableRef.childNodes;
+  for (var i = 0; i < childNodes.length; i++) {
+    var elementTagName = childNodes.item(i).tagName;
+    if (elementTagName === 'A') {
+      var kbd = childNodes.item(i).children[0];
+      var image = kbd.children[0];
+      setNewImageResolution(image, width, height);
+    }
+  }
+}
+
+function setNewImageResolution(image, width, height) {
+  image.src = basicImage + `${width}x${height}`;
+  image.width = width;
+  image.height = height;
 }
 
 function insertNewRowIntoTableById(id) {
