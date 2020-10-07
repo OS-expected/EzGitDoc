@@ -72,6 +72,8 @@ function printImageTableCode(table) {
   var columnAmount = table.rows[0].cells.length;
   var rowAmount = table.rows.length;
   var imageTableCode = '';
+  var td = table.rows[0].cells[0];
+  var image = td.children[0];
   for (var x = 0; x <= rowAmount + 1; x++) {
     imageTableCode = imageTableCode + '|';
     for (var y = 0; y < columnAmount; y++) {
@@ -81,7 +83,7 @@ function printImageTableCode(table) {
       if (x === 1) {
         imageTableCode = imageTableCode + ' :---: |';
       } else if (x >= 1) {
-        imageTableCode = imageTableCode + ` ${printPlaceHoldImageCode(250, 140, '#toadd')} |`;
+        imageTableCode = imageTableCode + ` ${printPlaceHoldImageCode(image.width, image.height, '#toadd')} |`;
       }
     }
     if (x !== rowAmount + 1) {
