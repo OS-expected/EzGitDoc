@@ -7,6 +7,8 @@
 // Toast Messages
 // ********************************************
 
+var maximumAllowedRes = 2000;
+
 var missingHeaderWarning = 'It looks like you did not feed header title text.';
 var minimumOneAxis = 'At least one axis needs to contain value different than 0.';
 var noURLorBlank = 'If you want to add image, make sure that you specify URL. If you have no image URL at the moment, write blank.';
@@ -27,6 +29,8 @@ var emptyInputFiled = 'Input field was empty.';
 var emptyQBTextArea = 'Quick builder terminal is empty.';
 var _commandsNotRecognizedPart1 = 'Command(s): ';
 var _commandsNotRecognizedPart2 = ' not included in the output. Please make sure that the syntax is correct.';
+var limitReached = `Maximum allowed number is ${maximumAllowedRes},`;
+
 // ********************************************
 // Validators
 // ********************************************
@@ -108,14 +112,31 @@ function validateTable (rows, cols) {
   } else if (cols >= 27) {
     triggerToast(arrayColSizeExceeded);
     return false;
-  } else if (listOption !== 3 && listOption !== 4) {
+  } else if (listOption !== 3 && listOption !== 4 && listOption !== 23 && listOption !== 24) {
     triggerToast(tableTypeNotSpecified);
     return false;
   }
   return true;
 }
 
-function validateLabel (_label, _message, _color) {
+function validateHeightWidth(height, width) {
+  if (checkIfNumber(height) === false) {
+    triggerToast(notAnumber.concat(' (Height)'));
+    return false;
+  } else if (checkIfNumber(width) === false) {
+    triggerToast(notAnumber.concat(' (Width)'));
+    return false;
+  } else if (height > maximumAllowedRes) {
+    triggerToast(limitReached.concat(` found height=${height}.`));
+    return false;
+  } else if (width > maximumAllowedRes) {
+    triggerToast(limitReached.concat(` found width=${width}.`));
+    return false;
+  }
+  return true;
+}
+
+function validateBadge (_label, _message, _color) {
   if (_label.length > 25) {
     triggerToast(inputLengthLimitReached + ' (label)');
     return false;

@@ -86,30 +86,7 @@ function createHeader() {
   }
 
   // create
-  var h;
-  switch (listOption) {
-    case 5:
-      h = document.createElement('h1');
-      break;
-    case 6:
-      h = document.createElement('h2');
-      break;
-    case 7:
-      h = document.createElement('h3');
-      break;
-    case 8:
-      h = document.createElement('h4');
-      break;
-    case 9:
-      h = document.createElement('h5');
-      break;
-    case 10:
-      h = document.createElement('h6');
-      break;
-    default:
-      h = document.createElement('h2');
-      break;
-  }
+  var h = document.createElement(`h${listOption >= 5 ? listOption - 4 : 2}`);
 
   h.textContent = title;
   h.style.wordWrap = 'break-word';
@@ -121,7 +98,7 @@ function createHeader() {
   headerDiv.appendChild(h);
   headerDiv.appendChild(createDeleteTool());
   headerDiv.appendChild(createEditTool('headerUpdateModal', headerDiv.id));
-  renderElementOnPage(headerDiv);
+  renderElementOnPage(headerDiv, 'header');
 
   if (isAutomatedModalEnabled) {
     hideModalAfterRender('#headerModal');
@@ -201,7 +178,7 @@ function createImage() {
   paragraph.appendChild(image);
   paragraph.appendChild(createDeleteTool());
   paragraph.appendChild(createEditTool('imageUpdateModal', paragraph.id));
-  renderElementOnPage(paragraph);
+  renderElementOnPage(paragraph, 'image');
 
   if (isAutomatedModalEnabled) {
     hideModalAfterRender('#imageModal');
@@ -219,66 +196,116 @@ function createTable() {
   }
 
   // create
-  var tableDiv = document.createElement('div');
+  var tableDiv = setElement(document.createElement('div'));
 
-  var tbl = document.createElement('table');
-  tbl.style.width = '100%';
-  tbl.style.maxHeight = '250px';
-  if (listOption === 3) {
-    tbl.classList.add('textTable');
+  if (listOption === 3 || listOption === 4) {
+    var tbl = document.createElement('table');
+    tbl.style.width = '100%';
+    tbl.style.maxHeight = '250px';
+    tbl.classList.add('table', 'table-bordered', 'table-responsive');
+    if (listOption === 3) {
+      tbl.classList.add('textTable');
+      tbl.appendChild(genTextTableBody(rows, cols));
+    } else if (listOption === 4) {
+      tbl.classList.add('imageTable');
+      tbl.appendChild(genImageTable(rows, cols));
+    }
+    tableDiv.appendChild(tbl);
   } else {
-    tbl.classList.add('imageTable');
+    if (listOption === 23) {
+      tableDiv.appendChild(genKbdBody(rows, cols, ''));
+    } else if (listOption === 24) {
+      tableDiv.appendChild(genKbdBody(rows, cols, 'linked'));
+    }
   }
 
-  // MDB extra classes
-  tbl.classList.add('table');
-  tbl.classList.add('table-bordered');
-  tbl.classList.add('table-responsive');
+  tableDiv.appendChild(createDeleteTool());
+  if (listOption === 3) {
+    tableDiv.appendChild(createEditTool('arrayUpdateModal', tableDiv.id));
+  } else if (listOption === 4 || listOption === 23 || listOption === 24) {
+    tableDiv.appendChild(createEditTool('tableUniUpdateModal', tableDiv.id));
+  }
 
-  tableDiv = setElement(tableDiv);
+  renderElementOnPage(tableDiv, 'table');
 
+  if (isAutomatedModalEnabled) {
+    hideModalAfterRender('#arrayModal');
+  }
+}
+
+function genKbdBody(rows, cols, flag = 'empty') {
+  var p = document.createElement('p');
+  p.style.textAlign = 'center';
+  for (var i = 0; i < rows; i++) {
+    for (var j = 0; j < cols; j++) {
+      var kbd = document.createElement('kbd');
+      var img = document.createElement('img');
+      img.src = basicImage + '250x140';
+      img.width = '250';
+      img.height = '140';
+      img.alt = 'alt text';
+      kbd.appendChild(img);
+      flag === 'linked' ? p.appendChild(wrapKbdIntoAnchor(kbd)) : p.appendChild(kbd);
+    }
+    if ((i + 1) !== parseInt(rows)) {
+      var br = document.createElement('br');
+      p.appendChild(br);
+    }
+  }
+  return p;
+}
+
+function wrapKbdIntoAnchor(kbd) {
+  var a = document.createElement('a');
+  a.href = 'https://AddURL';
+  a.appendChild(kbd);
+  return a;
+}
+
+function genTextTableBody(rows, cols) {
   var tbdy = document.createElement('tbody');
   tbdy.setAttribute('style', 'text-align: center;');
-
   for (var i = 0; i < rows; i++) {
     var tr = document.createElement('tr');
-
     for (var j = 0; j < cols; j++) {
       var td = document.createElement('td');
-      if (i === 0 && listOption === 3) {
-        var bold = document.createElement('strong');
-        var text = document.createTextNode('header');
-        bold.appendChild(text);
-        td.appendChild(bold);
+      if (i === 0) {
+        td.appendChild(buildHeader());
       } else {
-        if (listOption === 3) {
-          td.appendChild(document.createTextNode('test'));
-        } else if (listOption === 4) {
-          var image = document.createElement('img');
-          image.src = basicImage + '350x140';
-          image.alt = '#toadd';
-          image.width = '350';
-          image.height = '140';
-          td.appendChild(image);
-        }
+        td.appendChild(document.createTextNode('test'));
       }
       tr.appendChild(td);
     }
     tbdy.appendChild(tr);
   }
+  return tbdy;
+}
 
-  tbl.appendChild(tbdy);
+function buildHeader() {
+  var strong = document.createElement('strong');
+  var headerTextNode = document.createTextNode('header');
+  strong.appendChild(headerTextNode);
+  return strong;
+}
 
-  tableDiv.appendChild(tbl);
-  tableDiv.appendChild(createDeleteTool());
-  if (listOption === 3) {
-    tableDiv.appendChild(createEditTool('arrayUpdateModal', tableDiv.id));
+function genImageTable(rows, cols) {
+  var tbdy = document.createElement('tbody');
+  tbdy.setAttribute('style', 'text-align: center;');
+  for (var i = 0; i < rows; i++) {
+    var tr = document.createElement('tr');
+    for (var j = 0; j < cols; j++) {
+      var td = document.createElement('td');
+      var image = document.createElement('img');
+      image.src = basicImage + '250x140';
+      image.alt = '#toadd';
+      image.width = '250';
+      image.height = '140';
+      td.appendChild(image);
+      tr.appendChild(td);
+    }
+    tbdy.appendChild(tr);
   }
-  renderElementOnPage(tableDiv);
-
-  if (isAutomatedModalEnabled) {
-    hideModalAfterRender('#arrayModal');
-  }
+  return tbdy;
 }
 
 function createText() {
@@ -308,7 +335,7 @@ function createText() {
   textDiv.appendChild(paragraph);
   textDiv.appendChild(createDeleteTool());
   textDiv.appendChild(createEditTool('textUpdateModal', textDiv.id));
-  renderElementOnPage(textDiv);
+  renderElementOnPage(textDiv, 'text');
 
   if (isAutomatedModalEnabled) {
     hideModalAfterRender('#textModal');
@@ -370,7 +397,7 @@ function createList() {
 
   listDiv.appendChild(createDeleteTool());
   listDiv.appendChild(createEditTool('listUpdateModal', listDiv.id));
-  renderElementOnPage(listDiv);
+  renderElementOnPage(listDiv, 'list');
 
   if (isAutomatedModalEnabled) {
     hideModalAfterRender('#listModal');
@@ -398,7 +425,7 @@ function createLink() {
   div.appendChild(link);
   div.appendChild(createDeleteTool());
   div.appendChild(createEditTool('linkUpdateModal', div.id));
-  renderElementOnPage(div);
+  renderElementOnPage(div, 'link');
 
   if (isAutomatedModalEnabled) {
     hideModalAfterRender('#linkModal');
@@ -434,22 +461,22 @@ function createCode() {
   div.appendChild(pre);
   div.appendChild(createDeleteTool());
   div.appendChild(createEditTool('codeUpdateModal', div.id));
-  renderElementOnPage(div);
+  renderElementOnPage(div, 'code');
 
   if (isAutomatedModalEnabled) {
     hideModalAfterRender('#codeModal');
   }
 }
 
-function createLabel() {
+function createBadge() {
   // get
-  var label = document.getElementById('l_label').value;
-  var message = document.getElementById('l_message').value;
-  var color = document.getElementById('l_color').value;
-  var style = document.getElementById('l_style').value;
+  var label = document.getElementById('b_label').value;
+  var message = document.getElementById('b_message').value;
+  var color = document.getElementById('b_color').value;
+  var style = document.getElementById('b_style').value;
 
   // validate
-  if (validateLabel(label, message, color) === false) {
+  if (validateBadge(label, message, color) === false) {
     return false;
   }
 
@@ -470,25 +497,25 @@ function createLabel() {
 
   div.appendChild(img);
   div.appendChild(createDeleteTool());
-  div.appendChild(createEditTool('labelUpdateModal', div.id));
-  renderElementOnPage(div);
+  div.appendChild(createEditTool('badgeUpdateModal', div.id));
+  renderElementOnPage(div, 'badge');
 
   if (isAutomatedModalEnabled) {
-    hideModalAfterRender('#labelModal');
+    hideModalAfterRender('#badgeModal');
   }
 }
 
-function labelPreview() {
+function badgePreview() {
   // clear previously generated preview
-  var img = document.getElementById('label_preview_img');
+  var img = document.getElementById('badge_preview_img');
   img.src = '';
 
-  var label = document.getElementById('l_label').value;
-  var message = document.getElementById('l_message').value;
-  var color = document.getElementById('l_color').value;
-  var style = document.getElementById('l_style').value;
+  var label = document.getElementById('b_label').value;
+  var message = document.getElementById('b_message').value;
+  var color = document.getElementById('b_color').value;
+  var style = document.getElementById('b_style').value;
 
-  if (validateLabel(label, message, color) === false) {
+  if (validateBadge(label, message, color) === false) {
     return false;
   }
 
@@ -505,7 +532,7 @@ function labelPreview() {
   // if HEX color address: https://img.shields.io/badge/label-message-red?color=value
 }
 
-$('#label_preview_img').on('load', function() {
+$('#badge_preview_img').on('load', function() {
   // hide/remove the loading image
   $('#loader_img').fadeOut(100);
 });
@@ -561,10 +588,11 @@ function setElement(element) {
   return element;
 }
 
-function renderElementOnPage(element) {
+function renderElementOnPage(element, content) {
+  element.classList.add(content);
   var workingSpace = document.getElementById('workingSpace');
   workingSpace.appendChild(element);
-};
+}
 
 function hideModalAfterRender(id) {
   $(id).modal('hide');

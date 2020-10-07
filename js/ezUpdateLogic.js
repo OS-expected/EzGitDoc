@@ -126,6 +126,25 @@ function showEditModal(modalReference, elementId) {
       document.getElementById('commentArea_update').value = tmp.innerHTML;
       document.getElementById('commentJustify_update').checked = tmp.style.textAlign === 'justify';
       break;
+    case '#tableUniUpdateModal':
+      var firstChild = tmp.firstChild;
+      var image;
+      if (firstChild.tagName === 'KBD') {
+        // <kbd><img src.../></kbd>
+        image = firstChild.children[0];
+      } else if (firstChild.tagName === 'A') {
+        // <a ...><kbd><img.../></kbd></a>
+        var kbd = firstChild.children[0];
+        image = kbd.children[0];
+      } else {
+        // <tbody><tr><td><img.../></td></tr></tbody>
+        var tr = firstChild.children[0];
+        var td = tr.children[0];
+        image = td.children[0];
+      }
+      document.getElementById('uniTabWidth').value = image.width;
+      document.getElementById('uniTabHeight').value = image.height;
+      break;
   }
 
   $(modalReference).modal('show');
@@ -422,6 +441,68 @@ function updateTable() {
   }
 }
 
+function updateNonTextTable() {
+  var tableToUpdate = document.getElementById(lastReferencedId).children[0];
+  var newWidth = document.getElementById('uniTabWidth').value;
+  var newHeight = document.getElementById('uniTabHeight').value;
+
+  if (validateHeightWidth(newHeight, newWidth) === false) {
+    return;
+  }
+
+  if (tableToUpdate.tagName === 'TABLE') {
+    var cols = tableToUpdate.rows[0].cells.length;
+    var rows = tableToUpdate.rows.length;
+    updateImageTable(tableToUpdate, cols, rows, newWidth, newHeight);
+  } else if (tableToUpdate.tagName === 'P') {
+    var firstElementTag = tableToUpdate.firstChild.tagName;
+    if (firstElementTag === 'KBD') {
+      updateBasicKbdTable(tableToUpdate, newWidth, newHeight);
+    } else if (firstElementTag === 'A') {
+      updateAnchorKbdTable(tableToUpdate, newWidth, newHeight);
+    }
+  }
+}
+
+function updateImageTable(tableRef, cols, rows, width, height) {
+  for (var i = 0; i < rows; i++) {
+    for (var j = 0; j < cols; j++) {
+      var td = tableRef.rows[i].cells[j];
+      var image = td.children[0];
+      setNewImageResolution(image, width, height);
+    }
+  }
+}
+
+function updateBasicKbdTable(tableRef, width, height) {
+  var childNodes = tableRef.childNodes;
+  for (var i = 0; i < childNodes.length; i++) {
+    var elementTagName = childNodes.item(i).tagName;
+    if (elementTagName === 'KBD') {
+      var image = childNodes.item(i).firstChild;
+      setNewImageResolution(image, width, height);
+    }
+  }
+}
+
+function updateAnchorKbdTable(tableRef, width, height) {
+  var childNodes = tableRef.childNodes;
+  for (var i = 0; i < childNodes.length; i++) {
+    var elementTagName = childNodes.item(i).tagName;
+    if (elementTagName === 'A') {
+      var kbd = childNodes.item(i).children[0];
+      var image = kbd.children[0];
+      setNewImageResolution(image, width, height);
+    }
+  }
+}
+
+function setNewImageResolution(image, width, height) {
+  image.src = basicImage + `${width}x${height}`;
+  image.width = width;
+  image.height = height;
+}
+
 function insertNewRowIntoTableById(id) {
   var tableRef = document.getElementById(id).children[0].getElementsByTagName('tbody')[0];
   var newRow = tableRef.insertRow();
@@ -460,15 +541,15 @@ function updateText() {
   }
 }
 
-function updateLabel() {
+function updateBadge() {
   // 1. get
-  var label = document.getElementById('l_label_update').value;
-  var message = document.getElementById('l_message_update').value;
-  var color = document.getElementById('l_color_update').value;
-  var style = document.getElementById('l_style_update').value;
+  var label = document.getElementById('b_label_update').value;
+  var message = document.getElementById('b_message_update').value;
+  var color = document.getElementById('b_color_update').value;
+  var style = document.getElementById('b_style_update').value;
 
   // 2. validate
-  if (validateLabel(label, message, color) === false) {
+  if (validateBadge(label, message, color) === false) {
     return false;
   }
 

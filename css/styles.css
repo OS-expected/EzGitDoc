@@ -66,6 +66,11 @@ html, body {
     transition: 0.2s linear;
 }
 
+.list-group-item.active {
+    background-color: #ACB2B9 !important;
+    border: 1px solid #ACB2B9 !important;
+}
+
 .block-stylizer {
     background-color: #EEEEEE;
     width: 100%;
@@ -98,14 +103,15 @@ td {
 
 .logo-preloader-body
 {
-    width: 200px;
-    height: 200px;
+    width: 120px;
+    height: 120px;
     background: #AAC1DC; 
-    -moz-border-radius: 70px; 
-    -webkit-border-radius: 70px; 
-    border-radius: 70px;
+    -moz-border-radius: 30px; 
+    -webkit-border-radius: 30px; 
+    border-radius: 30px;
     text-align: center;
-    border: 7px inset #92A8D1;
+    margin-left: 45px;
+    border: 5px inset #92A8D1;
 }
 
 table, th, td {

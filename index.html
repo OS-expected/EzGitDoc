@@ -70,16 +70,19 @@ Sidebar
   </a>
   <nav id="sidebar" class="sidebar-wrapper">
     <div class="sidebar-content">
-      <span class="badge badge-pill badge-light position-absolute">Version: 1.7.2</span>
+      <a href="https://github.com/trolit/EzGitDoc" target="_blank"><span class="iconify" data-icon="codicon:github" data-inline="false" style="color: white; height: 50px; font-size: 20px; position: absolute;"></span></a>
+      <div class="text-center">
+        <span class="badge badge-light">1.7.2</span>
+      </div>
       <div class="sidebar-header" style="margin-left: 2%;">
         <div class="logo-preloader-body" style="font-family: 'Josefin Sans'; ">
-          <i class="fab fa-earlybirds fa-8x faa-tada animated-hover " style="color: #55606E;"></i>
-          <p style="font-size: 30px; color: #55606E; margin: 0; padding: 20px 0 4px 0; line-height: 0;">EzGitDoc</p>
-          <small style="font-size: 9px;">Improve your documentation easily</small>
+          <i class="fab fa-earlybirds fa-5x faa-tada animated-hover " style="color: #55606E;"></i>
+          <p style="font-size: 15px; color: #55606E; margin: 0; padding: 15px 0 4px 0; line-height: 0;">EzGitDoc</p>
         </div>
       </div>
       <div class="text-center">
-        <button id="resetButton" type="button" class="btn btn-sm btn-danger"  data-toggle="modal" data-target="#resetConfirmationModal" disabled>Reset template</button>
+        <button id="resetButton" type="button" class="btn btn-sm btn-danger"  data-toggle="modal" data-target="#resetConfirmationModal" disabled>Reset</button>
+        <a href="https://trolit.github.io/EzGitDoc-documentation/" class="btn btn-sm btn-info" target="_blank">Docs</a>
       </div>
       <!-- sidebar-header  -->
       <div class="sidebar-menu">
@@ -136,23 +139,15 @@ Sidebar
               <span class="badge badge-pill badge-light hintKey">Alt + D</span>
             </a>
           </li> 
-          <li data-toggle="modal" data-target="#labelModal">
+          <li data-toggle="modal" data-target="#badgeModal">
             <a>
               <i class="fas fa-tag"></i>
-              <span>Label</span>
+              <span>Badge</span>
               <span class="badge badge-pill badge-light hintKey">Alt + F</span>
-              <span class="badge badge-info">Shields.io</span>
             </a>
           </li> 
           <li class="header-menu">
             <span>Extra</span>
-          </li>
-          <li data-toggle="modal" data-target="#helpModal">
-            <a href="https://trolit.github.io/EzGitDoc-documentation/" target="_blank">
-              <i class="fa fa-book"></i>
-              <span>Documentation</span>
-              <!-- <span class="badge-sonar"></span> -->
-            </a>
           </li>
           <li data-toggle="modal" data-target="#quickBuilderModal">
             <a>
@@ -198,7 +193,7 @@ Sidebar
           <div id="startNote" class="row" style="color: white; font-size: 25px; margin: 20% auto 20% auto; text-align: center;font-family: Calibri, Arial;">
               <div class="col-5 faa-parent animated-hover">
                 <i class="fas fa-angle-double-left fa-4x faa-horizontal"></i><br/><br/>
-                <span class="badge badge-primary label-extra-styling">Add first element</span>
+                <span class="badge badge-primary label-extra-styling">Create element</span>
               </div>
               <div class="col-2" style="font-size: 135%;">
                 <br/>
@@ -218,7 +213,7 @@ Sidebar
       <!-- Code Generation Button -->
       <div class="row">
         <div class="col-12">
-          <button type="button" id="codeGenButton" class="btn btn-elegant btn-lg" style="visibility: hidden; padding-top: 20px; font-size: 12px;" onclick="GenerateMDCode()"><i class="fas fa-lg fa-dragon"></i> <br/> Generate Code</button>
+          <button type="button" id="codeGenButton" class="btn btn-elegant btn-lg" style="visibility: hidden; padding-top: 20px; font-size: 12px;" onclick="generateCode()"><i class="fas fa-lg fa-dragon"></i> <br/> Generate Code</button>
         </div>
       </div>
 
@@ -463,12 +458,12 @@ aria-hidden="true" data-backdrop="true">
         
           <ul class="list-group" style="cursor: pointer;" onselectstart="return false" ondragstart="return false">
             <label>Style <small class="grey-text">(optional, default = h2)</small></label>
-            <li class="list-group-item" value="5" onclick="setElementAsActive(this)" data-toggle="popover-hover" data-img="images/hover/header_1.png">h1</li>
-            <li class="list-group-item" value="6" onclick="setElementAsActive(this)" data-toggle="popover-hover" data-img="images/hover/header_2.png">h2</li>
-            <li class="list-group-item" value="7" onclick="setElementAsActive(this)" data-toggle="popover-hover" data-img="images/hover/header_3.png">h3</li>
-            <li class="list-group-item" value="8" onclick="setElementAsActive(this)" data-toggle="popover-hover" data-img="images/hover/header_4.png">h4</li>
-            <li class="list-group-item" value="9" onclick="setElementAsActive(this)" data-toggle="popover-hover" data-img="images/hover/header_5.png">h5</li>
-            <li class="list-group-item" value="10" onclick="setElementAsActive(this)" data-toggle="popover-hover" data-img="images/hover/header_6.png">h6</li>
+            <li class="list-group-item" value="5" onclick="setElementAsActive(this)"><div class="row"><div class="col">h1</div> <div class="col text-right"><span class="badge badge-default" data-toggle="popover-hover" data-img="images/hover/header_1.png" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
+            <li class="list-group-item" value="6" onclick="setElementAsActive(this)"><div class="row"><div class="col">h2</div> <div class="col text-right"><span class="badge badge-default" data-toggle="popover-hover" data-img="images/hover/header_2.png" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
+            <li class="list-group-item" value="7" onclick="setElementAsActive(this)"><div class="row"><div class="col">h3</div> <div class="col text-right"><span class="badge badge-default" data-toggle="popover-hover" data-img="images/hover/header_3.png" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
+            <li class="list-group-item" value="8" onclick="setElementAsActive(this)"><div class="row"><div class="col">h4</div> <div class="col text-right"><span class="badge badge-default" data-toggle="popover-hover" data-img="images/hover/header_4.png" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
+            <li class="list-group-item" value="9" onclick="setElementAsActive(this)"><div class="row"><div class="col">h5</div> <div class="col text-right"><span class="badge badge-default" data-toggle="popover-hover" data-img="images/hover/header_5.png" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
+            <li class="list-group-item" value="10" onclick="setElementAsActive(this)"><div class="row"><div class="col">h6</div> <div class="col text-right"><span class="badge badge-default" data-toggle="popover-hover" data-img="images/hover/header_6.png" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
           </ul> 
         </form>
       </div>
@@ -505,12 +500,12 @@ aria-hidden="true" data-backdrop="true">
         
           <ul class="list-group" style="cursor: pointer;" onselectstart="return false" ondragstart="return false">
             <label>Style</label>
-            <li class="list-group-item headerStyle_update" value="10" onclick="setElementAsActive(this)" data-toggle="popover-hover" data-img="images/hover/header_1.png">h1</li>
-            <li class="list-group-item headerStyle_update" value="11" onclick="setElementAsActive(this)" data-toggle="popover-hover" data-img="images/hover/header_2.png">h2</li>
-            <li class="list-group-item headerStyle_update" value="12" onclick="setElementAsActive(this)" data-toggle="popover-hover" data-img="images/hover/header_3.png">h3</li>
-            <li class="list-group-item headerStyle_update" value="13" onclick="setElementAsActive(this)" data-toggle="popover-hover" data-img="images/hover/header_4.png">h4</li>
-            <li class="list-group-item headerStyle_update" value="14" onclick="setElementAsActive(this)" data-toggle="popover-hover" data-img="images/hover/header_5.png">h5</li>
-            <li class="list-group-item headerStyle_update" value="15" onclick="setElementAsActive(this)" data-toggle="popover-hover" data-img="images/hover/header_6.png">h6</li>
+            <li class="list-group-item headerStyle_update" value="10" onclick="setElementAsActive(this)"><div class="row"><div class="col">h1</div> <div class="col text-right"><span class="badge badge-default" data-toggle="popover-hover" data-img="images/hover/header_1.png" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
+            <li class="list-group-item headerStyle_update" value="11" onclick="setElementAsActive(this)"><div class="row"><div class="col">h2</div> <div class="col text-right"><span class="badge badge-default" data-toggle="popover-hover" data-img="images/hover/header_2.png" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
+            <li class="list-group-item headerStyle_update" value="12" onclick="setElementAsActive(this)"><div class="row"><div class="col">h3</div> <div class="col text-right"><span class="badge badge-default" data-toggle="popover-hover" data-img="images/hover/header_3.png" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
+            <li class="list-group-item headerStyle_update" value="13" onclick="setElementAsActive(this)"><div class="row"><div class="col">h4</div> <div class="col text-right"><span class="badge badge-default" data-toggle="popover-hover" data-img="images/hover/header_4.png" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
+            <li class="list-group-item headerStyle_update" value="14" onclick="setElementAsActive(this)"><div class="row"><div class="col">h5</div> <div class="col text-right"><span class="badge badge-default" data-toggle="popover-hover" data-img="images/hover/header_5.png" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
+            <li class="list-group-item headerStyle_update" value="15" onclick="setElementAsActive(this)"><div class="row"><div class="col">h6</div> <div class="col text-right"><span class="badge badge-default" data-toggle="popover-hover" data-img="images/hover/header_6.png" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
           </ul> 
         </form>
       </div>
@@ -756,11 +751,11 @@ aria-hidden="true" data-backdrop="true">
             <div class="form-group">
               <ul class="list-group" style="cursor: pointer;" onselectstart="return false" ondragstart="return false">
                 <label>Type <small class="mdb-color-text">(required)</small></label>
-                <li class="list-group-item" value="0" onclick="setElementAsActive(this, 'toggle_list_iconField')" data-toggle="popover-hover" data-img="images/hover/list_iconic.PNG">iconic</li>
-                <li class="list-group-item" value="1" onclick="setElementAsActive(this)" data-toggle="popover-hover" data-img="images/hover/list_normal.PNG">normal</li>
-                <li class="list-group-item" value="2" onclick="setElementAsActive(this)" data-toggle="popover-hover" data-img="images/hover/list_link.PNG">link</li>
+                <li class="list-group-item" value="0" onclick="setElementAsActive(this, 'toggle_list_iconField')"><div class="row"><div class="col">iconic</div> <div class="col text-right"><span class="badge badge-default" data-toggle="popover-hover" data-img="images/hover/list_iconic.PNG" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
+                <li class="list-group-item" value="1" onclick="setElementAsActive(this)"><div class="row"><div class="col">normal</div> <div class="col text-right"><span class="badge badge-default" data-toggle="popover-hover" data-img="images/hover/list_normal.PNG" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
+                <li class="list-group-item" value="2" onclick="setElementAsActive(this)"><div class="row"><div class="col">link</div> <div class="col text-right"><span class="badge badge-default" data-toggle="popover-hover" data-img="images/hover/list_link.PNG" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
               </ul> 
-              <small class="form-text text-muted text-center">Hover over specific type to see the example.</small>
+              <small class="form-text text-muted text-center">Hover over magnifier icon to see the example.</small>
               <small class="form-text text-muted text-center">Click on the desired type to confirm.</small>
             </div>
 
@@ -854,10 +849,12 @@ aria-hidden="true" data-backdrop="true">
 
                 <ul class="list-group" style="cursor: pointer;" onselectstart="return false" ondragstart="return false">
                   <label>Type <small class="mdb-color-text">(required)</small></label>
-                  <li class="list-group-item" value="3" onclick="setElementAsActive(this)" data-toggle="popover-hover" data-img="images/hover/table_text.PNG">text</li>
-                  <li class="list-group-item" value="4" onclick="setElementAsActive(this)" data-toggle="popover-hover" data-img="images/hover/table_image.PNG">image</li>
+                  <li class="list-group-item" value="3" onclick="setElementAsActive(this)"><div class="row"><div class="col">text</div> <div class="col text-right"><span class="badge badge-default" data-toggle="popover-hover" data-img="images/hover/table_text.PNG" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
+                  <li class="list-group-item" value="4" onclick="setElementAsActive(this)"><div class="row"><div class="col">image</div> <div class="col text-right"><span class="badge badge-default" data-toggle="popover-hover" data-img="images/hover/table_image.PNG" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
+                  <li class="list-group-item" value="23" onclick="setElementAsActive(this)"><div class="row"><div class="col">kbd image</div> <div class="col text-right"><span class="badge badge-default" data-toggle="popover-hover" data-img="images/hover/table_kbdimage.png" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
+                  <li class="list-group-item" value="24" onclick="setElementAsActive(this)">linked kbd image</li>
                 </ul> 
-                <small class="form-text text-muted text-center">Hover over specific type to see the example.</small>
+                <small class="form-text text-muted text-center">Hover over magnifier icon to see the example.</small>
                 <small class="form-text text-muted text-center">Choose what table cell will contain.</small>
             </div>
         </div>
@@ -876,7 +873,7 @@ aria-hidden="true" data-backdrop="true">
 </div>
 </div>
 
-<!-- Table Update Modal -->
+<!-- Text Table Update Modal -->
 <div class="modal fade" id="arrayUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
@@ -893,7 +890,6 @@ aria-hidden="true" data-backdrop="true">
             <div class="form-group">
               <label for="array_update_dynamic_fields">Data</label>
               <div id="array_update_dynamic_fields">
-  
               </div>
             </div>
           </div>
@@ -905,6 +901,45 @@ aria-hidden="true" data-backdrop="true">
       <div class="modal-footer justify-content-center">
         <button onclick="updateTable()" type="button" class="btn btn-deep-purple">Update</button>
         <button type="button" class="btn btn-purple" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Table Universal Update Modal -->
+<div class="modal fade" id="tableUniUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-side modal-top-right"" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title w-100" id="myModalLabel"><i class="fas fa-table"></i> Table Update</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="container" style="overflow: auto; max-height: 500px;">
+            <div class="form-group">
+              <div class="row justify-content-md-center">
+                <div class="col-md-12 text-center">
+                    <label class="my-1 mr-2">New images dimensions <small class="mdb-color-text">(required)</small></label>
+                </div>
+                <div class="col-md-6">
+                    <label class="text-center col-md-12" for="arrRowsAmount">Width</label>
+                    <input class="form-control col-md-auto text-center" id="uniTabWidth" placeholder="0" autocomplete="off">
+                </div>        
+                <div class="col-md-6">
+                    <label class="text-center col-md-12" for="arrColsAmount">Height</label>
+                    <input class="form-control col-md-auto text-center" id="uniTabHeight" placeholder="0" autocomplete="off">
+                </div>
+            </div>
+            </div>
+          </div>
+        </form> 
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button onclick="updateNonTextTable()" type="button" class="btn btn-deep-purple">Update</button>
       </div>
     </div>
   </div>
@@ -996,12 +1031,12 @@ aria-hidden="true" data-backdrop="true">
 </div>
 </div>
 
-<!-- Label Modal -->
-<div class="modal fade right" id="labelModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<!-- Badge Modal -->
+<div class="modal fade right" id="badgeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-full-height modal-right" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title w-100" id="myModalLabel"><i class="far fa-sticky-note"></i> Label Settings</h4>
+        <h4 class="modal-title w-100" id="myModalLabel"><i class="far fa-sticky-note"></i> Badge Settings</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -1010,25 +1045,25 @@ aria-hidden="true" data-backdrop="true">
       <div class="modal-body">
         <form>
           <div class="form-group">
-            <label for="l_label">Label <small class="mdb-color-text">(required)</small></label>
-            <input class="form-control" id="l_label" maxlength="25" autocomplete="off">
+            <label for="b_label">Label <small class="mdb-color-text">(required)</small></label>
+            <input class="form-control" id="b_label" maxlength="25" autocomplete="off">
           </div>
 
           <div class="form-group">
-            <label for="l_message">Message <small class="mdb-color-text">(required)</small></label>
-            <input class="form-control" id="l_message" maxlength="25" autocomplete="off">
+            <label for="b_message">Message <small class="mdb-color-text">(required)</small></label>
+            <input class="form-control" id="b_message" maxlength="25" autocomplete="off">
           </div>
 
           <div class="form-group">
-            <label for="l_color">Color <small class="mdb-color-text">(required)</small></label>
-            <input class="form-control" id="l_color" autocomplete="off" value="#2B95E2">
+            <label for="b_color">Color <small class="mdb-color-text">(required)</small></label>
+            <input class="form-control" id="b_color" autocomplete="off" value="#2B95E2">
           </div>
 
           <div class="form-group">
-            <label for="l_style">Style <small class="grey-text">(optional)</small></label>
-            <select id="l_style" class="browser-default custom-select" autocomplete="off">
-              <option value="default" selected>Plastic(default)</option>
-              <option value="flat">Flat</option>
+            <label for="b_style">Style <small class="grey-text">(optional)</small></label>
+            <select id="b_style" class="browser-default custom-select" autocomplete="off">
+              <option value="default" selected>Flat(default)</option>
+              <option value="plastic">Plastic</option>
               <option value="flat-square">Flat-square</option>
               <option value="for-the-badge">For-the-badge</option>
               <option value="social">Social</option>
@@ -1038,13 +1073,13 @@ aria-hidden="true" data-backdrop="true">
           <div class="form-group">
             <div class="row">
               <div class="col-12">
-                <button onclick="labelPreview()" type="button" data-toggle="popover-click" class="btn btn-deep-purple" style="width: 100%; padding: auto 0 auto 0; margin: 0;">Preview</button>
+                <button onclick="badgePreview()" type="button" data-toggle="popover-click" class="btn btn-deep-purple" style="width: 100%; padding: auto 0 auto 0; margin: 0;">Preview</button>
               </div>
             </div>
             <div class="row">
               <div class="col-12 justify-content-center d-flex">
                 <img id="loader_img" src="images/img_loader.svg" height="60"/>
-                <img id="label_preview_img" style="padding-top: 20px;"/>
+                <img id="badge_preview_img" style="padding-top: 20px;"/>
               </div>
             </div>
           </div>
@@ -1078,22 +1113,22 @@ aria-hidden="true" data-backdrop="true">
       </div>
       <div class="modal-footer">
         <div class="col text-left ml-0">
-          <button onclick="createLabel()" type="button" class="btn btn-deep-purple">Create</button>
+          <button onclick="createBadge()" type="button" class="btn btn-deep-purple">Create</button>
         </div>
         <div class="col text-right mr-0">
-          <button type="button" class="btn btn-danger" onclick="clearModal('#labelModal', 'withImage')">Reset</button>
+          <button type="button" class="btn btn-danger" onclick="clearModal('#badgeModal', 'withImage')">Reset</button>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Label Update Modal -->
-<div class="modal fade right" id="labelUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<!-- Badge Update Modal -->
+<div class="modal fade right" id="badgeUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-side modal-top-right" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title w-100" id="myModalLabel"><i class="far fa-sticky-note"></i> Label Update</h4>
+        <h4 class="modal-title w-100" id="myModalLabel"><i class="far fa-sticky-note"></i> Badge Update</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -1102,23 +1137,23 @@ aria-hidden="true" data-backdrop="true">
       <div class="modal-body">
         <form>
           <div class="form-group">
-            <label for="l_label_update">Label</label>
-            <input class="form-control" id="l_label_update" maxlength="25" autocomplete="off">
+            <label for="b_label_update">Label</label>
+            <input class="form-control" id="b_label_update" maxlength="25" autocomplete="off">
           </div>
 
           <div class="form-group">
-            <label for="l_message_update">Message</label>
-            <input class="form-control" id="l_message_update" maxlength="25" autocomplete="off">
+            <label for="b_message_update">Message</label>
+            <input class="form-control" id="b_message_update" maxlength="25" autocomplete="off">
           </div>
 
           <div class="form-group">
-            <label for="l_color_update">Color</label>
-            <input class="form-control" id="l_color_update" autocomplete="off" value="#2B95E2">
+            <label for="b_color_update">Color</label>
+            <input class="form-control" id="b_color_update" autocomplete="off" value="#2B95E2">
           </div>
 
           <div class="form-group">
-            <label for="l_style_update">Style</label>
-            <select id="l_style_update" class="browser-default custom-select" autocomplete="off">
+            <label for="b_style_update">Style</label>
+            <select id="b_style_update" class="browser-default custom-select" autocomplete="off">
               <option value="default" selected>Plastic(default)</option>
               <option value="flat">Flat</option>
               <option value="flat-square">Flat-square</option>
@@ -1145,7 +1180,7 @@ aria-hidden="true" data-backdrop="true">
         </div>
       </div>
       <div class="modal-footer justify-content-center">
-        <button onclick="updateLabel()" type="button" class="btn btn-deep-purple">Create</button>
+        <button onclick="updateBadge()" type="button" class="btn btn-deep-purple">Update</button>
         <button type="button" class="btn btn-purple" data-dismiss="modal">Close</button>
       </div>
     </div>
@@ -1312,6 +1347,9 @@ Script references
 -->
 
     <script src="https://kit.fontawesome.com/37c75e360e.js" crossorigin="anonymous"></script>
+
+    <!-- Iconfic -->
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
 
     <!-- JQuery -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
