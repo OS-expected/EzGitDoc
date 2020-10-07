@@ -6,28 +6,28 @@
 ## Start
 
 <p align="justify">
-EzGitDoc is open-source, WYSIWYG tool designed to improve Git documentation experience. Click on the images above to be redirected onto docs/tool page. Pros of using EzGitDoc can be found <a href="https://trolit.github.io/EzGitDoc-documentation/#pros-of-ezgitdoc">here</a>. Thanks to <a href="https://github.com/damianggg">@damianggg</a> for spending time on functional tests 👍 
+EzGitDoc is open-source, WYSIWYG tool designed to improve Git repositories documentation experience. Click on the images above to be redirected onto docs/tool page. Pros of using EzGitDoc can be found <a href="https://trolit.github.io/EzGitDoc-documentation/#pros-of-ezgitdoc">here</a>. Thanks to <a href="https://github.com/damianggg">@damianggg</a> for spending time on functional tests 👍 
 </p>
 
-## Predefined templates
+#### Predefined templates
 <p align="justify">
     :file_folder: Whether you have experience on creating docs for special purpose(e.g. open software, game, library, solution) or not and want to share pattern then it's possible! <a href="https://github.com/trolit/EzGitDoc/tree/master/templates">Here</a> are stored predefined templates. Before you mention your template, make sure to check <code>exampleTemplate</code> and use <code>emptyTemplate</code>. 
 </p>
 
 ## Preview
 
-| | |
-| :---: | :---: |
-| <img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/gallery/fancy1.PNG" alt="#toadd" width="400" height="183"/> | <img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/gallery/fancy2.PNG" alt="#toadd" width="400" height="183"/> |
-| <img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/gallery/fancy3.PNG" alt="#toadd" width="400" height="183"/> | <img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/gallery/fancy4.PNG" alt="#toadd" width="400" height="183"/> |
-| <img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/gallery/fancy5.png" alt="#toadd" width="400" height="183"/> | <img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/gallery/fancy6.PNG" alt="#toadd" width="400" height="183"/> |
-| <img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/gallery/fancy7.PNG" alt="#toadd" width="400" height="183"/> | <img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/gallery/fancy8.PNG" alt="#toadd" width="400" height="183"/> |
-
-## Libraries
-
-<p>
-EzGitDoc uses:
+<p align="center">
+<kbd><img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/gallery/fancy1.PNG" alt="Preview 1" width="300" height="165"/></kbd> 
+<kbd><img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/gallery/fancy2.PNG" alt="Preview 2" width="300" height="165"/></kbd> 
+<br/> 
+<kbd><img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/gallery/fancy3.PNG" alt="Preview 3" width="300" height="165"/></kbd> 
+<kbd><img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/gallery/fancy4.PNG" alt="Preview 4" width="300" height="165"/></kbd> 
+<br/>
+<kbd><img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/gallery/fancy5.png" alt="Preview 5" width="300" height="165"/></kbd> 
+<kbd><img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/gallery/fancy6.PNG" alt="Preview 6" width="300" height="165"/></kbd> 
 </p>
+
+## Libraries/Snippets
 
 - <a href="https://github.com/SortableJS/Sortable">SortableJS</a>
 - <a href="https://fontawesome.com/">Font Awesome icons set</a>
@@ -45,11 +45,8 @@ EzGitDoc uses:
 <a href="https://github.com/trolit/EzGitDoc/blob/master/LICENSE">MIT License</a> - Paweł Idzikowski
 
 <br/>
-<br/>
-<br/>
 
 <a href="https://trolit.github.io/EzGitDoc/"><img src="https://github.com/trolit/EzGitDoc/blob/master/images/banner.PNG" alt="EzGitDoc banner" height="100%"></a>
-
 
 ---
 
