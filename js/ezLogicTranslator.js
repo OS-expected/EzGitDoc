@@ -135,8 +135,8 @@ function printTextListCode(listLength, listElement) {
   return textListCode;
 }
 
-function printLinkCode(href, textContent) {
-  return `<a href="${href}">${textContent}</a>`;
+function printKbdLinkCode(href, textContent) {
+  return `<a href="${href}"><kbd>${textContent}</kbd></a>`;
 }
 
 function printKbdCode(content, mode = 'basic') {
@@ -145,11 +145,11 @@ function printKbdCode(content, mode = 'basic') {
     if (content.item(i).tagName !== 'BR') {
       if (mode === 'basic') {
         var image = content.item(i).firstChild;
-        kbdCode += `${printPlaceHoldImageCode(image.width, image.height, image.alt)} \r\n`;
+        kbdCode += `<kbd>${printPlaceHoldImageCode(image.width, image.height, image.alt)}</kbd> \r\n`;
       } else if (mode === 'linked') {
         var a = content.item(i);
         var image = content.item(i).firstChild.children[0];
-        kbdCode += `${printLinkCode(a.href, printPlaceHoldImageCode(image.width, image.height, image.alt))} \r\n`;
+        kbdCode += `${printKbdLinkCode(a.href, printPlaceHoldImageCode(image.width, image.height, image.alt))} \r\n`;
       }
     } else {
       kbdCode += '<br/> \r\n';
