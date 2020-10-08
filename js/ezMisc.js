@@ -159,6 +159,8 @@ window.onbeforeunload = null;
 // on page startup with JQuery
 $(document).ready(function () {
   $('#myToast').hide();
+  // queue defaulting last highlighted element's background color
+  defaultLastHighlightedElementBackgroundColor();
   // hide label loader
   $('#loader_img').hide();
   // bs colorpicker init
@@ -228,6 +230,15 @@ $(document).ready(function () {
     };
   }
 });
+
+function defaultLastHighlightedElementBackgroundColor() {
+  $('#referencesModal').on('hidden.bs.modal', function () {
+    if (lastHighlightedElement != null) {
+      lastHighlightedElement.style.backgroundColor = '#EEEEEE';
+      lastHighlightedElement = null;
+    }
+  });
+}
 
 // Generated code copy function
 function copyToClipboard(btn) {
@@ -314,3 +325,71 @@ $('body').on('hidden.bs.modal', function () {
     $('body').addClass('modal-open');
   }
 });
+
+// supply references modal
+var referencesModalContent = document.getElementById('referencesModalContent');
+
+function clearReferencesModalContent() {
+  $('#referencesModalContent').children().remove();
+}
+
+function addMessageToReferencesModalContent() {
+  var small = document.createElement('small');
+  var p = document.createElement('p');
+  p.textContent = 'There are no elements to move to :(';
+  small.appendChild(p);
+  referencesModalContent.appendChild(small);
+}
+
+function generateReferences() {
+  clearReferencesModalContent();
+  var elements = document.getElementsByClassName('ezGitPart');
+  if (elements.length === 0) {
+    addMessageToReferencesModalContent();
+    return;
+  }
+  var ol = document.createElement('ol');
+  elements.forEach(element => {
+    console.log(element.classList);
+    var li = document.createElement('li');
+    li.appendChild(returnElementRef(element));
+    ol.appendChild(li);
+  });
+  referencesModalContent.appendChild(ol);
+}
+
+function returnElementRef(element) {
+  var name = '';
+  var classList = element.classList;
+  // console.log(element.children[0]);
+  classList.forEach(singleClass => {
+    switch (singleClass) {
+      case 'header':
+        var header = element.children[0];
+        var headerLevel = header.tagName[1];
+        var headerLength = header.textContent.length;
+        name = `H${headerLevel} header (${headerLength > 10 ? header.textContent.substring(0, 10) + '...' : header.textContent})`;
+        break;
+    }
+  });
+  return wrapElementRefIntoAnchor(element.id, name);
+}
+
+function wrapElementRefIntoAnchor(id, name) {
+  var a = document.createElement('a');
+  a.href = `#${id}`;
+  a.textContent = name;
+  a.onclick = function() { highlightElement(id); };
+  return a;
+}
+
+var lastHighlightedElement = null;
+
+function highlightElement(id) {
+  if (lastHighlightedElement !== null) {
+    lastHighlightedElement.style.backgroundColor = '#EEEEEE';
+  }
+  var element = document.getElementById(id);
+  element.style.backgroundColor = '#E5A200';
+  lastHighlightedElement = element;
+}

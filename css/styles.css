@@ -653,3 +653,17 @@ left: 0px;
 .chiller-theme .sidebar-footer>a:last-child {
     border-right: none;
 }
+
+.references-modal-styles {
+    background-color: #7b7f85 !important;
+}
+
+.references-modal-styles a:link, 
+.references-modal-styles a:visited, 
+.references-modal-styles a:active {
+    color: #FFB400;
+}
+
+.references-modal-styles a:hover {
+    color: #B37E00;
+}
