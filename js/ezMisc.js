@@ -364,15 +364,47 @@ function returnElementRef(element) {
   // console.log(element.children[0]);
   classList.forEach(singleClass => {
     switch (singleClass) {
+      case 'code':
+        var pre = element.children[0];
+        var code = pre.children[0];
+        var language = code.innerText.split('\n')[0].substring(3);
+        name = language.length === 0 ? 'Code (no lang specified)' : `Code (${language})`;
+        break;
       case 'header':
         var header = element.children[0];
         var headerLevel = header.tagName[1];
         var headerLength = header.textContent.length;
         name = `H${headerLevel} header (${headerLength > 10 ? header.textContent.substring(0, 10) + '...' : header.textContent})`;
         break;
+      case 'image':
+        var image = element.children[0];
+        name = `Image (res: ${getImageResolution(image)})`;
+        break;
+      case 'link':
+        var link = element.children[0];
+        name = `Link (name: ${link.textContent})`;
+        break;
+      case 'list':
+        var list = element.children[0];
+        if (list.tagName === 'P') {
+          name = `Iconic list (size: ${element.childNodes.length - 2})`;
+        } else {
+          var li = list.children[0];
+          var firstListItem = li.children[0];
+          if (firstListItem !== undefined && firstListItem.tagName === 'A') {
+            name = `Linked list (size: ${list.childNodes.length})`;
+          } else {
+            name = `Text list (size: ${list.childNodes.length})`;
+          }
+        }
+        break;
     }
   });
   return wrapElementRefIntoAnchor(element.id, name);
+}
+
+function getImageResolution(image) {
+  return `${image.width}x${image.height}`;
 }
 
 function wrapElementRefIntoAnchor(id, name) {
