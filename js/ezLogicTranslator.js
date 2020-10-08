@@ -158,6 +158,10 @@ function printKbdCode(content, mode = 'basic') {
   return wrapCodeIntoParagraph('kbd', kbdCode);
 }
 
+function printLinkCode(href, text) {
+  return `<a href="${href}">${text}</a>`;
+}
+
 function generateCode() {
   var code = '';
   var elements = document.getElementsByClassName('ezGitPart');
