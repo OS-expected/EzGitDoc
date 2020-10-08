@@ -350,7 +350,6 @@ function generateReferences() {
   }
   var ol = document.createElement('ol');
   elements.forEach(element => {
-    console.log(element.classList);
     var li = document.createElement('li');
     li.appendChild(returnElementRef(element));
     ol.appendChild(li);
@@ -361,7 +360,6 @@ function generateReferences() {
 function returnElementRef(element) {
   var name = '';
   var classList = element.classList;
-  // console.log(element.children[0]);
   classList.forEach(singleClass => {
     switch (singleClass) {
       case 'code':
@@ -374,7 +372,7 @@ function returnElementRef(element) {
         var header = element.children[0];
         var headerLevel = header.tagName[1];
         var headerLength = header.textContent.length;
-        name = `H${headerLevel} header (${headerLength > 10 ? header.textContent.substring(0, 10) + '...' : header.textContent})`;
+        name = `H${headerLevel} header (text: ${headerLength > 10 ? header.textContent.substring(0, 10) + '...' : header.textContent})`;
         break;
       case 'image':
         var image = element.children[0];
@@ -398,9 +396,57 @@ function returnElementRef(element) {
           }
         }
         break;
+      case 'table':
+        var table = element.children[0];
+        if (table.tagName === 'TABLE') {
+          var rows = table.rows.length;
+          var cells = table.rows[0].cells.length;
+          var td = table.rows[0].cells[0];
+          var tdItem = td.children[0];
+          if (tdItem.tagName === 'STRONG') {
+            name = `Text table ${cells}x${rows}`;
+          } else if (tdItem.tagName === 'IMG') {
+            name = `Image table ${cells}x${rows} | ${tdItem.width}x${tdItem.height}`;
+          }
+        } else if (table.tagName === 'P') {
+          var firstItem = table.children[0];
+          if (firstItem.tagName === 'KBD') {
+            var image = firstItem.children[0];
+            name = `Kbd table ${countRowsColsOfKbdTable(table)} | ${image.width}x${image.height}`;
+          } else if (firstItem.tagName === 'A') {
+            var kbd = firstItem.children[0];
+            var image = kbd.children[0];
+            name = `Linked kbd table ${countRowsColsOfKbdTable(table)} | ${image.width}x${image.height}`;
+          }
+        }
+        break;
+      case 'text':
+        var p = element.children[0];
+        var textLength = p.textContent.length;
+        name = `Text (${textLength > 10 ? p.textContent.substring(0, 10) + '...' : p.textContent})`;
+        break;
+      case 'badge':
+        var image = element.children[0];
+        var index = image.src.indexOf('badge/') + 5;
+        name = `Badge (${image.src.substr(index, 15)}...)`;
+        break;
     }
   });
   return wrapElementRefIntoAnchor(element.id, name);
+}
+
+function countRowsColsOfKbdTable(table) {
+  var rows = 0;
+  var cols = 0;
+  var childNodes = table.childNodes;
+  childNodes.forEach(childNode => {
+    if (childNode.tagName === 'BR') {
+      rows += 2;
+    } else if (rows === 0) {
+      cols++;
+    }
+  });
+  return `${cols}x${rows}`;
 }
 
 function getImageResolution(image) {
