@@ -500,6 +500,7 @@ function createBadge() {
   div = setElement(div);
 
   var img = document.createElement('img');
+  img.style.float = 'left';
 
   if (style !== 'default') {
     img.src = 'https://img.shields.io/badge/' + label + '-' + message + '-red?color=' + color.substr(1) + '&style=' + style;
