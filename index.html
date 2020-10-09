@@ -427,17 +427,19 @@ aria-hidden="true" data-backdrop="true">
           </div>
         </div>
       </form>
-
+    </div>
+    <div class="modal-footer justify-content-center">
       <div class="row">
-        <div class="col text-left">
-          <ul class="list-unstyled ml-3">
-            <li><small class="form-text text-muted"><i class="far fa-question-circle"></i> In the code area you can use &nbsp; <span class="badge badge-light" style="padding: 6px;">TAB</span> &nbsp; key to make indent.</small> </li>
-            <li><small class="form-text text-muted"><i class="far fa-question-circle"></i> Code textarea is resizable (grab right bottom corner).</small></li>
+        <div class="col text-left ml-1 mr-1 mt-2">
+          Did you know?
+          <hr class="m-0"/>
+          <ul class="list-unstyled mt-3">
+            <li><small class="form-text text-muted"><i class="fas fa-highlighter"></i> Use &nbsp; <kbd class="badge badge-light" style="padding: 6px;">TAB</kbd> &nbsp; key to make indentation in Code.</small> </li>
+            <li><small class="form-text text-muted"><i class="fas fa-highlighter"></i> Textareas in EzGitDoc are resizable.</small></li>
+            <li><small class="form-text text-muted"><i class="fas fa-highlighter"></i> GitHub supported languages can be found <a href="https://github.com/github/linguist/blob/master/lib/linguist/languages.yml" target="_blank">here</a>.</small></li>
           </ul>
         </div>
       </div>
-    </div>
-    <div class="modal-footer">
       <div class="col text-left ml-0">
         <button onclick="createCode()" type="button" class="btn btn-elegant">Create</button>
       </div>
@@ -628,7 +630,7 @@ aria-hidden="true" data-backdrop="true">
         <div class="row">
           <div class="col text-left">
             <ul class="list-unstyled ml-3">
-                <li><small class="form-text text-muted"><i class="far fa-question-circle"></i> At least one axis needs to be set.<br/>(it's value must be higher than 0)</small></li>
+                <li><small class="form-text text-muted"><i class="fas fa-highlighter"></i> At least one axis needs to be set.<br/>(it's value must be higher than 0)</small></li>
             </ul>
           </div>
         </div>
@@ -739,6 +741,15 @@ aria-hidden="true" data-backdrop="true">
     </div>
 
     <div class="modal-footer">
+      <div class="row">
+        <div class="col text-left ml-2 mr-2 mt-2">
+          Did you know?
+          <hr class="m-0"/>
+          <ul class="list-unstyled mt-3">
+            <li><small class="form-text text-muted"><i class="fas fa-highlighter"></i> If you want to create more than one link, you can use link list or linked kbd table. You can also make link in text element using anchor tag(a).</small> </li>
+          </ul>
+        </div>
+      </div>
       <div class="col text-left ml-0">
         <button onclick="createLink()" type="button" class="btn btn-elegant">Create</button>
       </div>
@@ -815,17 +826,24 @@ aria-hidden="true" data-backdrop="true">
               <small class="form-text text-muted text-center">Click on the desired type to confirm choice.</small>
             </div>
 
-            <br/>
-
             <div id="iconDiv" class="form-group">
               <label for="iconName">Got icon? Type name here</label>
               <input class="form-control" id="iconName" placeholder="e.g. smiley" autocomplete="off">
               <small class="form-text text-muted text-left">For the list of icons supported by GitHub, refer <a href="https://gist.github.com/rxaviers/7360908" target="_blank">here</a>.</small>
-              <small class="form-text text-muted text-left">Icon can be added later by replacing Id put between : : with icon name.</small>
             </div>
         </form>
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer justify-content-center">
+        <div class="row">
+          <div class="col text-left ml-2 mr-2 mt-2">
+            Did you know?
+            <hr class="m-0"/>
+            <ul class="list-unstyled mt-3">
+              <li><small class="form-text text-muted"><i class="fas fa-highlighter"></i> If you won't specify icon for iconic list, EzGitDoc will put unique Id that can be easily changed later.</small> </li>
+              <li><small class="form-text text-muted"><i class="fas fa-highlighter"></i> You can extend lists and text tables during update process.</small> </li>
+            </ul>
+          </div>
+        </div>
         <div class="col text-left ml-0">
           <button onclick="createList()" type="button" class="btn btn-elegant">Create</button>
         </div>
@@ -860,7 +878,7 @@ aria-hidden="true" data-backdrop="true">
           </div>
       </form>
       <div class="text-center">
-        <button type="button" class="btn btn-default btn-sm" onclick='insertNewListElement()'>New item</button>
+        <button type="button" class="btn btn-default btn-sm btn-brown" onclick='insertNewListElement()'>New item</button>
       </div>
       </div>
       <div class="modal-footer justify-content-center">
@@ -956,7 +974,7 @@ aria-hidden="true" data-backdrop="true">
           </div>
         </form> 
         <div class="text-center">
-          <button type="button" class="btn btn-default btn-sm" onclick='insertNewRowIntoTableById("array_update_dynamic_fields")'>Add row</button>
+          <button type="button" class="btn btn-default btn-sm btn-brown" onclick='insertNewRowIntoTableById("array_update_dynamic_fields")'>Add row</button>
         </div>
       </div>
       <div class="modal-footer justify-content-center">
@@ -1037,17 +1055,18 @@ aria-hidden="true" data-backdrop="true">
         </div>
       </form>
 
-      <div class="row mt-3">
-        <div class="col text-left">
-          <ul class="list-unstyled ml-3">
-              <li><small class="form-text text-muted"><i class="far fa-question-circle"></i> Leave text field empty if you want to use lorem ipsum template.</small> </li>
-              <li><small class="form-text text-muted"><i class="far fa-question-circle"></i> You can use HTML markup in the text area like: <br/> &lt;a href="address"&gt; text &lt;/a&gt; &nbsp; (to create link) <br/> &lt;strong&gt; text &lt;/strong&gt; &nbsp; (to bold text) <br/> &lt;em&gt; text &lt;/em&gt; &nbsp; (to emphasis text) <br/> &lt;del&gt; text &lt;/del&gt; &nbsp; (to strike text) <br/> etc. </small> </li>
+    </div>
+    <div class="modal-footer justify-content-center">
+      <div class="row">
+        <div class="col text-left ml-2 mr-2 mt-2">
+          Did you know?
+          <hr class="m-0"/>
+          <ul class="list-unstyled mt-3">
+            <li><small class="form-text text-muted"><i class="fas fa-highlighter"></i> Leave text field empty if you want to use lorem ipsum template.</small> </li>
+            <li><small class="form-text text-muted"><i class="fas fa-highlighter"></i> You can use HTML markup in the text area like: <br/> &lt;a href="address"&gt; text &lt;/a&gt; &nbsp; (to create link) <br/> &lt;strong&gt; text &lt;/strong&gt; &nbsp; (to bold text) <br/> &lt;em&gt; text &lt;/em&gt; &nbsp; (to emphasis text) <br/> &lt;del&gt; text &lt;/del&gt; &nbsp; (to strike text) <br/> etc. </small> </li>
           </ul>
         </div>
       </div>
-
-    </div>
-    <div class="modal-footer">
       <div class="col text-left ml-0">
         <button onclick="createText()" type="button" class="btn btn-elegant">Create</button>
       </div>
@@ -1112,12 +1131,12 @@ aria-hidden="true" data-backdrop="true">
       <div class="modal-body">
         <form>
           <div class="form-group">
-            <label for="b_label">Label <small class="text-muted">(required)</small></label>
+            <label for="b_label">Label <small class="text-muted">(required, max 25 characters)</small></label>
             <input class="form-control" id="b_label" maxlength="25" autocomplete="off">
           </div>
 
           <div class="form-group">
-            <label for="b_message">Message <small class="text-muted">(required)</small></label>
+            <label for="b_message">Message <small class="text-muted">(required, max 25 characters)</small></label>
             <input class="form-control" id="b_message" maxlength="25" autocomplete="off">
           </div>
 
@@ -1146,22 +1165,22 @@ aria-hidden="true" data-backdrop="true">
             <div class="row">
               <div class="col-12 justify-content-center d-flex">
                 <img id="loader_img" src="images/img_loader.svg" height="60"/>
-                <img id="badge_preview_img" style="padding-top: 20px;"/>
+                <img id="badge_preview_img" style="padding-top: 10px;"/>
               </div>
             </div>
           </div>
         </form>
-
-        <div class="row mt-3" style="font-family: 'Sen', sans-serif;">
+      </div>
+      <div class="modal-footer justify-content-center">
+        <div class="row">
           <div class="col text-left">
-            <ul class="list-unstyled">
-                <li><small class="form-text text-muted"><i class="far fa-question-circle"></i> Label and Message fields are limited to 25 characters.</small> </li>
-                <li><small class="form-text text-muted"><i class="far fa-question-circle"></i> Check predefined and dynamic labels on <a href="https://shields.io/" target="_blank">Shields.io</a></small> </li>            </ul>
+            Did you know?
+            <hr class="m-0"/>
+            <ul class="list-unstyled mt-3">
+              <li><small class="form-text text-muted"><i class="fas fa-highlighter"></i> Visit <a href="https://shields.io/" target="_blank">Shields.io</a> page to get predefined badges or to create more advanced one.</small> </li>
+            </ul>
           </div>
         </div>
-
-      </div>
-      <div class="modal-footer">
         <div class="col text-left ml-0">
           <button onclick="createBadge()" type="button" class="btn btn-elegant">Create</button>
         </div>
@@ -1189,47 +1208,31 @@ aria-hidden="true" data-backdrop="true">
       <div class="modal-body">
         <form>
           <div class="form-group">
-            <label for="b_label_update">Label</label>
+            <label for="b_label_update">Label <small class="text-muted">(required, max 25 characters)</small></label>
             <input class="form-control" id="b_label_update" maxlength="25" autocomplete="off">
           </div>
 
           <div class="form-group">
-            <label for="b_message_update">Message</label>
+            <label for="b_message_update">Message <small class="text-muted">(required, max 25 characters)</small></label>
             <input class="form-control" id="b_message_update" maxlength="25" autocomplete="off">
           </div>
 
           <div class="form-group">
-            <label for="b_color_update">Color</label>
+            <label for="b_color_update">Color <small class="text-muted">(required)</small></label>
             <input class="form-control" id="b_color_update" autocomplete="off" value="#2B95E2">
           </div>
 
           <div class="form-group">
-            <label for="b_style_update">Style</label>
+            <label for="b_style_update">Style <small class="grey-text">(optional)</small></label>
             <select id="b_style_update" class="browser-default custom-select" autocomplete="off">
-              <option value="default" selected>Plastic(default)</option>
-              <option value="flat">Flat</option>
+              <option value="default" selected>Flat(default)</option>
+              <option value="plastic">Plastic</option>
               <option value="flat-square">Flat-square</option>
               <option value="for-the-badge">For-the-badge</option>
               <option value="social">Social</option>
             </select>
           </div>
         </form>
-
-        <div class="row" style="font-family: 'Sen', sans-serif;">
-          <div class="col-12">
-            <a href="https://shields.io/" target="_blank" style="color: black;">
-              <p style="font-size: 18px; float: right; margin-bottom: 0; margin-right: 10px;">Made with</p>
-            </a>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-12">
-            <a href="https://shields.io/" target="_blank">
-              <img src="images/shields_logo.PNG" style="width: 35%; float: right;"/>
-            </a>
-          </div>
-        </div>
       </div>
       <div class="modal-footer justify-content-center">
         <button onclick="updateBadge()" type="button" class="btn btn-mdb-color">Update</button>
@@ -1254,8 +1257,8 @@ aria-hidden="true" data-backdrop="true">
       <div class="modal-body">
         <form>
           <div class="form-group">
-            <label for="details_summary">Summary <small class="text-muted">(required)</small></label>
-            <input class="form-control" id="details_summary" maxlength="40" autocomplete="off">
+            <label for="details_summary">Summary <small class="text-muted">(required, max 60 characters)</small></label>
+            <input class="form-control" id="details_summary" maxlength="60" autocomplete="off">
           </div>
 
           <div class="container">
@@ -1266,16 +1269,17 @@ aria-hidden="true" data-backdrop="true">
           </div>
         </form>
 
-        <div class="row mt-3">
+      </div>
+      <div class="modal-footer justify-content-center">
+        <div class="row">
           <div class="col text-left">
-            <ul class="list-unstyled">
-                <li><small class="form-text text-muted"><i class="far fa-question-circle"></i> <strong>Summary</strong> field is limited to 40 characters.</small> </li>
-                <li><small class="form-text text-muted"><i class="far fa-question-circle"></i> HTML markup is allowed in <strong>Body</strong> and <strong>Summary</strong>.</small> </li>
+            Did you know?
+            <hr class="m-0"/>
+            <ul class="list-unstyled mt-3">
+              <li><small class="form-text text-muted"><i class="fas fa-highlighter"></i> HTML markup is allowed in <strong>Body</strong> and <strong>Summary</strong>.</small> </li>
+            </ul>
           </div>
         </div>
-
-      </div>
-      <div class="modal-footer">
         <div class="col text-left ml-0">
           <button onclick="createDetails()" type="button" class="btn btn-elegant">Create</button>
         </div>
@@ -1303,8 +1307,8 @@ aria-hidden="true" data-backdrop="true">
       <div class="modal-body">
         <form>
           <div class="form-group">
-            <label for="details_summary_update">Summary <small class="text-muted">(required)</small></label>
-            <input class="form-control" id="details_summary_update" maxlength="40" autocomplete="off">
+            <label for="details_summary_update">Summary <small class="text-muted">(required, max 60 characters)</small></label>
+            <input class="form-control" id="details_summary_update" maxlength="60" autocomplete="off">
           </div>
 
           <div class="container">
@@ -1318,8 +1322,8 @@ aria-hidden="true" data-backdrop="true">
         <div class="row mt-3">
           <div class="col text-left">
             <ul class="list-unstyled">
-                <li><small class="form-text text-muted"><i class="far fa-question-circle"></i> <strong>Summary</strong> field is limited to 40 characters.</small> </li>
-                <li><small class="form-text text-muted"><i class="far fa-question-circle"></i> HTML markup is allowed in <strong>Body</strong> text area and <strong>Summary</strong> field.</small></li>
+                <li><small class="form-text text-muted"><i class="fas fa-highlighter"></i> <strong>Summary</strong> field is limited to 40 characters.</small> </li>
+                <li><small class="form-text text-muted"><i class="fas fa-highlighter"></i> HTML markup is allowed in <strong>Body</strong> text area and <strong>Summary</strong> field.</small></li>
           </div>
         </div>
 
@@ -1385,7 +1389,7 @@ aria-hidden="true" data-backdrop="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content modal-dark-content">
       <div class="modal-header modal-dark-header">
-        <p class="heading lead m-0">Quickbuilder
+        <p class="heading lead m-0">Quickbuilder 1.0
         </p>
 
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -1395,7 +1399,7 @@ aria-hidden="true" data-backdrop="true">
       <div class="modal-body">
         <div class="form-group shadow-textarea">
           <label for="exampleFormControlTextarea6">Terminal</label>
-          <textarea class="form-control z-depth-1" id="quickBuilderTextArea" autocomplete="off" rows="10" placeholder="// EzGitDoc Quick Builder allows to make document schemes much more faster,&#10;// but for the cost of missing preview and less applicable options.&#10;// If you don't need to hurry, use EzGitDoc standard way :)&#10;&#10;// #1: Leave space between every used command.&#10;// #2: Orders are case sensitive.&#10;// #3: Some commands parameters are required.&#10;&#10;Examples:&#10;image{250} header{H3} text header label{#DFD7C8} image link code list{link-3} table{image-2|4} label"></textarea>
+          <textarea class="form-control z-depth-1" id="quickBuilderTextArea" autocomplete="off" rows="10" placeholder="// Make document schemes much more faster for the cost of missing preview and less &#10;// applicable options. If you don't need to hurry, use EzGitDoc standard way :)&#10;&#10;// #1: Leave space between every used command.&#10;// #2: Orders are case sensitive.&#10;// #3: Some commands parameters are required.&#10;&#10;Examples:&#10;image{250} header{H3} text header label{#DFD7C8} image link code list{link-3} table{image-2|4} label"></textarea>
         </div>
         <div class="form-group">
           <div class="row">

@@ -679,6 +679,10 @@ body .modal-dark-content {
     font-family: 'Sen', sans-serif, 'Josefin Sans', 'Times New Roman', Times, serif;
 }
 
+body .form-group label {
+    font-size: 14px;
+}
+
 body .close {
     color: #58595A;
 }
