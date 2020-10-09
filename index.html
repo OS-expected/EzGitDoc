@@ -345,6 +345,14 @@ aria-hidden="true" data-backdrop="true">
             <label class="custom-control-label" for="hintKeys_switch" style="width: 100%;">Hint keys: <span id="hintKeys_switch_label" class="badge badge-pill badge-danger" style="float: right;">disabled</span></label>
             <small class="form-text text-muted">Enable this option to see shortkeys hints for each element from the sidebar elements section.</small>
           </div>
+
+          <br/>
+
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="nonSpacedElements_switch" onclick="updateSetting('nonSpacedElements')">
+            <label class="custom-control-label" for="nonSpacedElements_switch" style="width: 100%;">Nonspaced elements: <span id="nonSpacedElements_switch_label" class="badge badge-pill badge-danger" style="float: right;">disabled</span></label>
+            <small class="form-text text-muted">Enable this setting to remove spaces between elements in EzGitDoc. Disable it to retrieve bottom margins back.</small>
+          </div>
         </div>
       </div>
     </div>
