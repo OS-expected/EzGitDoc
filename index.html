@@ -38,6 +38,7 @@
 
     <!-- Material Design Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.13.0/css/mdb.min.css" rel="stylesheet">
+
     <title>ezGitDoc</title>
   </head>
 
@@ -287,7 +288,7 @@ MODALS
   aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-notify" role="document">
     <!--Content-->
-    <div class="modal-content references-modal-styles">
+    <div class="modal-content modal-dark-content references-modal-styles">
       <!--Header-->
       <div class="modal-header">
         <p class="heading lead white-text">References</p>
@@ -316,9 +317,9 @@ MODALS
 aria-hidden="true" data-backdrop="true">
 <div class="modal-dialog modal-side modal-top-right modal-notify modal-primary" role="document">
   <!--Content-->
-  <div class="modal-content">
+  <div class="modal-content modal-dark-content">
     <!--Header-->
-    <div class="modal-header">
+    <div class="modal-header modal-dark-header">
       <p class="heading">Settings
       </p>
 
@@ -366,7 +367,7 @@ aria-hidden="true" data-backdrop="true">
 
     <!--Footer-->
     <div class="modal-footer flex-center">
-      <a type="button" class="btn btn-light-blue" data-dismiss="modal">Close</a>
+      <a type="button" class="btn btn-mdb-color" data-dismiss="modal">Close</a>
     </div>
   </div>
   <!--/.Content-->
@@ -402,10 +403,12 @@ aria-hidden="true" data-backdrop="true">
 <!-- Code Modal -->
 <div class="modal fade right" id="codeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-full-height modal-right" role="document">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h4 class="modal-title w-100"><i class="fas fa-code"></i> Code Settings</h4>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+  <div class="modal-content modal-dark-content">
+    <div class="modal-header modal-dark-header">
+      <p class="heading lead m-0">Code
+      </p>
+
+      <button type="button" class="close modal-close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
@@ -419,32 +422,27 @@ aria-hidden="true" data-backdrop="true">
 
         <div class="container">
           <div class="form-group">
-            <label for="codeArea">Code <small class="mdb-color-text">(required)</small></label>
-            <textarea class="form-control" rows="5" id="codeArea" autocomplete="off"></textarea>
+            <label for="codeArea">Code <small class="text-muted">(required)</small></label>
+            <textarea class="form-control dark-textarea" rows="7" id="codeArea" autocomplete="off"></textarea>
           </div>
         </div>
       </form>
 
       <div class="row">
-        <div class="col text-left ml-3">
-          <ul class="list-unstyled">
-              <li><small class="form-text text-muted"><i class="far fa-question-circle"></i> In the code area you can use &nbsp; <span class="badge badge-light" style="padding: 6px;">TAB</span> &nbsp; key to make indent.</small> </li>
-          </ul>
-        </div>
-        <div class="col text-center mr-3">
-          <ul class="list-unstyled">
-              <li><small class="form-text text-muted"><i class="far fa-question-circle"></i> Syntax highlighting is not visible. If typed language name is supported by the service where you plan to put template(e.g. GitHub), it will work.</small></li> <br/>
+        <div class="col text-left">
+          <ul class="list-unstyled ml-3">
+            <li><small class="form-text text-muted"><i class="far fa-question-circle"></i> In the code area you can use &nbsp; <span class="badge badge-light" style="padding: 6px;">TAB</span> &nbsp; key to make indent.</small> </li>
+            <li><small class="form-text text-muted"><i class="far fa-question-circle"></i> Code textarea is resizable (grab right bottom corner).</small></li>
           </ul>
         </div>
       </div>
-
     </div>
     <div class="modal-footer">
       <div class="col text-left ml-0">
-        <button onclick="createCode()" type="button" class="btn btn-deep-purple">Create</button>
+        <button onclick="createCode()" type="button" class="btn btn-elegant">Create</button>
       </div>
       <div class="col text-right mr-0">
-        <button type="button" class="btn btn-danger" onclick="clearModal('#codeModal')">Reset</button>
+        <button type="button" class="btn btn-unique" onclick="clearModal('#codeModal')">Reset</button>
       </div>
     </div>
   </div>
@@ -454,9 +452,11 @@ aria-hidden="true" data-backdrop="true">
 <!-- Code Update Modal -->
 <div class="modal fade right" id="codeUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-side modal-top-right" role="document">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h4 class="modal-title w-100"><i class="fas fa-code"></i> Code Update</h4>
+  <div class="modal-content modal-dark-content">
+    <div class="modal-header modal-dark-header">
+      <p class="heading lead m-0">Code Update
+      </p>
+
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
@@ -478,8 +478,7 @@ aria-hidden="true" data-backdrop="true">
       </form>
     </div>
     <div class="modal-footer justify-content-center">
-      <button onclick="updateCode()" type="button" class="btn btn-deep-purple">Update</button>
-      <button type="button" class="btn btn-purple" data-dismiss="modal">Close</button>
+      <button onclick="updateCode()" type="button" class="btn btn-mdb-color">Update</button>
     </div>
   </div>
 </div>
@@ -488,9 +487,11 @@ aria-hidden="true" data-backdrop="true">
 <!-- Header Modal -->
 <div class="modal fade right" id="headerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-full-height modal-right" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title w-100" id="myModalLabel"><i class="fas fa-heading"></i> Header Settings</h4>
+    <div class="modal-content modal-dark-content">
+      <div class="modal-header modal-dark-header">
+        <p class="heading lead m-0">Header
+        </p>
+
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -499,28 +500,28 @@ aria-hidden="true" data-backdrop="true">
       <div class="modal-body">
         <form>
           <div class="form-group">
-            <label for="headerName">Text <small class="mdb-color-text">(required)</small></label>
+            <label for="headerName">Text <small class="text-muted">(required)</small></label>
             <input class="form-control" id="headerName" placeholder="Text" autocomplete="off">
           </div>
         
           <ul class="list-group" style="cursor: pointer;" onselectstart="return false" ondragstart="return false">
             <label>Style <small class="grey-text">(optional, default = h2)</small></label>
-            <li class="list-group-item" value="5" onclick="setElementAsActive(this)"><div class="row"><div class="col">h1</div> <div class="col text-right"><span class="badge badge-default" data-toggle="popover-hover" data-img="images/hover/header_1.png" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
-            <li class="list-group-item" value="6" onclick="setElementAsActive(this)"><div class="row"><div class="col">h2</div> <div class="col text-right"><span class="badge badge-default" data-toggle="popover-hover" data-img="images/hover/header_2.png" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
-            <li class="list-group-item" value="7" onclick="setElementAsActive(this)"><div class="row"><div class="col">h3</div> <div class="col text-right"><span class="badge badge-default" data-toggle="popover-hover" data-img="images/hover/header_3.png" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
-            <li class="list-group-item" value="8" onclick="setElementAsActive(this)"><div class="row"><div class="col">h4</div> <div class="col text-right"><span class="badge badge-default" data-toggle="popover-hover" data-img="images/hover/header_4.png" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
-            <li class="list-group-item" value="9" onclick="setElementAsActive(this)"><div class="row"><div class="col">h5</div> <div class="col text-right"><span class="badge badge-default" data-toggle="popover-hover" data-img="images/hover/header_5.png" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
-            <li class="list-group-item" value="10" onclick="setElementAsActive(this)"><div class="row"><div class="col">h6</div> <div class="col text-right"><span class="badge badge-default" data-toggle="popover-hover" data-img="images/hover/header_6.png" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
+            <li class="list-group-item" value="5" onclick="setElementAsActive(this)"><div class="row"><div class="col">h1</div> <div class="col text-right"><span class="badge badge-light" data-toggle="popover-hover" data-img="images/hover/header_1.png" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
+            <li class="list-group-item" value="6" onclick="setElementAsActive(this)"><div class="row"><div class="col">h2</div> <div class="col text-right"><span class="badge badge-light" data-toggle="popover-hover" data-img="images/hover/header_2.png" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
+            <li class="list-group-item" value="7" onclick="setElementAsActive(this)"><div class="row"><div class="col">h3</div> <div class="col text-right"><span class="badge badge-light" data-toggle="popover-hover" data-img="images/hover/header_3.png" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
+            <li class="list-group-item" value="8" onclick="setElementAsActive(this)"><div class="row"><div class="col">h4</div> <div class="col text-right"><span class="badge badge-light" data-toggle="popover-hover" data-img="images/hover/header_4.png" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
+            <li class="list-group-item" value="9" onclick="setElementAsActive(this)"><div class="row"><div class="col">h5</div> <div class="col text-right"><span class="badge badge-light" data-toggle="popover-hover" data-img="images/hover/header_5.png" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
+            <li class="list-group-item" value="10" onclick="setElementAsActive(this)"><div class="row"><div class="col">h6</div> <div class="col text-right"><span class="badge badge-light" data-toggle="popover-hover" data-img="images/hover/header_6.png" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
           </ul> 
         </form>
       </div>
 
       <div class="modal-footer">
         <div class="col text-left ml-0">
-          <button onclick="createHeader()" type="button" class="btn btn-deep-purple">Create</button>
+          <button onclick="createHeader()" type="button" class="btn btn-elegant">Create</button>
         </div>
         <div class="col text-right mr-0">
-          <button type="button" class="btn btn-danger" onclick="clearModal('#headerModal')">Reset</button>
+          <button type="button" class="btn btn-unique" onclick="clearModal('#headerModal')">Reset</button>
         </div>
       </div>
     </div>
@@ -530,9 +531,11 @@ aria-hidden="true" data-backdrop="true">
 <!-- Header Update Modal -->
 <div class="modal fade right" id="headerUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-side modal-top-right" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title w-100" id="myModalLabel"><i class="fas fa-heading"></i> Header Update</h4>
+    <div class="modal-content modal-dark-content">
+      <div class="modal-header modal-dark-header">
+        <p class="heading lead m-0">Header Update
+        </p>
+
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -547,19 +550,18 @@ aria-hidden="true" data-backdrop="true">
         
           <ul class="list-group" style="cursor: pointer;" onselectstart="return false" ondragstart="return false">
             <label>Style</label>
-            <li class="list-group-item headerStyle_update" value="10" onclick="setElementAsActive(this)"><div class="row"><div class="col">h1</div> <div class="col text-right"><span class="badge badge-default" data-toggle="popover-hover" data-img="images/hover/header_1.png" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
-            <li class="list-group-item headerStyle_update" value="11" onclick="setElementAsActive(this)"><div class="row"><div class="col">h2</div> <div class="col text-right"><span class="badge badge-default" data-toggle="popover-hover" data-img="images/hover/header_2.png" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
-            <li class="list-group-item headerStyle_update" value="12" onclick="setElementAsActive(this)"><div class="row"><div class="col">h3</div> <div class="col text-right"><span class="badge badge-default" data-toggle="popover-hover" data-img="images/hover/header_3.png" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
-            <li class="list-group-item headerStyle_update" value="13" onclick="setElementAsActive(this)"><div class="row"><div class="col">h4</div> <div class="col text-right"><span class="badge badge-default" data-toggle="popover-hover" data-img="images/hover/header_4.png" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
-            <li class="list-group-item headerStyle_update" value="14" onclick="setElementAsActive(this)"><div class="row"><div class="col">h5</div> <div class="col text-right"><span class="badge badge-default" data-toggle="popover-hover" data-img="images/hover/header_5.png" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
-            <li class="list-group-item headerStyle_update" value="15" onclick="setElementAsActive(this)"><div class="row"><div class="col">h6</div> <div class="col text-right"><span class="badge badge-default" data-toggle="popover-hover" data-img="images/hover/header_6.png" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
+            <li class="list-group-item headerStyle_update" value="10" onclick="setElementAsActive(this)"><div class="row"><div class="col">h1</div> <div class="col text-right"><span class="badge badge-light" data-toggle="popover-hover" data-img="images/hover/header_1.png" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
+            <li class="list-group-item headerStyle_update" value="11" onclick="setElementAsActive(this)"><div class="row"><div class="col">h2</div> <div class="col text-right"><span class="badge badge-light" data-toggle="popover-hover" data-img="images/hover/header_2.png" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
+            <li class="list-group-item headerStyle_update" value="12" onclick="setElementAsActive(this)"><div class="row"><div class="col">h3</div> <div class="col text-right"><span class="badge badge-light" data-toggle="popover-hover" data-img="images/hover/header_3.png" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
+            <li class="list-group-item headerStyle_update" value="13" onclick="setElementAsActive(this)"><div class="row"><div class="col">h4</div> <div class="col text-right"><span class="badge badge-light" data-toggle="popover-hover" data-img="images/hover/header_4.png" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
+            <li class="list-group-item headerStyle_update" value="14" onclick="setElementAsActive(this)"><div class="row"><div class="col">h5</div> <div class="col text-right"><span class="badge badge-light" data-toggle="popover-hover" data-img="images/hover/header_5.png" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
+            <li class="list-group-item headerStyle_update" value="15" onclick="setElementAsActive(this)"><div class="row"><div class="col">h6</div> <div class="col text-right"><span class="badge badge-light" data-toggle="popover-hover" data-img="images/hover/header_6.png" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
           </ul> 
         </form>
       </div>
 
       <div class="modal-footer justify-content-center">
-        <button onclick="updateHeader()" type="button" class="btn btn-deep-purple">Update</button>
-        <button type="button" class="btn btn-purple" data-dismiss="modal">Close</button>
+        <button onclick="updateHeader()" type="button" class="btn btn-mdb-color">Update</button>
       </div>
     </div>
   </div>
@@ -568,9 +570,11 @@ aria-hidden="true" data-backdrop="true">
 <!-- Image Modal -->
 <div class="modal fade right" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-full-height modal-right" role="document">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h4 class="modal-title w-100" id="myModalLabel"><i class="far fa-image"></i> Image Settings</h4>
+  <div class="modal-content modal-dark-content">
+    <div class="modal-header modal-dark-header">
+      <p class="heading lead m-0">Image
+      </p>
+
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
@@ -579,12 +583,12 @@ aria-hidden="true" data-backdrop="true">
     <div class="modal-body">
       <form>
         <div class="form-group">
-          <label for="altImageText">Alternate text <small class="mdb-color-text">(required)</small></label>
+          <label for="altImageText">Alternate text <small class="text-muted">(required)</small></label>
           <input class="form-control" id="altImageText" placeholder="Image shows.." autocomplete="off">
         </div>
         
         <div class="form-group">
-            <label for="imageURL">URL <small class="mdb-color-text">(required)</small></label>
+            <label for="imageURL">URL <small class="text-muted">(required)</small></label>
             <input class="form-control" id="imageURL" value="blank" autocomplete="off">
             <small class="form-text text-muted">If you don't have URL yet, leave blank.</small>
         </div>
@@ -623,9 +627,8 @@ aria-hidden="true" data-backdrop="true">
 
         <div class="row">
           <div class="col text-left">
-            <ul class="list-unstyled">
-                <li><small class="form-text text-muted"><i class="far fa-question-circle"></i> Set only one of the axis if you want proportion to be preserved.</small></li>
-                <li><small class="form-text text-muted"><i class="far fa-question-circle"></i> At least one axis needs to be set (it's value must be higher than 0).</small></li>
+            <ul class="list-unstyled ml-3">
+                <li><small class="form-text text-muted"><i class="far fa-question-circle"></i> At least one axis needs to be set.<br/>(it's value must be higher than 0)</small></li>
             </ul>
           </div>
         </div>
@@ -633,10 +636,10 @@ aria-hidden="true" data-backdrop="true">
 
       <div class="modal-footer">
         <div class="col text-left ml-0">
-          <button onclick="createImage()" type="button" class="btn btn-deep-purple">Create</button>
+          <button onclick="createImage()" type="button" class="btn btn-elegant">Create</button>
         </div>
         <div class="col text-right mr-0">
-          <button type="button" class="btn btn-danger" onclick="clearModal('#imageModal')">Reset</button>
+          <button type="button" class="btn btn-unique" onclick="clearModal('#imageModal')">Reset</button>
         </div>
       </div>
     </div>
@@ -646,9 +649,11 @@ aria-hidden="true" data-backdrop="true">
 <!-- Image Update Modal -->
 <div class="modal fade right" id="imageUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-side modal-top-right" role="document">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h4 class="modal-title w-100" id="myModalLabel"><i class="far fa-image"></i> Image Update</h4>
+  <div class="modal-content modal-dark-content">
+    <div class="modal-header modal-dark-header">
+      <p class="heading lead m-0">Image Update
+      </p>
+
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
@@ -700,8 +705,7 @@ aria-hidden="true" data-backdrop="true">
       </div>
 
       <div class="modal-footer justify-content-center">
-        <button onclick="updateImage()" type="button" class="btn btn-deep-purple">Update</button>
-        <button type="button" class="btn btn-purple" data-dismiss="modal">Close</button>
+        <button onclick="updateImage()" type="button" class="btn btn-mdb-color">Update</button>
       </div>
     </div>
   </div>
@@ -710,9 +714,11 @@ aria-hidden="true" data-backdrop="true">
 <!-- Link Modal -->
 <div class="modal fade right" id="linkModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-full-height modal-right" role="document">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h4 class="modal-title w-100"><i class="fas fa-link"></i> Link Settings</h4>
+  <div class="modal-content modal-dark-content">
+    <div class="modal-header modal-dark-header">
+      <p class="heading lead m-0">Link
+      </p>
+
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
@@ -721,12 +727,12 @@ aria-hidden="true" data-backdrop="true">
     <div class="modal-body">
       <form>
         <div class="form-group">
-          <label for="hrefName">Text <small class="mdb-color-text">(required)</small></label>
+          <label for="hrefName">Text <small class="text-muted">(required)</small></label>
           <input class="form-control" id="hrefName" placeholder="Text" autocomplete="off">
         </div>
 
         <div class="form-group">
-          <label for="hrefAddress">Href <small class="mdb-color-text">(required)</small></label>
+          <label for="hrefAddress">Href <small class="text-muted">(required)</small></label>
           <input class="form-control" id="hrefAddress" placeholder="e.g. https://mylink.com" autocomplete="off">
         </div>
       </form>
@@ -734,10 +740,10 @@ aria-hidden="true" data-backdrop="true">
 
     <div class="modal-footer">
       <div class="col text-left ml-0">
-        <button onclick="createLink()" type="button" class="btn btn-deep-purple">Create</button>
+        <button onclick="createLink()" type="button" class="btn btn-elegant">Create</button>
       </div>
       <div class="col text-right mr-0">
-        <button type="button" class="btn btn-danger" onclick="clearModal('#linkModal')">Reset</button>
+        <button type="button" class="btn btn-unique" onclick="clearModal('#linkModal')">Reset</button>
       </div>
     </div>
   </div>
@@ -747,9 +753,11 @@ aria-hidden="true" data-backdrop="true">
 <!-- Link Update Modal -->
 <div class="modal fade right" id="linkUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-side modal-top-right" role="document">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h4 class="modal-title w-100"><i class="fas fa-link"></i> Link Update</h4>
+  <div class="modal-content modal-dark-content">
+    <div class="modal-header modal-dark-header">
+      <p class="heading lead m-0">Link Update
+      </p>
+
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
@@ -770,8 +778,7 @@ aria-hidden="true" data-backdrop="true">
     </div>
 
     <div class="modal-footer justify-content-center">
-      <button onclick="updateLink()" type="button" class="btn btn-deep-purple">Update</button>
-      <button type="button" class="btn btn-purple" data-dismiss="modal">Close</button>
+      <button onclick="updateLink()" type="button" class="btn btn-mdb-color">Update</button>
     </div>
   </div>
 </div>
@@ -780,9 +787,11 @@ aria-hidden="true" data-backdrop="true">
 <!-- List Modal -->
 <div class="modal fade right" id="listModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-full-height modal-right" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title w-100"><i class="fas fa-bars"></i> List Settings</h4>
+    <div class="modal-content modal-dark-content">
+      <div class="modal-header modal-dark-header">
+        <p class="heading lead m-0">List
+        </p>
+
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -791,19 +800,19 @@ aria-hidden="true" data-backdrop="true">
       <div class="modal-body">
         <form>
             <div class="form-group">
-              <label for="listSize">Size <small class="mdb-color-text">(required)</small></label>
+              <label for="listSize">Size <small class="text-muted">(required)</small></label>
               <input class="form-control" id="listSize" placeholder="0" autocomplete="off">
             </div>
 
             <div class="form-group">
               <ul class="list-group" style="cursor: pointer;" onselectstart="return false" ondragstart="return false">
-                <label>Type <small class="mdb-color-text">(required)</small></label>
-                <li class="list-group-item" value="0" onclick="setElementAsActive(this, 'toggle_list_iconField')"><div class="row"><div class="col">iconic</div> <div class="col text-right"><span class="badge badge-default" data-toggle="popover-hover" data-img="images/hover/list_iconic.PNG" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
-                <li class="list-group-item" value="1" onclick="setElementAsActive(this)"><div class="row"><div class="col">normal</div> <div class="col text-right"><span class="badge badge-default" data-toggle="popover-hover" data-img="images/hover/list_normal.PNG" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
-                <li class="list-group-item" value="2" onclick="setElementAsActive(this)"><div class="row"><div class="col">link</div> <div class="col text-right"><span class="badge badge-default" data-toggle="popover-hover" data-img="images/hover/list_link.PNG" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
+                <label>Type <small class="text-muted">(required)</small></label>
+                <li class="list-group-item" value="0" onclick="setElementAsActive(this, 'toggle_list_iconField')"><div class="row"><div class="col">iconic</div> <div class="col text-right"><span class="badge badge-light" data-toggle="popover-hover" data-img="images/hover/list_iconic.PNG" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
+                <li class="list-group-item" value="1" onclick="setElementAsActive(this)"><div class="row"><div class="col">normal</div> <div class="col text-right"><span class="badge badge-light" data-toggle="popover-hover" data-img="images/hover/list_normal.PNG" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
+                <li class="list-group-item" value="2" onclick="setElementAsActive(this)"><div class="row"><div class="col">link</div> <div class="col text-right"><span class="badge badge-light" data-toggle="popover-hover" data-img="images/hover/list_link.PNG" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
               </ul> 
               <small class="form-text text-muted text-center">Hover over magnifier icon to see the example.</small>
-              <small class="form-text text-muted text-center">Click on the desired type to confirm.</small>
+              <small class="form-text text-muted text-center">Click on the desired type to confirm choice.</small>
             </div>
 
             <br/>
@@ -818,10 +827,10 @@ aria-hidden="true" data-backdrop="true">
       </div>
       <div class="modal-footer">
         <div class="col text-left ml-0">
-          <button onclick="createList()" type="button" class="btn btn-deep-purple">Create</button>
+          <button onclick="createList()" type="button" class="btn btn-elegant">Create</button>
         </div>
         <div class="col text-right mr-0">
-          <button type="button" class="btn btn-danger" onclick="clearModal('#listModal')">Reset</button>
+          <button type="button" class="btn btn-unique" onclick="clearModal('#listModal')">Reset</button>
         </div>
       </div>
     </div>
@@ -832,9 +841,11 @@ aria-hidden="true" data-backdrop="true">
 <div class="modal fade" id="listUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title w-100" id="myModalLabel"><i class="fas fa-bars"></i> List Update</h4>
+    <div class="modal-content modal-dark-content">
+      <div class="modal-header modal-dark-header">
+        <p class="heading lead m-0">List Update
+        </p>
+
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -853,8 +864,7 @@ aria-hidden="true" data-backdrop="true">
       </div>
       </div>
       <div class="modal-footer justify-content-center">
-        <button onclick="updateList()" type="button" class="btn btn-deep-purple">Update</button>
-        <button type="button" class="btn btn-purple" data-dismiss="modal">Close</button>
+        <button onclick="updateList()" type="button" class="btn btn-mdb-color">Update</button>
       </div>
     </div>
   </div>
@@ -863,9 +873,11 @@ aria-hidden="true" data-backdrop="true">
 <!-- Table Modal -->
 <div class="modal fade right" id="arrayModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-full-height modal-right" role="document">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h4 class="modal-title w-100" id="myModalLabel"><i class="fas fa-table"></i> Table Settings</h4>
+  <div class="modal-content modal-dark-content">
+    <div class="modal-header modal-dark-header">
+      <p class="heading lead m-0">Table
+      </p>
+
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
@@ -878,7 +890,7 @@ aria-hidden="true" data-backdrop="true">
                 <div class="row justify-content-md-center">
 
                     <div class="col-md-12 text-center">
-                        <label class="my-1 mr-2">Dimensions <small class="mdb-color-text">(required)</small></label>
+                        <label class="my-1 mr-2">Dimensions <small class="text-muted">(required)</small></label>
                     </div>
 
                     <div class="col-md-6">
@@ -895,14 +907,14 @@ aria-hidden="true" data-backdrop="true">
                 <br/>
 
                 <ul class="list-group" style="cursor: pointer;" onselectstart="return false" ondragstart="return false">
-                  <label>Type <small class="mdb-color-text">(required)</small></label>
-                  <li class="list-group-item" value="3" onclick="setElementAsActive(this)"><div class="row"><div class="col">text</div> <div class="col text-right"><span class="badge badge-default" data-toggle="popover-hover" data-img="images/hover/table_text.PNG" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
-                  <li class="list-group-item" value="4" onclick="setElementAsActive(this)"><div class="row"><div class="col">image</div> <div class="col text-right"><span class="badge badge-default" data-toggle="popover-hover" data-img="images/hover/table_image.PNG" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
-                  <li class="list-group-item" value="23" onclick="setElementAsActive(this)"><div class="row"><div class="col">kbd image</div> <div class="col text-right"><span class="badge badge-default" data-toggle="popover-hover" data-img="images/hover/table_kbdimage.png" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
+                  <label>Type <small class="text-muted">(required)</small></label>
+                  <li class="list-group-item" value="3" onclick="setElementAsActive(this)"><div class="row"><div class="col">text</div> <div class="col text-right"><span class="badge badge-light" data-toggle="popover-hover" data-img="images/hover/table_text.PNG" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
+                  <li class="list-group-item" value="4" onclick="setElementAsActive(this)"><div class="row"><div class="col">image</div> <div class="col text-right"><span class="badge badge-light" data-toggle="popover-hover" data-img="images/hover/table_image.PNG" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
+                  <li class="list-group-item" value="23" onclick="setElementAsActive(this)"><div class="row"><div class="col">kbd image</div> <div class="col text-right"><span class="badge badge-light" data-toggle="popover-hover" data-img="images/hover/table_kbdimage.png" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
                   <li class="list-group-item" value="24" onclick="setElementAsActive(this)">linked kbd image</li>
                 </ul> 
                 <small class="form-text text-muted text-center">Hover over magnifier icon to see the example.</small>
-                <small class="form-text text-muted text-center">Choose what table cell will contain.</small>
+                <small class="form-text text-muted text-center">Click on the type to make choice.</small>
             </div>
         </div>
       </form> 
@@ -910,10 +922,10 @@ aria-hidden="true" data-backdrop="true">
     
     <div class="modal-footer">
       <div class="col text-left ml-0">
-        <button onclick="createTable()" type="button" class="btn btn-deep-purple">Create</button>
+        <button onclick="createTable()" type="button" class="btn btn-elegant">Create</button>
       </div>
       <div class="col text-right mr-0">
-        <button type="button" class="btn btn-danger" onclick="clearModal('#arrayModal')">Reset</button>
+        <button type="button" class="btn btn-unique" onclick="clearModal('#arrayModal')">Reset</button>
       </div>
     </div>
   </div>
@@ -924,9 +936,11 @@ aria-hidden="true" data-backdrop="true">
 <div class="modal fade" id="arrayUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title w-100" id="myModalLabel"><i class="fas fa-table"></i> Table Update</h4>
+    <div class="modal-content modal-dark-content">
+      <div class="modal-header modal-dark-header">
+        <p class="heading lead m-0">Table Update
+        </p>
+
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -946,8 +960,7 @@ aria-hidden="true" data-backdrop="true">
         </div>
       </div>
       <div class="modal-footer justify-content-center">
-        <button onclick="updateTable()" type="button" class="btn btn-deep-purple">Update</button>
-        <button type="button" class="btn btn-purple" data-dismiss="modal">Close</button>
+        <button onclick="updateTable()" type="button" class="btn btn-mdb-color">Update</button>
       </div>
     </div>
   </div>
@@ -957,9 +970,11 @@ aria-hidden="true" data-backdrop="true">
 <div class="modal fade" id="tableUniUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">
   <div class="modal-dialog modal-side modal-top-right"" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title w-100" id="myModalLabel"><i class="fas fa-table"></i> Table Update</h4>
+    <div class="modal-content modal-dark-content">
+      <div class="modal-header modal-dark-header">
+        <p class="heading lead m-0">Table Update
+        </p>
+        
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -970,7 +985,7 @@ aria-hidden="true" data-backdrop="true">
             <div class="form-group">
               <div class="row justify-content-md-center">
                 <div class="col-md-12 text-center">
-                    <label class="my-1 mr-2">New images dimensions <small class="mdb-color-text">(required)</small></label>
+                    <label class="my-1 mr-2">New images dimensions <small class="text-muted">(required)</small></label>
                 </div>
                 <div class="col-md-6">
                     <label class="text-center col-md-12" for="arrRowsAmount">Width</label>
@@ -986,7 +1001,7 @@ aria-hidden="true" data-backdrop="true">
         </form> 
       </div>
       <div class="modal-footer justify-content-center">
-        <button onclick="updateNonTextTable()" type="button" class="btn btn-deep-purple">Update</button>
+        <button onclick="updateNonTextTable()" type="button" class="btn btn-mdb-color">Update</button>
       </div>
     </div>
   </div>
@@ -995,9 +1010,11 @@ aria-hidden="true" data-backdrop="true">
 <!-- Text Modal -->
 <div class="modal fade right" id="textModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-full-height modal-right" role="document">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h4 class="modal-title w-100" id="myModalLabel"><i class="far fa-sticky-note"></i> Text Settings</h4>
+  <div class="modal-content modal-dark-content">
+    <div class="modal-header modal-dark-header">
+      <p class="heading lead m-0">Text
+      </p>
+      
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
@@ -1022,7 +1039,7 @@ aria-hidden="true" data-backdrop="true">
 
       <div class="row mt-3">
         <div class="col text-left">
-          <ul class="list-unstyled">
+          <ul class="list-unstyled ml-3">
               <li><small class="form-text text-muted"><i class="far fa-question-circle"></i> Leave text field empty if you want to use lorem ipsum template.</small> </li>
               <li><small class="form-text text-muted"><i class="far fa-question-circle"></i> You can use HTML markup in the text area like: <br/> &lt;a href="address"&gt; text &lt;/a&gt; &nbsp; (to create link) <br/> &lt;strong&gt; text &lt;/strong&gt; &nbsp; (to bold text) <br/> &lt;em&gt; text &lt;/em&gt; &nbsp; (to emphasis text) <br/> &lt;del&gt; text &lt;/del&gt; &nbsp; (to strike text) <br/> etc. </small> </li>
           </ul>
@@ -1032,10 +1049,10 @@ aria-hidden="true" data-backdrop="true">
     </div>
     <div class="modal-footer">
       <div class="col text-left ml-0">
-        <button onclick="createText()" type="button" class="btn btn-deep-purple">Create</button>
+        <button onclick="createText()" type="button" class="btn btn-elegant">Create</button>
       </div>
       <div class="col text-right mr-0">
-        <button type="button" class="btn btn-danger" onclick="clearModal('#textModal')">Reset</button>
+        <button type="button" class="btn btn-unique" onclick="clearModal('#textModal')">Reset</button>
       </div>
     </div>
   </div>
@@ -1045,9 +1062,11 @@ aria-hidden="true" data-backdrop="true">
 <!-- Text Update Modal -->
 <div class="modal fade right" id="textUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-side modal-top-right" role="document">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h4 class="modal-title w-100" id="myModalLabel"><i class="far fa-sticky-note"></i> Text Update</h4>
+  <div class="modal-content modal-dark-content">
+    <div class="modal-header modal-dark-header">
+      <p class="heading lead m-0">Text Update
+      </p>
+
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
@@ -1071,8 +1090,7 @@ aria-hidden="true" data-backdrop="true">
       </form>
     </div>
     <div class="modal-footer justify-content-center">
-      <button onclick="updateText()" type="button" class="btn btn-deep-purple">Update</button>
-      <button type="button" class="btn btn-purple" data-dismiss="modal">Close</button>
+      <button onclick="updateText()" type="button" class="btn btn-mdb-color">Update</button>
     </div>
   </div>
 </div>
@@ -1081,9 +1099,11 @@ aria-hidden="true" data-backdrop="true">
 <!-- Badge Modal -->
 <div class="modal fade right" id="badgeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-full-height modal-right" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title w-100" id="myModalLabel"><i class="far fa-sticky-note"></i> Badge Settings</h4>
+    <div class="modal-content modal-dark-content">
+      <div class="modal-header modal-dark-header">
+        <p class="heading lead m-0">Badge
+        </p>
+        
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -1092,17 +1112,17 @@ aria-hidden="true" data-backdrop="true">
       <div class="modal-body">
         <form>
           <div class="form-group">
-            <label for="b_label">Label <small class="mdb-color-text">(required)</small></label>
+            <label for="b_label">Label <small class="text-muted">(required)</small></label>
             <input class="form-control" id="b_label" maxlength="25" autocomplete="off">
           </div>
 
           <div class="form-group">
-            <label for="b_message">Message <small class="mdb-color-text">(required)</small></label>
+            <label for="b_message">Message <small class="text-muted">(required)</small></label>
             <input class="form-control" id="b_message" maxlength="25" autocomplete="off">
           </div>
 
           <div class="form-group">
-            <label for="b_color">Color <small class="mdb-color-text">(required)</small></label>
+            <label for="b_color">Color <small class="text-muted">(required)</small></label>
             <input class="form-control" id="b_color" autocomplete="off" value="#2B95E2">
           </div>
 
@@ -1120,7 +1140,7 @@ aria-hidden="true" data-backdrop="true">
           <div class="form-group">
             <div class="row">
               <div class="col-12">
-                <button onclick="badgePreview()" type="button" data-toggle="popover-click" class="btn btn-deep-purple" style="width: 100%; padding: auto 0 auto 0; margin: 0;">Preview</button>
+                <button onclick="badgePreview()" type="button" data-toggle="popover-click" class="btn btn-blue-grey" style="width: 100%; padding: auto 0 auto 0; margin: 0;">Preview</button>
               </div>
             </div>
             <div class="row">
@@ -1132,38 +1152,21 @@ aria-hidden="true" data-backdrop="true">
           </div>
         </form>
 
-        <div class="row" style="font-family: 'Sen', sans-serif;">
-          <div class="col-12">
-            <a href="https://shields.io/" target="_blank" style="color: black;">
-              <p style="font-size: 18px; float: right; margin-bottom: 0; margin-right: 10px;">Generated with</p>
-            </a>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-12">
-            <a href="https://shields.io/" target="_blank">
-              <img src="images/shields_logo.PNG" style="width: 35%; float: right;"/>
-            </a>
-          </div>
-        </div>
-        
-        <div class="row mt-3">
+        <div class="row mt-3" style="font-family: 'Sen', sans-serif;">
           <div class="col text-left">
             <ul class="list-unstyled">
                 <li><small class="form-text text-muted"><i class="far fa-question-circle"></i> Label and Message fields are limited to 25 characters.</small> </li>
-                <li><small class="form-text text-muted"><i class="far fa-question-circle"></i> Color has to be picked from the picker shown after clicking on the field or put by pasting full hex code.</small> </li>
-                <li><small class="form-text text-muted"><i class="far fa-question-circle"></i> Check predefined and dynamic labels on Shields.io.</small> </li>            </ul>
+                <li><small class="form-text text-muted"><i class="far fa-question-circle"></i> Check predefined and dynamic labels on <a href="https://shields.io/" target="_blank">Shields.io</a></small> </li>            </ul>
           </div>
         </div>
 
       </div>
       <div class="modal-footer">
         <div class="col text-left ml-0">
-          <button onclick="createBadge()" type="button" class="btn btn-deep-purple">Create</button>
+          <button onclick="createBadge()" type="button" class="btn btn-elegant">Create</button>
         </div>
         <div class="col text-right mr-0">
-          <button type="button" class="btn btn-danger" onclick="clearModal('#badgeModal', 'withImage')">Reset</button>
+          <button type="button" class="btn btn-unique" onclick="clearModal('#badgeModal', 'withImage')">Reset</button>
         </div>
       </div>
     </div>
@@ -1173,9 +1176,11 @@ aria-hidden="true" data-backdrop="true">
 <!-- Badge Update Modal -->
 <div class="modal fade right" id="badgeUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-side modal-top-right" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title w-100" id="myModalLabel"><i class="far fa-sticky-note"></i> Badge Update</h4>
+    <div class="modal-content modal-dark-content">
+      <div class="modal-header modal-dark-header">
+        <p class="heading lead m-0">Badge Update
+        </p>
+
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -1227,8 +1232,7 @@ aria-hidden="true" data-backdrop="true">
         </div>
       </div>
       <div class="modal-footer justify-content-center">
-        <button onclick="updateBadge()" type="button" class="btn btn-deep-purple">Update</button>
-        <button type="button" class="btn btn-purple" data-dismiss="modal">Close</button>
+        <button onclick="updateBadge()" type="button" class="btn btn-mdb-color">Update</button>
       </div>
     </div>
   </div>
@@ -1237,9 +1241,11 @@ aria-hidden="true" data-backdrop="true">
 <!-- Details Modal -->
 <div class="modal fade right" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-full-height modal-right" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title w-100" id="myModalLabel"><i class="fas fa-expand-arrows-alt"></i> Details Settings</h4>
+    <div class="modal-content modal-dark-content">
+      <div class="modal-header modal-dark-header">
+        <p class="heading lead m-0">Details
+        </p>
+
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -1248,13 +1254,13 @@ aria-hidden="true" data-backdrop="true">
       <div class="modal-body">
         <form>
           <div class="form-group">
-            <label for="details_summary">Summary <small class="mdb-color-text">(required)</small></label>
+            <label for="details_summary">Summary <small class="text-muted">(required)</small></label>
             <input class="form-control" id="details_summary" maxlength="40" autocomplete="off">
           </div>
 
           <div class="container">
             <div class="form-group">
-              <label for="details_body">Body <small class="mdb-color-text">(required)</small></label>
+              <label for="details_body">Body <small class="text-muted">(required)</small></label>
               <textarea class="form-control" rows="10" id="details_body" autocomplete="off"></textarea>
             </div>
           </div>
@@ -1271,10 +1277,10 @@ aria-hidden="true" data-backdrop="true">
       </div>
       <div class="modal-footer">
         <div class="col text-left ml-0">
-          <button onclick="createDetails()" type="button" class="btn btn-deep-purple">Create</button>
+          <button onclick="createDetails()" type="button" class="btn btn-elegant">Create</button>
         </div>
         <div class="col text-right mr-0">
-          <button type="button" class="btn btn-danger" onclick="clearModal('#detailsModal')">Reset</button>
+          <button type="button" class="btn btn-unique" onclick="clearModal('#detailsModal')">Reset</button>
         </div>
       </div>
     </div>
@@ -1284,9 +1290,11 @@ aria-hidden="true" data-backdrop="true">
 <!-- Details Update Modal -->
 <div class="modal fade right" id="detailsUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-full-height modal-right" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title w-100" id="myModalLabel"><i class="fas fa-expand-arrows-alt"></i> Details update</h4>
+    <div class="modal-content modal-dark-content">
+      <div class="modal-header modal-dark-header">
+        <p class="heading lead m-0">Details Update
+        </p>
+
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -1295,13 +1303,13 @@ aria-hidden="true" data-backdrop="true">
       <div class="modal-body">
         <form>
           <div class="form-group">
-            <label for="details_summary_update">Summary <small class="mdb-color-text">(required)</small></label>
+            <label for="details_summary_update">Summary <small class="text-muted">(required)</small></label>
             <input class="form-control" id="details_summary_update" maxlength="40" autocomplete="off">
           </div>
 
           <div class="container">
             <div class="form-group">
-              <label for="details_body_update">Body <small class="mdb-color-text">(required)</small></label>
+              <label for="details_body_update">Body <small class="text-muted">(required)</small></label>
               <textarea class="form-control" rows="8" id="details_body_update" autocomplete="off"></textarea>
             </div>
           </div>
@@ -1317,8 +1325,7 @@ aria-hidden="true" data-backdrop="true">
 
       </div>
       <div class="modal-footer justify-content-center">
-        <button onclick="updateDetails()" type="button" class="btn btn-deep-purple">Update</button>
-        <button type="button" class="btn btn-purple" data-dismiss="modal">Close</button>
+        <button onclick="updateDetails()" type="button" class="btn btn-mdb-color">Update</button>
       </div>
     </div>
   </div>
@@ -1327,9 +1334,11 @@ aria-hidden="true" data-backdrop="true">
 <!-- Contact Modal -->
 <div class="modal fade right" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-full-height modal-right" role="document">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h4 class="modal-title w-100" id="myModalLabel"><i class="far fa-comment-alt"></i> Contact Form</h4>
+  <div class="modal-content modal-dark-content">
+    <div class="modal-header modal-dark-header">
+      <p class="heading lead m-0">Contact
+      </p>
+
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
@@ -1358,7 +1367,7 @@ aria-hidden="true" data-backdrop="true">
             </div>
 
             <div style="float: right;">
-              <button type="submit" class="btn btn-deep-purple">Send Message</button>
+              <button type="submit" class="btn btn-mdb-color">Send Message</button>
             </div>
           </form>
       </div>
@@ -1374,9 +1383,11 @@ aria-hidden="true" data-backdrop="true">
 
   <!-- Change class .modal-sm to change the size of the modal -->
   <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title w-100" id="myModalLabel">Quick Builder</h4>
+    <div class="modal-content modal-dark-content">
+      <div class="modal-header modal-dark-header">
+        <p class="heading lead m-0">Quickbuilder
+        </p>
+
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -1419,8 +1430,7 @@ aria-hidden="true" data-backdrop="true">
         </div>
       </div>
       <div class="modal-footer justify-content-center">
-        <button type="button" class="btn btn-purple" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-unique" onclick="generateQuickTemplate()">Generate</button>
+        <button type="button" class="btn btn-mdb-color" onclick="generateQuickTemplate()">Generate</button>
       </div>
     </div>
   </div>
@@ -1429,9 +1439,11 @@ aria-hidden="true" data-backdrop="true">
 <!-- Quick Builder Result Modal -->
 <div class="modal fade right" id="qbResultModal" tabindex="-2" role="dialog" aria-hidden="true">
   <div class="modal-dialog modal-side modal-top-right" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title w-100">Generated output</h4>
+    <div class="modal-content modal-dark-content">
+      <div class="modal-header modal-dark-header">
+        <p class="heading lead m-0">Generated Output
+        </p>
+
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -1454,9 +1466,10 @@ aria-hidden="true" data-backdrop="true">
 <div class="modal fade" id="generatedCodeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
   aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">EzGitDoc</h5>
+    <div class="modal-content modal-dark-content">
+      <div class="modal-header modal-dark-header">
+        <p class="heading lead m-0">Success!
+        </p>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
