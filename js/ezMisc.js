@@ -430,6 +430,12 @@ function returnElementRef(element) {
         var index = image.src.indexOf('badge/') + 5;
         name = `Badge (${image.src.substr(index, 15)}...)`;
         break;
+      case 'details':
+        var details = element.children[0];
+        var summary = details.children[0].textContent;
+        var summaryLength = summary.length;
+        name = `Details (${summaryLength > 15 ? summary.substring(0, 15) + '...' : summary})`;
+        break;
     }
   });
   return wrapElementRefIntoAnchor(element.id, name);
