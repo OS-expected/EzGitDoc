@@ -145,7 +145,14 @@ Sidebar
               <span>Badge</span>
               <span class="badge badge-pill badge-light hintKey">Alt + F</span>
             </a>
-          </li> 
+          </li>
+          <li data-toggle="modal" data-target="#detailsModal">
+            <a>
+              <i class="fas fa-expand-arrows-alt"></i>
+              <span>Details</span>
+              <span class="badge badge-pill badge-light hintKey">Alt + Z</span>
+            </a>
+          </li>
           <li class="header-menu">
             <span>Extra</span>
           </li>
@@ -1222,6 +1229,53 @@ aria-hidden="true" data-backdrop="true">
       <div class="modal-footer justify-content-center">
         <button onclick="updateBadge()" type="button" class="btn btn-deep-purple">Update</button>
         <button type="button" class="btn btn-purple" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Details Modal -->
+<div class="modal fade right" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-full-height modal-right" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title w-100" id="myModalLabel"><i class="fas fa-expand-arrows-alt"></i> Details Settings</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="details_summary">Summary <small class="mdb-color-text">(required)</small></label>
+            <input class="form-control" id="details_summary" maxlength="40" autocomplete="off">
+          </div>
+
+          <div class="container">
+            <div class="form-group">
+              <label for="details_body">Body <small class="mdb-color-text">(required)</small></label>
+              <textarea class="form-control" rows="10" id="details_body" autocomplete="off"></textarea>
+            </div>
+          </div>
+        </form>
+
+        <div class="row mt-3">
+          <div class="col text-left">
+            <ul class="list-unstyled">
+                <li><small class="form-text text-muted"><i class="far fa-question-circle"></i> <strong>Summary</strong> field is limited to 40 characters.</small> </li>
+                <li><small class="form-text text-muted"><i class="far fa-question-circle"></i> HTML markup is allowed in <strong>Body</strong> text area.</small> </li>
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <div class="col text-left ml-0">
+          <button onclick="createDetails()" type="button" class="btn btn-deep-purple">Create</button>
+        </div>
+        <div class="col text-right mr-0">
+          <button type="button" class="btn btn-danger" onclick="clearModal('#detailsModal')">Reset</button>
+        </div>
       </div>
     </div>
   </div>

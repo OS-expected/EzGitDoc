@@ -162,6 +162,13 @@ function printLinkCode(href, text) {
   return `<a href="${href}">${text}</a>`;
 }
 
+function printDetailsSummaryCode(details) {
+  var body = details.innerHTML;
+  var summary = body.substring(0, details.innerHTML.indexOf('\n'));
+  var body = body.split('\n').splice(1).join('\n');
+  return `<details>\n${summary}\n${body.replace(/(\n)+/g, '<br/>\n')}\n</details>`;
+}
+
 function generateCode() {
   var code = '';
   var elements = document.getElementsByClassName('ezGitPart');
@@ -170,16 +177,36 @@ function generateCode() {
     code += '\r\n\r\n';
     var currIterationCode = '';
 
-    if (elements.item(i).classList.contains('header')) {
+    if (elements[i].classList.contains('code')) {
+      var element = elements.item(i).children[0].children[0];
+      currIterationCode = element.innerHTML.replace(/<br\s*[/]?>/gi, '\r\n');
+    } else if (elements.item(i).classList.contains('header')) {
       code = code + printHeaderCodeForFirstChild(elements.item(i).firstChild);
     } else if (elements.item(i).classList.contains('image') || elements.item(i).classList.contains('badge')) {
       var paragraph = elements.item(i);
       var image = paragraph.children[0];
-
       if (image.src.includes('shields')) {
         currIterationCode = printShieldsBadgeCodeAsImage(image.src);
       } else {
         currIterationCode = printImageCodeWrappedInParagraph(paragraph.style.textAlign, image);
+      }
+    } else if (elements.item(i).classList.contains('link')) {
+      var element = elements.item(i).children[0];
+      var href = element.getAttribute('href');
+      currIterationCode = printLinkCode(href, element.textContent);
+    } else if (elements.item(i).classList.contains('list')) {
+      var listLength = elements.item(i).getElementsByTagName('LI').length;
+      var listElement = elements.item(i).children[0];
+
+      if (elements.item(i).children[0].firstChild.textContent.startsWith(':')) {
+        var listLength = elements.item(i).children.length;
+        currIterationCode = printIconListCode(listLength, elements, i);
+        currIterationCode = currIterationCode + '\r\n' + '<!-- If you did not specify icon, simply overwrite Id put between : : characters with desired icon name -->' +
+                '\r\n' + '<!-- Supported by GitHub icon list can be found here: https://gist.github.com/rxaviers/7360908 -->';
+      } else if (elements.item(i).children[0].childNodes[0].firstChild.tagName === 'A') { // link list
+        currIterationCode = printLinkListCode(listLength, listElement);
+      } else { // normal list
+        currIterationCode = printTextListCode(listLength, listElement);
       }
     } else if (elements.item(i).classList.contains('table')) {
       var table = elements.item(i).children[0];
@@ -199,27 +226,9 @@ function generateCode() {
     } else if (elements.item(i).classList.contains('text')) {
       var paragraph = elements.item(i).children[0];
       currIterationCode = printTextCodeInParagraph(paragraph);
-    } else if (elements.item(i).classList.contains('list')) {
-      var listLength = elements.item(i).getElementsByTagName('LI').length;
-      var listElement = elements.item(i).children[0];
-
-      if (elements.item(i).children[0].firstChild.textContent.startsWith(':')) {
-        var listLength = elements.item(i).children.length;
-        currIterationCode = printIconListCode(listLength, elements, i);
-        currIterationCode = currIterationCode + '\r\n' + '<!-- If you did not specify icon, simply overwrite Id put between : : characters with desired icon name -->' +
-                '\r\n' + '<!-- Supported by GitHub icon list can be found here: https://gist.github.com/rxaviers/7360908 -->';
-      } else if (elements.item(i).children[0].childNodes[0].firstChild.tagName === 'A') { // link list
-        currIterationCode = printLinkListCode(listLength, listElement);
-      } else { // normal list
-        currIterationCode = printTextListCode(listLength, listElement);
-      }
-    } else if (elements.item(i).classList.contains('link')) {
-      var element = elements.item(i).children[0];
-      var href = element.getAttribute('href');
-      currIterationCode = printLinkCode(href, element.textContent);
-    } else if (elements[i].classList.contains('code')) {
-      var element = elements.item(i).children[0].children[0];
-      currIterationCode = element.innerHTML.replace(/<br\s*[/]?>/gi, '\r\n');
+    } else if (elements.item(i).classList.contains('details')) {
+      var details = elements.item(i).children[0];
+      currIterationCode = printDetailsSummaryCode(details);
     }
     code = code + currIterationCode;
     if (i === 0) {

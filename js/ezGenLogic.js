@@ -556,6 +556,33 @@ function replaceReservedCharacters(str) {
   return str;
 }
 
+function createDetails() {
+  // get
+  var summaryText = document.getElementById('details_summary').value;
+  var bodyText = document.getElementById('details_body').value;
+
+  // validate
+  if (validateDetails(summaryText, bodyText) === false) {
+    return false;
+  }
+
+  // create
+  var div = document.createElement('div');
+  div = setElement(div);
+
+  var details = document.createElement('details');
+  details.style.whiteSpace = 'pre-line';
+  details.innerHTML = `<summary>${summaryText}</summary>\n${bodyText}`;
+  div.appendChild(details);
+  div.appendChild(createDeleteTool());
+  div.appendChild(createEditTool('detailsUpdateModal', div.id));
+  renderElementOnPage(div, 'details');
+
+  if (isAutomatedModalEnabled) {
+    hideModalAfterRender('#detailsModal');
+  }
+}
+
 function removeElementByParentId(elementId) {
   var element = document.getElementById(elementId.parentNode.id);
   if (element != null) {
