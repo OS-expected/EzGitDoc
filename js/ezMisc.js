@@ -306,7 +306,7 @@ function clearModal(id, extraArg) {
   $(id).find('form').trigger('reset');
 
   if (extraArg === 'withImage') {
-    document.getElementById('label_preview_img').src = '';
+    document.getElementById('badge_preview_img').src = '';
   }
 
   // clear chosen option
