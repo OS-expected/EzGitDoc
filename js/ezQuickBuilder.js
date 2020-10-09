@@ -186,10 +186,15 @@ function generateQuickTemplate() {
   }
 
   if (quickBuilderOutput.length > 20) {
-    quickBuilderOutput += '\r\n\r\nTemplate generated using <a href="https://github.com/trolit/EzGitDoc">EzGitDoc</a> Quick Builder tool.';
+    quickBuilderOutput += addQuickBuilderCredits();
   }
 
   quickBuilderGenerateResult();
+}
+
+function addQuickBuilderCredits() {
+  var dt = new Date();
+  return `\r\n\r\nTemplate created on ${dt.getDate()}/${dt.getMonth() + 1}/${dt.getFullYear()} <br/> in <a href="https://github.com/trolit/EzGitDoc">EzGitDoc</a> Quickbuilder tool.`;
 }
 
 function quickBuilderGenerateResult() {
