@@ -169,6 +169,7 @@ function createTable() {
 function genKbdBody(rows, cols, flag = 'empty') {
   var p = document.createElement('p');
   p.style.textAlign = 'center';
+  p.style.marginBottom = '0';
   for (var i = 0; i < rows; i++) {
     for (var j = 0; j < cols; j++) {
       var kbd = document.createElement('kbd');
