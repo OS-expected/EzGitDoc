@@ -10,6 +10,7 @@ var isAutomatedModalEnabled;
 var isAutoToastHideEnabled;
 var isHintKeyEnabled;
 var isNonSpacedElementsEnabled;
+var isDeleteConfirmationEnabled;
 
 function updateSetting(name) {
   if (name === 'autoModals') {
@@ -35,6 +36,9 @@ function updateSetting(name) {
         setBasicStyleForElement(element);
       });
     }
+  } else if (name === 'deleteConfirmation') {
+    isDeleteConfirmationEnabled = document.getElementById('deleteConfirmation_switch').checked;
+    changeStatusLabel(isDeleteConfirmationEnabled, 'deleteConfirmation_switch_label');
   }
 }
 
@@ -69,6 +73,9 @@ function loadSettings() {
 
   isNonSpacedElementsEnabled = document.getElementById('nonSpacedElements_switch').checked;
   changeStatusLabel(isNonSpacedElementsEnabled, 'nonSpacedElements_switch_label');
+
+  isDeleteConfirmationEnabled = document.getElementById('deleteConfirmation_switch').checked;
+  changeStatusLabel(isDeleteConfirmationEnabled, 'deleteConfirmation_switch_label');
 }
 
 function manageKeyHints(flag) {
@@ -584,10 +591,16 @@ function createDetails() {
 }
 
 function removeElementByParentId(elementId) {
-  var element = document.getElementById(elementId.parentNode.id);
-  if (element != null) {
-    element.parentNode.removeChild(element);
+  if (isDeleteConfirmationEnabled === true) {
+    $('#removeElementConfirmationModal').modal('show');
+    var anchor = document.getElementById('singleRemoveAnchor');
+    anchor.onclick = function() {
+      deleteElement(elementId);
+    };
+  } else {
+    deleteElement(elementId);
   }
+
   if (document.getElementsByClassName('ezGitPart').length <= 0) {
     changeElementsVisiblity(codeGenButton);
     document.getElementById('resetButton').disabled = true;
@@ -595,6 +608,13 @@ function removeElementByParentId(elementId) {
     if (startingNoteRef.classList.contains('hide')) {
       startingNoteRef.classList.remove('hide');
     }
+  }
+}
+
+function deleteElement(elementId) {
+  var element = document.getElementById(elementId.parentNode.id);
+  if (element != null) {
+    element.parentNode.removeChild(element);
   }
 }
 

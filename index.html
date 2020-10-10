@@ -315,7 +315,7 @@ MODALS
 <!-- Settings Modal -->
 <div class="modal fade right" id="settingsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
 aria-hidden="true" data-backdrop="true">
-<div class="modal-dialog modal-side modal-top-right modal-notify modal-primary" role="document">
+<div class="modal-dialog modal-full-height modal-right modal-notify modal-primary" role="document">
   <!--Content-->
   <div class="modal-content modal-dark-content">
     <!--Header-->
@@ -361,6 +361,14 @@ aria-hidden="true" data-backdrop="true">
             <label class="custom-control-label" for="nonSpacedElements_switch" style="width: 100%;">Nonspaced elements: <span id="nonSpacedElements_switch_label" class="badge badge-pill badge-danger" style="float: right;">disabled</span></label>
             <small class="form-text text-muted">Enable this setting to remove spaces between elements in EzGitDoc. Disable it to retrieve bottom margins back.</small>
           </div>
+
+          <br/>
+
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="deleteConfirmation_switch" onclick="updateSetting('deleteConfirmation')">
+            <label class="custom-control-label" for="deleteConfirmation_switch" style="width: 100%;">Delete confirmation: <span id="deleteConfirmation_switch_label" class="badge badge-pill badge-danger" style="float: right;">disabled</span></label>
+            <small class="form-text text-muted">Enable this option to require confirmation before deleting single element in EzGitDoc. If disabled, single elements are deleted without confirmation.</small>
+          </div>
         </div>
       </div>
     </div>
@@ -374,7 +382,7 @@ aria-hidden="true" data-backdrop="true">
 </div>
 </div>
 
-<!-- Are you sure Modal -->
+<!-- Are you sure Modal [Remove all elements] -->
 <div class="modal fade" id="resetConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
   <div class="modal-dialog modal-sm modal-notify modal-danger" role="document">
@@ -393,6 +401,32 @@ aria-hidden="true" data-backdrop="true">
       <!--Footer-->
       <div class="modal-footer flex-center">
         <a onclick="removeAllElements()" data-dismiss="modal" class="btn  btn-outline-danger">Yes</a>
+        <a type="button" class="btn btn-danger waves-effect" data-dismiss="modal">No</a>
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+
+<!-- Are you sure Modal [Remove single] -->
+<div class="modal fade" id="removeElementConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-sm modal-notify modal-danger" role="document">
+    <!--Content-->
+    <div class="modal-content text-center">
+      <!--Header-->
+      <div class="modal-header d-flex justify-content-center">
+        <p class="heading">Are you sure?</p>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body">
+        <i class="fas fa-times fa-4x animated rotateIn"></i>
+      </div>
+
+      <!--Footer-->
+      <div class="modal-footer flex-center">
+        <a id="singleRemoveAnchor" data-dismiss="modal" class="btn  btn-outline-danger">Yes</a>
         <a type="button" class="btn btn-danger waves-effect" data-dismiss="modal">No</a>
       </div>
     </div>
