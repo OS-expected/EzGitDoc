@@ -423,7 +423,11 @@ function createBadge() {
 
   var img = document.createElement('img');
   img.style.float = 'left';
-  img.style.paddingTop = '5px';
+  if (style === 'for-the-badge') {
+    img.style.transform = 'translateY(+20%)';
+  } else {
+    img.style.transform = 'translateY(+50%)';
+  }
 
   if (style !== 'default') {
     img.src = 'https://img.shields.io/badge/' + label + '-' + message + '-red?color=' + color.substr(1) + '&style=' + style;
@@ -565,7 +569,7 @@ function setElement(element) {
 }
 
 function setBasicStyleForElement(element) {
-  element.setAttribute('style', `position: relative; border-left: 9px solid #588393; border-right: 9px solid #810401; margin-bottom: ${isNonSpacedElementsEnabled === true ? 0 : 15}px !important; min-height: 30px;`);
+  element.setAttribute('style', `position: relative; border-left: 9px solid #588393; border-right: 9px solid #810401; margin-bottom: ${isNonSpacedElementsEnabled === true ? 0 : 15}px !important; min-height: 40px;`);
 }
 
 function renderElementOnPage(element, content) {
