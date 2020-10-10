@@ -164,7 +164,7 @@ table, th, td {
     margin: 0 !important; 
 }
 
-.label-extra-styling {
+.badge-extra-styling {
     padding: 10px !important;
 }
 
@@ -652,4 +652,69 @@ left: 0px;
 
 .chiller-theme .sidebar-footer>a:last-child {
     border-right: none;
+}
+
+.references-modal-styles {
+    background-color: #7b7f85 !important;
+}
+
+.references-modal-styles a:link, 
+.references-modal-styles a:visited, 
+.references-modal-styles a:active {
+    color: #FFB400;
+}
+
+.references-modal-styles a:hover {
+    color: #B37E00;
+}
+
+body .modal-dark-header {
+    background-color: #BDBFC2 !important;
+    color: #717274;
+}
+
+body .modal-dark-content {
+    background-color: #DFDFDD;
+    color: #4F4F51;
+    font-family: 'Sen', sans-serif, 'Josefin Sans', 'Times New Roman', Times, serif;
+}
+
+body .form-group label, #referencesModalContent {
+    font-size: 90%;
+}
+
+body .close {
+    color: #58595A;
+}
+
+body .form-control:focus{
+    border: 2px solid #9c9c9c;
+    background-color: #cfcfcd;
+    -webkit-box-shadow: none;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #82827F(255, 0, 0, 0.6) !important;
+}
+
+body .form-control {
+    border: 2px solid #949493;
+    background-color: #D5D5D3;
+    -webkit-box-shadow: none;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #82827F(255, 0, 0, 0.6) !important;
+}
+
+.form-group .custom-select {
+    border: 2px solid #949493;
+    background-color: #D5D5D3;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.form-group .custom-select:focus {
+    border: 2px solid #9c9c9c;
+    background-color: #D5D5D3;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+body .list-group-item {
+    background-color: #D5D5D3;
 }

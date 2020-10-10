@@ -165,6 +165,18 @@ function validateBadge (_label, _message, _color) {
     triggerToast('Max characters for Color input reached (7).');
     return false;
   }
+  return true;
+}
+
+function validateDetails (summary, body) {
+  if (!summary.trim()) {
+    triggerToast(emptyInputFiled + ' (summary)');
+    return false;
+  } else if (!body.trim()) {
+    triggerToast(emptyInputFiled + ' (body)');
+    return false;
+  }
+  return true;
 }
 
 function validateQuickBuilderTextArea (text) {

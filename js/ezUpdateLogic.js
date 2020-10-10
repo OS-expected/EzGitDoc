@@ -145,6 +145,10 @@ function showEditModal(modalReference, elementId) {
       document.getElementById('uniTabWidth').value = image.width;
       document.getElementById('uniTabHeight').value = image.height;
       break;
+    case '#detailsUpdateModal':
+      document.getElementById('details_summary_update').value = tmp.children[0].innerHTML;
+      document.getElementById('details_body_update').value = tmp.innerHTML.split('\n').slice(1).join('\n');
+      break;
   }
 
   $(modalReference).modal('show');
@@ -565,4 +569,12 @@ function updateBadge() {
   if (isAutomatedModalEnabled) {
     hideModalAfterRender('#labelUpdateModal');
   }
+}
+
+function updateDetails() {
+  var newSummary = document.getElementById('details_summary_update').value;
+  var newBody = document.getElementById('details_body_update').value;
+
+  var detailsToUpdate = document.getElementById(lastReferencedId).children[0];
+  detailsToUpdate.innerHTML = `<summary>${newSummary}</summary>\n${newBody}`;
 }

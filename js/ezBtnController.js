@@ -4,7 +4,7 @@
 /* eslint-disable no-unused-vars */
 
 $(document).keydown(function(evt) {
-  if (evt.altKey && (evt.keyCode === 81 || evt.keyCode === 87 || evt.keyCode === 69 || evt.keyCode === 82 || evt.keyCode === 65 || evt.keyCode === 83 || evt.keyCode === 68 || evt.keyCode === 70)) {
+  if (evt.altKey && (evt.keyCode === 81 || evt.keyCode === 87 || evt.keyCode === 69 || evt.keyCode === 82 || evt.keyCode === 65 || evt.keyCode === 83 || evt.keyCode === 68 || evt.keyCode === 70 || evt.keyCode === 90)) {
     evt.preventDefault();
     closeAllActiveModals();
 
@@ -32,6 +32,9 @@ $(document).keydown(function(evt) {
         break;
       case 70: // F
         openModal('labelModal');
+        break;
+      case 90: // Z
+        openModal('detailsModal');
         break;
     }
   }

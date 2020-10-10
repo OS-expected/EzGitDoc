@@ -4,74 +4,7 @@
 /* eslint-disable no-unused-vars */
 
 // ********************************************
-// Settings Management
-// ********************************************
-var isAutomatedModalEnabled;
-var isAutoToastHideEnabled;
-var isHintKeyEnabled;
-
-function updateSetting(name) {
-  if (name === 'autoModals') {
-    isAutomatedModalEnabled = document.getElementById('autoMod_switch').checked;
-    changeStatusLabel(isAutomatedModalEnabled, 'autoMod_switch_label');
-  } else if (name === 'autoDisappear') {
-    isAutoToastHideEnabled = document.getElementById('autoDisappear_switch').checked;
-    changeStatusLabel(isAutoToastHideEnabled, 'autoDisappear_switch_label');
-  } else if (name === 'hintKeys') {
-    isHintKeyEnabled = document.getElementById('hintKeys_switch').checked;
-    changeStatusLabel(isHintKeyEnabled, 'hintKeys_switch_label');
-
-    if (isHintKeyEnabled) {
-      manageKeyHints('show');
-    } else {
-      manageKeyHints('hide');
-    }
-  }
-}
-
-function changeStatusLabel(checkStatus, labelId) {
-  var tmp = document.getElementById(labelId);
-  if (checkStatus === true) {
-    tmp.classList.remove('badge-danger');
-    tmp.classList.add('badge-success');
-    tmp.textContent = 'enabled';
-  } else {
-    tmp.classList.remove('badge-success');
-    tmp.classList.add('badge-danger');
-    tmp.textContent = 'disabled';
-  }
-}
-
-function loadSettings() {
-  isAutomatedModalEnabled = document.getElementById('autoMod_switch').checked;
-  changeStatusLabel(isAutomatedModalEnabled, 'autoMod_switch_label');
-
-  isAutoToastHideEnabled = document.getElementById('autoDisappear_switch').checked;
-  changeStatusLabel(isAutoToastHideEnabled, 'autoDisappear_switch_label');
-
-  isHintKeyEnabled = document.getElementById('hintKeys_switch').checked;
-  changeStatusLabel(isHintKeyEnabled, 'hintKeys_switch_label');
-
-  if (isHintKeyEnabled) {
-    manageKeyHints('show');
-  } else {
-    manageKeyHints('hide');
-  }
-}
-
-function manageKeyHints(flag) {
-  var badges = document.getElementsByClassName('hintKey');
-  for (var i = 0; i < badges.length; i++) {
-    if (flag === 'show') {
-      badges[i].classList.remove('hide');
-    } else if (flag === 'hide') {
-      badges[i].classList.add('hide');
-    }
-  }
-}
-
-// ********************************************
-// Onpage Generator Logic
+// Onpage Elements Logic
 // ********************************************
 
 var startingNoteRef = document.getElementById('startNote');
@@ -236,6 +169,7 @@ function createTable() {
 function genKbdBody(rows, cols, flag = 'empty') {
   var p = document.createElement('p');
   p.style.textAlign = 'center';
+  p.style.marginBottom = '0';
   for (var i = 0; i < rows; i++) {
     for (var j = 0; j < cols; j++) {
       var kbd = document.createElement('kbd');
@@ -488,6 +422,7 @@ function createBadge() {
   div = setElement(div);
 
   var img = document.createElement('img');
+  img.style.float = 'left';
 
   if (style !== 'default') {
     img.src = 'https://img.shields.io/badge/' + label + '-' + message + '-red?color=' + color.substr(1) + '&style=' + style;
@@ -543,11 +478,44 @@ function replaceReservedCharacters(str) {
   return str;
 }
 
-function removeElementByParentId(elementId) {
-  var element = document.getElementById(elementId.parentNode.id);
-  if (element != null) {
-    element.parentNode.removeChild(element);
+function createDetails() {
+  // get
+  var summaryText = document.getElementById('details_summary').value;
+  var bodyText = document.getElementById('details_body').value;
+
+  // validate
+  if (validateDetails(summaryText, bodyText) === false) {
+    return false;
   }
+
+  // create
+  var div = document.createElement('div');
+  div = setElement(div);
+
+  var details = document.createElement('details');
+  details.style.whiteSpace = 'pre-line';
+  details.innerHTML = `<summary>${summaryText}</summary>\n${bodyText}`;
+  div.appendChild(details);
+  div.appendChild(createDeleteTool());
+  div.appendChild(createEditTool('detailsUpdateModal', div.id));
+  renderElementOnPage(div, 'details');
+
+  if (isAutomatedModalEnabled) {
+    hideModalAfterRender('#detailsModal');
+  }
+}
+
+function removeElementByParentId(elementId) {
+  if (isDeleteConfirmationEnabled === true) {
+    $('#removeElementConfirmationModal').modal('show');
+    var anchor = document.getElementById('singleRemoveAnchor');
+    anchor.onclick = function() {
+      deleteElement(elementId);
+    };
+  } else {
+    deleteElement(elementId);
+  }
+
   if (document.getElementsByClassName('ezGitPart').length <= 0) {
     changeElementsVisiblity(codeGenButton);
     document.getElementById('resetButton').disabled = true;
@@ -555,6 +523,13 @@ function removeElementByParentId(elementId) {
     if (startingNoteRef.classList.contains('hide')) {
       startingNoteRef.classList.remove('hide');
     }
+  }
+}
+
+function deleteElement(elementId) {
+  var element = document.getElementById(elementId.parentNode.id);
+  if (element != null) {
+    element.parentNode.removeChild(element);
   }
 }
 
@@ -582,10 +557,14 @@ function setElement(element) {
   }
 
   element.setAttribute('id', GenerateUniqueId());
-  element.setAttribute('style', 'position: relative; margin-bottom: 0.5%; border-left: 9px solid #588393; border-right: 9px solid #810401;');
+  setBasicStyleForElement(element);
   element.setAttribute('class', 'block-stylizer ezGitPart');
   element.setAttribute('onselectstart', 'return false');
   return element;
+}
+
+function setBasicStyleForElement(element) {
+  element.setAttribute('style', `position: relative; border-left: 9px solid #588393; border-right: 9px solid #810401; margin-bottom: ${isNonSpacedElementsEnabled === true ? 0 : 15}px !important; min-height: 25px;`);
 }
 
 function renderElementOnPage(element, content) {

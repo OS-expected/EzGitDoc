@@ -19,7 +19,10 @@ window.addEventListener('load', function () {
   document.getElementById('iconDiv').hidden = true;
 });
 
+// ****************************************
 // Toast Time Handler
+// ****************************************
+
 var seconds = 0;
 var minutes = 0;
 
@@ -53,6 +56,10 @@ function increaseCounter() {
 function resetLastInterval() {
   clearInterval(myInterval);
 }
+
+// ****************************************
+// Helpful functions
+// ****************************************
 
 function GenerateUniqueId() {
   return Math.random().toString(36).substr(2, 9);
@@ -114,13 +121,15 @@ var currentlyActive;
 var _currentlyActiveUpdate;
 var listOption;
 
-// listOption, occupied values
+// list group item values occupied values
 // 0 - icon list
 // 1 - normal list
 // 2 - link list
 // 3 - text table
 // 4 - image table
-// 5,6,7,8,9,10 - header (+5 for update section)
+// 5,6,7,8,9,10 - header (10-15 for update section)
+// 23 - kbd table
+// 24 - linked kbd table
 function setElementAsActive(element, extraArg = 'empty') {
   // Reset if no extraArg applied
   if (extraArg === 'empty') {
@@ -159,6 +168,8 @@ window.onbeforeunload = null;
 // on page startup with JQuery
 $(document).ready(function () {
   $('#myToast').hide();
+  // queue defaulting last highlighted element's background color
+  defaultLastHighlightedElementBackgroundColor();
   // hide label loader
   $('#loader_img').hide();
   // bs colorpicker init
@@ -295,7 +306,7 @@ function clearModal(id, extraArg) {
   $(id).find('form').trigger('reset');
 
   if (extraArg === 'withImage') {
-    document.getElementById('label_preview_img').src = '';
+    document.getElementById('badge_preview_img').src = '';
   }
 
   // clear chosen option
