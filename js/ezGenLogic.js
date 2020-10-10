@@ -423,6 +423,7 @@ function createBadge() {
 
   var img = document.createElement('img');
   img.style.float = 'left';
+  img.style.paddingTop = '5px';
 
   if (style !== 'default') {
     img.src = 'https://img.shields.io/badge/' + label + '-' + message + '-red?color=' + color.substr(1) + '&style=' + style;
@@ -433,7 +434,7 @@ function createBadge() {
   div.appendChild(img);
   div.appendChild(createDeleteTool());
   div.appendChild(createEditTool('badgeUpdateModal', div.id));
-  renderElementOnPage(div, 'badge');
+  renderElementOnPage(div, 'EzBadge');
 
   if (isAutomatedModalEnabled) {
     hideModalAfterRender('#badgeModal');
@@ -564,7 +565,7 @@ function setElement(element) {
 }
 
 function setBasicStyleForElement(element) {
-  element.setAttribute('style', `position: relative; border-left: 9px solid #588393; border-right: 9px solid #810401; margin-bottom: ${isNonSpacedElementsEnabled === true ? 0 : 15}px !important; min-height: 25px;`);
+  element.setAttribute('style', `position: relative; border-left: 9px solid #588393; border-right: 9px solid #810401; margin-bottom: ${isNonSpacedElementsEnabled === true ? 0 : 15}px !important; min-height: 30px;`);
 }
 
 function renderElementOnPage(element, content) {
