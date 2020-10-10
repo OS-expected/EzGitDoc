@@ -3,10 +3,6 @@
 /* eslint-disable space-before-function-paren */
 /* eslint-disable no-unused-vars */
 
-// ********************************************
-// Settings Management
-// ********************************************
-
 var isAutomatedModalEnabled;
 var isAutoToastHideEnabled;
 var isHintKeyEnabled;

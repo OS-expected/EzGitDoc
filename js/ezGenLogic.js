@@ -4,7 +4,7 @@
 /* eslint-disable no-unused-vars */
 
 // ********************************************
-// Onpage Generator Logic
+// Onpage Elements Logic
 // ********************************************
 
 var startingNoteRef = document.getElementById('startNote');
