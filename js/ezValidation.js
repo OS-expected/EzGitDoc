@@ -169,10 +169,10 @@ function validateBadge (_label, _message, _color) {
 }
 
 function validateDetails (summary, body) {
-  if (!summary) {
+  if (!summary.trim()) {
     triggerToast(emptyInputFiled + ' (summary)');
     return false;
-  } else if (!body) {
+  } else if (!body.trim()) {
     triggerToast(emptyInputFiled + ' (body)');
     return false;
   }
