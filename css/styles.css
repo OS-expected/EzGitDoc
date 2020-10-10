@@ -679,8 +679,8 @@ body .modal-dark-content {
     font-family: 'Sen', sans-serif, 'Josefin Sans', 'Times New Roman', Times, serif;
 }
 
-body .form-group label {
-    font-size: 14px;
+body .form-group label, #referencesModalContent {
+    font-size: 90%;
 }
 
 body .close {
