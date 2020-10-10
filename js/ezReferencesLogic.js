@@ -110,7 +110,7 @@ function returnElementRef(element) {
         var textLength = p.textContent.length;
         name = `Text (${textLength > 10 ? p.textContent.substring(0, 10) + '...' : p.textContent})`;
         break;
-      case 'badge':
+      case 'EzBadge':
         var image = element.children[0];
         var index = image.src.indexOf('badge/') + 5;
         name = `Badge (${image.src.substr(index, 15)}...)`;

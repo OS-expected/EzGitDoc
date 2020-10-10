@@ -182,7 +182,7 @@ function generateCode() {
       currIterationCode = element.innerHTML.replace(/<br\s*[/]?>/gi, '\r\n');
     } else if (elements.item(i).classList.contains('header')) {
       code = code + printHeaderCodeForFirstChild(elements.item(i).firstChild);
-    } else if (elements.item(i).classList.contains('image') || elements.item(i).classList.contains('badge')) {
+    } else if (elements.item(i).classList.contains('image') || elements.item(i).classList.contains('EzBadge')) {
       var paragraph = elements.item(i);
       var image = paragraph.children[0];
       if (image.src.includes('shields')) {
