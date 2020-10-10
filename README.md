@@ -3,10 +3,10 @@
     <a href="https://trolit.github.io/EzGitDoc/"><kbd><img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/tool.png" height="240" alt="tool image"/></kbd></a>
 </p>
 
-## Start
+## About
 
 <p align="justify">
-EzGitDoc is open-source, WYSIWYG tool designed to improve Git repositories documentation experience. Click on the images above to be redirected onto docs/tool page. Pros of using EzGitDoc can be found <a href="https://trolit.github.io/EzGitDoc-documentation/#pros-of-ezgitdoc">here</a>. Thanks to <a href="https://github.com/damianggg">@damianggg</a> for spending time on functional tests 👍 
+Open-source, WYSIWYG tool designed to improve Git repositories documentation experience. Click on the images above to be redirected onto docs/tool page. Pros of using EzGitDoc can be found <a href="https://trolit.github.io/EzGitDoc-documentation/#pros-of-ezgitdoc">here</a>. Thanks to <a href="https://github.com/damianggg">@damianggg</a> for spending time on functional tests 👍 
 </p>
 
 #### Predefined templates
