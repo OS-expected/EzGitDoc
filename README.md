@@ -1,12 +1,12 @@
 <p align="center">
-    <a href="https://trolit.github.io/EzGitDoc-documentation/"><kbd><img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/documentation.png" height="240" alt="docs image"/></kbd></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="https://trolit.github.io/EzGitDoc-documentation/"><kbd><img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/documentation.png" height="240" alt="docs image"/></kbd></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <a href="https://trolit.github.io/EzGitDoc/"><kbd><img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/tool.png" height="240" alt="tool image"/></kbd></a>
 </p>
 
 ## About
 
 <p align="justify">
-Open-source, WYSIWYG tool designed to improve Git repositories documentation experience. Click on the images above to be redirected onto docs/tool page. Read more about EzGitDoc <a href="https://trolit.github.io/EzGitDoc-documentation/#pros-of-ezgitdoc">here</a>. Thanks to <a href="https://github.com/damianggg">@damianggg</a> for spending time on functional tests 👍 
+Open-source, WYSIWYG tool designed to improve Git repositories documentation experience. Click on the images above to be redirected onto docs/tool page. Thanks to <a href="https://github.com/damianggg">@damianggg</a> for spending time on functional tests 👍 
 </p>
 
 ## Preview
