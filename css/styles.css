@@ -7,6 +7,15 @@ html, body {
     scroll-behavior: smooth;
 }
 
+.theme-box {
+    float: left;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    border: 1px solid rgba(0, 0, 0, .2);
+}
+
 .position-absolute {
     position: absolute;
 }
@@ -112,6 +121,18 @@ td {
     text-align: center;
     margin-left: 45px;
     border: 5px inset #92A8D1;
+}
+
+.logo-icon {
+    color: #55606E;
+}
+
+.logo-title {
+    font-size: 90%; 
+    color: #55606E; 
+    margin: 0; 
+    padding: 15px 0 4px 0; 
+    line-height: 0;
 }
 
 table, th, td {
@@ -290,6 +311,7 @@ left: 0px;
     width: 70px;
     transition-delay: 0.3s;
 }
+
 .page-wrapper.toggled #show-sidebar {
     left: -40px;
 }
