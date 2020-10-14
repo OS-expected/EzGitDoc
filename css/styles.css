@@ -89,7 +89,7 @@ td {
     min-width:120px;
 }
 
-.logo-body
+.logo-preloader-body
 {
     width: 245px;
     height: 245px;
@@ -101,7 +101,7 @@ td {
     border: 7px inset #92A8D1;
 }
 
-.logo-preloader-body
+.logo-body 
 {
     width: 120px;
     height: 120px;
