@@ -105,7 +105,7 @@ function printIconListCode(listLength, elements, i) {
   var iconListCode = '';
   for (var x = 0; x < listLength - 2; x++) {
     // :icon: **header:** text <br/> <br>
-    iconListCode = iconListCode + elements.item(i).children[x].innerHTML + '<br><br>';
+    iconListCode = iconListCode + elements.item(i).children[x].innerHTML + '<br/><br/>';
     if (x < listLength - 2) {
       iconListCode = iconListCode + '\r\n';
     }
