@@ -654,6 +654,8 @@ left: 0px;
     border-right: none;
 }
 
+/*-----------------------------chiller-theme-------------------------------------------------*/
+
 .references-modal-styles {
     background-color: #7b7f85 !important;
 }
@@ -668,12 +670,12 @@ left: 0px;
     color: #B37E00;
 }
 
-body .modal-dark-header {
+body .modal-custom-header {
     background-color: #BDBFC2 !important;
     color: #717274;
 }
 
-body .modal-dark-content {
+body .modal-custom-content {
     background-color: #DFDFDD;
     color: #4F4F51;
     font-family: 'Sen', sans-serif, 'Josefin Sans', 'Times New Roman', Times, serif;
