@@ -515,11 +515,15 @@ function removeElementByParentId(elementId) {
     var anchor = document.getElementById('singleRemoveAnchor');
     anchor.onclick = function() {
       deleteElement(elementId);
+      handleStartingNoteAndGenerateCodeBtn();
     };
   } else {
     deleteElement(elementId);
+    handleStartingNoteAndGenerateCodeBtn();
   }
+}
 
+function handleStartingNoteAndGenerateCodeBtn() {
   if (document.getElementsByClassName('ezGitPart').length <= 0) {
     changeElementsVisiblity(codeGenButton);
     document.getElementById('resetButton').disabled = true;
