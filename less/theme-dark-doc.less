@@ -27,11 +27,11 @@
 @references-modal-href-active: #FFB400;
 @references-modal-href-hover: #B37E00;
 
-@sidebar-headers-text-color: @lighter-primary-color;
+@sidebar-headers-text-color: @brand-primary-color;
 @sidebar-background-color: @black-color;
 @sidebar-top-icons-color: @lighter-primary-color;
 @sidebar-single-item-icon-background: #4C4C4C;
-@sidebar-single-item-text-color: @lighter-primary-color;
+@sidebar-single-item-text-color: @brand-primary-color;
 @sidebar-single-item-icon-color: @lighter-primary-color;
 @sidebar-single-item-icon-color-on-hover: @brand-primary-color;
 @sidebar-single-item-shadow-color-on-hover: @brand-secondary-color;
@@ -41,21 +41,13 @@
 @sidebar-footer-border-color: @darker-primary-color;
 @sidebar-footer-icon-color-on-hover: @darker-primary-color;
 
-@badge-light-background-color: @lighter-primary-color;
+@badge-light-background-color: @brand-primary-color;
 @badge-light-text-color: @black-color;
 
 /* Themes Modal Preview Color */
 .theme-dark-doc {
     background-color: @primary-color;
 }
-
-/*  
-******************************** 
-body, badges, footer, ezgitpart,
-reset, remove element, themes
-modal, generate code btn stylings         
-******************************** 
-*/
 
 html[data-theme='dark-doc'] {
 
@@ -69,6 +61,11 @@ html[data-theme='dark-doc'] {
         color: @badge-light-text-color !important;
     }
 
+    .modal-custom-content .badge-light {
+        background-color: @white-color !important;
+        color: @badge-light-text-color !important;
+    }
+
     /* Footer */
     .page-footer {
         background-color: @footer-color !important;
@@ -77,7 +74,7 @@ html[data-theme='dark-doc'] {
     /* EzGitPart Element */
     .edit-icon-stylizer {
         color: white;
-        background-color: darken(@brand-text-color, 10%);
+        background-color: darken(@brand-text-color, 3%);
         height: 100%;
         position: absolute;
         left: -40px;
@@ -87,7 +84,7 @@ html[data-theme='dark-doc'] {
     }
     
     .edit-icon-stylizer:hover {
-        background-color: @darker-primary-color;
+        background-color: darken(@brand-secondary-color, 5%);
     }
 
     .delete-icon-stylizer {
@@ -95,14 +92,22 @@ html[data-theme='dark-doc'] {
     }
 
     .delete-icon-stylizer:hover {
-        background-color: #770501;
+        background-color: darken(@brand-secondary-color, 5%);
     }
 
     .ezGitPart {
         border-left: 9px solid @darker-primary-color;
         border-right: 9px solid #770501;
-        background-color: @forms-dark-color;
+        background-color: lighten(@black-color, 20%);
         color: @white-color;
+        
+        td {
+            color: @white-color;
+        }
+
+        pre {
+            color: @white-color;
+        }
     }
 
     /* RESET(remove all items) and REMOVE single item */
@@ -117,12 +122,12 @@ html[data-theme='dark-doc'] {
     }
 
     .btn-outline-danger {
-        border: 2px solid @primary-color !important;
-        color: @primary-color !important;
+        border: 2px solid @black-color !important;
+        color: @black-color !important;
     }
 
     .btn-danger {
-        background-color: @reset-btn-color !important;
+        background-color: @black-color !important;
     }
 
     /* Themes modal */
@@ -139,7 +144,22 @@ html[data-theme='dark-doc'] {
     .settings-header .close {
         background-color: @modal-header-bg-color;
     }
-    
+
+    /* Notifications (Toast) */
+    #myToast {
+        background-color: @black-color !important;
+        color: @white-color;
+    }
+
+    #myToast .close {
+        background-color: #dddddd;
+        color: @black-color !important;
+    }
+
+    #myToast .toast-header {
+        color: lighten(@black-color, 15%);
+    }
+
 }
 
 // ********************************
@@ -152,7 +172,7 @@ html[data-theme='dark-doc'] {
         color: @white-color;
     }
 
-    .references-header .close {
+    #referencesModal .references-header .close {
         background-color: @brand-text-color;
     }
 
@@ -202,9 +222,9 @@ html[data-theme='dark-doc'] {
     }
 
     /* Close Button */
-    body .close {
-        color: @darker-primary-color;
-        background-color: @white-color;
+    body .modal-custom-content .close {
+        color: @white-color;
+        background-color: lighten(@black-color, 8%);;
     }
     
     /* Input / Textarea */
@@ -294,6 +314,9 @@ html[data-theme='dark-doc'] {
         border: 0px !important;
     }
     
+    .custom-control-label {
+        color: @white-color;
+    }
 }
 
 // ********************************
@@ -304,12 +327,12 @@ html[data-theme='dark-doc'] {
 
     /* Background */
     .chiller-theme .sidebar-wrapper {
-        background: @sidebar-background-color;
+        background: lighten(@black-color, 5%);
     }
 
     /* Icons above EzGitDoc logo */
     .github-icon, .theme-icon {
-        color: @sidebar-top-icons-color; 
+        color: @brand-primary-color; 
         height: 50px; 
         font-size: 125%; 
         position: absolute;
@@ -392,7 +415,7 @@ html[data-theme='dark-doc'] {
     .chiller-theme .sidebar-wrapper .sidebar-header .user-info,
     .chiller-theme .sidebar-wrapper .sidebar-brand>a:hover {
         background-image: linear-gradient(to right, 
-        fade(@lighter-primary-color, 15%), fade(@lighter-primary-color, 10%), @black-color);
+        fade(@lighter-primary-color, 15%), fade(@lighter-primary-color, 10%), lighten(@black-color, 5%););
     }
 
     /* Icons Color (Besides eye - fullscreen) */
