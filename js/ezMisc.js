@@ -344,7 +344,7 @@ function loadActiveTheme() {
   var themeBoxes = document.getElementsByClassName('theme-box');
   themeBoxes.forEach(themeBox => {
     if (themeBox.classList.contains(`theme-${dataTheme}`)) {
-      themeBox.style.border = '3px solid black';
+      themeBox.style.border = '3px solid #4AEFC6';
       activeTheme = themeBox;
     }
   });
