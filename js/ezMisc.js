@@ -325,3 +325,35 @@ $('body').on('hidden.bs.modal', function () {
     $('body').addClass('modal-open');
   }
 });
+
+// Themes management
+function setTheme(name) {
+  if (activeTheme != null) {
+    activeTheme.style.border = '1px solid black';
+  }
+  var html = document.documentElement;
+  html.setAttribute('data-theme', name);
+  loadActiveTheme();
+}
+
+var activeTheme;
+
+function loadActiveTheme() {
+  var html = document.documentElement;
+  var dataTheme = html.getAttribute('data-theme');
+  var themeBoxes = document.getElementsByClassName('theme-box');
+  themeBoxes.forEach(themeBox => {
+    if (themeBox.classList.contains(`theme-${dataTheme}`)) {
+      themeBox.style.border = '3px solid black';
+      activeTheme = themeBox;
+    }
+  });
+}
+
+$('#themesModal').on('shown.bs.modal', function() {
+  loadActiveTheme();
+});
+
+$('#themesModal').on('hidden.bs.modal', function() {
+  activeTheme.style.border = '1px solid black';
+});
