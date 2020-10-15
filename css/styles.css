@@ -75,6 +75,11 @@ html, body {
     transition: 0.2s linear;
 }
 
+.ezGitPart {
+    border-left: 9px solid #588393;
+    border-right: 9px solid #810401;
+}
+
 .list-group-item.active {
     background-color: #ACB2B9 !important;
     border: 1px solid #ACB2B9 !important;
@@ -389,12 +394,6 @@ left: 0px;
 .sidebar-wrapper .sidebar-header .user-info .user-status {
     font-size: 11px;
     margin-top: 0;
-}
-
-.sidebar-wrapper .sidebar-header .user-info .user-status i {
-    font-size: 8px;
-    margin-right: 4px;
-    color: #5cb85c;
 }
 
 /*----------------------sidebar-menu-------------------------*/
@@ -718,4 +717,8 @@ body .form-control {
 
 body .list-group-item {
     background-color: #D5D5D3;
+}
+
+.optional-text {
+    color: grey;
 }

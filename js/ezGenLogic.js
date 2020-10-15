@@ -572,8 +572,7 @@ function setElement(element) {
 }
 
 function setStyleForElement(element, extraStyles = 'none') {
-  element.setAttribute('style', `position: relative; border-left: 9px solid #588393; 
-  min-height: 40px; border-right: 9px solid #810401; 
+  element.setAttribute('style', `position: relative; min-height: 40px;
   margin-bottom: ${isNonSpacedElementsEnabled === true ? 0 : 15}px !important; 
   ${extraStyles !== 'none' ? extraStyles : ''}`);
 }
