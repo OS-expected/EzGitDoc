@@ -8,7 +8,7 @@ var referencesModalContent = document.getElementById('referencesModalContent');
 function defaultLastHighlightedElementBackgroundColor() {
   $('#referencesModal').on('hidden.bs.modal', function () {
     if (lastHighlightedElement != null) {
-      lastHighlightedElement.style.backgroundColor = '#EEEEEE';
+      lastHighlightedElement.style.backgroundColor = lastHighlightedElementBg;
       lastHighlightedElement = null;
     }
   });
@@ -153,12 +153,14 @@ function wrapElementRefIntoAnchor(id, name) {
 }
 
 var lastHighlightedElement = null;
+var lastHighlightedElementBg = '';
 
 function highlightElement(id) {
   if (lastHighlightedElement !== null) {
-    lastHighlightedElement.style.backgroundColor = '#EEEEEE';
+    lastHighlightedElement.style.backgroundColor = lastHighlightedElementBg;
   }
   var element = document.getElementById(id);
+  lastHighlightedElementBg = $(element).css('background-color');
   element.style.backgroundColor = '#E5A200';
   lastHighlightedElement = element;
 }
