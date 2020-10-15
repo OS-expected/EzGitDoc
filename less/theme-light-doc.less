@@ -38,8 +38,8 @@
 @sidebar-footer-border-color: @darker-primary-color;
 @sidebar-footer-icon-color-on-hover: @brand-secondary-color;
 
-@badge-light-background-color: #e0e0e0;
-@badge-light-text-color: #000;
+@badge-light-background-color: @darker-primary-color;
+@badge-light-text-color: @white-color;
 
 /* Themes Modal Preview Color */
 .theme-light-doc {
@@ -62,8 +62,8 @@ html[data-theme='light-doc'] {
 
     /* Badges */
     .badge-light {
-        background-color: @darker-primary-color !important;
-        color: white !important;
+        background-color: @badge-light-background-color !important;
+        color: @badge-light-text-color !important;
     }
 
     /* Footer */
