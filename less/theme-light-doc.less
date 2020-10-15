@@ -19,7 +19,7 @@
 @footer-color: #615bd3;
 
 @modal-header-bg-color: lighten(@brand-secondary-color, 15%);
-@modal-content-bg-color: lighten(@modal-header-bg-color, 5%);
+@modal-content-bg-color: @white-color;
 
 @references-modal-href-active: #FFB400;
 @references-modal-href-hover: #B37E00;
@@ -160,7 +160,7 @@ html[data-theme='light-doc'] {
 
     /* Body (also named content) */
     body .modal-custom-content {
-        background-color: @white-color;
+        background-color: @modal-content-bg-color;
         color: @brand-text-color;
         font-family: 'Sen', sans-serif, 'Josefin Sans', 'Times New Roman', Times, serif;
 
