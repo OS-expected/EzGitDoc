@@ -1,6 +1,6 @@
 <!doctype html>
 
-<html lang="en">
+<html data-theme="classic" lang="en">
 
 <head>
     <link rel="shortcut icon" href="favicon.png" />
@@ -22,6 +22,13 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 
+    <!-- Themes-->
+    <link rel="stylesheet/less" type="text/css" href="less/theme-classic.less">
+    <link rel="stylesheet/less" type="text/css" href="less/theme-light-doc.less">
+    <link rel="stylesheet/less" type="text/css" href="less/theme-calm.less">
+    <link rel="stylesheet/less" type="text/css" href="less/theme-dark-doc.less">
+    <link rel="stylesheet/less" type="text/css" href="less/theme-raw-dark.less">
+
     <!-- Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet"> 
@@ -42,7 +49,7 @@
     <title>ezGitDoc</title>
   </head>
 
-<body style="background-color: #55606E;">
+<body>
 
 <!-- 
 ********************************************
@@ -50,7 +57,7 @@ Preloader
 ********************************************
 -->
 <div class="se-pre-con" style="width: 100%; font-family: 'Josefin Sans';">
-  <div class="logo-body" style="margin: 5% auto 0 auto;">
+  <div class="logo-preloader-body" style="margin: 5% auto 0 auto;">
     <i class="fab fa-earlybirds fa-10x" style="color: #55606E;"></i>
     <p style="font-size: 40px; color: #55606E; margin: 0; padding: 37px 0 10px 0; line-height: 0;">EzGitDoc</p>
   </div>
@@ -71,14 +78,16 @@ Sidebar
   </a>
   <nav id="sidebar" class="sidebar-wrapper">
     <div class="sidebar-content">
-      <a href="https://github.com/trolit/EzGitDoc" target="_blank"><span class="iconify" data-icon="codicon:github" data-inline="false" style="color: white; height: 50px; font-size: 20px; position: absolute;"></span></a>
+      <a href="https://github.com/trolit/EzGitDoc" target="_blank"><span class="iconify github-icon faa-tada animated-hover" data-icon="codicon:github" data-inline="false"></span></a>
+      <a data-toggle="modal" data-target="#themesModal"><span class="iconify theme-icon faa-tada animated-hover" data-icon="line-md:paint-drop-half-twotone" data-inline="false" data-inline="false"></span></a>
       <div class="text-center">
-        <span class="badge badge-light">1.7.4</span>
+        <span id="themeBadge" class="badge badge-light">classic</span>
+        <span class="badge badge-light">1.7.5</span>
       </div>
       <div class="sidebar-header" style="margin-left: 2%;">
-        <div class="logo-preloader-body" style="font-family: 'Josefin Sans'; ">
-          <i class="fab fa-earlybirds fa-5x faa-tada animated-hover " style="color: #55606E;"></i>
-          <p style="font-size: 15px; color: #55606E; margin: 0; padding: 15px 0 4px 0; line-height: 0;">EzGitDoc</p>
+        <div class="logo-body" style="font-family: 'Josefin Sans'; ">
+          <i class="fab fa-earlybirds fa-5x faa-tada animated-hover logo-icon"></i>
+          <p class="logo-title">EzGitDoc</p>
         </div>
       </div>
       <div class="text-center">
@@ -234,7 +243,7 @@ Sidebar
           <div class="row">
             <div class="col-md-4 mb-md-0 mb-3">
               <h5 class="text-uppercase font-weight-bold"><i class="fas fa-code"></i> Definition</h5>
-              <p class="text-justify">In short, it's quick and easy tool, allowing to setup and generate interesting templates of *.md files that are mostly used for repositories documentation. One of it's crucial advantages is that it focuses more on clicking than writing. Plan your doc, fill in data and get code! Learn more at <a href="https://trolit.github.io/EzGitDoc-documentation/" target="_blank" class="badge badge-info footer-badge">EzGitDoc documentation</a></p>
+              <p class="text-justify">In short, it's quick and easy tool, allowing to setup and generate interesting templates of *.md files that are mostly used for repositories documentation. One of it's crucial advantages is that it focuses more on clicking than writing. Plan your doc, fill in data and get code! Learn more at <a href="https://trolit.github.io/EzGitDoc-documentation/" target="_blank" class="badge badge-light footer-badge">EzGitDoc documentation</a></p>
             </div>
             <hr class="clearfix w-100 d-md-none pb-3">
             <div class="col-md-4 mt-md-0 mt-3">
@@ -244,7 +253,7 @@ Sidebar
             <hr class="clearfix w-100 d-md-none pb-3">
             <div class="col-md-4 mb-md-0 mb-3">
               <h5 class="text-uppercase font-weight-bold"><i class="fas fa-desktop"></i> Contribution & Contact</h5>
-              <p class="text-justify">Want to take part in making EzGitDoc more powerful and advanced for the community? Feel free to contact via <a href="#" class="badge badge-secondary footer-badge"  data-toggle="modal" data-target="#contactModal">this form <i class="fas fa-comment-alt"></i></a> or Discord. Whether you want to share your template, suggest an idea or lend a hand with making tool more advanced. You are welcome!
+              <p class="text-justify">Want to take part in making EzGitDoc more powerful and advanced for the community? Feel free to contact via <a href="#" class="badge badge-light footer-badge"  data-toggle="modal" data-target="#contactModal">this form <i class="fas fa-comment-alt"></i></a> or Discord. Whether you want to share your template, suggest an idea or lend a hand with making tool more advanced. You are welcome!
               </p>
             </div>
           </div>
@@ -283,15 +292,41 @@ MODALS
 ********************************************
 -->
 
+<!-- Themes Modal -->
+<div class="modal fade" id="themesModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-sm modal-notify modal-success" role="document">
+    <!--Content-->
+    <div class="modal-content text-center">
+      <!--Header-->
+      <div class="modal-header d-flex justify-content-center">
+        <p class="heading">Themes</p>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body">
+        <div class="row justify-content-center">
+          <div class="theme-box theme-classic" onclick="setTheme('classic')" data-tooltip="tooltip" data-placement="top" title="Classic"></div>
+          <div class="theme-box theme-light-doc" onclick="setTheme('light-doc')" data-tooltip="tooltip" data-placement="top" title="Light Doc"></div>
+          <div class="theme-box theme-calm" onclick="setTheme('calm')" data-tooltip="tooltip" data-placement="top" title="Calm"></div>
+          <div class="theme-box theme-dark-doc" onclick="setTheme('dark-doc')" data-tooltip="tooltip" data-placement="top" title="Dark Doc"></div>
+          <div class="theme-box theme-raw-dark" onclick="setTheme('raw-dark')" data-tooltip="tooltip" data-placement="top" title="Raw Dark"></div>
+        </div>
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+
 <!-- References Modal -->
 <div class="modal fade" id="referencesModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-notify" role="document">
     <!--Content-->
-    <div class="modal-content modal-dark-content references-modal-styles">
+    <div class="modal-content modal-custom-content references-modal-styles">
       <!--Header-->
-      <div class="modal-header">
-        <p class="heading lead white-text">References</p>
+      <div class="modal-header references-header">
+        <p class="heading lead">References</p>
 
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true" class="white-text">&times;</span>
@@ -317,9 +352,9 @@ MODALS
 aria-hidden="true" data-backdrop="true">
 <div class="modal-dialog modal-full-height modal-right modal-notify modal-primary" role="document">
   <!--Content-->
-  <div class="modal-content modal-dark-content">
+  <div class="modal-content modal-custom-content">
     <!--Header-->
-    <div class="modal-header modal-dark-header">
+    <div class="modal-header modal-custom-header settings-header">
       <p class="heading">Settings
       </p>
 
@@ -400,7 +435,7 @@ aria-hidden="true" data-backdrop="true">
 
       <!--Footer-->
       <div class="modal-footer flex-center">
-        <a onclick="removeAllElements()" data-dismiss="modal" class="btn  btn-outline-danger">Yes</a>
+        <a onclick="removeAllElements()" data-dismiss="modal" class="btn btn-outline-danger">Yes</a>
         <a type="button" class="btn btn-danger waves-effect" data-dismiss="modal">No</a>
       </div>
     </div>
@@ -437,8 +472,8 @@ aria-hidden="true" data-backdrop="true">
 <!-- Code Modal -->
 <div class="modal fade right" id="codeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-full-height modal-right" role="document">
-  <div class="modal-content modal-dark-content">
-    <div class="modal-header modal-dark-header">
+  <div class="modal-content modal-custom-content">
+    <div class="modal-header modal-custom-header">
       <p class="heading lead m-0">Code
       </p>
 
@@ -450,7 +485,7 @@ aria-hidden="true" data-backdrop="true">
     <div class="modal-body">
       <form>
         <div class="form-group">
-          <label for="codeLanguage">Language <small class="grey-text">(optional)</small></label>
+          <label for="codeLanguage">Language <small class="optional-text">(optional)</small></label>
           <input class="form-control" id="codeLanguage" placeholder="e.g. javascript" maxlength="15" autocomplete="off">
         </div>
 
@@ -468,7 +503,7 @@ aria-hidden="true" data-backdrop="true">
           Did you know?
           <hr class="m-0"/>
           <ul class="list-unstyled mt-3">
-            <li><small class="form-text text-muted"><i class="fas fa-highlighter"></i> Use &nbsp; <kbd class="badge badge-light" style="padding: 6px;">TAB</kbd> &nbsp; key to make indentation in Code.</small> </li>
+            <li><small class="form-text text-muted"><i class="fas fa-highlighter"></i> Use <kbd style="background-color: grey; padding: 6px;">TAB</kbd> key to make indentation in Code.</small> </li>
             <li><small class="form-text text-muted"><i class="fas fa-highlighter"></i> Textareas in EzGitDoc are resizable.</small></li>
             <li><small class="form-text text-muted"><i class="fas fa-highlighter"></i> GitHub supported languages can be found <a href="https://github.com/github/linguist/blob/master/lib/linguist/languages.yml" target="_blank">here</a>.</small></li>
           </ul>
@@ -488,8 +523,8 @@ aria-hidden="true" data-backdrop="true">
 <!-- Code Update Modal -->
 <div class="modal fade right" id="codeUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-side modal-top-right" role="document">
-  <div class="modal-content modal-dark-content">
-    <div class="modal-header modal-dark-header">
+  <div class="modal-content modal-custom-content">
+    <div class="modal-header modal-custom-header">
       <p class="heading lead m-0">Code Update
       </p>
 
@@ -523,8 +558,8 @@ aria-hidden="true" data-backdrop="true">
 <!-- Header Modal -->
 <div class="modal fade right" id="headerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-full-height modal-right" role="document">
-    <div class="modal-content modal-dark-content">
-      <div class="modal-header modal-dark-header">
+    <div class="modal-content modal-custom-content">
+      <div class="modal-header modal-custom-header">
         <p class="heading lead m-0">Header
         </p>
 
@@ -541,7 +576,7 @@ aria-hidden="true" data-backdrop="true">
           </div>
         
           <ul class="list-group" style="cursor: pointer;" onselectstart="return false" ondragstart="return false">
-            <label>Style <small class="grey-text">(optional, default = h2)</small></label>
+            <label>Style <small class="optional-text">(optional, default = h2)</small></label>
             <li class="list-group-item" value="5" onclick="setElementAsActive(this)"><div class="row"><div class="col">h1</div> <div class="col text-right"><span class="badge badge-light" data-toggle="popover-hover" data-img="images/hover/header_1.png" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
             <li class="list-group-item" value="6" onclick="setElementAsActive(this)"><div class="row"><div class="col">h2</div> <div class="col text-right"><span class="badge badge-light" data-toggle="popover-hover" data-img="images/hover/header_2.png" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
             <li class="list-group-item" value="7" onclick="setElementAsActive(this)"><div class="row"><div class="col">h3</div> <div class="col text-right"><span class="badge badge-light" data-toggle="popover-hover" data-img="images/hover/header_3.png" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
@@ -567,8 +602,8 @@ aria-hidden="true" data-backdrop="true">
 <!-- Header Update Modal -->
 <div class="modal fade right" id="headerUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-side modal-top-right" role="document">
-    <div class="modal-content modal-dark-content">
-      <div class="modal-header modal-dark-header">
+    <div class="modal-content modal-custom-content">
+      <div class="modal-header modal-custom-header">
         <p class="heading lead m-0">Header Update
         </p>
 
@@ -606,8 +641,8 @@ aria-hidden="true" data-backdrop="true">
 <!-- Image Modal -->
 <div class="modal fade right" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-full-height modal-right" role="document">
-  <div class="modal-content modal-dark-content">
-    <div class="modal-header modal-dark-header">
+  <div class="modal-content modal-custom-content">
+    <div class="modal-header modal-custom-header">
       <p class="heading lead m-0">Image
       </p>
 
@@ -630,7 +665,7 @@ aria-hidden="true" data-backdrop="true">
         </div>
 
         <div class="form-group">
-            <label class="my-1 mr-2" for="imagePositionList">Alignment <small class="grey-text">(optional, default = center)</small></label>
+            <label class="my-1 mr-2" for="imagePositionList">Alignment <small class="optional-text">(optional, default = center)</small></label>
             <select class="custom-select my-1 mr-sm-2" id="imagePositionList" autocomplete="off">
             <option value="0" selected>Choose...</option>
             <option value="1">Left aligned</option>
@@ -685,8 +720,8 @@ aria-hidden="true" data-backdrop="true">
 <!-- Image Update Modal -->
 <div class="modal fade right" id="imageUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-side modal-top-right" role="document">
-  <div class="modal-content modal-dark-content">
-    <div class="modal-header modal-dark-header">
+  <div class="modal-content modal-custom-content">
+    <div class="modal-header modal-custom-header">
       <p class="heading lead m-0">Image Update
       </p>
 
@@ -750,8 +785,8 @@ aria-hidden="true" data-backdrop="true">
 <!-- Link Modal -->
 <div class="modal fade right" id="linkModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-full-height modal-right" role="document">
-  <div class="modal-content modal-dark-content">
-    <div class="modal-header modal-dark-header">
+  <div class="modal-content modal-custom-content">
+    <div class="modal-header modal-custom-header">
       <p class="heading lead m-0">Link
       </p>
 
@@ -798,8 +833,8 @@ aria-hidden="true" data-backdrop="true">
 <!-- Link Update Modal -->
 <div class="modal fade right" id="linkUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-side modal-top-right" role="document">
-  <div class="modal-content modal-dark-content">
-    <div class="modal-header modal-dark-header">
+  <div class="modal-content modal-custom-content">
+    <div class="modal-header modal-custom-header">
       <p class="heading lead m-0">Link Update
       </p>
 
@@ -832,8 +867,8 @@ aria-hidden="true" data-backdrop="true">
 <!-- List Modal -->
 <div class="modal fade right" id="listModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-full-height modal-right" role="document">
-    <div class="modal-content modal-dark-content">
-      <div class="modal-header modal-dark-header">
+    <div class="modal-content modal-custom-content">
+      <div class="modal-header modal-custom-header">
         <p class="heading lead m-0">List
         </p>
 
@@ -893,8 +928,8 @@ aria-hidden="true" data-backdrop="true">
 <div class="modal fade" id="listUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content modal-dark-content">
-      <div class="modal-header modal-dark-header">
+    <div class="modal-content modal-custom-content">
+      <div class="modal-header modal-custom-header">
         <p class="heading lead m-0">List Update
         </p>
 
@@ -925,8 +960,8 @@ aria-hidden="true" data-backdrop="true">
 <!-- Table Modal -->
 <div class="modal fade right" id="arrayModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-full-height modal-right" role="document">
-  <div class="modal-content modal-dark-content">
-    <div class="modal-header modal-dark-header">
+  <div class="modal-content modal-custom-content">
+    <div class="modal-header modal-custom-header">
       <p class="heading lead m-0">Table
       </p>
 
@@ -988,8 +1023,8 @@ aria-hidden="true" data-backdrop="true">
 <div class="modal fade" id="arrayUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content modal-dark-content">
-      <div class="modal-header modal-dark-header">
+    <div class="modal-content modal-custom-content">
+      <div class="modal-header modal-custom-header">
         <p class="heading lead m-0">Table Update
         </p>
 
@@ -1022,8 +1057,8 @@ aria-hidden="true" data-backdrop="true">
 <div class="modal fade" id="tableUniUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">
   <div class="modal-dialog modal-side modal-top-right"" role="document">
-    <div class="modal-content modal-dark-content">
-      <div class="modal-header modal-dark-header">
+    <div class="modal-content modal-custom-content">
+      <div class="modal-header modal-custom-header">
         <p class="heading lead m-0">Table Update
         </p>
         
@@ -1062,8 +1097,8 @@ aria-hidden="true" data-backdrop="true">
 <!-- Text Modal -->
 <div class="modal fade right" id="textModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-full-height modal-right" role="document">
-  <div class="modal-content modal-dark-content">
-    <div class="modal-header modal-dark-header">
+  <div class="modal-content modal-custom-content">
+    <div class="modal-header modal-custom-header">
       <p class="heading lead m-0">Text
       </p>
       
@@ -1076,7 +1111,7 @@ aria-hidden="true" data-backdrop="true">
       <form>
         <div class="container">
           <div class="form-group">
-            <label for="commentArea">Text <small class="grey-text">(optional)</small></label>
+            <label for="commentArea">Text <small class="optional-text">(optional)</small></label>
             <textarea class="form-control" rows="5" id="commentArea" autocomplete="off"></textarea>
           </div>
 
@@ -1115,8 +1150,8 @@ aria-hidden="true" data-backdrop="true">
 <!-- Text Update Modal -->
 <div class="modal fade right" id="textUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-side modal-top-right" role="document">
-  <div class="modal-content modal-dark-content">
-    <div class="modal-header modal-dark-header">
+  <div class="modal-content modal-custom-content">
+    <div class="modal-header modal-custom-header">
       <p class="heading lead m-0">Text Update
       </p>
 
@@ -1152,8 +1187,8 @@ aria-hidden="true" data-backdrop="true">
 <!-- Badge Modal -->
 <div class="modal fade right" id="badgeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-full-height modal-right" role="document">
-    <div class="modal-content modal-dark-content">
-      <div class="modal-header modal-dark-header">
+    <div class="modal-content modal-custom-content">
+      <div class="modal-header modal-custom-header">
         <p class="heading lead m-0">Badge
         </p>
         
@@ -1180,7 +1215,7 @@ aria-hidden="true" data-backdrop="true">
           </div>
 
           <div class="form-group">
-            <label for="b_style">Style <small class="grey-text">(optional)</small></label>
+            <label for="b_style">Style <small class="optional-text">(optional)</small></label>
             <select id="b_style" class="browser-default custom-select" autocomplete="off">
               <option value="default" selected>Flat(default)</option>
               <option value="plastic">Plastic</option>
@@ -1229,8 +1264,8 @@ aria-hidden="true" data-backdrop="true">
 <!-- Badge Update Modal -->
 <div class="modal fade right" id="badgeUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-side modal-top-right" role="document">
-    <div class="modal-content modal-dark-content">
-      <div class="modal-header modal-dark-header">
+    <div class="modal-content modal-custom-content">
+      <div class="modal-header modal-custom-header">
         <p class="heading lead m-0">Badge Update
         </p>
 
@@ -1257,7 +1292,7 @@ aria-hidden="true" data-backdrop="true">
           </div>
 
           <div class="form-group">
-            <label for="b_style_update">Style <small class="grey-text">(optional)</small></label>
+            <label for="b_style_update">Style <small class="optional-text">(optional)</small></label>
             <select id="b_style_update" class="browser-default custom-select" autocomplete="off">
               <option value="default" selected>Flat(default)</option>
               <option value="plastic">Plastic</option>
@@ -1278,8 +1313,8 @@ aria-hidden="true" data-backdrop="true">
 <!-- Details Modal -->
 <div class="modal fade right" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-full-height modal-right" role="document">
-    <div class="modal-content modal-dark-content">
-      <div class="modal-header modal-dark-header">
+    <div class="modal-content modal-custom-content">
+      <div class="modal-header modal-custom-header">
         <p class="heading lead m-0">Details
         </p>
 
@@ -1328,8 +1363,8 @@ aria-hidden="true" data-backdrop="true">
 <!-- Details Update Modal -->
 <div class="modal fade right" id="detailsUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-full-height modal-right" role="document">
-    <div class="modal-content modal-dark-content">
-      <div class="modal-header modal-dark-header">
+    <div class="modal-content modal-custom-content">
+      <div class="modal-header modal-custom-header">
         <p class="heading lead m-0">Details Update
         </p>
 
@@ -1372,8 +1407,8 @@ aria-hidden="true" data-backdrop="true">
 <!-- Contact Modal -->
 <div class="modal fade right" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-full-height modal-right" role="document">
-  <div class="modal-content modal-dark-content">
-    <div class="modal-header modal-dark-header">
+  <div class="modal-content modal-custom-content">
+    <div class="modal-header modal-custom-header">
       <p class="heading lead m-0">Contact
       </p>
 
@@ -1421,8 +1456,8 @@ aria-hidden="true" data-backdrop="true">
 
   <!-- Change class .modal-sm to change the size of the modal -->
   <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content modal-dark-content">
-      <div class="modal-header modal-dark-header">
+    <div class="modal-content modal-custom-content">
+      <div class="modal-header modal-custom-header">
         <p class="heading lead m-0">Quickbuilder 1.0
         </p>
 
@@ -1477,8 +1512,8 @@ aria-hidden="true" data-backdrop="true">
 <!-- Quick Builder Result Modal -->
 <div class="modal fade right" id="qbResultModal" tabindex="-2" role="dialog" aria-hidden="true">
   <div class="modal-dialog modal-side modal-top-right" role="document">
-    <div class="modal-content modal-dark-content">
-      <div class="modal-header modal-dark-header">
+    <div class="modal-content modal-custom-content">
+      <div class="modal-header modal-custom-header">
         <p class="heading lead m-0">Generated Output
         </p>
 
@@ -1504,8 +1539,8 @@ aria-hidden="true" data-backdrop="true">
 <div class="modal fade" id="generatedCodeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
   aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-    <div class="modal-content modal-dark-content">
-      <div class="modal-header modal-dark-header">
+    <div class="modal-content modal-custom-content">
+      <div class="modal-header modal-custom-header">
         <p class="heading lead m-0">Success!
         </p>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -1535,6 +1570,9 @@ Script references
 -->
 
     <script src="https://kit.fontawesome.com/37c75e360e.js" crossorigin="anonymous"></script>
+
+    <!-- LESS.js -->
+    <script src="//cdn.jsdelivr.net/npm/less" ></script>
 
     <!-- Iconfic -->
     <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>

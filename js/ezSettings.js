@@ -30,7 +30,11 @@ function updateSetting(name) {
     var elements = document.getElementsByClassName('ezGitPart');
     if (elements.length !== 0) {
       elements.forEach(element => {
-        setBasicStyleForElement(element);
+        if (element.children[0].tagName === 'IMG') {
+          setStyleForElement(element, `text-align: ${element.style.textAlign};`);
+        } else {
+          setStyleForElement(element);
+        }
       });
     }
   } else if (name === 'deleteConfirmation') {

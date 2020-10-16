@@ -31,7 +31,7 @@ $(document).keydown(function(evt) {
         openModal('textModal');
         break;
       case 70: // F
-        openModal('labelModal');
+        openModal('badgeModal');
         break;
       case 90: // Z
         openModal('detailsModal');

@@ -7,6 +7,14 @@ html, body {
     scroll-behavior: smooth;
 }
 
+.theme-box {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    border: 1px solid rgba(0, 0, 0, .2);
+}
+
 .position-absolute {
     position: absolute;
 }
@@ -66,6 +74,11 @@ html, body {
     transition: 0.2s linear;
 }
 
+.ezGitPart {
+    border-left: 9px solid #588393;
+    border-right: 9px solid #810401;
+}
+
 .list-group-item.active {
     background-color: #ACB2B9 !important;
     border: 1px solid #ACB2B9 !important;
@@ -89,7 +102,7 @@ td {
     min-width:120px;
 }
 
-.logo-body
+.logo-preloader-body
 {
     width: 245px;
     height: 245px;
@@ -101,7 +114,7 @@ td {
     border: 7px inset #92A8D1;
 }
 
-.logo-preloader-body
+.logo-body 
 {
     width: 120px;
     height: 120px;
@@ -112,6 +125,18 @@ td {
     text-align: center;
     margin-left: 45px;
     border: 5px inset #92A8D1;
+}
+
+.logo-icon {
+    color: #55606E;
+}
+
+.logo-title {
+    font-size: 90%; 
+    color: #55606E; 
+    margin: 0; 
+    padding: 15px 0 4px 0; 
+    line-height: 0;
 }
 
 table, th, td {
@@ -290,6 +315,7 @@ left: 0px;
     width: 70px;
     transition-delay: 0.3s;
 }
+
 .page-wrapper.toggled #show-sidebar {
     left: -40px;
 }
@@ -367,12 +393,6 @@ left: 0px;
 .sidebar-wrapper .sidebar-header .user-info .user-status {
     font-size: 11px;
     margin-top: 0;
-}
-
-.sidebar-wrapper .sidebar-header .user-info .user-status i {
-    font-size: 8px;
-    margin-right: 4px;
-    color: #5cb85c;
 }
 
 /*----------------------sidebar-menu-------------------------*/
@@ -496,29 +516,6 @@ left: 0px;
     top: 0;
 }
 
-.badge-sonar {
-    display: inline-block;
-    background: #00CCCC;
-    border-radius: 50%;
-    height: 8px;
-    width: 8px;
-    position: absolute;
-    top: 0;
-}
-
-.badge-sonar:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    border: 2px solid #66E0E0;
-    opacity: 0;
-    border-radius: 50%;
-    width: 100%;
-    height: 100%;
-    animation: sonar 1.5s infinite;
-}
-  
 /*--------------------------page-content-----------------------------*/
   
 .page-content {
@@ -654,6 +651,8 @@ left: 0px;
     border-right: none;
 }
 
+/*-----------------------------chiller-theme-------------------------------------------------*/
+
 .references-modal-styles {
     background-color: #7b7f85 !important;
 }
@@ -668,12 +667,12 @@ left: 0px;
     color: #B37E00;
 }
 
-body .modal-dark-header {
+body .modal-custom-header {
     background-color: #BDBFC2 !important;
     color: #717274;
 }
 
-body .modal-dark-content {
+body .modal-custom-content {
     background-color: #DFDFDD;
     color: #4F4F51;
     font-family: 'Sen', sans-serif, 'Josefin Sans', 'Times New Roman', Times, serif;
@@ -717,4 +716,8 @@ body .form-control {
 
 body .list-group-item {
     background-color: #D5D5D3;
+}
+
+.optional-text {
+    color: grey;
 }

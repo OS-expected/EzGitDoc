@@ -107,7 +107,6 @@ function createImage() {
       break;
   }
 
-  paragraph.style.position = 'relative';
   paragraph.appendChild(image);
   paragraph.appendChild(createDeleteTool());
   paragraph.appendChild(createEditTool('imageUpdateModal', paragraph.id));
@@ -516,11 +515,15 @@ function removeElementByParentId(elementId) {
     var anchor = document.getElementById('singleRemoveAnchor');
     anchor.onclick = function() {
       deleteElement(elementId);
+      handleStartingNoteAndGenerateCodeBtn();
     };
   } else {
     deleteElement(elementId);
+    handleStartingNoteAndGenerateCodeBtn();
   }
+}
 
+function handleStartingNoteAndGenerateCodeBtn() {
   if (document.getElementsByClassName('ezGitPart').length <= 0) {
     changeElementsVisiblity(codeGenButton);
     document.getElementById('resetButton').disabled = true;
@@ -562,14 +565,16 @@ function setElement(element) {
   }
 
   element.setAttribute('id', GenerateUniqueId());
-  setBasicStyleForElement(element);
+  setStyleForElement(element);
   element.setAttribute('class', 'block-stylizer ezGitPart');
   element.setAttribute('onselectstart', 'return false');
   return element;
 }
 
-function setBasicStyleForElement(element) {
-  element.setAttribute('style', `position: relative; border-left: 9px solid #588393; border-right: 9px solid #810401; margin-bottom: ${isNonSpacedElementsEnabled === true ? 0 : 15}px !important; min-height: 40px;`);
+function setStyleForElement(element, extraStyles = 'none') {
+  element.setAttribute('style', `position: relative; min-height: 40px;
+  margin-bottom: ${isNonSpacedElementsEnabled === true ? 0 : 15}px !important; 
+  ${extraStyles !== 'none' ? extraStyles : ''}`);
 }
 
 function renderElementOnPage(element, content) {

@@ -1,0 +1,420 @@
+
+/* Constants */
+
+/* Global */
+
+@primary-color: #5417B0;
+@darker-primary-color: darken(@primary-color, 15%);
+@lighter-primary-color: lighten(@primary-color, 45%);
+@white-color: #FFF;
+
+@brand-text-color: #454391;
+@brand-primary-color: #9fa1ed;
+@brand-secondary-color: #7c76ed;
+
+/* Specific */
+
+@create-btn-color: #5973FF;
+@reset-btn-color: #5750D2;
+@footer-color: #615bd3;
+
+@modal-header-bg-color: lighten(@brand-secondary-color, 15%);
+@modal-content-bg-color: @white-color;
+
+@references-modal-href-active: #FFB400;
+@references-modal-href-hover: #B37E00;
+
+@sidebar-headers-text-color: @lighter-primary-color;;
+@sidebar-background-color: @white-color;
+@sidebar-top-icons-color: @primary-color;
+@sidebar-single-item-icon-background: #F1ECFB;
+@sidebar-single-item-text-color: @darker-primary-color;
+@sidebar-single-item-icon-color: @lighter-primary-color;
+@sidebar-single-item-icon-color-on-hover: @primary-color;
+@sidebar-single-item-shadow-color-on-hover: @brand-secondary-color;
+
+@sidebar-footer-bg-color: @brand-text-color;
+@sidebar-footer-box-shadow: @primary-color;
+@sidebar-footer-border-color: @darker-primary-color;
+@sidebar-footer-icon-color-on-hover: @brand-secondary-color;
+
+@badge-light-background-color: @darker-primary-color;
+@badge-light-text-color: @white-color;
+
+/* Themes Modal Preview Color */
+.theme-light-doc {
+    background-color: @brand-secondary-color;
+}
+
+/* First Components */
+html[data-theme='light-doc'] {
+
+    /* Working space background color */
+    body {
+        background-color: @brand-secondary-color;
+    }
+
+    /* Badges */
+    .badge-light {
+        background-color: @badge-light-background-color !important;
+        color: @badge-light-text-color !important;
+    }
+
+    /* Footer */
+    .page-footer {
+        background-color: @footer-color !important;
+    }
+
+    /* EzGitPart Element */
+    .edit-icon-stylizer {
+        color: white;
+        background-color: lighten(@brand-text-color, 10%);
+        height: 100%;
+        position: absolute;
+        left: -40px;
+        top: 0; 
+        cursor: pointer;
+        padding: 5px 10px 5px 5px;
+    }
+    
+    .edit-icon-stylizer:hover {
+        background-color: @darker-primary-color;
+        transition: 0.2s linear;
+    }
+
+    .ezGitPart {
+        border-left: 9px solid @darker-primary-color;
+    }
+
+    /* RESET(remove all items) and REMOVE single item */
+    #resetConfirmationModal,
+    #removeElementConfirmationModal {
+
+        .modal-header {
+            background-color: @modal-header-bg-color;
+        }
+
+        .modal-body i  {
+            color: @modal-header-bg-color;
+        }
+
+        .btn-outline-danger {
+            border: 2px solid @primary-color !important;
+            color: @primary-color !important;
+        }
+    
+        .btn-danger {
+            background-color: @reset-btn-color !important;
+        }
+
+    }
+
+    /* Themes modal */
+    #themesModal .modal-header {
+        background-color: @brand-primary-color;
+    }
+
+    /* Generate Code Btn */
+    #codeGenButton {
+        background-color: lighten(@brand-text-color, 5%) !important;
+    }
+    
+}
+
+// ********************************
+// References Modal Styling
+// ********************************
+
+html[data-theme='light-doc'] {
+
+    .references-modal-styles {
+
+        background-color: @brand-text-color !important;
+
+
+        a:link, a:visited, a:active {
+            color: @references-modal-href-active !important;
+        }
+
+        a:hover {
+            color: @references-modal-href-hover !important;
+        }
+
+    }
+}
+
+// ********************************
+// Create/Update/@ Modals Styling
+// ********************************
+
+html[data-theme='light-doc'] {
+
+    body {
+
+        /* Header */
+        .modal-custom-header {
+            background-color: @modal-header-bg-color !important;
+            color: @brand-text-color;
+        }
+
+        /* Body (also named content) */
+        .modal-custom-content {
+            background-color: @modal-content-bg-color;
+            color: @brand-text-color;
+            font-family: 'Sen', sans-serif, 'Josefin Sans', 'Times New Roman', Times, serif;
+    
+            a:link, 
+            a:visited, 
+            a:active {
+                color: darken(@brand-secondary-color, 20%);
+            }
+            
+            a:hover {
+                color: @primary-color;
+            }
+        }
+
+        /* Close Button */
+        .close {
+            color: @primary-color;
+        }
+
+        /* Input / Textarea */
+        .form-control:focus{
+            border: 2px solid lighten(@brand-text-color, 25%);
+            background-color: lighten(@lighter-primary-color, 8%);
+            color: darken(@darker-primary-color, 10%);
+        }
+
+        .form-control {
+            border: 2px solid lighten(@brand-text-color, 25%);
+            background-color: lighten(@lighter-primary-color, 10%);
+            color: @darker-primary-color;
+        }
+
+    }
+
+    ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: fade(@brand-text-color, 65%);
+        opacity: 1; /* Firefox */
+    }
+        
+    :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: fade(@brand-text-color, 65%);
+    }
+    
+    ::-ms-input-placeholder { /* Microsoft Edge */
+        color: fade(@brand-text-color, 65%);
+    }
+
+    /* Dropdown */
+    .form-group {
+
+        .custom-select {
+            border: 2px solid lighten(@brand-text-color, 25%);
+            background-color: lighten(@lighter-primary-color, 10%);
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
+
+        .custom-select:focus {
+            border: 2px solid @primary-color;
+            background-color: lighten(@lighter-primary-color, 10%);
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
+
+    }
+    
+    /* List Group Item */
+    body .list-group-item {
+        background-color: lighten(@lighter-primary-color, 10%);
+    }
+
+    .list-group-item.active {
+        background-color: @brand-secondary-color !important;
+        border: 1px solid @brand-secondary-color !important;
+    }
+
+    /* Required label */
+    .text-muted {
+        color: darken(@brand-secondary-color, 4%) !important;
+    }
+
+    /* "Did you know" list items */
+    .form-text.text-muted {
+        color: fade(@brand-text-color, 50%) !important;
+    }
+
+    /* CREATE BTN */
+    .btn-elegant {
+        background-color: @create-btn-color !important;
+    }
+
+    /* RESET BTN */
+    .btn-unique {
+        background-color: @reset-btn-color !important;
+    }
+
+    /* UPDATE / CLOSE BTN */
+    .btn-mdb-color {
+        background-color: @primary-color !important;
+    }
+
+    /* Optional label */
+    .optional-text {
+        color: @brand-secondary-color;
+    }
+
+    .modal-footer, .modal-header {
+        border: 0px !important;
+    }
+    
+}
+
+// ********************************
+// Sidebar Styling
+// ********************************
+
+html[data-theme='light-doc'] {
+
+    /* Background */
+    .chiller-theme .sidebar-wrapper {
+        background: @sidebar-background-color;
+    }
+
+    /* Icons above EzGitDoc logo */
+    .github-icon, .theme-icon {
+        color: @sidebar-top-icons-color; 
+        height: 50px; 
+        font-size: 125%; 
+        position: absolute;
+    }
+
+    .theme-icon {
+        margin-left: 10%;
+    }
+
+    /* Sidebar single item text color */
+    .sidebar-content span {
+        color: @sidebar-single-item-text-color;
+    }
+
+    /* RESET button */
+    #resetButton {
+        background-color: @reset-btn-color !important;
+    }
+
+    /* Borders separating sections */
+    .chiller-theme .sidebar-wrapper .sidebar-header,
+    .chiller-theme .sidebar-wrapper .sidebar-search,
+    .chiller-theme .sidebar-wrapper .sidebar-menu {
+        border-top: 0px;
+    }
+
+    /* Single Item Icon Color */
+    .chiller-theme .sidebar-wrapper .sidebar-header .user-info .user-role,
+    .chiller-theme .sidebar-wrapper .sidebar-header .user-info .user-status,
+    .chiller-theme .sidebar-wrapper .sidebar-search input.search-menu,
+    .chiller-theme .sidebar-wrapper .sidebar-search .input-group-text,
+    .chiller-theme .sidebar-wrapper .sidebar-brand>a,
+    .chiller-theme .sidebar-wrapper .sidebar-menu ul li a,
+    .chiller-theme .sidebar-footer>a {
+        color: @primary-color;
+    }
+
+    /* Single Item Icon Color (on hover) */
+    .chiller-theme .sidebar-wrapper ul li:hover a i,
+    .chiller-theme .sidebar-wrapper .sidebar-dropdown .sidebar-submenu li a:hover:before,
+    .chiller-theme .sidebar-wrapper .sidebar-search input.search-menu:focus+span,
+    .chiller-theme .sidebar-wrapper .sidebar-menu .sidebar-dropdown.active a i {
+        color: @sidebar-single-item-icon-color-on-hover;
+        text-shadow: 0px 0px 10px @sidebar-single-item-shadow-color-on-hover;
+    }
+
+    /* Single Item Background Surrounding Icon */
+    .chiller-theme .sidebar-wrapper .sidebar-menu ul li a i,
+    .chiller-theme .sidebar-wrapper .sidebar-menu .sidebar-dropdown div,
+    .chiller-theme .sidebar-wrapper .sidebar-search input.search-menu,
+    .chiller-theme .sidebar-wrapper .sidebar-search .input-group-text {
+        background: @sidebar-single-item-icon-background;
+    }
+
+    /* Sidebar Headers */
+    .chiller-theme .sidebar-wrapper .sidebar-menu .header-menu span {
+        color: @sidebar-headers-text-color;
+    }
+
+    /* Footer Bg & Shadow Effect */
+    .chiller-theme .sidebar-footer {
+        background: @sidebar-footer-bg-color;
+        box-shadow: 0px -1px 5px @sidebar-footer-box-shadow;
+        border-top: 1px solid @sidebar-footer-border-color;
+    }
+
+    /* Footer Eye Icon Color */
+    .page-wrapper.chiller-theme.toggled #close-sidebar {
+        color: @sidebar-single-item-icon-color;
+    }
+
+    /* Footer Icon Color On Hover */
+    .chiller-theme .sidebar-footer>a:hover i {
+        color: @sidebar-footer-icon-color-on-hover
+    }
+
+    /* Single Element Background Color On Hover */
+    .chiller-theme .sidebar-wrapper .sidebar-menu ul li:hover>a,
+    .chiller-theme .sidebar-wrapper .sidebar-menu .sidebar-dropdown.active>a,
+    .chiller-theme .sidebar-wrapper .sidebar-header .user-info,
+    .chiller-theme .sidebar-wrapper .sidebar-brand>a:hover {
+        background-image: linear-gradient(to right, @lighter-primary-color, #E0D6F7, white);
+    }
+
+    /* Icons Color (Besides eye - fullscreen) */
+    .chiller-theme .sidebar-wrapper .sidebar-header .user-info .user-role,
+    .chiller-theme .sidebar-wrapper .sidebar-header .user-info .user-status,
+    .chiller-theme .sidebar-wrapper .sidebar-search input.search-menu,
+    .chiller-theme .sidebar-wrapper .sidebar-search .input-group-text,
+    .chiller-theme .sidebar-wrapper .sidebar-brand>a,
+    .chiller-theme .sidebar-wrapper .sidebar-menu ul li a,
+    .chiller-theme .sidebar-footer>a {
+        color: @sidebar-single-item-icon-color;
+    }
+
+    /* Toggle Sidebar Button Background Color */
+    #show-sidebar {
+        background-color: @brand-secondary-color !important;
+    }
+}
+
+// ********************************
+// EzGitDoc Brand Styling
+// ********************************
+
+html[data-theme='light-doc'] {
+
+    .logo-body {
+        width: 120px;
+        height: 120px;
+        background: @brand-primary-color; 
+        -moz-border-radius: 30px; 
+        -webkit-border-radius: 30px; 
+        border-radius: 30px;
+        text-align: center;
+        margin-left: 45px;
+        border: 5px inset @brand-secondary-color;
+    }
+
+    .logo-icon {
+        color: @brand-text-color;
+    }
+
+    .logo-title {
+        font-size: 90%; 
+        color: @brand-text-color; 
+        margin: 0; 
+        padding: 15px 0 4px 0; 
+        line-height: 0;
+    }
+    
+}
