@@ -167,6 +167,8 @@ window.onbeforeunload = null;
 
 // on page startup with JQuery
 $(document).ready(function () {
+  // load active theme
+  loadActiveTheme();
   $('#myToast').hide();
   // queue defaulting last highlighted element's background color
   defaultLastHighlightedElementBackgroundColor();
@@ -327,12 +329,16 @@ $('body').on('hidden.bs.modal', function () {
 });
 
 // Themes management
+
+var themeBadge = document.getElementById('themeBadge');
+
 function setTheme(name) {
   if (activeTheme != null) {
     activeTheme.style.border = '1px solid black';
   }
   var html = document.documentElement;
   html.setAttribute('data-theme', name);
+  themeBadge.textContent = name;
   loadActiveTheme();
 }
 
@@ -344,6 +350,7 @@ function loadActiveTheme() {
   var themeBoxes = document.getElementsByClassName('theme-box');
   themeBoxes.forEach(themeBox => {
     if (themeBox.classList.contains(`theme-${dataTheme}`)) {
+      themeBadge.textContent = dataTheme;
       themeBox.style.border = '3px solid #4AEFC6';
       activeTheme = themeBox;
     }
