@@ -8,7 +8,6 @@ html, body {
 }
 
 .theme-box {
-    float: left;
     cursor: pointer;
     width: 30px;
     height: 30px;

@@ -1,6 +1,6 @@
 <!doctype html>
 
-<html lang="en">
+<html data-theme="raw-dark" lang="en">
 
 <head>
     <link rel="shortcut icon" href="favicon.png" />
@@ -21,6 +21,13 @@
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+
+    <!-- Themes-->
+    <link rel="stylesheet/less" type="text/css" href="less/theme-classic.less">
+    <link rel="stylesheet/less" type="text/css" href="less/theme-light-doc.less">
+    <link rel="stylesheet/less" type="text/css" href="less/theme-calm.less">
+    <link rel="stylesheet/less" type="text/css" href="less/theme-dark-doc.less">
+    <link rel="stylesheet/less" type="text/css" href="less/theme-raw-dark.less">
 
     <!-- Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
@@ -297,8 +304,13 @@ MODALS
 
       <!--Body-->
       <div class="modal-body">
-        <div class="theme-box theme-classic" onclick="setTheme('classic')" data-tooltip="tooltip" data-placement="top" title="Classic Theme"></div>
-        <div class="theme-box theme-doc" onclick="setTheme('light-doc')"></div>
+        <div class="row justify-content-center">
+          <div class="theme-box theme-classic" onclick="setTheme('classic')" data-tooltip="tooltip" data-placement="top" title="Classic"></div>
+          <div class="theme-box theme-light-doc" onclick="setTheme('light-doc')" data-tooltip="tooltip" data-placement="top" title="Light Doc"></div>
+          <div class="theme-box theme-calm" onclick="setTheme('calm')" data-tooltip="tooltip" data-placement="top" title="Calm"></div>
+          <div class="theme-box theme-dark-doc" onclick="setTheme('dark-doc')" data-tooltip="tooltip" data-placement="top" title="Dark Doc"></div>
+          <div class="theme-box theme-raw-dark" onclick="setTheme('raw-dark')" data-tooltip="tooltip" data-placement="top" title="Raw Dark"></div>
+        </div>
       </div>
     </div>
     <!--/.Content-->
@@ -312,8 +324,8 @@ MODALS
     <!--Content-->
     <div class="modal-content modal-custom-content references-modal-styles">
       <!--Header-->
-      <div class="modal-header">
-        <p class="heading lead white-text">References</p>
+      <div class="modal-header references-header">
+        <p class="heading lead">References</p>
 
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true" class="white-text">&times;</span>
@@ -341,7 +353,7 @@ aria-hidden="true" data-backdrop="true">
   <!--Content-->
   <div class="modal-content modal-custom-content">
     <!--Header-->
-    <div class="modal-header modal-custom-header">
+    <div class="modal-header modal-custom-header settings-header">
       <p class="heading">Settings
       </p>
 
@@ -422,7 +434,7 @@ aria-hidden="true" data-backdrop="true">
 
       <!--Footer-->
       <div class="modal-footer flex-center">
-        <a onclick="removeAllElements()" data-dismiss="modal" class="btn  btn-outline-danger">Yes</a>
+        <a onclick="removeAllElements()" data-dismiss="modal" class="btn btn-outline-danger">Yes</a>
         <a type="button" class="btn btn-danger waves-effect" data-dismiss="modal">No</a>
       </div>
     </div>
@@ -472,7 +484,7 @@ aria-hidden="true" data-backdrop="true">
     <div class="modal-body">
       <form>
         <div class="form-group">
-          <label for="codeLanguage">Language <small class="grey-text">(optional)</small></label>
+          <label for="codeLanguage">Language <small class="optional-text">(optional)</small></label>
           <input class="form-control" id="codeLanguage" placeholder="e.g. javascript" maxlength="15" autocomplete="off">
         </div>
 
@@ -490,7 +502,7 @@ aria-hidden="true" data-backdrop="true">
           Did you know?
           <hr class="m-0"/>
           <ul class="list-unstyled mt-3">
-            <li><small class="form-text text-muted"><i class="fas fa-highlighter"></i> Use &nbsp; <kbd class="badge badge-light" style="padding: 6px;">TAB</kbd> &nbsp; key to make indentation in Code.</small> </li>
+            <li><small class="form-text text-muted"><i class="fas fa-highlighter"></i> Use <kbd style="background-color: grey; padding: 6px;">TAB</kbd> key to make indentation in Code.</small> </li>
             <li><small class="form-text text-muted"><i class="fas fa-highlighter"></i> Textareas in EzGitDoc are resizable.</small></li>
             <li><small class="form-text text-muted"><i class="fas fa-highlighter"></i> GitHub supported languages can be found <a href="https://github.com/github/linguist/blob/master/lib/linguist/languages.yml" target="_blank">here</a>.</small></li>
           </ul>
@@ -563,7 +575,7 @@ aria-hidden="true" data-backdrop="true">
           </div>
         
           <ul class="list-group" style="cursor: pointer;" onselectstart="return false" ondragstart="return false">
-            <label>Style <small class="grey-text">(optional, default = h2)</small></label>
+            <label>Style <small class="optional-text">(optional, default = h2)</small></label>
             <li class="list-group-item" value="5" onclick="setElementAsActive(this)"><div class="row"><div class="col">h1</div> <div class="col text-right"><span class="badge badge-light" data-toggle="popover-hover" data-img="images/hover/header_1.png" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
             <li class="list-group-item" value="6" onclick="setElementAsActive(this)"><div class="row"><div class="col">h2</div> <div class="col text-right"><span class="badge badge-light" data-toggle="popover-hover" data-img="images/hover/header_2.png" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
             <li class="list-group-item" value="7" onclick="setElementAsActive(this)"><div class="row"><div class="col">h3</div> <div class="col text-right"><span class="badge badge-light" data-toggle="popover-hover" data-img="images/hover/header_3.png" style="vertical-align: top;"><i class="fas fa-search text-right"></i></span></div></div></li>
@@ -652,7 +664,7 @@ aria-hidden="true" data-backdrop="true">
         </div>
 
         <div class="form-group">
-            <label class="my-1 mr-2" for="imagePositionList">Alignment <small class="grey-text">(optional, default = center)</small></label>
+            <label class="my-1 mr-2" for="imagePositionList">Alignment <small class="optional-text">(optional, default = center)</small></label>
             <select class="custom-select my-1 mr-sm-2" id="imagePositionList" autocomplete="off">
             <option value="0" selected>Choose...</option>
             <option value="1">Left aligned</option>
@@ -1098,7 +1110,7 @@ aria-hidden="true" data-backdrop="true">
       <form>
         <div class="container">
           <div class="form-group">
-            <label for="commentArea">Text <small class="grey-text">(optional)</small></label>
+            <label for="commentArea">Text <small class="optional-text">(optional)</small></label>
             <textarea class="form-control" rows="5" id="commentArea" autocomplete="off"></textarea>
           </div>
 
@@ -1202,7 +1214,7 @@ aria-hidden="true" data-backdrop="true">
           </div>
 
           <div class="form-group">
-            <label for="b_style">Style <small class="grey-text">(optional)</small></label>
+            <label for="b_style">Style <small class="optional-text">(optional)</small></label>
             <select id="b_style" class="browser-default custom-select" autocomplete="off">
               <option value="default" selected>Flat(default)</option>
               <option value="plastic">Plastic</option>
@@ -1279,7 +1291,7 @@ aria-hidden="true" data-backdrop="true">
           </div>
 
           <div class="form-group">
-            <label for="b_style_update">Style <small class="grey-text">(optional)</small></label>
+            <label for="b_style_update">Style <small class="optional-text">(optional)</small></label>
             <select id="b_style_update" class="browser-default custom-select" autocomplete="off">
               <option value="default" selected>Flat(default)</option>
               <option value="plastic">Plastic</option>
