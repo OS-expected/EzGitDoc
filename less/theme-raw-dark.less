@@ -50,6 +50,7 @@
     background-color: @primary-color;
 }
 
+/* First Components */
 html[data-theme='raw-dark'] {
 
     body {
@@ -148,16 +149,17 @@ html[data-theme='raw-dark'] {
 
     /* Notifications (Toast) */
     #myToast {
-        background-color: @primary-color !important;
-        color: @white-color;
+        background-color: lighten(@primary-color, 10%) !important;
+        color: lighten(@primary-color, 55%);
 
         .close {
-            background-color: #dddddd;
-            color: @primary-color !important;
+            background-color: lighten(@primary-color, 5%);
+            color: @white-color !important;
         }
 
         .toast-header {
-            color: lighten(@primary-color, 15%);
+            background-color: lighten(@primary-color, 5%);
+            color: lighten(@primary-color, 40%);
         }
     }
 
@@ -201,46 +203,49 @@ html[data-theme='raw-dark'] {
 
 html[data-theme='raw-dark'] {
 
-    /* Header */
-    body .modal-custom-header {
-        background-color: @modal-header-bg-color !important;
-        color: @white-color;
-    }
+    body {
 
-    /* Body (also named content) */
-    body .modal-custom-content {
-        background-color: @modal-content-bg-color;
-        color: @white-color;
-        font-family: 'Sen', sans-serif, 'Josefin Sans', 'Times New Roman', Times, serif;
-
-        a:link, 
-        a:visited, 
-        a:active {
-            color: lighten(@brand-secondary-color, 15%);
+        /* Header */
+        .modal-custom-header {
+            background-color: @modal-header-bg-color !important;
+            color: @white-color;
         }
-        
-        a:hover {
-            color: lighten(@brand-secondary-color, 5%);
-        }
-    }
 
-    /* Close Button */
-    body .modal-custom-content .close {
-        color: @white-color;
-        background-color: lighten(@primary-color, 8%);;
-    }
+        /* Body (also named content) */
+        .modal-custom-content {
+            background-color: @modal-content-bg-color;
+            color: @white-color;
+            font-family: 'Sen', sans-serif, 'Josefin Sans', 'Times New Roman', Times, serif;
     
-    /* Input / Textarea */
-    body .form-control:focus{
-        border: 2px solid darken(@brand-text-color, 25%);
-        background-color: lighten(@forms-dark-color, 8%);
-        color: @white-color;
-    }
-    
-    body .form-control {
-        border: 2px solid darken(@brand-text-color, 25%);
-        background-color: @forms-dark-color;
-        color: @white-color;
+            a:link, 
+            a:visited, 
+            a:active {
+                color: lighten(@brand-secondary-color, 65%);
+            }
+            
+            a:hover {
+                color: lighten(@brand-secondary-color, 5%);
+            }
+
+            /* Close Button */
+            .close {
+                color: @white-color;
+                background-color: lighten(@primary-color, 8%);
+            }
+
+            /* Input / Textarea */
+            .form-control:focus{
+                border: 2px solid darken(@brand-text-color, 25%);
+                background-color: lighten(@forms-dark-color, 8%);
+                color: @white-color;
+            }
+
+            .form-control {
+                border: 2px solid darken(@brand-text-color, 25%);
+                background-color: @forms-dark-color;
+                color: @white-color;
+            }
+        }
     }
 
     ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -257,20 +262,24 @@ html[data-theme='raw-dark'] {
     }
 
     /* Dropdown */
-    .form-group .custom-select {
-        border: 2px solid darken(@brand-text-color, 25%);
-        background-color: lighten(@forms-dark-color, 8%);
-        color: @white-color;
-        -webkit-box-shadow: none;
-        box-shadow: none;
-    }
-    
-    .form-group .custom-select:focus {
-        border: 2px solid darken(@brand-text-color, 25%);
-        background-color: lighten(@forms-dark-color, 8%);
-        color: @white-color;
-        -webkit-box-shadow: none;
-        box-shadow: none;
+    .form-group {
+
+        .custom-select {
+            border: 2px solid darken(@brand-text-color, 25%);
+            background-color: @forms-dark-color;
+            color: @white-color;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
+
+        .custom-select:focus {
+            border: 2px solid darken(@brand-text-color, 25%);
+            background-color: @forms-dark-color;
+            color: @white-color;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
+
     }
 
     /* List Group Item */
@@ -305,7 +314,7 @@ html[data-theme='raw-dark'] {
 
     /* UPDATE / CLOSE BTN */
     .btn-mdb-color {
-        background-color: @primary-color !important;
+        background-color: @lighter-primary-color !important;
     }
 
     /* Optional label */
