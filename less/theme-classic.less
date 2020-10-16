@@ -38,15 +38,10 @@
     background-color: @primary-color;
 }
 
-/*  
-******************************** 
-body, badges, footer, themes
-modal stylings         
-******************************** 
-*/
-
+/* First Components */
 html[data-theme='classic'] {
 
+    /* Working space background color */
     body {
         background-color: @brand-secondary-color;
     }
@@ -76,17 +71,17 @@ html[data-theme='classic'] {
 html[data-theme='classic'] {
 
     .references-modal-styles {
+
         background-color: @brand-text-color !important;
-    }
-    
-    .references-modal-styles a:link, 
-    .references-modal-styles a:visited, 
-    .references-modal-styles a:active {
-        color: @references-modal-href-active !important;
-    }
-    
-    .references-modal-styles a:hover {
-        color: @references-modal-href-hover !important;
+
+        a:link, a:visited, a:active {
+            color: @references-modal-href-active !important;
+        }
+
+        a:hover {
+            color: @references-modal-href-hover !important;
+        }
+
     }
 
 }
@@ -97,47 +92,50 @@ html[data-theme='classic'] {
 
 html[data-theme='classic'] {
 
-    /* Header */
-    body .modal-custom-header {
-        background-color: @modal-header-bg-color !important;
-        color: @brand-text-color;
-    }
+    body {
 
-    /* Body (also named content) */
-    body .modal-custom-content {
-        background-color: @white-color;
-        color: @brand-text-color;
-        font-family: 'Sen', sans-serif, 'Josefin Sans', 'Times New Roman', Times, serif;
-
-        a:link, 
-        a:visited, 
-        a:active {
-            color: darken(@brand-secondary-color, 20%);
+        /* Header */
+        .modal-custom-header {
+            background-color: @modal-header-bg-color !important;
+            color: @brand-text-color;
         }
-        
-        a:hover {
+
+        /* Body (also named content) */
+        .modal-custom-content {
+            background-color: @white-color;
+            color: @brand-text-color;
+            font-family: 'Sen', sans-serif, 'Josefin Sans', 'Times New Roman', Times, serif;
+    
+            a:link, 
+            a:visited, 
+            a:active {
+                color: darken(@brand-secondary-color, 20%);
+            }
+            
+            a:hover {
+                color: @primary-color;
+            }
+        }
+
+        /* Close Button */
+        .close {
             color: @primary-color;
         }
-    }
 
-    /* Close Button */
-    body .close {
-        color: @primary-color;
+        /* Input / Textarea */
+        .form-control:focus{
+            border: 2px solid lighten(@brand-text-color, 25%);
+            background-color: lighten(@lighter-primary-color, 8%);
+            color: darken(@darker-primary-color, 10%);
+        }
+
+        .form-control {
+            border: 2px solid lighten(@brand-text-color, 25%);
+            background-color: lighten(@lighter-primary-color, 10%);
+            color: @darker-primary-color;
+        }
     }
     
-    /* Input / Textarea */
-    body .form-control:focus{
-        border: 2px solid lighten(@brand-text-color, 25%);
-        background-color: lighten(@lighter-primary-color, 8%);
-        color: darken(@darker-primary-color, 10%);
-    }
-    
-    body .form-control {
-        border: 2px solid lighten(@brand-text-color, 25%);
-        background-color: lighten(@lighter-primary-color, 10%);
-        color: @darker-primary-color;
-    }
-
     ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
         color: fade(@brand-text-color, 65%);
         opacity: 1; /* Firefox */
@@ -152,20 +150,24 @@ html[data-theme='classic'] {
     }
 
     /* Dropdown */
-    .form-group .custom-select {
-        border: 2px solid lighten(@brand-text-color, 25%);
-        background-color: lighten(@lighter-primary-color, 10%);
-        -webkit-box-shadow: none;
-        box-shadow: none;
+    .form-group {
+
+        .custom-select {
+            border: 2px solid lighten(@brand-text-color, 25%);
+            background-color: lighten(@lighter-primary-color, 10%);
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
+
+        .custom-select:focus {
+            border: 2px solid @primary-color;
+            background-color: lighten(@lighter-primary-color, 10%);
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
+
     }
     
-    .form-group .custom-select:focus {
-        border: 2px solid @primary-color;
-        background-color: lighten(@lighter-primary-color, 10%);
-        -webkit-box-shadow: none;
-        box-shadow: none;
-    }
-
     /* List Group Item */
     body .list-group-item {
         background-color: lighten(@lighter-primary-color, 10%);

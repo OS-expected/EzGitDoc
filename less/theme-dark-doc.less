@@ -27,6 +27,9 @@
 @references-modal-href-active: #FFB400;
 @references-modal-href-hover: #B37E00;
 
+@ezgitpart-href-active: @lighter-primary-color;
+@ezgitpart-href-hover: @brand-secondary-color;
+
 @sidebar-headers-text-color: @brand-primary-color;
 @sidebar-background-color: @black-color;
 @sidebar-top-icons-color: @lighter-primary-color;
@@ -49,8 +52,10 @@
     background-color: @primary-color;
 }
 
+/* First Components */
 html[data-theme='dark-doc'] {
 
+    /* Working space background color */
     body {
         background-color: @brand-secondary-color;
     }
@@ -84,7 +89,7 @@ html[data-theme='dark-doc'] {
     }
     
     .edit-icon-stylizer:hover {
-        background-color: darken(@brand-secondary-color, 5%);
+        background-color: lighten(@brand-secondary-color, 5%);
     }
 
     .delete-icon-stylizer {
@@ -92,11 +97,11 @@ html[data-theme='dark-doc'] {
     }
 
     .delete-icon-stylizer:hover {
-        background-color: darken(@brand-secondary-color, 5%);
+        background-color: lighten(#770501, 10%);
     }
 
     .ezGitPart {
-        border-left: 9px solid @darker-primary-color;
+        border-left: 9px solid darken(@brand-text-color, 7%);
         border-right: 9px solid #770501;
         background-color: lighten(@black-color, 20%);
         color: @white-color;
@@ -108,26 +113,41 @@ html[data-theme='dark-doc'] {
         pre {
             color: @white-color;
         }
+
+        a:link, a:visited, a:active {
+            color: @ezgitpart-href-active !important;     
+        }
+
+        a:hover {
+            color: @ezgitpart-href-hover !important;  
+        }
     }
 
     /* RESET(remove all items) and REMOVE single item */
-    #resetConfirmationModal .modal-header,
-    #removeElementConfirmationModal .modal-header {
-        background-color: @modal-header-bg-color;
-    }
+    #resetConfirmationModal,
+    #removeElementConfirmationModal {
 
-    #resetConfirmationModal .modal-body i,
-    #removeElementConfirmationModal .modal-body i  {
-        color: @modal-header-bg-color;
-    }
+        .modal-header {
+            background-color: @modal-header-bg-color;
+        }
 
-    .btn-outline-danger {
-        border: 2px solid @black-color !important;
-        color: @black-color !important;
-    }
+        .modal-body i  {
+            color: @modal-header-bg-color;
+        }
 
-    .btn-danger {
-        background-color: @black-color !important;
+        .modal-body, .modal-footer {
+            background-color: lighten(@brand-secondary-color, 2%);
+        }
+
+        .btn-outline-danger {
+            border: 2px solid @black-color !important;
+            color: @black-color !important;
+        }
+    
+        .btn-danger {
+            background-color: @black-color !important;
+        }
+
     }
 
     /* Themes modal */
@@ -147,17 +167,18 @@ html[data-theme='dark-doc'] {
 
     /* Notifications (Toast) */
     #myToast {
-        background-color: @black-color !important;
-        color: @white-color;
-    }
+        background-color: @brand-secondary-color !important;
+        color: lighten(@primary-color, 50%);
 
-    #myToast .close {
-        background-color: #dddddd;
-        color: @black-color !important;
-    }
+        .close {
+            background-color: lighten(@brand-secondary-color, 5%);
+            color: @white-color !important;
+        }
 
-    #myToast .toast-header {
-        color: lighten(@black-color, 15%);
+        .toast-header {
+            background-color: lighten(@brand-secondary-color, 5%);
+            color: lighten(@primary-color, 40%);
+        }
     }
 
 }
@@ -177,67 +198,70 @@ html[data-theme='dark-doc'] {
     }
 
     .references-modal-styles {
+
         background-color: @brand-text-color !important;
-    }
-    
-    .references-modal-styles a:link, 
-    .references-modal-styles a:visited, 
-    .references-modal-styles a:active {
-        color: @references-modal-href-active !important;
-    }
-    
-    .references-modal-styles a:hover {
-        color: @references-modal-href-hover !important;
+
+        a:link, a:visited, a:active {
+            color: @references-modal-href-active !important;
+        }
+
+        a:hover {
+            color: @references-modal-href-hover !important;
+        }
+
     }
 
 }
 
-// ********************************
-// Create/Update/@ Modals Styling
-// ********************************
+// *****************************************
+// Create/Update/Settings/@ Modals Styling
+// *****************************************
 
 html[data-theme='dark-doc'] {
 
-    /* Header */
-    body .modal-custom-header {
-        background-color: @modal-header-bg-color !important;
-        color: @white-color;
-    }
+    body {
 
-    /* Body (also named content) */
-    body .modal-custom-content {
-        background-color: @modal-content-bg-color;
-        color: @white-color;
-        font-family: 'Sen', sans-serif, 'Josefin Sans', 'Times New Roman', Times, serif;
-
-        a:link, 
-        a:visited, 
-        a:active {
-            color: lighten(@brand-secondary-color, 15%);
+        /* Header */
+        .modal-custom-header {
+            background-color: @modal-header-bg-color !important;
+            color: @white-color;
         }
-        
-        a:hover {
-            color: lighten(@brand-secondary-color, 5%);
-        }
-    }
 
-    /* Close Button */
-    body .modal-custom-content .close {
-        color: @white-color;
-        background-color: lighten(@black-color, 8%);;
-    }
+        /* Body (also named content) */
+        .modal-custom-content {
+            background-color: @modal-content-bg-color;
+            color: @white-color;
+            font-family: 'Sen', sans-serif, 'Josefin Sans', 'Times New Roman', Times, serif;
     
-    /* Input / Textarea */
-    body .form-control:focus{
-        border: 2px solid darken(@brand-text-color, 25%);
-        background-color: lighten(@forms-dark-color, 8%);
-        color: @white-color;
-    }
-    
-    body .form-control {
-        border: 2px solid darken(@brand-text-color, 25%);
-        background-color: @forms-dark-color;
-        color: @white-color;
+            a:link, 
+            a:visited, 
+            a:active {
+                color: lighten(@brand-secondary-color, 15%);
+            }
+            
+            a:hover {
+                color: lighten(@brand-secondary-color, 5%);
+            }
+        }
+
+        /* Close Button */
+        .modal-custom-content .close {
+            color: @white-color;
+            background-color: lighten(@black-color, 8%);;
+        }
+
+        /* Input / Textarea */
+        .form-control:focus{
+            border: 2px solid darken(@brand-text-color, 25%);
+            background-color: lighten(@forms-dark-color, 8%);
+            color: @white-color;
+        }
+
+        .form-control {
+            border: 2px solid darken(@brand-text-color, 25%);
+            background-color: @forms-dark-color;
+            color: @white-color;
+        }
     }
 
     ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -254,20 +278,24 @@ html[data-theme='dark-doc'] {
     }
 
     /* Dropdown */
-    .form-group .custom-select {
-        border: 2px solid darken(@brand-text-color, 25%);
-        background-color: lighten(@forms-dark-color, 8%);
-        color: @white-color;
-        -webkit-box-shadow: none;
-        box-shadow: none;
-    }
-    
-    .form-group .custom-select:focus {
-        border: 2px solid darken(@brand-text-color, 25%);
-        background-color: lighten(@forms-dark-color, 8%);
-        color: @white-color;
-        -webkit-box-shadow: none;
-        box-shadow: none;
+    .form-group {
+
+        .custom-select {
+            border: 2px solid darken(@brand-text-color, 25%);
+            background-color: lighten(@forms-dark-color, 8%);
+            color: @white-color;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
+
+        .custom-select:focus {
+            border: 2px solid darken(@brand-text-color, 25%);
+            background-color: lighten(@forms-dark-color, 8%);
+            color: @white-color;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
+
     }
 
     /* List Group Item */
@@ -313,7 +341,8 @@ html[data-theme='dark-doc'] {
     .modal-footer, .modal-header {
         border: 0px !important;
     }
-    
+
+    /* Setting Name */
     .custom-control-label {
         color: @white-color;
     }
