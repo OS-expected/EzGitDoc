@@ -28,6 +28,9 @@
 @references-modal-href-active: #FFB400;
 @references-modal-href-hover: #B37E00;
 
+@ezgitpart-href-active: @references-modal-href-active;
+@ezgitpart-href-hover: @references-modal-href-hover;
+
 @sidebar-headers-text-color: @brand-primary-color;
 @sidebar-background-color: @primary-color;
 @sidebar-top-icons-color: @lighter-primary-color;
@@ -103,6 +106,14 @@ html[data-theme='raw-dark'] {
 
         pre {
             color: @white-color;
+        }
+
+        a:link, a:visited, a:active {
+            color: @ezgitpart-href-active !important;     
+        }
+
+        a:hover {
+            color: @ezgitpart-href-hover !important;  
         }
     }
 
@@ -187,7 +198,7 @@ html[data-theme='raw-dark'] {
         background-color: @brand-text-color !important;
 
         a:link, a:visited, a:active {
-            color: @references-modal-href-active !important;     
+            color: @references-modal-href-active !important;
         }
 
         a:hover {
