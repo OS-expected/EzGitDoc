@@ -339,6 +339,10 @@ function setTheme(name) {
   var html = document.documentElement;
   html.setAttribute('data-theme', name);
   themeBadge.textContent = name;
+  var elements = document.getElementsByClassName('ezGitPart');
+  if (elements.length > 0) {
+    cleanEzGitPartsBackground(elements);
+  }
   loadActiveTheme();
 }
 
@@ -364,3 +368,9 @@ $('#themesModal').on('shown.bs.modal', function() {
 $('#themesModal').on('hidden.bs.modal', function() {
   activeTheme.style.border = '1px solid black';
 });
+
+function cleanEzGitPartsBackground(elements) {
+  elements.forEach(element => {
+    element.style.removeProperty('background-color');
+  });
+}
