@@ -9,13 +9,21 @@ var isHintKeyEnabled;
 var isNonSpacedElementsEnabled;
 var isDeleteConfirmationEnabled;
 
+var automatedModalsKey = 'automated-modals';
+var automatedErrorsHidingKey = 'automated-hiding';
+var hintsKey = 'keys-hints';
+var nonSpacedElementsKey = 'nonSpacedElements';
+var deleteConfirmationKey = 'delete-confirmation';
+
 function updateSetting(name) {
   if (name === 'autoModals') {
     isAutomatedModalEnabled = document.getElementById('autoMod_switch').checked;
     changeStatusLabel(isAutomatedModalEnabled, 'autoMod_switch_label');
+    saveToLocalStorage(automatedModalsKey, isAutomatedModalEnabled);
   } else if (name === 'autoDisappear') {
     isAutoToastHideEnabled = document.getElementById('autoDisappear_switch').checked;
     changeStatusLabel(isAutoToastHideEnabled, 'autoDisappear_switch_label');
+    saveToLocalStorage(automatedErrorsHidingKey, isAutoToastHideEnabled);
   } else if (name === 'hintKeys') {
     isHintKeyEnabled = document.getElementById('hintKeys_switch').checked;
     changeStatusLabel(isHintKeyEnabled, 'hintKeys_switch_label');
@@ -24,6 +32,7 @@ function updateSetting(name) {
     } else {
       manageKeyHints('hide');
     }
+    saveToLocalStorage(hintsKey, isHintKeyEnabled);
   } else if (name === 'nonSpacedElements') {
     isNonSpacedElementsEnabled = document.getElementById('nonSpacedElements_switch').checked;
     changeStatusLabel(isNonSpacedElementsEnabled, 'nonSpacedElements_switch_label');
@@ -37,9 +46,11 @@ function updateSetting(name) {
         }
       });
     }
+    saveToLocalStorage(nonSpacedElementsKey, isNonSpacedElementsEnabled);
   } else if (name === 'deleteConfirmation') {
     isDeleteConfirmationEnabled = document.getElementById('deleteConfirmation_switch').checked;
     changeStatusLabel(isDeleteConfirmationEnabled, 'deleteConfirmation_switch_label');
+    saveToLocalStorage(deleteConfirmationKey, isDeleteConfirmationEnabled);
   }
 }
 
@@ -56,27 +67,25 @@ function changeStatusLabel(checkStatus, labelId) {
   }
 }
 
+function loadSetting(key, switchId, labelId) {
+  isEnabled = JSON.parse(getValueFromLocalStorage(key));
+  isEnabled = isEnabled === null ? false : isEnabled;
+  document.getElementById(switchId).checked = isEnabled;
+  changeStatusLabel(isEnabled, labelId);
+  return isEnabled;
+}
+
 function loadSettings() {
-  isAutomatedModalEnabled = document.getElementById('autoMod_switch').checked;
-  changeStatusLabel(isAutomatedModalEnabled, 'autoMod_switch_label');
-
-  isAutoToastHideEnabled = document.getElementById('autoDisappear_switch').checked;
-  changeStatusLabel(isAutoToastHideEnabled, 'autoDisappear_switch_label');
-
-  isHintKeyEnabled = document.getElementById('hintKeys_switch').checked;
-  changeStatusLabel(isHintKeyEnabled, 'hintKeys_switch_label');
-
+  loadSetting(automatedModalsKey, 'autoMod_switch', 'autoMod_switch_label');
+  loadSetting(automatedErrorsHidingKey, 'autoDisappear_switch', 'autoDisappear_switch_label');
+  loadSetting(nonSpacedElementsKey, 'nonSpacedElements_switch', 'nonSpacedElements_switch_label');
+  loadSetting(deleteConfirmationKey, 'deleteConfirmation_switch', 'deleteConfirmation_switch_label');
+  var isHintKeyEnabled = loadSetting(hintsKey, 'hintKeys_switch', 'hintKeys_switch_label');
   if (isHintKeyEnabled) {
     manageKeyHints('show');
   } else {
     manageKeyHints('hide');
   }
-
-  isNonSpacedElementsEnabled = document.getElementById('nonSpacedElements_switch').checked;
-  changeStatusLabel(isNonSpacedElementsEnabled, 'nonSpacedElements_switch_label');
-
-  isDeleteConfirmationEnabled = document.getElementById('deleteConfirmation_switch').checked;
-  changeStatusLabel(isDeleteConfirmationEnabled, 'deleteConfirmation_switch_label');
 }
 
 function manageKeyHints(flag) {
