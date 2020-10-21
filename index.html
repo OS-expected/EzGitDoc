@@ -340,6 +340,7 @@ MODALS
           <div id="referencesModalContent">
 
           </div>
+          <small class="hide" id="referencesModalPinTip" style="font-size: 60%;">Use pin icon to quickly change element's position</small>
         </div>
       </div>
     </div>
@@ -463,6 +464,30 @@ aria-hidden="true" data-backdrop="true">
       <div class="modal-footer flex-center">
         <a id="singleRemoveAnchor" data-dismiss="modal" class="btn  btn-outline-danger">Yes</a>
         <a type="button" class="btn btn-danger waves-effect" data-dismiss="modal">No</a>
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+
+<!-- Change Element Position Modal -->
+<div class="modal fade" id="changeElementPositionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-sm modal-notify modal-primary" role="document">
+    <!--Content-->
+    <div class="modal-content text-center">
+      <!--Header-->
+      <div class="modal-header d-flex justify-content-center modal-custom-header">
+        <p class="heading"><span class="iconify fa-2x" data-icon="vaadin:absolute-position" data-inline="false"></span></p>
+      </div>
+      <!--Body-->
+      <div class="modal-body modal-custom-content">
+        <small id="changeElementPositionModalText">Set new position for element [1, 26]</small>
+        <input class="form-control" id="changeElementPositionModalInput" value="1" maxlength="5" autocomplete="off">
+      </div>
+      <!--Footer-->
+      <div class="modal-footer flex-center">
+        <a class="btn btn-elegant" onclick="placeElementInTheNewPosition()">Set</a>
       </div>
     </div>
     <!--/.Content-->

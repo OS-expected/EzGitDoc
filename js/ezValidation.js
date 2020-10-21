@@ -30,6 +30,8 @@ var emptyQBTextArea = 'Quick builder terminal is empty.';
 var _commandsNotRecognizedPart1 = 'Command(s): ';
 var _commandsNotRecognizedPart2 = ' not included in the output. Please make sure that the syntax is correct.';
 var limitReached = `Maximum allowed number is ${maximumAllowedRes},`;
+var samePos = 'New element\'s position cannot be the same as current one.';
+var wrongPos = 'New element\'s position must be from';
 
 // ********************************************
 // Validators
@@ -184,4 +186,16 @@ function validateQuickBuilderTextArea (text) {
     triggerToast(emptyQBTextArea);
     return false;
   }
+}
+
+function validatePositionChange (oldPos, newPos) {
+  maxAllowedPos = document.getElementsByClassName('ezGitPart').length;
+  if (oldPos === newPos) {
+    triggerToast(samePos);
+    return false;
+  } else if (newPos <= 0 || newPos > maxAllowedPos) {
+    triggerToast(`${wrongPos} <1, ${maxAllowedPos}> collection.`);
+    return false;
+  }
+  return true;
 }
