@@ -76,11 +76,11 @@ function loadSetting(key, switchId, labelId) {
 }
 
 function loadSettings() {
-  loadSetting(automatedModalsKey, 'autoMod_switch', 'autoMod_switch_label');
-  loadSetting(automatedErrorsHidingKey, 'autoDisappear_switch', 'autoDisappear_switch_label');
-  loadSetting(nonSpacedElementsKey, 'nonSpacedElements_switch', 'nonSpacedElements_switch_label');
-  loadSetting(deleteConfirmationKey, 'deleteConfirmation_switch', 'deleteConfirmation_switch_label');
-  var isHintKeyEnabled = loadSetting(hintsKey, 'hintKeys_switch', 'hintKeys_switch_label');
+  isAutomatedModalEnabled = loadSetting(automatedModalsKey, 'autoMod_switch', 'autoMod_switch_label');
+  isAutoToastHideEnabled = loadSetting(automatedErrorsHidingKey, 'autoDisappear_switch', 'autoDisappear_switch_label');
+  isNonSpacedElementsEnabled = loadSetting(nonSpacedElementsKey, 'nonSpacedElements_switch', 'nonSpacedElements_switch_label');
+  isDeleteConfirmationEnabled = loadSetting(deleteConfirmationKey, 'deleteConfirmation_switch', 'deleteConfirmation_switch_label');
+  isHintKeyEnabled = loadSetting(hintsKey, 'hintKeys_switch', 'hintKeys_switch_label');
   if (isHintKeyEnabled) {
     manageKeyHints('show');
   } else {
