@@ -144,9 +144,16 @@ html[data-theme='raw-dark'] {
         }
     }
 
-    /* Themes modal */
+    /* Themes/Change Element Pos modal */
     #themesModal .modal-header {
         background-color: @primary-color;
+    }
+
+    #changeElementPositionModal {
+        .modal-footer {
+            color: white;
+            background-color: @modal-content-bg-color;
+        }
     }
 
     /* Generate Code Btn */
@@ -226,7 +233,7 @@ html[data-theme='raw-dark'] {
         /* Body (also named content) */
         .modal-custom-content {
             background-color: @modal-content-bg-color;
-            color: @white-color;
+            color: @white-color !important;
             font-family: 'Sen', sans-serif, 'Josefin Sans', 'Times New Roman', Times, serif;
     
             a:link, 

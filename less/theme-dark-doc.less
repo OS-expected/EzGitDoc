@@ -150,9 +150,19 @@ html[data-theme='dark-doc'] {
 
     }
 
-    /* Themes modal */
-    #themesModal .modal-header {
-        background-color: @primary-color;
+    /* Themes/Change Element Pos modal */
+    #themesModal,
+    #changeElementPositionModal {
+        .modal-header {
+            background-color: @primary-color;
+        }
+    } 
+
+    #changeElementPositionModal {
+        .modal-body, .modal-footer {
+            color: white;
+            background-color: @modal-content-bg-color;
+        }
     }
 
     /* Generate Code Btn */
