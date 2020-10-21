@@ -89,3 +89,72 @@ function manageKeyHints(flag) {
     }
   }
 }
+
+// Themes management
+
+var themeBadge = document.getElementById('themeBadge');
+
+function loadTheme() {
+  var theme = getValueFromLocalStorage('data-theme');
+  theme = theme === null ? 'theme-classic' : theme;
+  var html = document.documentElement;
+  html.setAttribute('data-theme', theme);
+  setThemeBadge(theme);
+}
+
+function setThemeBadge(name) {
+  themeBadge.textContent = name;
+}
+
+function setTheme(name) {
+  if (activeTheme != null) {
+    activeTheme.style.border = '1px solid black';
+  }
+  saveToLocalStorage('data-theme', name);
+  var html = document.documentElement;
+  html.setAttribute('data-theme', name);
+  setThemeBadge(name);
+  var elements = document.getElementsByClassName('ezGitPart');
+  if (elements.length > 0) {
+    cleanEzGitPartsBackground(elements);
+  }
+  highlightActiveTheme();
+}
+
+var activeTheme;
+
+function highlightActiveTheme() {
+  var html = document.documentElement;
+  var dataTheme = html.getAttribute('data-theme');
+  var themeBoxes = document.getElementsByClassName('theme-box');
+  themeBoxes.forEach(themeBox => {
+    if (themeBox.classList.contains(`theme-${dataTheme}`)) {
+      themeBox.style.border = '3px solid #4AEFC6';
+      activeTheme = themeBox;
+    }
+  });
+}
+
+$('#themesModal').on('shown.bs.modal', function() {
+  highlightActiveTheme();
+});
+
+$('#themesModal').on('hidden.bs.modal', function() {
+  activeTheme.style.border = '1px solid black';
+});
+
+function cleanEzGitPartsBackground(elements) {
+  elements.forEach(element => {
+    element.style.removeProperty('background-color');
+  });
+}
+
+// Local Storage Helpers
+
+function saveToLocalStorage(key, value) {
+  localStorage.setItem(key, value);
+}
+
+function getValueFromLocalStorage(key) {
+  return localStorage.getItem(key);
+}
