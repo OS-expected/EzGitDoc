@@ -17,6 +17,9 @@ var nonSpacedElementsKey = 'nonSpacedElements';
 var deleteConfirmationKey = 'delete-confirmation';
 var fontSizeKey = 'font-size';
 
+var defaultFontSize = '80';
+var defaultTheme = 'theme-classic';
+
 function setSingleElementFontSize(percentage) {
   saveToLocalStorage(fontSizeKey, percentage);
   fontSizeInPercentage = percentage;
@@ -26,7 +29,7 @@ function setSingleElementFontSize(percentage) {
 
 function getSingleElementFontSize() {
   var percentage = getValueFromLocalStorage(fontSizeKey);
-  percentage = percentage === null ? '80' : percentage;
+  percentage = percentage === null ? defaultFontSize : percentage;
   setSingleElementFontSize(percentage);
 }
 
@@ -155,7 +158,7 @@ var themeBadge = document.getElementById('themeBadge');
 
 function loadTheme() {
   var theme = getValueFromLocalStorage('data-theme');
-  theme = theme === null ? 'theme-classic' : theme;
+  theme = theme === null ? defaultTheme : theme;
   var html = document.documentElement;
   html.setAttribute('data-theme', theme);
   updateUiThemeBadge(theme);
