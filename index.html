@@ -405,6 +405,20 @@ aria-hidden="true" data-backdrop="true">
             <label class="custom-control-label" for="deleteConfirmation_switch" style="width: 100%;">Delete confirmation: <span id="deleteConfirmation_switch_label" class="badge badge-pill badge-danger" style="float: right;">disabled</span></label>
             <small class="form-text text-muted">Enable this option to require confirmation before deleting single element in EzGitDoc. If disabled, single elements are deleted without confirmation.</small>
           </div>
+
+          <br/>
+
+          <div class="btn-toolbar mb-4" role="toolbar" aria-label="Toolbar with button groups">
+            <div>
+              <small>EzGitDoc Single Element Font Size </small> <br/>
+              <small id="activeFontSizeIndicator">Active: 60%</small>
+            </div>
+            <div class="btn-group mr-2" role="group" aria-label="First group">
+              <button type="button" class="btn blue lighten-2" onclick="setSingleElementFontSize('60')">60%</button>
+              <button type="button" class="btn light-blue lighten-2" onclick="setSingleElementFontSize('80')">80%</button>
+              <button type="button" class="btn cyan lighten-2" onclick="setSingleElementFontSize('100')">100%</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

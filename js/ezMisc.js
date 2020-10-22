@@ -167,6 +167,7 @@ window.onbeforeunload = null;
 
 // on page startup with JQuery
 $(document).ready(function () {
+  getSingleElementFontSize();
   loadTheme();
   $('#myToast').hide();
   // queue defaulting last highlighted element's background color

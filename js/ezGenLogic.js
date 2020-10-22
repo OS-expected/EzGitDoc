@@ -566,7 +566,7 @@ function setElement(element) {
 
   element.setAttribute('id', GenerateUniqueId());
   setStyleForElement(element);
-  element.setAttribute('class', 'block-stylizer ezGitPart');
+  element.setAttribute('class', `block-stylizer ezGitPart font-${fontSizeInPercentage}`);
   element.setAttribute('onselectstart', 'return false');
   return element;
 }

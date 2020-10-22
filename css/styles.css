@@ -79,6 +79,18 @@ html, body {
     border-right: 9px solid #810401;
 }
 
+.font-60, .font-60 td {
+    font-size: 60%;
+}
+
+.font-80, .font-80 td {
+    font-size: 80%;
+}
+
+.font-100, .font-100 td {
+    font-size: 100%;
+}
+
 .list-group-item.active {
     background-color: #ACB2B9 !important;
     border: 1px solid #ACB2B9 !important;

@@ -8,12 +8,46 @@ var isAutoToastHideEnabled;
 var isHintKeyEnabled;
 var isNonSpacedElementsEnabled;
 var isDeleteConfirmationEnabled;
+var fontSizeInPercentage;
 
 var automatedModalsKey = 'automated-modals';
 var automatedErrorsHidingKey = 'automated-hiding';
 var hintsKey = 'keys-hints';
 var nonSpacedElementsKey = 'nonSpacedElements';
 var deleteConfirmationKey = 'delete-confirmation';
+var fontSizeKey = 'font-size';
+
+function setSingleElementFontSize(percentage) {
+  saveToLocalStorage(fontSizeKey, percentage);
+  fontSizeInPercentage = percentage;
+  updateActiveFontSizeIndicator();
+  overwriteCurrentEzGitPartsIfAny();
+}
+
+function getSingleElementFontSize() {
+  var percentage = getValueFromLocalStorage(fontSizeKey);
+  percentage = percentage === null ? '80' : percentage;
+  setSingleElementFontSize(percentage);
+}
+
+function updateActiveFontSizeIndicator() {
+  document.getElementById('activeFontSizeIndicator').textContent = `Active: ${fontSizeInPercentage}%`;
+}
+
+function overwriteCurrentEzGitPartsIfAny() {
+  var ezGitParts = document.getElementsByClassName('ezGitPart');
+  if (ezGitParts.length > 0) {
+    ezGitParts.forEach(ezGitPart => {
+      var ezGitPartClasses = ezGitPart.classList;
+      ezGitPartClasses.forEach(ezGitPartClass => {
+        if (ezGitPartClass.includes('font')) {
+          ezGitPart.classList.remove(ezGitPartClass);
+        }
+      });
+      ezGitPart.classList.add(`font-${fontSizeInPercentage}`);
+    });
+  }
+}
 
 function updateSetting(name) {
   if (name === 'autoModals') {
