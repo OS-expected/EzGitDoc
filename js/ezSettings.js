@@ -50,54 +50,65 @@ function overwriteCurrentEzGitPartsIfAny() {
 }
 
 function updateSetting(name) {
-  if (name === 'autoModals') {
-    isAutomatedModalEnabled = document.getElementById('autoMod_switch').checked;
-    changeStatusLabel(isAutomatedModalEnabled, 'autoMod_switch_label');
-    saveToLocalStorage(automatedModalsKey, isAutomatedModalEnabled);
-  } else if (name === 'autoDisappear') {
-    isAutoToastHideEnabled = document.getElementById('autoDisappear_switch').checked;
-    changeStatusLabel(isAutoToastHideEnabled, 'autoDisappear_switch_label');
-    saveToLocalStorage(automatedErrorsHidingKey, isAutoToastHideEnabled);
-  } else if (name === 'hintKeys') {
-    isHintKeyEnabled = document.getElementById('hintKeys_switch').checked;
-    changeStatusLabel(isHintKeyEnabled, 'hintKeys_switch_label');
-    if (isHintKeyEnabled) {
-      manageKeyHints('show');
-    } else {
-      manageKeyHints('hide');
-    }
-    saveToLocalStorage(hintsKey, isHintKeyEnabled);
-  } else if (name === 'nonSpacedElements') {
-    isNonSpacedElementsEnabled = document.getElementById('nonSpacedElements_switch').checked;
-    changeStatusLabel(isNonSpacedElementsEnabled, 'nonSpacedElements_switch_label');
-    var elements = document.getElementsByClassName('ezGitPart');
-    if (elements.length !== 0) {
-      elements.forEach(element => {
-        if (element.children[0].tagName === 'IMG') {
-          setStyleForElement(element, `text-align: ${element.style.textAlign};`);
-        } else {
-          setStyleForElement(element);
-        }
-      });
-    }
-    saveToLocalStorage(nonSpacedElementsKey, isNonSpacedElementsEnabled);
-  } else if (name === 'deleteConfirmation') {
-    isDeleteConfirmationEnabled = document.getElementById('deleteConfirmation_switch').checked;
-    changeStatusLabel(isDeleteConfirmationEnabled, 'deleteConfirmation_switch_label');
-    saveToLocalStorage(deleteConfirmationKey, isDeleteConfirmationEnabled);
+  switch (name) {
+    case 'autoModals':
+      isAutomatedModalEnabled = handleSettingSavingAndUi('autoMod_switch',
+        'autoMod_switch_label', automatedModalsKey);
+      break;
+    case 'autoDisappear':
+      isAutoToastHideEnabled = handleSettingSavingAndUi('autoDisappear_switch',
+        'autoDisappear_switch_label', automatedErrorsHidingKey);
+      break;
+    case 'hintKeys':
+      isHintKeyEnabled = handleSettingSavingAndUi('hintKeys_switch',
+        'hintKeys_switch_label', isHintKeyEnabled);
+      if (isHintKeyEnabled) {
+        manageKeyHints('show');
+      } else {
+        manageKeyHints('hide');
+      }
+      break;
+    case 'nonSpacedElements':
+      isNonSpacedElementsEnabled = handleSettingSavingAndUi('nonSpacedElements_switch',
+        'nonSpacedElements_switch_label', nonSpacedElementsKey);
+      var elements = document.getElementsByClassName('ezGitPart');
+      if (elements.length !== 0) {
+        elements.forEach(element => {
+          if (element.children[0].tagName === 'IMG') {
+            setStyleForElement(element, `text-align: ${element.style.textAlign};`);
+          } else {
+            setStyleForElement(element);
+          }
+        });
+      }
+      break;
+    case 'deleteConfirmation':
+      isDeleteConfirmationEnabled = handleSettingSavingAndUi('deleteConfirmation_switch',
+        'deleteConfirmation_switch_label', deleteConfirmationKey);
+      break;
   }
 }
+
+function handleSettingSavingAndUi(uiSwitchId, uiLabelId, key) {
+  var isSwitchChecked = document.getElementById(uiSwitchId).checked;
+  changeStatusLabel(isSwitchChecked, uiLabelId);
+  saveToLocalStorage(key, isSwitchChecked);
+  return isSwitchChecked;
+}
+
+var enabled = 'enabled';
+var disabled = 'disabled';
 
 function changeStatusLabel(checkStatus, labelId) {
   var tmp = document.getElementById(labelId);
   if (checkStatus === true) {
     tmp.classList.remove('badge-danger');
     tmp.classList.add('badge-success');
-    tmp.textContent = 'enabled';
+    tmp.textContent = enabled;
   } else {
     tmp.classList.remove('badge-success');
     tmp.classList.add('badge-danger');
-    tmp.textContent = 'disabled';
+    tmp.textContent = disabled;
   }
 }
 
@@ -110,11 +121,16 @@ function loadSetting(key, switchId, labelId) {
 }
 
 function loadSettings() {
-  isAutomatedModalEnabled = loadSetting(automatedModalsKey, 'autoMod_switch', 'autoMod_switch_label');
-  isAutoToastHideEnabled = loadSetting(automatedErrorsHidingKey, 'autoDisappear_switch', 'autoDisappear_switch_label');
-  isNonSpacedElementsEnabled = loadSetting(nonSpacedElementsKey, 'nonSpacedElements_switch', 'nonSpacedElements_switch_label');
-  isDeleteConfirmationEnabled = loadSetting(deleteConfirmationKey, 'deleteConfirmation_switch', 'deleteConfirmation_switch_label');
-  isHintKeyEnabled = loadSetting(hintsKey, 'hintKeys_switch', 'hintKeys_switch_label');
+  isAutomatedModalEnabled = loadSetting(automatedModalsKey,
+    'autoMod_switch', 'autoMod_switch_label');
+  isAutoToastHideEnabled = loadSetting(automatedErrorsHidingKey,
+    'autoDisappear_switch', 'autoDisappear_switch_label');
+  isNonSpacedElementsEnabled = loadSetting(nonSpacedElementsKey,
+    'nonSpacedElements_switch', 'nonSpacedElements_switch_label');
+  isDeleteConfirmationEnabled = loadSetting(deleteConfirmationKey,
+    'deleteConfirmation_switch', 'deleteConfirmation_switch_label');
+  isHintKeyEnabled = loadSetting(hintsKey,
+    'hintKeys_switch', 'hintKeys_switch_label');
   if (isHintKeyEnabled) {
     manageKeyHints('show');
   } else {
@@ -142,10 +158,10 @@ function loadTheme() {
   theme = theme === null ? 'theme-classic' : theme;
   var html = document.documentElement;
   html.setAttribute('data-theme', theme);
-  setThemeBadge(theme);
+  updateUiThemeBadge(theme);
 }
 
-function setThemeBadge(name) {
+function updateUiThemeBadge(name) {
   themeBadge.textContent = name;
 }
 
@@ -156,7 +172,7 @@ function setTheme(name) {
   saveToLocalStorage('data-theme', name);
   var html = document.documentElement;
   html.setAttribute('data-theme', name);
-  setThemeBadge(name);
+  updateUiThemeBadge(name);
   var elements = document.getElementsByClassName('ezGitPart');
   if (elements.length > 0) {
     cleanEzGitPartsBackground(elements);
