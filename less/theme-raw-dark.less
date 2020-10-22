@@ -166,6 +166,15 @@ html[data-theme='raw-dark'] {
         background-color: @modal-header-bg-color;
     }
 
+    /* Settings Modal Font Setting */
+    #settingsModal .modal-body .btn-toolbar {
+        color: white;
+
+        .btn-group .btn {
+            background-color: lighten(@brand-text-color, 10%) !important;
+        }
+    }
+
     /* Notifications (Toast) */
     #myToast {
         background-color: lighten(@primary-color, 10%) !important;
