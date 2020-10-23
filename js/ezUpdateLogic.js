@@ -9,148 +9,183 @@
 
 var lastReferencedId;
 
+function insertCodeData(code) {
+  code = code.innerHTML.split('<br>');
+  document.getElementById('codeLanguage_update').value = code[0].substring(9); // skip first 9 characters
+  document.getElementById('codeArea_update').value = code[1];
+}
+
+function insertHeaderData(header) {
+  document.getElementById('headerName_update').value = header.textContent;
+  var styles = document.getElementsByClassName('headerStyle_update');
+  var currentStyle = header.tagName.substring(1);
+  for (var i = 0; i < styles.length; i++) {
+    // headerStyle_update range -> <10,15>
+    if (currentStyle === styles[i].value - 9) {
+      styles[i].classList.add('active');
+      break;
+    }
+  }
+}
+
+function insertLinkData(link) {
+  document.getElementById('hrefName_update').value = link.textContent;
+  document.getElementById('hrefAddress_update').value = link.href;
+}
+
+function insertImageData(image, elementId) {
+  document.getElementById('altImageText_update').value = image.alt;
+  if (image.src.includes('place-hold') === false) {
+    document.getElementById('imageURL_update').value = image.src;
+  }
+  var paragraphAlignVal = document.getElementById(elementId).style.textAlign;
+  var alignNumericValue = 1;
+  if (paragraphAlignVal === 'left') {
+    alignNumericValue = 1;
+  } else if (paragraphAlignVal === 'center') {
+    alignNumericValue = 2;
+  } else if (paragraphAlignVal === 'right') {
+    alignNumericValue = 3;
+  }
+  document.getElementById('imagePositionList_update').value = alignNumericValue;
+  document.getElementById('xAxisProperty_update').value = image.width;
+  document.getElementById('yAxisProperty_update').value = image.height;
+}
+
+function insertListData(list, elementId) {
+  emptyHtmlElementById('list_update_dynamic_fields');
+  var firstElementTag = list.tagName;
+  var listSize;
+  var listFieldSpace = document.getElementById('list_update_dynamic_fields');
+
+  if (firstElementTag === 'P') {
+    listSize = document.getElementById(elementId).children.length;
+    list = document.getElementById(elementId);
+    for (var i = 0; i < listSize - 2; i++) {
+      var row = document.createElement('div');
+      row.classList.add('row', 'listUpdateData');
+      row.appendChild(setInputField(list.children[i].childNodes[0].textContent.replace(/:/g, '').trim(), 3));
+      row.appendChild(setInputField(list.children[i].childNodes[1].textContent.replace(/:/g, '').trim(), 4));
+      row.appendChild(setInputField(list.children[i].childNodes[2].textContent.replace(/:/g, '').trim(), 5));
+      listFieldSpace.appendChild(row);
+    }
+  } else if (firstElementTag === 'UL') {
+    listSize = list.getElementsByTagName('LI').length;
+    _firstListItemTag = list.childNodes[0].firstChild.tagName;
+
+    if (_firstListItemTag === 'A') {
+      for (var i = 0; i < listSize; i++) {
+        var row = document.createElement('div');
+        row.classList.add('row', 'listUpdateData');
+        row.appendChild(setInputField(list.childNodes[i].textContent, 6));
+        row.appendChild(setInputField(list.childNodes[i].children[0].href, 6));
+        listFieldSpace.appendChild(row);
+      }
+    } else {
+      for (var i = 0; i < listSize; i++) {
+        var row = document.createElement('div');
+        row.classList.add('row', 'listUpdateData');
+        row.appendChild(setInputField(list.childNodes[i].textContent, 12));
+        listFieldSpace.appendChild(row);
+      }
+    }
+  }
+}
+
+function insertTextTableData(sourceTable) {
+  emptyHtmlElementById('array_update_dynamic_fields');
+  var arrayFieldSpace = document.getElementById('array_update_dynamic_fields');
+  var cols = sourceTable.rows[0].cells.length;
+  var rows = sourceTable.rows.length;
+  var table = document.createElement('table');
+  // MDB extra classes
+  table.classList.add('table', 'table-bordered', 'table-responsive');
+  var tbdy = document.createElement('tbody');
+  tbdy.setAttribute('style', 'text-align: center;');
+  for (var i = 0; i < rows; i++) {
+    var tr = document.createElement('tr');
+    for (var j = 0; j < cols; j++) {
+      var td = document.createElement('td');
+      var value = sourceTable.rows[i].cells[j].textContent;
+      if (i === 0) {
+        td.appendChild(setInputField(value));
+      } else {
+        td.appendChild(setInputField(value));
+      }
+      tr.appendChild(td);
+    }
+    tbdy.appendChild(tr);
+  }
+  table.appendChild(tbdy);
+  arrayFieldSpace.appendChild(table);
+}
+
+function insertTextData(text) {
+  document.getElementById('commentArea_update').value = text.innerHTML;
+  document.getElementById('commentJustify_update').checked = text.style.textAlign === 'justify';
+}
+
+function insertImageBasedTableData(sourceTable) {
+  var firstChild = sourceTable.firstChild;
+  var image;
+  if (firstChild.tagName === 'KBD') {
+    // <kbd><img src.../></kbd>
+    image = firstChild.children[0];
+  } else if (firstChild.tagName === 'A') {
+    // <a ...><kbd><img.../></kbd></a>
+    var kbd = firstChild.children[0];
+    image = kbd.children[0];
+  } else {
+    // <tbody><tr><td><img.../></td></tr></tbody>
+    var tr = firstChild.children[0];
+    var td = tr.children[0];
+    image = td.children[0];
+  }
+  document.getElementById('uniTabWidth').value = image.width;
+  document.getElementById('uniTabHeight').value = image.height;
+}
+
+function insertDetailsData(details) {
+  document.getElementById('details_summary_update').value = details.children[0].innerHTML;
+  document.getElementById('details_body_update').value = details.innerHTML.split('\n').slice(1).join('\n');
+}
+
+function emptyHtmlElementById(id) {
+  $(`#${id}`).empty();
+}
+
 function showEditModal(modalReference, elementId) {
   var tmp = document.getElementById(elementId).children[0];
   lastReferencedId = elementId;
   switch (modalReference) {
     case '#codeUpdateModal':
-      tmp = tmp.innerHTML.split('<br>');
-      document.getElementById('codeLanguage_update').value = tmp[0].substring(9);
-      document.getElementById('codeArea_update').value = tmp[1];
+      insertCodeData(tmp);
       break;
     case '#headerUpdateModal':
-      document.getElementById('headerName_update').value = tmp.textContent;
-      var styles = document.getElementsByClassName('headerStyle_update');
-      var currentStyle = tmp.tagName.substring(1);
-      for (var i = 0; i < styles.length; i++) {
-        if (currentStyle === styles[i].value - 9) {
-          styles[i].classList.add('active');
-          break;
-        }
-      }
+      insertHeaderData(tmp);
       break;
     case '#imageUpdateModal':
-      document.getElementById('altImageText_update').value = tmp.alt;
-      if (tmp.src.includes('place-hold') === false) {
-        document.getElementById('imageURL_update').value = tmp.src;
-      }
-      var paragraphAlignVal = document.getElementById(elementId).style.textAlign;
-      var alignNumericValue = 1;
-      if (paragraphAlignVal === 'left') {
-        alignNumericValue = 1;
-      } else if (paragraphAlignVal === 'center') {
-        alignNumericValue = 2;
-      } else if (paragraphAlignVal === 'right') {
-        alignNumericValue = 3;
-      }
-      document.getElementById('imagePositionList_update').value = alignNumericValue;
-      document.getElementById('xAxisProperty_update').value = tmp.width;
-      document.getElementById('yAxisProperty_update').value = tmp.height;
+      insertImageData(tmp, elementId);
       break;
     case '#linkUpdateModal':
-      document.getElementById('hrefName_update').value = tmp.textContent;
-      document.getElementById('hrefAddress_update').value = tmp.href;
+      insertLinkData(tmp);
       break;
     case '#listUpdateModal':
-      $('#list_update_dynamic_fields').empty();
-
-      var firstElementTag = tmp.tagName;
-      var listSize;
-      var listFieldSpace = document.getElementById('list_update_dynamic_fields');
-
-      if (firstElementTag === 'P') {
-        listSize = document.getElementById(lastReferencedId).children.length;
-        tmp = document.getElementById(elementId);
-        for (var i = 0; i < listSize - 2; i++) {
-          var row = document.createElement('div');
-          row.classList.add('row', 'listUpdateData');
-          row.appendChild(setInputField(tmp.children[i].childNodes[0].textContent.replace(/:/g, '').trim(), 3));
-          row.appendChild(setInputField(tmp.children[i].childNodes[1].textContent.replace(/:/g, '').trim(), 4));
-          row.appendChild(setInputField(tmp.children[i].childNodes[2].textContent.replace(/:/g, '').trim(), 5));
-          listFieldSpace.appendChild(row);
-        }
-      } else if (firstElementTag === 'UL') {
-        listSize = tmp.getElementsByTagName('LI').length;
-        _firstListItemTag = tmp.childNodes[0].firstChild.tagName;
-
-        if (_firstListItemTag === 'A') {
-          for (var i = 0; i < listSize; i++) {
-            var row = document.createElement('div');
-            row.classList.add('row', 'listUpdateData');
-            row.appendChild(setInputField(tmp.childNodes[i].textContent, 6));
-            row.appendChild(setInputField(tmp.childNodes[i].children[0].href, 6));
-            listFieldSpace.appendChild(row);
-          }
-        } else {
-          for (var i = 0; i < listSize; i++) {
-            var row = document.createElement('div');
-            row.classList.add('row', 'listUpdateData');
-            row.appendChild(setInputField(tmp.childNodes[i].textContent, 12));
-            listFieldSpace.appendChild(row);
-          }
-        }
-      }
+      insertListData(tmp, elementId);
       break;
-    case '#arrayUpdateModal':
-      $('#array_update_dynamic_fields').empty();
-      var arrayFieldSpace = document.getElementById('array_update_dynamic_fields');
-      var cols = tmp.rows[0].cells.length;
-      var rows = tmp.rows.length;
-
-      var table = document.createElement('table');
-      // MDB extra classes
-      table.classList.add('table');
-      table.classList.add('table-bordered');
-      table.classList.add('table-responsive');
-      var tbdy = document.createElement('tbody');
-      tbdy.setAttribute('style', 'text-align: center;');
-
-      for (var i = 0; i < rows; i++) {
-        var tr = document.createElement('tr');
-        for (var j = 0; j < cols; j++) {
-          var td = document.createElement('td');
-          var value = tmp.rows[i].cells[j].textContent;
-          if (i === 0) {
-            td.appendChild(setInputField(value));
-          } else {
-            td.appendChild(setInputField(value));
-          }
-          tr.appendChild(td);
-        }
-        tbdy.appendChild(tr);
-      }
-      table.appendChild(tbdy);
-      arrayFieldSpace.appendChild(table);
+    case '#textTableUpdateModal':
+      insertTextTableData(tmp);
       break;
     case '#textUpdateModal':
-      document.getElementById('commentArea_update').value = tmp.innerHTML;
-      document.getElementById('commentJustify_update').checked = tmp.style.textAlign === 'justify';
+      insertTextData(tmp);
       break;
     case '#tableUniUpdateModal':
-      var firstChild = tmp.firstChild;
-      var image;
-      if (firstChild.tagName === 'KBD') {
-        // <kbd><img src.../></kbd>
-        image = firstChild.children[0];
-      } else if (firstChild.tagName === 'A') {
-        // <a ...><kbd><img.../></kbd></a>
-        var kbd = firstChild.children[0];
-        image = kbd.children[0];
-      } else {
-        // <tbody><tr><td><img.../></td></tr></tbody>
-        var tr = firstChild.children[0];
-        var td = tr.children[0];
-        image = td.children[0];
-      }
-      document.getElementById('uniTabWidth').value = image.width;
-      document.getElementById('uniTabHeight').value = image.height;
+      insertImageBasedTableData(tmp);
       break;
     case '#detailsUpdateModal':
-      document.getElementById('details_summary_update').value = tmp.children[0].innerHTML;
-      document.getElementById('details_body_update').value = tmp.innerHTML.split('\n').slice(1).join('\n');
+      insertDetailsData(tmp);
       break;
   }
-
   $(modalReference).modal('show');
 }
 
@@ -159,13 +194,11 @@ function setInputField(placeholder, columnSize) {
   if (columnSize) {
     col.classList.add('col-' + columnSize);
   }
-
   var input = document.createElement('input');
   input.classList.add('form-control');
   input.autocomplete = 'off';
   input.value = placeholder;
   input.style.marginTop = '2px';
-
   col.appendChild(input);
   return col;
 }
@@ -174,21 +207,17 @@ function updateCode() {
   // get
   var codeText = document.getElementById('codeArea_update').value;
   var codeLanguage = document.getElementById('codeLanguage_update').value;
-
   // validate
   if (validateCode(codeText) === false) {
     return false;
   }
-
   // update
   var codeToUpdate = document.getElementById(lastReferencedId).children[0].children[0]; // get code element
-
   if (!codeLanguage) {
-    codeToUpdate.innerHTML = '```<br/>' + codeText + '<br/>```';
+    codeToUpdate.innerHTML = `\`\`\`<br/>${codeText}<br/>\`\`\``;
   } else {
-    codeToUpdate.innerHTML = '```' + codeLanguage + '<br/>' + codeText + '<br/>```';
+    codeToUpdate.innerHTML = `\`\`\`${codeLanguage}<br/>${codeText}<br/>\`\`\``;
   }
-
   if (isAutomatedModalEnabled) {
     hideModalAfterRender('#codeUpdateModal');
   }
@@ -441,7 +470,7 @@ function updateTable() {
   }
 
   if (isAutomatedModalEnabled) {
-    hideModalAfterRender('#arrayUpdateModal');
+    hideModalAfterRender('#textTableUpdateModal');
   }
 }
 
