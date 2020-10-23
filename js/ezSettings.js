@@ -18,7 +18,7 @@ var deleteConfirmationKey = 'delete-confirmation';
 var fontSizeKey = 'font-size';
 
 var defaultFontSize = '80';
-var defaultTheme = 'theme-classic';
+var defaultTheme = 'classic';
 
 function setSingleElementFontSize(percentage) {
   saveToLocalStorage(fontSizeKey, percentage);
