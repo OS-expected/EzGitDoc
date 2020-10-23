@@ -22,6 +22,9 @@ function insertHeaderData(header) {
   for (var i = 0; i < styles.length; i++) {
     // headerStyle_update range -> <10,15>
     if (currentStyle === styles[i].value - 9) {
+      if (currentlyActive !== null) {
+        currentlyActive.classList.remove('active');
+      }
       styles[i].classList.add('active');
       currentlyActive = styles[i];
       break;
