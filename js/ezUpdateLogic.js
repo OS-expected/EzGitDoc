@@ -18,11 +18,12 @@ function insertCodeData(code) {
 function insertHeaderData(header) {
   document.getElementById('headerName_update').value = header.textContent;
   var styles = document.getElementsByClassName('headerStyle_update');
-  var currentStyle = header.tagName.substring(1);
+  var currentStyle = parseInt(header.tagName.substring(1));
   for (var i = 0; i < styles.length; i++) {
     // headerStyle_update range -> <10,15>
     if (currentStyle === styles[i].value - 9) {
       styles[i].classList.add('active');
+      currentlyActive = styles[i];
       break;
     }
   }
