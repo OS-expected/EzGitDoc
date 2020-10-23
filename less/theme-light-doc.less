@@ -109,16 +109,29 @@ html[data-theme='light-doc'] {
 
     }
 
-    /* Themes modal */
-    #themesModal .modal-header {
-        background-color: @brand-primary-color;
-    }
+    /* Themes/Change Element Pos modal */
+    #themesModal, 
+    #changeElementPositionModal {
+        .modal-header {
+            background-color: @brand-primary-color;
+        }
+    } 
 
     /* Generate Code Btn */
     #codeGenButton {
         background-color: lighten(@brand-text-color, 5%) !important;
     }
     
+    /* Settings Modal Font Setting */
+    #settingsModal .modal-body .btn-toolbar {
+        color: black;
+
+        .btn-group .btn {
+            color: @white-color;
+            background-color: lighten(@brand-text-color, 10%) !important;
+        }
+    }
+
 }
 
 // ********************************

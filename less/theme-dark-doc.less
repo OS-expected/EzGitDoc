@@ -150,9 +150,19 @@ html[data-theme='dark-doc'] {
 
     }
 
-    /* Themes modal */
-    #themesModal .modal-header {
-        background-color: @primary-color;
+    /* Themes/Change Element Pos modal */
+    #themesModal,
+    #changeElementPositionModal {
+        .modal-header {
+            background-color: @primary-color;
+        }
+    } 
+
+    #changeElementPositionModal {
+        .modal-body, .modal-footer {
+            color: white;
+            background-color: @modal-content-bg-color;
+        }
     }
 
     /* Generate Code Btn */
@@ -163,6 +173,16 @@ html[data-theme='dark-doc'] {
     /* Settings Modal Close Btn  */
     .settings-header .close {
         background-color: @modal-header-bg-color;
+    }
+
+    /* Settings Modal Font Setting */
+    #settingsModal .modal-body .btn-toolbar {
+        color: @white-color;
+
+        .btn-group .btn {
+            color: @white-color;
+            background-color: lighten(@brand-text-color, 10%) !important;
+        }
     }
 
     /* Notifications (Toast) */

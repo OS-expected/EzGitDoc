@@ -1,13 +1,26 @@
+/* 
+--------------------------------------------------
+EzGitDoc | Theme: Raw-Dark
+--------------------------------------------------
+Raw Dark is best option to pick as base project if 
+you want to create your own theme. It has the most 
+overwritten page styles and expanded constants list. 
+If you want to share your theme, feel free to do so!
+--------------------------------------------------
+For more details about creating your own theme,
+please refer to DEV section at:
+https://trolit.github.io/EzGitDoc-documentation/
+--------------------------------------------------
+*/
 
-/* Constants */
-
-/* Global */
+// **********************************
+// 1. Global Constants
+// **********************************
 
 @primary-color: #18181b;
 @darker-primary-color: darken(@primary-color, 15%);
 @lighter-primary-color: lighten(@primary-color, 45%);
-@lighter-20-primary-color: lighten(@primary-color, 20%);;
-@white-color: #fff;
+@lighter-20-primary-color: lighten(@primary-color, 20%);
 
 @brand-text-color: lighten(@primary-color, 15%);
 @brand-primary-color: @lighter-primary-color;
@@ -15,25 +28,77 @@
 
 @forms-dark-color: #585858;
 
-/* Specific */
+@red-color: #770501;
+@white-color: #fff;
 
+// **********************************
+// 2. Specific Constants
+// **********************************
+
+@workingSpace-color: @lighter-20-primary-color;
+@footer-color: lighten(@primary-color, 10%);
+
+// Badges
+@badge-light-bg-color: @brand-primary-color;
+@badge-light-text-color: @primary-color;
+
+// Icons
+@edit-icon-bg-color: darken(@brand-text-color, 3%);
+@edit-icon-bg-color-onHover: darken(@lighter-20-primary-color, 5%);
+
+@delete-icon-bg-color: darken(@red-color, 2%);
+@delete-icon-bg-color-onHover: darken(@red-color, 2%);
+
+// Buttons
 @create-btn-color: @primary-color;
 @reset-btn-color: #950A24;
-@footer-color: lighten(@primary-color, 10%);
 @docs-btn-color: lighten(@brand-text-color, 10%);
+@generate-btn-color: darken(@brand-text-color, 5%);
+@close-btn-color: lighten(@primary-color, 8%);
+@elegant-btn-color: @create-btn-color;
+@mdb-btn-color: @lighter-primary-color;
 
+// Toast
+@toast-header-bg-color: lighten(@primary-color, 5%);
+@toast-header-text-color: lighten(@primary-color, 40%);
+@toast-bg-color: lighten(@primary-color, 10%);
+@toast-bg-text-color: lighten(@primary-color, 55%);
+@toast-close-bg-color: lighten(@primary-color, 5%);
+@toast-close-text-color: lighten(@primary-color, 40%);
+
+// Forms (Input/Textarea/Dropdown)
+@form-border-color: darken(@brand-text-color, 25%);
+@form-border-color-onFocus: @form-border-color;
+@form-bg-color: @forms-dark-color;
+@form-bg-color-onFocus: lighten(@forms-dark-color, 8%);
+
+// List Group Item
+@lgi-bg-color: lighten(@forms-dark-color, 5%);
+@lgi-bg-color-onActive: darken(@forms-dark-color, 1%);
+@lgi-border-color-onActive: @lgi-bg-color-onActive;
+
+// Text
+@text-muted-color: lighten(@forms-dark-color, 15%);
+@didYouKnow-text-color: lighten(@forms-dark-color, 50%);
+@optional-text-color: lighten(@forms-dark-color, 10%);
+
+// Modals
 @modal-header-bg-color: lighten(@primary-color, 8%);
 @modal-content-bg-color: lighten(@primary-color, 15%);
 
 @references-modal-href-active: #FFB400;
 @references-modal-href-hover: #B37E00;
 
+@modal-customContent-href-active: lighten(@brand-secondary-color, 65%);
+@modal-customContent-href-onHover: lighten(@brand-secondary-color, 5%);
+
 @ezgitpart-href-active: @references-modal-href-active;
 @ezgitpart-href-hover: @references-modal-href-hover;
 
+// Sidebar
 @sidebar-headers-text-color: @brand-primary-color;
-@sidebar-background-color: @primary-color;
-@sidebar-top-icons-color: @lighter-primary-color;
+@sidebar-background-color: lighten(@primary-color, 5%);
+@sidebar-top-icons-color: @brand-primary-color;
 @sidebar-single-item-icon-background: #4C4C4C;
 @sidebar-single-item-text-color: @brand-primary-color;
 @sidebar-single-item-icon-color: @lighter-primary-color;
@@ -45,25 +110,29 @@
 @sidebar-footer-border-color: @darker-primary-color;
 @sidebar-footer-icon-color-on-hover: @darker-primary-color;
 
-@badge-light-background-color: @brand-primary-color;
-@badge-light-text-color: @primary-color;
+// **********************************
+// 3. Theme Preview
+// **********************************
 
 /* Themes Modal Preview Color */
 .theme-raw-dark {
     background-color: @primary-color;
 }
 
-/* First Components */
+// **********************************
+// 4. Styling
+// **********************************
+
 html[data-theme='raw-dark'] {
 
     /* Working space background color */
     body {
-        background-color: @lighter-20-primary-color;
+        background-color: @workingSpace-color;
     }
 
     /* Badges */
     .badge-light {
-        background-color: @badge-light-background-color !important;
+        background-color: @badge-light-bg-color !important;
         color: @badge-light-text-color !important;
     }
 
@@ -80,11 +149,11 @@ html[data-theme='raw-dark'] {
     /* EzGitPart Element */
     .edit-icon-stylizer {
         color: white;
-        background-color: darken(@brand-text-color, 3%);
+        background-color: @edit-icon-bg-color;
     }
     
     .edit-icon-stylizer:hover {
-        background-color: darken(@lighter-20-primary-color, 5%);
+        background-color: @edit-icon-bg-color-onHover;
     }
 
     .delete-icon-stylizer {
@@ -92,12 +161,12 @@ html[data-theme='raw-dark'] {
     }
 
     .delete-icon-stylizer:hover {
-        background-color: darken(#770501, 2%);
+        background-color: @delete-icon-bg-color;
     }
 
     .ezGitPart {
         border-left: 9px solid darken(@lighter-20-primary-color, 4%);
-        border-right: 9px solid darken(#770501, 2%);
+        border-right: 9px solid @delete-icon-bg-color-onHover;
         background-color: darken(@lighter-primary-color, 9%);
         color: @white-color;
         
@@ -144,14 +213,21 @@ html[data-theme='raw-dark'] {
         }
     }
 
-    /* Themes modal */
+    /* Themes/Change Element Pos modal */
     #themesModal .modal-header {
         background-color: @primary-color;
     }
 
+    #changeElementPositionModal {
+        .modal-footer {
+            color: @white-color;
+            background-color: @modal-content-bg-color;
+        }
+    }
+
     /* Generate Code Btn */
     #codeGenButton {
-        background-color: darken(@brand-text-color, 5%) !important;
+        background-color: @generate-btn-color !important;
     }
 
     /* Settings Modal Close Btn  */
@@ -159,19 +235,28 @@ html[data-theme='raw-dark'] {
         background-color: @modal-header-bg-color;
     }
 
+    /* Settings Modal Font Setting */
+    #settingsModal .modal-body .btn-toolbar {
+        color: @white-color;
+
+        .btn-group .btn {
+            background-color: lighten(@brand-text-color, 10%) !important;
+        }
+    }
+
     /* Notifications (Toast) */
     #myToast {
-        background-color: lighten(@primary-color, 10%) !important;
-        color: lighten(@primary-color, 55%);
+        background-color: @toast-bg-color !important;
+        color: @toast-bg-text-color;
 
         .close {
-            background-color: lighten(@primary-color, 5%);
-            color: @white-color !important;
+            background-color: @toast-close-bg-color !important;
+            color: @toast-close-text-color !important;
         }
 
         .toast-header {
-            background-color: lighten(@primary-color, 5%);
-            color: lighten(@primary-color, 40%);
+            background-color: @toast-header-bg-color;
+            color: @toast-header-text-color;
         }
     }
 
@@ -187,12 +272,16 @@ html[data-theme='raw-dark'] {
 
 html[data-theme='raw-dark'] {
 
-    .references-header .heading {
-        color: @white-color;
-    }
+    #referencesModal {
+        .references-header {
+            .heading {
+                color: @white-color;
+            }
 
-    #referencesModal .references-header .close {
-        background-color: @brand-text-color;
+            .close {
+                background-color: @brand-text-color;
+            }
+        }
     }
 
     .references-modal-styles {
@@ -226,35 +315,35 @@ html[data-theme='raw-dark'] {
         /* Body (also named content) */
         .modal-custom-content {
             background-color: @modal-content-bg-color;
-            color: @white-color;
+            color: @white-color !important;
             font-family: 'Sen', sans-serif, 'Josefin Sans', 'Times New Roman', Times, serif;
     
             a:link, 
             a:visited, 
             a:active {
-                color: lighten(@brand-secondary-color, 65%);
+                color: @modal-customContent-href-active;
             }
             
             a:hover {
-                color: lighten(@brand-secondary-color, 5%);
+                color: @modal-customContent-href-onHover;
             }
 
             /* Close Button */
             .close {
                 color: @white-color;
-                background-color: lighten(@primary-color, 8%);
+                background-color: @close-btn-color;
             }
 
             /* Input / Textarea */
             .form-control:focus{
-                border: 2px solid darken(@brand-text-color, 25%);
-                background-color: lighten(@forms-dark-color, 8%);
+                border: 2px solid @form-border-color-onFocus;
+                background-color: @form-bg-color-onFocus;
                 color: @white-color;
             }
 
             .form-control {
-                border: 2px solid darken(@brand-text-color, 25%);
-                background-color: @forms-dark-color;
+                border: 2px solid @form-border-color;
+                background-color: @form-bg-color;
                 color: @white-color;
             }
         }
@@ -277,16 +366,16 @@ html[data-theme='raw-dark'] {
     .form-group {
 
         .custom-select {
-            border: 2px solid darken(@brand-text-color, 25%);
-            background-color: @forms-dark-color;
+            border: 2px solid @form-border-color;
+            background-color: @form-bg-color;
             color: @white-color;
             -webkit-box-shadow: none;
             box-shadow: none;
         }
 
         .custom-select:focus {
-            border: 2px solid darken(@brand-text-color, 25%);
-            background-color: @forms-dark-color;
+            border: 2px solid @form-border-color-onFocus;
+            background-color: @form-bg-color-onFocus;
             color: @white-color;
             -webkit-box-shadow: none;
             box-shadow: none;
@@ -295,28 +384,28 @@ html[data-theme='raw-dark'] {
     }
 
     /* List Group Item */
-    body .list-group-item {
-        background-color: lighten(@forms-dark-color, 5%);
+    .list-group-item {
+        background-color: @lgi-bg-color;
     }
 
     .list-group-item.active {
-        background-color: darken(@forms-dark-color, 1%) !important;
-        border: 1px solid darken(@forms-dark-color, 1%) !important;
+        background-color: @lgi-bg-color-onActive !important;
+        border: 1px solid @lgi-border-color-onActive !important;
     }
 
     /* Required label */
     .text-muted {
-        color: lighten(@forms-dark-color, 15%) !important;
+        color: @text-muted-color !important;
     }
 
     /* "Did you know" list items */
     .form-text.text-muted {
-        color: lighten(@forms-dark-color, 50%) !important;
+        color: @didYouKnow-text-color !important;
     }
 
     /* CREATE BTN */
     .btn-elegant {
-        background-color: @create-btn-color !important;
+        background-color: @elegant-btn-color !important;
     }
 
     /* RESET BTN */
@@ -326,12 +415,12 @@ html[data-theme='raw-dark'] {
 
     /* UPDATE / CLOSE BTN */
     .btn-mdb-color {
-        background-color: @lighter-primary-color !important;
+        background-color: @mdb-btn-color !important;
     }
 
     /* Optional label */
     .optional-text {
-        color: lighten(@forms-dark-color, 10%)
+        color: @optional-text-color;
     }
 
     .modal-footer, .modal-header {
@@ -342,6 +431,7 @@ html[data-theme='raw-dark'] {
     .custom-control-label {
         color: @white-color;
     }
+
 }
 
 // ********************************
@@ -352,12 +442,12 @@ html[data-theme='raw-dark'] {
 
     /* Background */
     .chiller-theme .sidebar-wrapper {
-        background: lighten(@primary-color, 5%);
+        background: @sidebar-background-color;
     }
 
     /* Icons above EzGitDoc logo */
     .github-icon, .theme-icon {
-        color: @brand-primary-color; 
+        color: @sidebar-top-icons-color; 
         height: 50px; 
         font-size: 125%; 
         position: absolute;

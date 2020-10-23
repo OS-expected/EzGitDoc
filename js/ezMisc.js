@@ -167,8 +167,8 @@ window.onbeforeunload = null;
 
 // on page startup with JQuery
 $(document).ready(function () {
-  // load active theme
-  loadActiveTheme();
+  getSingleElementFontSize();
+  loadTheme();
   $('#myToast').hide();
   // queue defaulting last highlighted element's background color
   defaultLastHighlightedElementBackgroundColor();
@@ -327,50 +327,3 @@ $('body').on('hidden.bs.modal', function () {
     $('body').addClass('modal-open');
   }
 });
-
-// Themes management
-
-var themeBadge = document.getElementById('themeBadge');
-
-function setTheme(name) {
-  if (activeTheme != null) {
-    activeTheme.style.border = '1px solid black';
-  }
-  var html = document.documentElement;
-  html.setAttribute('data-theme', name);
-  themeBadge.textContent = name;
-  var elements = document.getElementsByClassName('ezGitPart');
-  if (elements.length > 0) {
-    cleanEzGitPartsBackground(elements);
-  }
-  loadActiveTheme();
-}
-
-var activeTheme;
-
-function loadActiveTheme() {
-  var html = document.documentElement;
-  var dataTheme = html.getAttribute('data-theme');
-  var themeBoxes = document.getElementsByClassName('theme-box');
-  themeBoxes.forEach(themeBox => {
-    if (themeBox.classList.contains(`theme-${dataTheme}`)) {
-      themeBadge.textContent = dataTheme;
-      themeBox.style.border = '3px solid #4AEFC6';
-      activeTheme = themeBox;
-    }
-  });
-}
-
-$('#themesModal').on('shown.bs.modal', function() {
-  loadActiveTheme();
-});
-
-$('#themesModal').on('hidden.bs.modal', function() {
-  activeTheme.style.border = '1px solid black';
-});
-
-function cleanEzGitPartsBackground(elements) {
-  elements.forEach(element => {
-    element.style.removeProperty('background-color');
-  });
-}

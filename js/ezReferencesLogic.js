@@ -4,6 +4,7 @@
 /* eslint-disable no-unused-vars */
 
 var referencesModalContent = document.getElementById('referencesModalContent');
+var referencesModalPinTip = document.getElementById('referencesModalPinTip');
 
 function defaultLastHighlightedElementBackgroundColor() {
   $('#referencesModal').on('hidden.bs.modal', function () {
@@ -30,15 +31,22 @@ function generateReferences() {
   clearReferencesModalContent();
   var elements = document.getElementsByClassName('ezGitPart');
   if (elements.length === 0) {
+    referencesModalPinTip.classList.add('hide');
     addMessageToReferencesModalContent();
     return;
+  } else {
+    referencesModalPinTip.classList.remove('hide');
   }
   var ol = document.createElement('ol');
-  elements.forEach(element => {
+  for (var i = 0; i < elements.length; i++) {
     var li = document.createElement('li');
-    li.appendChild(returnElementRef(element));
+    li.setAttribute('index', i + 1);
+    li.appendChild(returnElementRef(elements[i]));
+    if (elements.length > 1) {
+      li.appendChild(generateAssignToNewPositionPin(i + 1));
+    }
     ol.appendChild(li);
-  });
+  }
   referencesModalContent.appendChild(ol);
 }
 
@@ -124,6 +132,37 @@ function returnElementRef(element) {
     }
   });
   return wrapElementRefIntoAnchor(element.id, name);
+}
+
+function generateAssignToNewPositionPin(currentPos) {
+  var i = document.createElement('i');
+  i.setAttribute('class', 'fas fa-lg fa-map-pin ml-2');
+  i.setAttribute('style', 'cursor: pointer;');
+  i.onclick = function() { setAndToggleChangElementPosModal(currentPos); };
+  return i;
+}
+
+var currentPos = 0;
+
+function setAndToggleChangElementPosModal(pos) {
+  currentPos = pos;
+  maxPos = document.getElementsByClassName('ezGitPart').length;
+  document.getElementById('changeElementPositionModalText').textContent = `Specify new position: <1, ${maxPos}> (${currentPos})`;
+  document.getElementById('changeElementPositionModalInput').value = currentPos;
+  $('#changeElementPositionModal').modal('toggle');
+}
+
+function placeElementInTheNewPosition() {
+  var newPos = parseInt(document.getElementById('changeElementPositionModalInput').value);
+  if (validatePositionChange(currentPos, newPos) === false) {
+    return;
+  }
+  var workingSpace = document.getElementById('workingSpace');
+  var elementToMove = workingSpace.children[currentPos];
+  workingSpace.insertBefore(elementToMove,
+    newPos < currentPos ? workingSpace.children[newPos] : workingSpace.children[newPos].nextSibling);
+  $('#changeElementPositionModal').modal('toggle');
+  generateReferences();
 }
 
 function countRowsColsOfKbdTable(table) {

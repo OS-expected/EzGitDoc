@@ -153,7 +153,7 @@ function createTable() {
 
   tableDiv.appendChild(createDeleteTool());
   if (listOption === 3) {
-    tableDiv.appendChild(createEditTool('arrayUpdateModal', tableDiv.id));
+    tableDiv.appendChild(createEditTool('textTableUpdateModal', tableDiv.id));
   } else if (listOption === 4 || listOption === 23 || listOption === 24) {
     tableDiv.appendChild(createEditTool('tableUniUpdateModal', tableDiv.id));
   }
@@ -173,9 +173,9 @@ function genKbdBody(rows, cols, flag = 'empty') {
     for (var j = 0; j < cols; j++) {
       var kbd = document.createElement('kbd');
       var img = document.createElement('img');
-      img.src = basicImage + '250x140';
-      img.width = '250';
-      img.height = '140';
+      img.src = basicImage + '100x80';
+      img.width = '100';
+      img.height = '80';
       img.alt = 'alt text';
       kbd.appendChild(img);
       flag === 'linked' ? p.appendChild(wrapKbdIntoAnchor(kbd)) : p.appendChild(kbd);
@@ -229,10 +229,10 @@ function genImageTable(rows, cols) {
     for (var j = 0; j < cols; j++) {
       var td = document.createElement('td');
       var image = document.createElement('img');
-      image.src = basicImage + '250x140';
+      image.src = basicImage + '100x80';
       image.alt = '#toadd';
-      image.width = '250';
-      image.height = '140';
+      image.width = '100';
+      image.height = '80';
       td.appendChild(image);
       tr.appendChild(td);
     }
@@ -566,7 +566,7 @@ function setElement(element) {
 
   element.setAttribute('id', GenerateUniqueId());
   setStyleForElement(element);
-  element.setAttribute('class', 'block-stylizer ezGitPart');
+  element.setAttribute('class', `block-stylizer ezGitPart font-${fontSizeInPercentage}`);
   element.setAttribute('onselectstart', 'return false');
   return element;
 }
