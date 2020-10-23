@@ -153,7 +153,7 @@ function createTable() {
 
   tableDiv.appendChild(createDeleteTool());
   if (listOption === 3) {
-    tableDiv.appendChild(createEditTool('arrayUpdateModal', tableDiv.id));
+    tableDiv.appendChild(createEditTool('textTableUpdateModal', tableDiv.id));
   } else if (listOption === 4 || listOption === 23 || listOption === 24) {
     tableDiv.appendChild(createEditTool('tableUniUpdateModal', tableDiv.id));
   }
