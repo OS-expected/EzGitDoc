@@ -1,6 +1,6 @@
 <p align="center">
-    <a href="https://trolit.github.io/EzGitDoc-documentation/"><kbd><img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/documentation.png" height="240" alt="docs image"/></kbd></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="https://trolit.github.io/EzGitDoc/"><kbd><img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/tool.png" height="240" alt="tool image"/></kbd></a>
+    <a href="https://os-expected.github.io/EzGitDoc-documentation/"><kbd><img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/documentation.png" height="240" alt="docs image"/></kbd></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="https://os-expected.github.io/EzGitDoc/"><kbd><img src="https://raw.githubusercontent.com/trolit/EzGitDoc/master/images/readme/tool.png" height="240" alt="tool image"/></kbd></a>
 </p>
 
 ## About
