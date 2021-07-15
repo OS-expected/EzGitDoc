@@ -51,7 +51,7 @@
 </p>
 
 <pre>
-    <h3>5. Achieve attention. </h3>
+    <h3>5. Obtain interesting to read outputs. </h3>
 </pre>
 
 <h2 align="center">Project details</h2>
